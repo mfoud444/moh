@@ -1,0 +1,336 @@
+<div class="p-2 flex items-center flex-col gap-2">
+  {% for product in products %}
+  <div
+    class="grid grid-cols-3 gap-1 grid-row-3 w-full shadow-md p-2 rounded-lg bg-purple-200  {% if not product.stock %} bg-red-500 {% endif %}"
+  >
+    <div class="flex col-span-1 row-span-2 justify-center items-center">
+      {% if product.thumb %}
+      <a href="{{ product.href }}">
+        <img
+          src="{{ product.thumb }}"
+          alt="{{ product.name }}"
+          title="{{ product.name }}"
+          class="object-cover rounded-md shadow-md h-20 w-20"
+        />
+      </a>
+      {% endif %}
+    </div>
+
+    <div class="col-span-2 row-span-2 flex flex-col justify-between pr-2">
+      {#name and reward#}
+      <div class=" ">
+        <a href="{{ product.href }}" class="font-bold">{{ product.name }}</a>
+        {% if not product.stock %}
+        <span class="text-red-600">***</span>
+        {% endif %} {% if product.option %} 
+        {% for option in product.option %}
+        <br />
+        <small> {{ option.name }}: {{ option.value }}</small>
+        {% endfor %} {% endif %} {% if product.reward %}
+        <br />
+        <small>{{ text_points }}: {{ product.reward }}</small>
+        {% endif %} {% if product.subscription %}
+        <br />
+        <small>{{ text_subscription }}: {{ product.subscription }}</small>
+        {% endif %}
+      </div>
+
+      <div>
+        <span class="text-sm font-bold">{{ column_model }} :</span>
+
+        {{ product.model }}
+      </div>
+
+      <div>
+        <span class="text-sm font-bold">{{ column_price }} :</span>
+        {{ product.price }}
+      </div>
+    </div>
+
+    <div class="col-span-1 ml-2 flex gap-1 flex-col">
+      <span class="font-bold text-sm pr-4"> الإجمالي </span>
+      <div class="overflow-auto bg-red-100 px-3 py-1 rounded-full text-center">
+        {{ product.total }}
+      </div>
+    </div>
+
+    <form
+      method="post"
+      data-oc-target="#shopping-cart"
+      class="col-span-2 row-span-1 grid grid-cols-5 items-end gap-2 justify-between"
+    >
+      <div class="flex col-span-3 items-center gap-1">
+        <button
+          type="button"
+          class="w-6 h-6 flex justify-center rounded-full cursor-pointer text-white font-bold bg-primary-900"
+          data-quantity="plus"
+          data-field="{{ product.cart_id }}"
+        >
+          +
+        </button>
+
+        <input
+          class="rounded-full w-14 h-8"
+          type="number"
+          name="quantity"
+          id="{{ product.cart_id }}"
+          value="{{ product.quantity }}"
+          size="1"
+        />
+        <button
+          type="button"
+          class="w-6 h-6 flex justify-center text-white font-bold cursor-pointer rounded-full bg-red-500"
+          data-quantity="minus"
+          data-field="{{ product.cart_id }}"
+        >
+          -
+        </button>
+      </div>
+
+      <input type="hidden" name="key" value="{{ product.cart_id }}" />
+
+      <div class="flex gap-2 col-span-2 place-content-center">
+        <button
+          type="submit"
+          formaction="{{ product_edit }}"
+          data-bs-toggle="tooltip"
+          name="{{ product.cart_id }}"
+          class="p-2 hidden rounded-full bg-primary-200"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-4 h-4"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
+            />
+          </svg>
+        </button>
+
+        <button
+          type="submit"
+          formaction="{{ product_remove }}"
+          data-bs-toggle="tooltip"
+          class="bg-red-700 p-2 rounded-full"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-4 h-4 text-white"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
+            />
+          </svg>
+        </button>
+      </div>
+    </form>
+
+    <!-- end col 3 -->
+  </div>
+
+  {% endfor %}
+</div>
+
+<div
+  class="flex items-center fixed h-[6rem] bottom-0 w-1/2 md:rounded-b-0 md:rounded-t-xl right-0 md:relative shadow-lg justify-around rounded-tr-xl py-1 bg-primary-200"
+>
+  {% for total in totals %} {%if loop.last == 1 %}
+  <div class="flex flex-col gap-2 items-center">
+    <span class="text-sm font-bold">{{ total.title }} :</span>
+ 
+    <div class="px-4 py-2  bg-white inline rounded-full w-32 text-center">
+      {{ total.text }}
+    </div>
+  </div>
+  {% endif %} {% endfor %}
+</div>
+
+
+<script type="text/javascript"><!--
+$(document).ready(function () {
+  
+  // This button will increment the value
+  $('[data-quantity="plus"]').on('click' , function(e){
+  
+     // Stop acting like a button
+    e.preventDefault();
+     // Get the field name
+     fieldName = $(this).attr('data-field');
+    // alert($('#'+fieldName).val());
+     // Get its current value
+     var currentVal = parseInt($('#'+fieldName).val());
+    
+     // If is not undefined
+     if (!isNaN(currentVal)) {
+         // Increment
+        $('#'+fieldName).val(currentVal + 1);
+     } else {
+         // Otherwise put a 0 there
+        $('#'+fieldName).val(0);
+     }
+   $('button[name='+fieldName+']').click();
+ });
+ // This button will decrement the value till 0
+ $('[data-quantity="minus"]').on('click' , function(e) {
+   //alert("gg");
+     // Stop acting like a button
+    e.preventDefault();
+     // Get the field name
+     fieldName = $(this).attr('data-field');
+     // Get its current value
+     var currentVal = parseInt($('#'+fieldName).val());
+     // If it isn't undefined or its greater than 0
+     if (!isNaN(currentVal) && currentVal > 0) {
+         // Decrement one
+         $('#'+fieldName).val(currentVal - 1);
+     } else {
+         // Otherwise put a 0 there
+         $('#'+fieldName).val(0);
+     }
+   $('button[name='+fieldName+']').click();
+   
+ });
+});
+
+//--></script>
+
+
+
+
+{#
+<div class="table-responsive">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <td class="text-center">{{ column_image }}</td>
+        <td class="text-start">{{ column_name }}</td>
+        <td class="text-start">{{ column_model }}</td>
+        <td class="text-start">{{ column_quantity }}</td>
+        <td class="text-end">{{ column_price }}</td>
+        <td class="text-end">{{ column_total }}</td>
+      </tr>
+    </thead>
+    <tbody>
+      {% for product in products %}
+      <tr>
+        <td class="text-center">
+          {% if product.thumb %}
+          <a href="{{ product.href }}"
+            ><img
+              src="{{ product.thumb }}"
+              alt="{{ product.name }}"
+              title="{{ product.name }}"
+              class="img-thumbnail"
+          /></a>
+          {% endif %}
+        </td>
+        <td class="text-start text-wrap">
+          <a href="{{ product.href }}">{{ product.name }}</a
+          >{% if not product.stock %} <span class="text-danger">***</span>{%
+          endif %} {% if product.option %} {% for option in product.option %}
+          <br />
+          <small> - {{ option.name }}: {{ option.value }}</small>
+          {% endfor %} {% endif %} {% if product.reward %}
+          <br />
+          <small>{{ text_points }}: {{ product.reward }}</small>
+          {% endif %} {% if product.subscription %}
+          <br />
+          <small>{{ text_subscription }}: {{ product.subscription }}</small>
+          {% endif %}
+        </td>
+        <td class="text-start">{{ product.model }}</td>
+        <td class="text-start">
+          <form method="post" data-oc-target="#shopping-cart">
+            <div class="input-group">
+              <input
+                type="text"
+                name="quantity"
+                value="{{ product.quantity }}"
+                size="1"
+                class="form-control"
+              />
+              <input type="hidden" name="key" value="{{ product.cart_id }}" />
+              <button
+                type="submit"
+                formaction="{{ product_edit }}"
+                data-bs-toggle="tooltip"
+                title="{{ button_update }}"
+                class="btn btn-primary"
+              >
+                <i class="fa-solid fa-rotate"></i>
+              </button>
+              <button
+                type="submit"
+                formaction="{{ product_remove }}"
+                data-bs-toggle="tooltip"
+                title="{{ button_remove }}"
+                class="btn btn-danger"
+              >
+                <i class="fa-solid fa-circle-xmark"></i>
+              </button>
+            </div>
+          </form>
+        </td>
+        <td class="text-end">{{ product.price }}</td>
+        <td class="text-end">{{ product.total }}</td>
+      </tr>
+      {% endfor %} {% for voucher in vouchers %}
+      <tr>
+        <td></td>
+        <td class="text-start text-wrap">{{ voucher.description }}</td>
+        <td class="text-start"></td>
+        <td class="text-start">
+          <form method="post" data-oc-target="#shopping-cart">
+            <div class="input-group">
+              <input
+                type="text"
+                name="quantity"
+                value="1"
+                size="1"
+                class="form-control"
+                disabled
+              />
+              <button
+                type="submit"
+                formaction="{{ voucher_remove }}"
+                data-bs-toggle="tooltip"
+                title="{{ button_remove }}"
+                class="btn btn-danger"
+              >
+                <i class="fa-solid fa-circle-xmark"></i>
+              </button>
+            </div>
+            <input type="hidden" name="key" value="{{ voucher.key }}" />
+          </form>
+        </td>
+        <td class="text-end">{{ voucher.amount }}</td>
+        <td class="text-end">{{ voucher.amount }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+    <tfoot id="checkout-total">
+      {% for total in totals %}
+      <tr>
+        <td colspan="5" class="text-end">
+          <strong>{{ total.title }}</strong>
+        </td>
+        <td class="text-end">{{ total.text }}</td>
+      </tr>
+      {% endfor %}
+    </tfoot>
+  </table>
+</div>
+
+#}

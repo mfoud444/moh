@@ -1,0 +1,136 @@
+<?php
+
+use Twig\Environment;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Extension\SandboxExtension;
+use Twig\Markup;
+use Twig\Sandbox\SecurityError;
+use Twig\Sandbox\SecurityNotAllowedTagError;
+use Twig\Sandbox\SecurityNotAllowedFilterError;
+use Twig\Sandbox\SecurityNotAllowedFunctionError;
+use Twig\Source;
+use Twig\Template;
+
+/* extension/opencart/catalog/view/template/total/voucher.twig */
+class __TwigTemplate_9e7db9af5f3e5aaf8a541f45e97ebc01 extends Template
+{
+    private $source;
+    private $macros = [];
+
+    public function __construct(Environment $env)
+    {
+        parent::__construct($env);
+
+        $this->source = $this->getSourceContext();
+
+        $this->parent = false;
+
+        $this->blocks = [
+        ];
+    }
+
+    protected function doDisplay(array $context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        // line 1
+        echo "<div class=\"border-dotted flex p-2 flex-col gap-2 border-2 border-primary-600\">
+
+ 
+    <button
+      type=\"button\"
+      class=\"flex bg-red-300 rounded-full py-1 items-center gap-2 justify-center font-bold text-base\"
+      data-bs-toggle=\"collapse\"
+      data-bs-target=\"#collapse-voucher\"
+    >
+    <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-8 w-8\" shape-rendering=\"geometricPrecision\" text-rendering=\"geometricPrecision\"
+    image-rendering=\"optimizeQuality\" fill-rule=\"evenodd\" clip-rule=\"evenodd\" viewBox=\"0 0 512 328.14\">
+    <path fill-rule=\"nonzero\"
+        d=\"M329.67 157.73c-1.16-7.29-1.71-14.39-1.65-21.31.06-6.72.7-13.2 1.91-19.4L281.49 93.2c-7.49-3.48-15.56-2.24-19.3 5.78-1.17 2.5-1.92 5.65-2.1 9.43l-.01 57.5c.04 10.38 3.17 20.87 15.9 16.22l53.69-24.4zM61.04 201.01a8.5 8.5 0 0 1 8.5 8.5c0 4.7-3.8 8.51-8.5 8.51h-1.48c-4.69 0-8.5-3.81-8.5-8.51 0-4.69 3.81-8.5 8.5-8.5h1.48zm114.27 50.72a8.5 8.5 0 1 1 0 17H89.48a8.5 8.5 0 1 1 0-17h85.83zm-114.78 0c4.7 0 8.5 3.8 8.5 8.5a8.5 8.5 0 0 1-8.5 8.5h-.97a8.5 8.5 0 1 1 0-17h.97zm155.26-50.72c4.69 0 8.5 3.81 8.5 8.5 0 4.7-3.81 8.51-8.5 8.51H89.48c-4.69 0-8.5-3.81-8.5-8.51 0-4.69 3.81-8.5 8.5-8.5h126.31zM43.68 0h424.64C492.29 0 512 19.7 512 43.68v240.78c0 23.99-19.69 43.68-43.68 43.68H43.68C19.69 328.14 0 308.44 0 284.46V43.68C0 19.65 19.65 0 43.68 0zm202.45 155.34H17v129.12c0 14.65 12.01 26.68 26.68 26.68h296.7V184.55l-38.31 68.81c-1.14 2.04-3.72 2.78-5.76 1.64a4.25 4.25 0 0 1-2.01-2.49l-7.86-26.32-28.24 10.34c-2.2.81-4.64-.33-5.45-2.52-.5-1.36-.25-2.81.52-3.91l24.04-34.18c-2.66.69-5.16 1.01-7.51.99-17.16-.15-23.23-16.64-23.27-31.03-.14-2.87-.28-6.49-.4-10.54zM17 138.34h228.79c-.12-11.65.02-23.42.74-30.19.23-5.77 1.44-10.75 3.38-14.91 6.97-14.91 23.01-19 37.36-12.29l51.76 25.45c.44-.35.89-.68 1.35-1V17H43.68C29.01 17 17 29.01 17 43.68v94.66zM357.38 17v83.67c5.62.35 10.77 2.44 14.94 5.73l51.76-25.45c21.2-9.91 39.83 4.19 40.74 27.2.28 18.25.85 39.7 0 57.73-.06 20.25-11.76 37.37-34.48 28.86l-10.82-4.92 28.16 46.93c.7 1.08.89 2.45.42 3.75-.81 2.19-3.25 3.33-5.45 2.52l-28.23-10.34-7.86 26.32a4.233 4.233 0 0 1-2 2.49 4.234 4.234 0 0 1-5.77-1.62l-41.41-73.77v125.04h110.94c14.62 0 26.68-12.06 26.68-26.68V43.68C495 29.03 482.97 17 468.32 17H357.38zm24.64 104.94c.38 1.81.59 3.69.59 5.61v.06c.25 3.18.39 6.39.4 9.61.03 6.83-.46 13.65-1.42 20.47l53.78 24.44c12.74 4.65 15.86-5.84 15.9-16.22l-.02-57.5c-.16-3.78-.92-6.93-2.08-9.43-3.77-8.06-11.92-9.22-19.31-5.78l-48.57 23.88c.28 1.61.52 3.23.73 4.86zm-13.34 29.58c1.19-10.73 1.07-21.42-.77-32.08-.54-.82-1.17-1.58-1.86-2.27-2.66-2.66-6.33-4.32-10.37-4.32-4.04 0-7.72 1.66-10.38 4.32-.78.77-1.46 1.64-2.05 2.57-2.02 10.39-2.11 20.83-.81 31.31.72 1.5 1.69 2.86 2.86 4.03 2.66 2.66 6.34 4.32 10.37 4.32 4.04 0 7.72-1.66 10.38-4.32 1.05-1.05 1.93-2.24 2.63-3.56z\" />
+</svg>
+      ";
+        // line 15
+        echo ($context["heading_title"] ?? null);
+        echo "
+    </button>
+
+
+  <div
+    id=\"collapse-voucher\"
+    class=\"accordion-collapse collapse\"
+    data-bs-parent=\"#accordion\"
+  >
+    <div class=\"accordion-body\">
+      <form
+        id=\"form-voucher\"
+        action=\"";
+        // line 27
+        echo ($context["save"] ?? null);
+        echo "\"
+        method=\"post\"
+        data-oc-toggle=\"ajax\"
+        data-oc-load=\"";
+        // line 30
+        echo ($context["list"] ?? null);
+        echo "\"
+        data-oc-target=\"#shopping-cart\"
+      >
+        <div class=\"flex flex-col gap-2\">
+          <label for=\"input-voucher\" class=\"col-md-4 col-form-label\">";
+        // line 34
+        echo         // line 35
+($context["entry_voucher"] ?? null);
+        // line 36
+        echo "</label>
+
+          <input
+            type=\"text\"
+            name=\"voucher\"
+            value=\"";
+        // line 41
+        echo ($context["voucher"] ?? null);
+        echo "\"
+            placeholder=\"";
+        // line 42
+        echo ($context["entry_voucher"] ?? null);
+        echo "\"
+            id=\"input-voucher\"
+            class=\"form-control\"
+          />
+      
+        <div class=\"text-end\">
+          <button type=\"submit\" class=\"w-32 btn-primary\">
+            ";
+        // line 49
+        echo ($context["button_voucher"] ?? null);
+        echo "
+          </button>
+        </div>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+";
+    }
+
+    public function getTemplateName()
+    {
+        return "extension/opencart/catalog/view/template/total/voucher.twig";
+    }
+
+    public function isTraitable()
+    {
+        return false;
+    }
+
+    public function getDebugInfo()
+    {
+        return array (  105 => 49,  95 => 42,  91 => 41,  84 => 36,  82 => 35,  81 => 34,  74 => 30,  68 => 27,  53 => 15,  37 => 1,);
+    }
+
+    public function getSourceContext()
+    {
+        return new Source("", "extension/opencart/catalog/view/template/total/voucher.twig", "/opt/lampp/htdocs/moh/upload/extension/opencart/catalog/view/template/total/voucher.twig");
+    }
+}

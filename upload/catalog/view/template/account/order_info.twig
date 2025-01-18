@@ -1,0 +1,371 @@
+{{ header }}
+<div id="account-order" class="container my-2">
+  
+  <div class="breadcrumb">
+    <a href="{{ home }}">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-secondary" viewBox="0 0 20 20" fill="currentColor">
+             <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+         </svg>
+       </a>
+     {% for breadcrumb in breadcrumbs %}
+      <a class="breadcrumb-child" href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a>
+      <span class="md:mx-2  dark:text-gray-300 rtl:-scale-x-100">
+      
+         <svg xmlns="http://www.w3.org/2000/svg" 
+         class="w-5 h-5 fill-secondary" viewBox="0 0 20 20" fill="currentColor">
+             <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+         </svg>
+     </span>
+     {% endfor %}
+   </div>
+
+  <div class="row">{{ column_left }}
+    <div id="content" class="">{{ content_top }}
+
+      <h1 class=" heading-title pb-2">{{ heading_title }}</h1>
+      <h1 class=" font-semibold bg-red-300 py-2 px-4 rounded-full text-primary-900 flex items-center gap-4">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+          <path fill-rule="evenodd" d="M15.988 3.012A2.25 2.25 0 0118 5.25v6.5A2.25 2.25 0 0115.75 14H13.5V7A2.5 2.5 0 0011 4.5H8.128a2.252 2.252 0 011.884-1.488A2.25 2.25 0 0112.25 1h1.5a2.25 2.25 0 012.238 2.012zM11.5 3.25a.75.75 0 01.75-.75h1.5a.75.75 0 01.75.75v.25h-3v-.25z" clip-rule="evenodd" />
+          <path fill-rule="evenodd" d="M2 7a1 1 0 011-1h8a1 1 0 011 1v10a1 1 0 01-1 1H3a1 1 0 01-1-1V7zm2 3.25a.75.75 0 01.75-.75h4.5a.75.75 0 010 1.5h-4.5a.75.75 0 01-.75-.75zm0 3.5a.75.75 0 01.75-.75h4.5a.75.75 0 010 1.5h-4.5a.75.75 0 01-.75-.75z" clip-rule="evenodd" />
+        </svg>
+        
+        {{ text_order_detail }}</h1>
+<div class=" bg-red-100 py-2 px-4 mt-2  rounded-lg">
+
+<section>
+<div class="flex justify-around items-center ">
+  <h2 class=" font-semibold  ml-5">  {{ text_order_id }}  </h2>
+  <h3 class="ml-10">{{ order_id }}</h3>
+</div>
+<div class="flex justify-around items-center">
+  <h2 class=" font-semibold">  {{ text_date_added }} </h2>
+  <h3>{{ date_added }}</h3>
+</div>
+{% if payment_method %}
+<div class="flex justify-around items-center">
+  <h2 class=" font-semibold"> {{ text_payment_method }}  </h2>
+  <h3>{{ payment_method }}</h3>
+</div>
+{% endif %}
+{% if shipping_method %} 
+<div class="flex justify-around items-center">
+  <h2 class=" font-semibold">  {{ text_shipping_method }}  </h2>
+  <h3>{{ shipping_method }}</h3>
+</div>
+{% endif %}
+
+{% if shipping_address %}
+<div class="flex justify-around items-center">
+  <h2 class=" font-semibold">  {{ text_shipping_address }} </h2>
+  <h3>{{ shipping_address }}</h3>
+</div>
+{% endif %} 
+</section>
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+      <div class="table-responsive">
+        <table class="table-auto table-hover">
+          <thead>
+            <tr class=" border-b-2 border-primary-900">
+              <td class="text-start">{{ column_name }}</td>
+              <td class="text-start px-2">{{ column_model }}</td>
+              <td class="text-center">{{ column_quantity }}</td>
+              <td class="text-center">{{ column_price }}</td>
+              <td class="text-center">{{ column_total }}</td>
+              {% if products %}
+                <td style="width: 20px;"></td>
+              {% endif %} </tr>
+          </thead>
+          <tbody>
+            {% for product in products %}
+              <tr class="border-b-2 border-primary-900">
+                <td class="text-start">{{ product.name }}
+                  {% for option in product.option %}
+                    <br/>
+                    &nbsp;
+                    <small> -{{ option.name }}: {{ option.value }}</small> {% endfor %}</td>
+                <td class="text-start px-2">{{ product.model }}</td>
+                <td class="text-center"> <h4 class=" bg-yellow-300 rounded-lg">{{ product.quantity }}</h4></td>
+                <td class="text-center "><h4 class="bg-red-300 rounded-full px-2">{{ product.price }}</h4></td>
+                <td class="text-center">{{ product.total }}</td>
+                <td class="text-center" style="white-space: nowrap;">
+                  {% if product.reorder %}
+                   <a href="{{ product.reorder }}" data-bs-toggle="tooltip" title="{{ button_reorder }}" class="rounded-full  h-8 w-8 flex justify-center items-center bg-primary-900 ">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 fill-white">
+                      <path fill-rule="evenodd" d="M15.312 11.424a5.5 5.5 0 01-9.201 2.466l-.312-.311h2.433a.75.75 0 000-1.5H3.989a.75.75 0 00-.75.75v4.242a.75.75 0 001.5 0v-2.43l.31.31a7 7 0 0011.712-3.138.75.75 0 00-1.449-.39zm1.23-3.723a.75.75 0 00.219-.53V2.929a.75.75 0 00-1.5 0V5.36l-.31-.31A7 7 0 003.239 8.188a.75.75 0 101.448.389A5.5 5.5 0 0113.89 6.11l.311.31h-2.432a.75.75 0 000 1.5h4.243a.75.75 0 00.53-.219z" clip-rule="evenodd" />
+                    </svg>
+                    
+                    
+                  </a> 
+                  {% endif %}
+
+                  {# <a href="{{ product.return }}" data-bs-toggle="tooltip" title="{{ button_return }}" class="btn btn-danger">
+                    <i class="fa-solid fa-reply"></i>
+                  </a>#}
+                
+                </td>
+              </tr>
+            {% endfor %}
+            {% for voucher in vouchers %}
+              <tr>
+                <td class="text-center">{{ voucher.description }}</td>
+                <td class="text-center"></td>
+                <td class="text-center">1</td>
+                <td class="text-center">{{ voucher.amount }}</td>
+                <td class="text-center">{{ voucher.amount }}</td>
+                {% if products %}
+                  <td></td>
+                {% endif %} </tr>
+            {% endfor %}
+          </tbody>
+          <tfoot>
+            {% for total in totals %}
+              <tr>
+                <td colspan="3" class=""><b>{{ total.title }}</b></td>
+            <td colspan="3" class="text-center">{{ total.text }}</td>
+                {% if products %}
+                  <td></td>
+                {% endif %} </tr>
+            {% endfor %}
+          </tfoot>
+        </table>
+  
+      </div>
+
+
+      {% if comment %}
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <td class="text-center">{{ text_comment }}</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-center">{{ comment }}</td>
+            </tr>
+          </tbody>
+        </table>
+      {% endif %}
+    </div>
+
+
+
+
+      {% if histories %}
+        <h3 class=" flex items-center font-bold text-primary-900 bg-red-300 py-2 rounded-full px-4 my-2 gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+            <path d="M5.25 12a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H6a.75.75 0 01-.75-.75V12zM6 13.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V14a.75.75 0 00-.75-.75H6zM7.25 12a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H8a.75.75 0 01-.75-.75V12zM8 13.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V14a.75.75 0 00-.75-.75H8zM9.25 10a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H10a.75.75 0 01-.75-.75V10zM10 11.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V12a.75.75 0 00-.75-.75H10zM9.25 14a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H10a.75.75 0 01-.75-.75V14zM12 9.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V10a.75.75 0 00-.75-.75H12zM11.25 12a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H12a.75.75 0 01-.75-.75V12zM12 13.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V14a.75.75 0 00-.75-.75H12zM13.25 10a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H14a.75.75 0 01-.75-.75V10zM14 11.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V12a.75.75 0 00-.75-.75H14z" />
+            <path fill-rule="evenodd" d="M5.75 2a.75.75 0 01.75.75V4h7V2.75a.75.75 0 011.5 0V4h.25A2.75 2.75 0 0118 6.75v8.5A2.75 2.75 0 0115.25 18H4.75A2.75 2.75 0 012 15.25v-8.5A2.75 2.75 0 014.75 4H5V2.75A.75.75 0 015.75 2zm-1 5.5c-.69 0-1.25.56-1.25 1.25v6.5c0 .69.56 1.25 1.25 1.25h10.5c.69 0 1.25-.56 1.25-1.25v-6.5c0-.69-.56-1.25-1.25-1.25H4.75z" clip-rule="evenodd" />
+          </svg>
+          
+          {{ text_history }}
+
+
+        </h3>
+        <div class=" bg-red-100 flex items-center justify-center rounded-lg p-2">
+        <table class=" table-auto  w-full">
+          <thead class=" font-semibold">
+            <tr  class="border-b-2 border-primary-900">
+              <td class="text-center px-2">{{ column_date_added }}</td>
+              <td class="text-center px-2">{{ column_status }}</td>
+              <td class="text-center px-2">{{ column_comment }}</td>
+            </tr>
+          </thead>
+          <tbody>
+            {% if histories %}
+              {% for history in histories %}
+                <tr  class="border-b-2 border-primary-900">
+                  <td class="text-center">{{ history.date_added }}</td>
+                  <td class="text-center">{{ history.status }}</td>
+                  <td class="text-center">{{ history.comment }}</td>
+                </tr>
+              {% endfor %}
+            {% else %}
+              <tr>
+                <td colspan="3" class="text-center">{{ text_no_results }}</td>
+              </tr>
+            {% endif %}
+          </tbody>
+        </table>
+      </div>
+      {% endif %}
+
+
+      
+       
+          <a href="{{ continue }}" class="btn my-2 w-1/2 btn-primary">{{ button_continue }}</a>
+      
+      
+
+
+      {{ content_bottom }}</div>
+    </div>
+</div>
+{{ footer }}
+
+
+
+
+{#{{ header }}
+<div id="account-order" class="container">
+  
+  <ul class="breadcrumb">
+    {% for breadcrumb in breadcrumbs %}
+      <li class="breadcrumb-item"><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+    {% endfor %}
+  </ul>
+
+  <div class="row">{{ column_left }}
+    <div id="content" class="col">{{ content_top }}
+      <h1>{{ heading_title }}</h1>
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <td class="text-center" colspan="2">{{ text_order_detail }}</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="text-center" style="width: 50%;">{% if invoice_no %} <b>{{ text_invoice_no }}</b> {{ invoice_no }}
+                <br/>
+              {% endif %} <b>{{ text_order_id }}</b> #{{ order_id }}
+              <br/>
+              <b>{{ text_date_added }}</b> {{ date_added }}</td>
+            <td class="text-center" style="width: 50%;">{% if payment_method %} <b>{{ text_payment_method }}</b> {{ payment_method }}
+                <br/>
+              {% endif %}
+              {% if shipping_method %} <b>{{ text_shipping_method }}</b> {{ shipping_method }}{% endif %}</td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <td class="text-center" style="width: 50%; vertical-align: top;">{{ text_payment_address }}</td>
+            {% if shipping_address %}
+              <td class="text-center" style="width: 50%; vertical-align: top;">{{ text_shipping_address }}</td>
+            {% endif %} </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="text-center">{{ payment_address }}</td>
+            {% if shipping_address %}
+              <td class="text-center">{{ shipping_address }}</td>
+            {% endif %} </tr>
+        </tbody>
+      </table>
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <td class="text-center">{{ column_name }}</td>
+              <td class="text-center">{{ column_model }}</td>
+              <td class="text-center">{{ column_quantity }}</td>
+              <td class="text-center">{{ column_price }}</td>
+              <td class="text-center">{{ column_total }}</td>
+              {% if products %}
+                <td style="width: 20px;"></td>
+              {% endif %} </tr>
+          </thead>
+          <tbody>
+            {% for product in products %}
+              <tr>
+                <td class="text-center">{{ product.name }}
+                  {% for option in product.option %}
+                    <br/>
+                    &nbsp;
+                    <small> - {{ option.name }}: {{ option.value }}</small> {% endfor %}</td>
+                <td class="text-center">{{ product.model }}</td>
+                <td class="text-center">{{ product.quantity }}</td>
+                <td class="text-center">{{ product.price }}</td>
+                <td class="text-center">{{ product.total }}</td>
+                <td class="text-center" style="white-space: nowrap;">{% if product.reorder %} <a href="{{ product.reorder }}" data-bs-toggle="tooltip" title="{{ button_reorder }}" class="btn btn-primary"><i class="fa-solid fa-cart-shopping"></i></a> {% endif %} <a href="{{ product.return }}" data-bs-toggle="tooltip" title="{{ button_return }}" class="btn btn-danger"><i class="fa-solid fa-reply"></i></a></td>
+              </tr>
+            {% endfor %}
+            {% for voucher in vouchers %}
+              <tr>
+                <td class="text-center">{{ voucher.description }}</td>
+                <td class="text-center"></td>
+                <td class="text-center">1</td>
+                <td class="text-center">{{ voucher.amount }}</td>
+                <td class="text-center">{{ voucher.amount }}</td>
+                {% if products %}
+                  <td></td>
+                {% endif %} </tr>
+            {% endfor %}
+          </tbody>
+          <tfoot>
+            {% for total in totals %}
+              <tr>
+                <td colspan="3"></td>
+                <td class="text-center"><b>{{ total.title }}</b></td>
+                <td class="text-center">{{ total.text }}</td>
+                {% if products %}
+                  <td></td>
+                {% endif %} </tr>
+            {% endfor %}
+          </tfoot>
+        </table>
+      </div>
+      {% if comment %}
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <td class="text-center">{{ text_comment }}</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-center">{{ comment }}</td>
+            </tr>
+          </tbody>
+        </table>
+      {% endif %}
+      {% if histories %}
+        <h3>{{ text_history }}</h3>
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <td class="text-center">{{ column_date_added }}</td>
+              <td class="text-center">{{ column_status }}</td>
+              <td class="text-center">{{ column_comment }}</td>
+            </tr>
+          </thead>
+          <tbody>
+            {% if histories %}
+              {% for history in histories %}
+                <tr>
+                  <td class="text-center">{{ history.date_added }}</td>
+                  <td class="text-center">{{ history.status }}</td>
+                  <td class="text-center">{{ history.comment }}</td>
+                </tr>
+              {% endfor %}
+            {% else %}
+              <tr>
+                <td colspan="3" class="text-center">{{ text_no_results }}</td>
+              </tr>
+            {% endif %}
+          </tbody>
+        </table>
+      {% endif %}
+      <div class="d-inline-block pt-2 pd-2 w-100">
+        <div class="float-end"><a href="{{ continue }}" class="btn btn-primary">{{ button_continue }}</a></div>
+      </div>
+      {{ content_bottom }}</div>
+    {{ column_right }}</div>
+</div>
+{{ footer }}#}

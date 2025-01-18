@@ -1,0 +1,60 @@
+ {#<div id="carousel-banner-{{ module }}" class="carousel overflow-scroll  bg-primary-300 relative slide{% if effect == 'fade' %}  carousel-fade{% endif %}" data-bs-ride="carousel">
+  {% if indicators and banners|batch(items)|length > 1 %}
+    <div class="carousel-indicators">
+      {% set banner_row = 0 %}
+      {% for banner in banners|batch(items) %}
+        <button type="button" data-bs-target="#carousel-banner-{{ module }}" data-bs-slide-to="{{ banner_row }}"{% if banner_row == 0 %} class="active"{% endif %}>kkk</button>
+        {% set banner_row = banner_row + 1 %}
+      {% endfor %}
+    </div>
+  {% endif %}
+  <div class="carousel-inner h-48 w-full overflow-scroll snap-x flex  bg-whatsapp">
+    {% set banner_row = 0 %}
+    {% for carousel in banners|batch(items) %}
+      <div class=" carousel-item{% if banner_row == 0 %} active{% endif %} ">
+        <div class="row  ">
+          {% for banner in carousel %}
+            <div class="col-{{ (12 / items)|round }} snap-start text-center">
+              {% if banner.link %}
+                <a href="{{ banner.link }}"><img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-fluid"/></a>
+              {% else %}
+                <img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-fluid object-none"/>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% set banner_row = banner_row + 1 %}
+    {% endfor %}
+  </div>
+  {% if controls and banners|batch(items)|length > 1 %}
+  
+  <!-- Slider controls -->
+  <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+    <span class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+        <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+        <span class="sr-only">Previous</span>
+    </span>
+</button>
+<button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+    <span class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+        <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        <span class="sr-only">Next</span>
+    </span>
+</button>
+
+  <button type="button" class="w-3 h-3 rounded-full bg-primary-500" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+    <button type="button" class="carousel-control-prev" data-bs-target="#carousel-banner-{{ module }}" data-bs-slide="prev"><span class="fa-solid fa-chevron-left"></span>s</button>
+    <button type="button" class="carousel-control-next" data-bs-target="#carousel-banner-{{ module }}" data-bs-slide="next"><span class="fa-solid fa-chevron-right"></span>b</button>
+  {% endif %}
+</div>
+
+<script type="text/javascript"><!--
+// $(document).ready(function () {
+//     new bootstrap.Carousel(document.querySelector('#carousel-banner-{{ module }}'), {
+//         ride: 'carousel',
+//         interval: {{ interval|escape('js') }},
+//         wrap: true
+//     });
+// });
+//--></script> #}

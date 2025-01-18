@@ -1,0 +1,217 @@
+{{ header }}
+<div id="account-order" class="container  my-2 ">
+
+  <div class="breadcrumb">
+   <a href="{{ home }}">
+   <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-secondary" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+        </svg>
+      </a>
+    {% for breadcrumb in breadcrumbs %}
+     <a class="breadcrumb-child" href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a>
+     <span class="md:mx-2  dark:text-gray-300 rtl:-scale-x-100">
+     
+        <svg xmlns="http://www.w3.org/2000/svg" 
+        class="w-5 h-5 fill-secondary" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+        </svg>
+    </span>
+    {% endfor %}
+  </div>
+
+   <div class="md:flex md:flex-row md:gap-4 ">
+
+    <div id="content" class="mt-2 md:basis-2/3 flex flex-col gap-4">{{ content_top }}
+
+
+      <h1 class="heading-title">{{ heading_title }}</h1>
+
+      {% if orders %}
+      <div class="grid md:grid-cols-2 gap-4">
+      {% for order in orders %}
+<div class="bg-primary-300  flex flex-col gap-1 w-full md:w-80  text-sm rounded-lg p-2">
+  <div class="flex justify-between ">
+
+  <div class="flex gap-2 items-center flex-row-reverse justify-end">
+    <div class=" font-bold text-base">{{ order.name }}</div>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+    </svg> 
+  </div>
+
+  <div>{{ order.date_added }}</div>
+</div>
+
+<div class="flex justify-between items-center  ">
+  <div class="flex tems-center flex-wrap gap-2">	
+    <div>
+      رقم الطلب	
+    </div>
+<div class=" bg-red-100 text-black px-4 rounded-md">{{ order.order_id }}</div>
+  </div>
+
+  <div class="flex gap-2 items-center">	
+    <div>
+      عدد المنتجات
+    </div>
+<div class=" bg-red-100 text-black px-2 rounded-full">{{ order.products }}</div>
+  </div>
+</div>
+
+
+<div class="flex justify-between items-center gap-2">
+  <div class="flex flex-col ">	
+    <div class="mr-2">
+     الاجمالي
+    </div>
+<div class=" bg-red-100 text-black px-4 rounded-full">{{ order.total }}</div>
+  </div>
+
+  <div class="flex flex-col ">	
+    <div class="mr-2">
+    حالة الطلب
+    </div>
+<div class=" bg-red-100 text-center  text-black px-4 rounded-full">{{ order.status }}</div>
+  </div>
+<a  href="{{ order.view }}" data-bs-toggle="tooltip"  class=" bg-white self-end rounded-full p-1 cursor-pointer ">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 fill-white">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+  </svg>
+</a>
+ 
+  
+</div>
+
+</div>
+{% endfor %}
+</div>
+  {% endif %}
+
+  <div class="pre">
+    <div class="">{{ pagination }}</div>
+    <div class="">{{ results }}</div>
+  </div>
+
+
+
+
+
+{#
+      {% if orders %}
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr>
+            
+                <td class="text-center">{{ column_order_id }}</td>
+                <td class="text-start">{{ column_customer }}</td>
+                <td class="text-center">{{ column_product }}</td>
+                <td class="text-start">{{ column_status }}</td>
+                <td class="text-center">{{ column_total }}</td>
+                <td class="text-start">{{ column_date_added }}</td>
+                <td></td>
+              </tr>
+            </thead>
+            <tbody>
+              {% for order in orders %}
+                <tr>
+                  <td class="text-center">{{ order.order_id }}</td>
+                  <td class="text-start">{{ order.name }}</td>
+                  <td class="text-center">{{ order.products }}</td>
+                  <td class="text-start">{{ order.status }}</td>
+                  <td class="text-center">{{ order.total }}</td>
+                  <td class="text-start">{{ order.date_added }}</td>
+                  <td class="text-center"><a href="{{ order.view }}" data-bs-toggle="tooltip" title="{{ button_view }}" class="btn btn-info"><i class="fa-solid fa-eye"></i></a></td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <div class="pre">
+          <div class="">{{ pagination }}</div>
+          <div class="">{{ results }}</div>
+        </div>
+      {% else %}
+        <p class="title-not my-12 md:my-16">{{ text_no_results }}</p>
+      {% endif %}
+      #}
+
+
+       <a href="{{ continue }}" class=" text-center  btn-primary">{{ button_continue }}</a>
+    
+      {{ content_bottom }}
+      
+      </div>
+
+     <div class="md:basis-1/3 "> {{ column_right }}</div>
+    </div>
+
+
+</div>
+
+{{ footer }}
+
+
+
+
+
+
+
+
+
+
+{# <div id="account-order" class="container">
+
+  <ul class="breadcrumb">
+    {% for breadcrumb in breadcrumbs %}
+      <li class="breadcrumb-item"><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+    {% endfor %}
+  </ul>
+
+  <div class="row">{{ column_left }}
+    <div id="content" class="col">{{ content_top }}
+      <h1>{{ heading_title }}</h1>
+      {% if orders %}
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr>
+            
+                <td class="text-center">{{ column_order_id }}</td>
+                <td class="text-start">{{ column_customer }}</td>
+                <td class="text-center">{{ column_product }}</td>
+                <td class="text-start">{{ column_status }}</td>
+                <td class="text-center">{{ column_total }}</td>
+                <td class="text-start">{{ column_date_added }}</td>
+                <td></td>
+              </tr>
+            </thead>
+            <tbody>
+              {% for order in orders %}
+                <tr>
+                  <td class="text-center">#{{ order.order_id }}</td>
+                  <td class="text-start">{{ order.name }}</td>
+                  <td class="text-center">{{ order.products }}</td>
+                  <td class="text-start">{{ order.status }}</td>
+                  <td class="text-center">{{ order.total }}</td>
+                  <td class="text-start">{{ order.date_added }}</td>
+                  <td class="text-center"><a href="{{ order.view }}" data-bs-toggle="tooltip" title="{{ button_view }}" class="btn btn-info"><i class="fa-solid fa-eye"></i></a></td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 text-start">{{ pagination }}</div>
+          <div class="col-sm-6 text-center">{{ results }}</div>
+        </div>
+      {% else %}
+        <p>{{ text_no_results }}</p>
+      {% endif %}
+      <div class="d-inline-block pt-2 pd-2 w-100">
+        <div class="float-end"><a href="{{ continue }}" class="btn btn-primary">{{ button_continue }}</a></div>
+      </div>
+      {{ content_bottom }}</div>
+    {{ column_right }}</div>
+</div> #}

@@ -1,0 +1,36 @@
+$blue:    #229ac8 !default; // #007bff
+$indigo:  #6610f2 !default;
+$purple:  #6f42c1 !default;
+$pink:    #d63384 !default;
+//$red:     #dc3545 !default;
+$red:     #da4f49 !default;
+$orange:  #fd7e14 !default;
+//$yellow:  #ffc107 !default;
+$yellow:  #faa732 !default;
+$green:   #198754 !default;
+$teal:    #20c997 !default;
+$cyan:    #0dcaf0 !default;
+$whait:    #fff !default;
+
+
+$primary:       #6610f2 !default;
+$secondary:     $red !default;
+$success:       $green !default;
+$info:          $cyan !default;
+$warning:       $yellow !default;
+$danger:        $red !default;
+$fontColorWhait: $whait !default;
+$fontcolor: #fff;
+$fontcolorhover : #666666;
+
+
+
+
+@font-face {
+  font-family: lateef;
+  src: url(fonts/lateef/LateefRegOT.ttf);
+}
+
+$base-font-family:  "Times New Roman",'lateef';
+$font-size: 1em;
+$font-weight: 400;

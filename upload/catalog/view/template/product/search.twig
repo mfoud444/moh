@@ -1,0 +1,400 @@
+{{ header }}
+
+<div id="product-search" class="container my-2 ">
+
+  
+
+   <div class="breadcrumb">
+   <a href="{{ home }}">
+   <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-secondary" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+        </svg>
+      </a>
+    {% for breadcrumb in breadcrumbs %}
+     <a class="breadcrumb-child" href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a>
+     <span class="mx-2  dark:text-gray-300 rtl:-scale-x-100">
+     
+        <svg xmlns="http://www.w3.org/2000/svg" 
+        class="w-5 h-5 fill-secondary" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+        </svg>
+    </span>
+    {% endfor %}
+  </div>
+
+
+  <div class="row">{{ column_left }}
+    <div id="content" class="flex  flex-col my-2 gap-4">
+   
+      {#<h1 class="heading-title">
+        {{ heading_title }}</h1>#}
+
+
+     
+
+
+<div class="flex flex-col gap-2  ">
+     
+
+      <div class="flex   flex-col gap-4">
+        
+        <div class="relative">
+          <div
+          class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none"
+        >
+          <svg
+            aria-hidden="true"
+            class="w-5 h-5 text-gray-500 dark:text-gray-400"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+        </div>
+          <input type="text" name="search" 
+          value="{{ search }}"
+           placeholder="{{ text_keyword }}" 
+           id="input-search"
+            class="search-field rounded-xl"/>
+        </div>
+     
+
+      </div>
+
+
+
+        <div class="flex flex-col gap-2">
+          
+          <select name="category_id" id="input-category"
+           class="bg-gray-50 border
+            border-gray-300
+             text-gray-900
+              rounded-full
+               focus:ring-blue-500
+                focus:border-blue-500 
+                block w-full  pl-10 py-2.5 
+                 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <option   value="0">{{ text_category }}</option>
+            {% for category_1 in categories %}
+              <option value="{{ category_1.category_id }}"{% if category_1.category_id == category_id %} selected{% endif %}>{{ category_1.name }}</option>
+              {% for category_2 in category_1.children %}
+                <option value="{{ category_2.category_id }}"{% if category_2.category_id == category_id %} selected{% endif %}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ category_2.name }}</option>
+                {% for category_3 in category_2.children %}
+                  <option value="{{ category_3.category_id }}"{% if category_3.category_id == category_id %} selected{% endif %}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ category_3.name }}</option>
+                {% endfor %}
+              {% endfor %}
+            {% endfor %}
+          </select> 
+          <div class="form-check">
+            <input type="checkbox" name="description" value="1" id="input-description" class="form-check-input"{% if description %} checked{% endif %}/> <label for="input-description" class="form-check-label">{{ entry_description }}</label>
+          </div>
+          <div hidden class="form-check">
+            <input  type="checkbox"  name="sub_category" value="1" id="input-sub-category" class="form-check-input"{% if sub_category %} checked{% endif %}/> <label for="input-sub-category" class="form-check-label">{{ text_sub_category }}</label>
+          </div>
+        </div>
+        
+      </div>
+
+          <button type="button" id="button-search" 
+          class="btn-primary mx-auto w-full md:w-1/2">{{ button_search }}</button>
+
+    
+      
+
+
+  </div>
+
+
+
+
+      <hr/>
+
+     
+     <h2 class="text-center font-bold text-xl">{{ text_search }}</h2>
+
+      {% if products %}
+        <div id="display-control" class="flex flex-col">
+
+          <!-- <div class="col-md-3">
+            <div class="mb-3">
+              <a href="{{ compare }}" 
+              id="compare-total" 
+              class="btn btn-primary d-block">
+              <i class="fa-solid fa-arrow-right-arrow-left"></i> <span class="d-inline d-md-none d-lg-inline">{{ text_compare }}</span></a>
+            </div>
+          </div> -->
+
+
+          <!-- <div class="flex flex-col">
+            <div class="btn-group">
+              <button type="button" id="button-list" class="btn btn-light" data-bs-toggle="tooltip" title="{{ button_list }}"><i class="fa-solid fa-table-list"></i></button>
+              <button type="button" id="button-grid" class="btn btn-light" data-bs-toggle="tooltip" title="{{ button_grid }}"><i class="fa-solid fa-table-cells"></i></button>
+            </div>
+          </div> -->
+
+<div class="flex  gap-4 my-4">
+         
+           
+              <div class="flex flex-col basis-1/2 ">
+                <label for="input-sort"
+                 class="font-bold text-xl">{{ text_sort }}</label>
+                 <select id="input-sort" 
+                 class="bg-gray-50 border
+                 border-gray-300
+                  text-gray-900
+                   rounded-lg
+                    focus:ring-blue-500
+                     focus:border-blue-500 
+                     block w-full  pl-10 py-2.5 
+                      dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" onchange="location = this.value;">
+                  {% for sorts in sorts %}
+                    <option value="{{ sorts.href }}"{% if sorts.value == '%s-%s'|format(sort, order) %} selected{% endif %}>{{ sorts.text }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+         
+         
+
+
+       
+         
+              <div class="flex flex-col basis-1/2 ">
+                <label for="input-limit" 
+                class="font-bold text-xl">{{ text_limit }}</label> 
+                <select id="input-limit"
+                 class="bg-gray-50 border
+                 border-gray-300
+                  text-gray-900
+                   rounded-lg
+                    focus:ring-blue-500
+                     focus:border-blue-500 
+                     block w-full  pl-10 py-2.5 
+                      dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" onchange="location = this.value;">
+                  {% for limits in limits %}
+                    <option value="{{ limits.href }}"{% if limits.value == limit %} selected{% endif %}>{{ limits.text }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+        
+   </div>    
+
+
+     
+        <div id="product-list1" class="grid-product">
+        {% for product in products %}
+        {{ product }}
+          {% endfor %}
+       </div>
+
+
+
+
+
+        <div class="pre">
+          <div class="">{{ pagination }}</div>
+          <div class="">{{ results }}</div>
+        </div>
+      {% else %}
+
+ 
+ <div class=" shadow-lg 
+ md:w-2/3 mx-auto
+        rounded-3xl drop-shadow-xl bg-primary-200
+        bg-puplar-400 mt-4
+        flex  items-center 
+        " >
+        <div class="basis-1/2 justify-center  flex  flex-row-reverse items-center  text-center ">
+        <p class=" text-xl ">{{ text_no_results }}
+       
+
+        </p>
+         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-[4rem] h-[4rem]">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
+</svg>
+        </div>
+        
+
+
+<div
+  class="relative  overflow-hidden justify-center
+    basis-1/2 gap-4 w-full rounded-3xl  flex items-center p-10  flex-row-reverse  "
+>
+
+<div class="mt-10 relative ">
+    <div class="circle bg-primary-500 relative">
+      <div class="absolute rounded-full top-8 right-[1.5rem]  w-6 h-6 bg-white"></div>
+  <div class="absolute rounded-full top-8 left-[1.7em]  w-6 h-6 bg-white"></div>
+  <div class="absolute rounded-full rounded-b-xl  top-[4.7rem] left-[3.8rem]  w-8 h-8 bg-white"></div>
+    </div>
+
+    <div
+    class="container2  absolute top-[-6rem] right-1"
+  >
+    <div class="pentagon-1"></div>
+    <div class="pentagon-2"></div>
+  </div>
+  </div>
+
+
+
+
+
+
+
+
+      </div>
+      {% endif %}
+
+      {{ content_bottom }}</div>
+    {{ column_right }}</div>
+</div>
+
+
+
+<script type="text/javascript"><!--
+$('#button-search').bind('click', function () {
+    url = 'index.php?route=product/search&language={{ language }}';
+
+    var search = $('#input-search').prop('value');
+
+    if (search) {
+        url += '&search=' + encodeURIComponent(search);
+    }
+
+    var category_id = $('#input-category').prop('value');
+
+    if (category_id > 0) {
+        url += '&category_id=' + encodeURIComponent(category_id);
+    }
+
+    var sub_category = $('#input-sub-category:checked').prop('value');
+
+    if (sub_category) {
+        url += '&sub_category=1';
+    }
+
+    var filter_description = $('#input-description:checked').prop('value');
+
+    if (filter_description) {
+        url += '&description=1';
+    }
+
+    location = url;
+});
+
+$('#input-search').bind('keydown', function (e) {
+    if (e.keyCode == 13) {
+        $('#button-search').trigger('click');
+    }
+});
+
+$('#input-category').on('change', function () {
+    $('#input-sub-category').prop('disabled', (this.value == '0' ? true : false));
+});
+
+$('#input-category').trigger('change');
+//--></script>
+{{ footer }}
+
+
+<!-- {#<div id="product-search" class="container">
+  <ul class="breadcrumb">
+    {% for breadcrumb in breadcrumbs %}
+      <li class="breadcrumb-item"><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+    {% endfor %}
+  </ul>
+  <div class="row">{{ column_left }}
+    <div id="content" class="col">{{ content_top }}
+      <h1>{{ heading_title }}</h1>
+      <div class="row">
+        <div class="col"><label for="input-search" class="col-form-label">{{ entry_search }}</label></div>
+      </div>
+      <div class="row row-cols-1 row-cols-md-2">
+        <div class="col">
+          <input type="text" name="search" value="{{ search }}" placeholder="{{ text_keyword }}" id="input-search" class="form-control mb-1"/>
+          <div class="form-check">
+            <input type="checkbox" name="description" value="1" id="input-description" class="form-check-input"{% if description %} checked{% endif %}/> <label for="input-description" class="form-check-label">{{ entry_description }}</label>
+          </div>
+        </div>
+        <div class="col">
+          <select name="category_id" id="input-category" class="form-select mb-1">
+            <option value="0">{{ text_category }}</option>
+            {% for category_1 in categories %}
+              <option value="{{ category_1.category_id }}"{% if category_1.category_id == category_id %} selected{% endif %}>{{ category_1.name }}</option>
+              {% for category_2 in category_1.children %}
+                <option value="{{ category_2.category_id }}"{% if category_2.category_id == category_id %} selected{% endif %}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ category_2.name }}</option>
+                {% for category_3 in category_2.children %}
+                  <option value="{{ category_3.category_id }}"{% if category_3.category_id == category_id %} selected{% endif %}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ category_3.name }}</option>
+                {% endfor %}
+              {% endfor %}
+            {% endfor %}
+          </select>
+          <div class="form-check">
+            <input type="checkbox" name="sub_category" value="1" id="input-sub-category" class="form-check-input"{% if sub_category %} checked{% endif %}/> <label for="input-sub-category" class="form-check-label">{{ text_sub_category }}</label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <button type="button" id="button-search" class="btn btn-primary">{{ button_search }}</button>
+        </div>
+      </div>
+      <hr/>
+      <h2>{{ text_search }}</h2>
+      {% if products %}
+        <div id="display-control" class="row">
+          <div class="col-md-3">
+            <div class="mb-3">
+              <a href="{{ compare }}" id="compare-total" class="btn btn-primary d-block"><i class="fa-solid fa-arrow-right-arrow-left"></i> <span class="d-inline d-md-none d-lg-inline">{{ text_compare }}</span></a>
+            </div>
+          </div>
+          <div class="col-md-1 d-none d-md-block">
+            <div class="btn-group">
+              <button type="button" id="button-list" class="btn btn-light" data-bs-toggle="tooltip" title="{{ button_list }}"><i class="fa-solid fa-table-list"></i></button>
+              <button type="button" id="button-grid" class="btn btn-light" data-bs-toggle="tooltip" title="{{ button_grid }}"><i class="fa-solid fa-table-cells"></i></button>
+            </div>
+          </div>
+          <div class="col-md-4 offset-md-1 col-6">
+            <div class="input-group mb-3">
+              <div class="input-group">
+                <label for="input-sort" class="input-group-text">{{ text_sort }}</label> <select id="input-sort" class="form-select" onchange="location = this.value;">
+                  {% for sorts in sorts %}
+                    <option value="{{ sorts.href }}"{% if sorts.value == '%s-%s'|format(sort, order) %} selected{% endif %}>{{ sorts.text }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-6">
+            <div class="input-group mb-3">
+              <div class="input-group">
+                <label for="input-limit" class="input-group-text">{{ text_limit }}</label> <select id="input-limit" class="form-select" onchange="location = this.value;">
+                  {% for limits in limits %}
+                    <option value="{{ limits.href }}"{% if limits.value == limit %} selected{% endif %}>{{ limits.text }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="product-list" class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-4">
+          {% for product in products %}
+            <div class="col">{{ product }}</div>
+          {% endfor %}
+        </div>
+        <div class="row">
+          <div class="col-sm-6 text-start">{{ pagination }}</div>
+          <div class="col-sm-6 text-end">{{ results }}</div>
+        </div>
+      {% else %}
+        <p>{{ text_no_results }}</p>
+      {% endif %}
+      {{ content_bottom }}</div>
+    {{ column_right }}</div>
+</div>#} -->

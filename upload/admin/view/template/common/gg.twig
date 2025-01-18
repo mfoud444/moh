@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html dir="{{ direction }}" lang="{{ lang }}">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{ title }}</title>
+    <base href="{{ base }}" />
+    {% if description %}
+    <meta name="description" content="{{ description }}" />
+    {% endif %} {% if keywords %}
+    <meta name="keywords" content="{{ keywords }}" />
+    {% endif %}
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    {#
+    <link href="{{ bootstrap }}" rel="stylesheet" media="screen" />
+    #}
+    <link href="{{ icons }}" rel="stylesheet" type="text/css" />
+    <!-- {# <link href="{{ stylesheet }}" rel="stylesheet" type="text/css"/> #} -->
+    <link href="view/stylesheet/style.css" rel="stylesheet" type="text/css" />
+    <script src="{{ jquery }}" type="text/javascript"></script>
+    <script type="text/javascript" src="view/javascript/alpine.js"></script>
+    <script
+      type="text/javascript"
+      src="view/javascript/jquery/datetimepicker/moment.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="view/javascript/jquery/datetimepicker/moment-with-locales.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="view/javascript/jquery/datetimepicker/daterangepicker.js"
+    ></script>
+    <link
+      href="view/javascript/jquery/datetimepicker/daterangepicker.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script type="text/javascript" src="view/javascript/common.js"></script>
+    {# {% for style in styles %}
+    <link
+      type="text/css"
+      href="{{ style.href }}"
+      rel="{{ style.rel }}"
+      media="{{ style.media }}"
+    />
+    {% endfor %} #} {% for link in links %}
+    <link href="{{ link.href }}" rel="{{ link.rel }}" />
+    {% endfor %} {% for script in scripts %}
+    <script type="text/javascript" src="{{ script.href }}"></script>
+    {% endfor %}
+  </head>
+  <body>
+    <div id="container">
+      {#
+      <div
+        id="alert"
+        class="toast-container bg-whatsapp position-fixed top-0 end-0 p-3"
+      ></div>
+      #}
+
+      <header
+        id="header"
+        class="navbar navbar-expand flex justify-between items-center px-8 md:px-8 py-4 bg-amber-300"
+      >
+        <a href="{{ home }}" class="hidden md:block text-3xl font-bold"
+          >خيال العطور</a
+        >
+
+        {% if logged %}
+        <button type="button" id="button-menu" class="bg-whatsapp md:hidden">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+            />
+          </svg>
+        </button>
+
+        <ul class="nav navbar-nav flex items-center bg-primary-200 gap-4">
+          <li id="nav-notification" class="nav-item dropdown">
+            <a
+              href="#"
+              data-bs-toggle="dropdown"
+              class="nav-link dropdown-toggle"
+              ><i class="fa-regular fa-bell"></i>{% if notification_total %}
+              <span class="badge bg-danger">{{ notification_total }}</span
+              >{% endif %}</a
+            >
+
+            <div class="hidden dropdown-menu dropdown-menu-end">
+              {% if notifications %} {% for notification in notifications %}
+              <a
+                href="{{ notification.href }}"
+                data-bs-toggle="modal"
+                class="dropdown-item"
+                >{{ notification.title }}</a
+              >
+              {% endfor %}
+              <a
+                href="{{ notification_all }}"
+                class="dropdown-item text-center text-primary"
+                >{{ text_notification_all }}</a
+              >
+              {% else %}
+              <span class="dropdown-item text-center">{{
+                text_no_results
+              }}</span>
+              {% endif %}
+            </div>
+          </li>
+
+          <div x-data="{ isOpen: false }" class="relative inline-block">
+          <li id="nav-language" @click="isOpen = !isOpen"
+          class="relative rounded-full cursor-pointer "
+          >
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 01-3.827-5.802" />
+          </svg>
+          
+          </li>
+            <!-- Dropdown menu -->
+            <div
+              x-show="isOpen"
+              @click.away="isOpen = false"
+              x-transition:enter="transition ease-out duration-100"
+              x-transition:enter-start="opacity-0 scale-90"
+              x-transition:enter-end="opacity-100 scale-100"
+              x-transition:leave="transition ease-in duration-100"
+              x-transition:leave-start="opacity-100 scale-100"
+              x-transition:leave-end="opacity-0 scale-90"
+              class="absolute left-0 z-20 w-56 py-2 mt-2 overflow-hidden bg-white rounded-md shadow-xl dark:bg-gray-800"
+            >
+            {{ language }}
+            </div>
+       </div>
+
+          <div x-data="{ isOpen: false }" class="relative inline-block">
+            <!-- Dropdown toggle button -->
+            <img
+            src="{{ image }}"
+            alt="{{ firstname }} {{ lastname }}"
+            title="{{ username }}"
+              @click="isOpen = !isOpen"
+              class="relative rounded-full cursor-pointer "
+            >
+              <!-- <span class="mx-1">{{ firstname }} {{ lastname }}</span>
+              <svg
+                class="w-5 h-5 mx-1"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 15.713L18.01 9.70299L16.597 8.28799L12 12.888L7.40399 8.28799L5.98999 9.70199L12 15.713Z"
+                  fill="currentColor"
+                ></path>
+              </svg> -->
+            </img>
+
+            <!-- Dropdown menu -->
+            <div
+              x-show="isOpen"
+              @click.away="isOpen = false"
+              x-transition:enter="transition ease-out duration-100"
+              x-transition:enter-start="opacity-0 scale-90"
+              x-transition:enter-end="opacity-100 scale-100"
+              x-transition:leave="transition ease-in duration-100"
+              x-transition:leave-start="opacity-100 scale-100"
+              x-transition:leave-end="opacity-0 scale-90"
+              class="absolute left-0 z-20 w-56 py-2 mt-2 overflow-hidden bg-white rounded-md shadow-xl dark:bg-gray-800"
+            >
+              <a
+              href="{{ profile }}"
+                class="flex items-center p-3 -mt-2 text-sm text-gray-600 transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
+              >
+                <img
+                  class="flex-shrink-0 object-cover mx-1 rounded-full w-9 h-9"
+                  src="https://images.unsplash.com/photo-1523779917675-b6ed3a42a561?ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8d29tYW4lMjBibHVlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=face&w=500&q=200"
+                  alt="jane avatar"
+                />
+                <div class="mx-1">
+                  <h1
+                    class="text-sm font-semibold text-gray-700 dark:text-gray-200"
+                  >
+                  {{ firstname }} {{ lastname }}
+                  </h1>
+                  <p class="text-sm text-gray-500 dark:text-gray-400">
+                    janedoe@exampl.com 
+                  </p>
+                </div>
+              </a>
+
+              <hr class="border-gray-200 dark:border-gray-700" />
+
+              <a
+              href="{{ profile }}"
+                class="flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
+              >
+                <svg
+                  class="w-5 h-5 mx-1"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M7 8C7 5.23858 9.23858 3 12 3C14.7614 3 17 5.23858 17 8C17 10.7614 14.7614 13 12 13C9.23858 13 7 10.7614 7 8ZM12 11C13.6569 11 15 9.65685 15 8C15 6.34315 13.6569 5 12 5C10.3431 5 9 6.34315 9 8C9 9.65685 10.3431 11 12 11Z"
+                    fill="currentColor"
+                  ></path>
+                  <path
+                    d="M6.34315 16.3431C4.84285 17.8434 4 19.8783 4 22H6C6 20.4087 6.63214 18.8826 7.75736 17.7574C8.88258 16.6321 10.4087 16 12 16C13.5913 16 15.1174 16.6321 16.2426 17.7574C17.3679 18.8826 18 20.4087 18 22H20C20 19.8783 19.1571 17.8434 17.6569 16.3431C16.1566 14.8429 14.1217 14 12 14C9.87827 14 7.84344 14.8429 6.34315 16.3431Z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+
+                <span class="mx-1">  {{ text_profile }}</span>
+              </a>
+
+             
+     
+
+              <hr class="border-gray-200 dark:border-gray-700" />
+              <h6 class="px-3 ">{{ text_store }}</h6>
+              {% for store in stores %}
+              <a
+              href="{{ store.href }}"
+              target="_blank"
+                class="flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
+              >
+                <svg
+                  class="w-5 h-5 mx-1"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M18 22C15.8082 21.9947 14.0267 20.2306 14 18.039V16H9.99996V18.02C9.98892 20.2265 8.19321 22.0073 5.98669 22C3.78017 21.9926 1.99635 20.1999 2.00001 17.9934C2.00367 15.7868 3.79343 14 5.99996 14H7.99996V9.99999H5.99996C3.79343 9.99997 2.00367 8.21315 2.00001 6.00663C1.99635 3.8001 3.78017 2.00736 5.98669 1.99999C8.19321 1.99267 9.98892 3.77349 9.99996 5.97999V7.99999H14V5.99999C14 3.79085 15.7908 1.99999 18 1.99999C20.2091 1.99999 22 3.79085 22 5.99999C22 8.20913 20.2091 9.99999 18 9.99999H16V14H18C20.2091 14 22 15.7909 22 18C22 20.2091 20.2091 22 18 22ZM16 16V18C16 19.1046 16.8954 20 18 20C19.1045 20 20 19.1046 20 18C20 16.8954 19.1045 16 18 16H16ZM5.99996 16C4.89539 16 3.99996 16.8954 3.99996 18C3.99996 19.1046 4.89539 20 5.99996 20C6.53211 20.0057 7.04412 19.7968 7.42043 19.4205C7.79674 19.0442 8.00563 18.5321 7.99996 18V16H5.99996ZM9.99996 9.99999V14H14V9.99999H9.99996ZM18 3.99999C17.4678 3.99431 16.9558 4.2032 16.5795 4.57952C16.2032 4.95583 15.9943 5.46784 16 5.99999V7.99999H18C18.5321 8.00567 19.0441 7.79678 19.4204 7.42047C19.7967 7.04416 20.0056 6.53215 20 5.99999C20.0056 5.46784 19.7967 4.95583 19.4204 4.57952C19.0441 4.2032 18.5321 3.99431 18 3.99999ZM5.99996 3.99999C5.4678 3.99431 4.95579 4.2032 4.57948 4.57952C4.20317 4.95583 3.99428 5.46784 3.99996 5.99999C3.99428 6.53215 4.20317 7.04416 4.57948 7.42047C4.95579 7.79678 5.4678 8.00567 5.99996 7.99999H7.99996V5.99999C8.00563 5.46784 7.79674 4.95583 7.42043 4.57952C7.04412 4.2032 6.53211 3.99431 5.99996 3.99999Z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+
+                <span class="mx-1"> {{ store.name }} </span>
+              </a>
+              {% endfor %}
+
+
+              
+              <hr class="border-gray-200 dark:border-gray-700" />
+              <a id="nav-logout"
+              href="{{ logout }}"
+                class="flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
+              >
+                <svg
+                  class="w-5 h-5 mx-1"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M19 21H10C8.89543 21 8 20.1046 8 19V15H10V19H19V5H10V9H8V5C8 3.89543 8.89543 3 10 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21ZM12 16V13H3V11H12V8L17 12L12 16Z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+
+                <span class="mx-1"> {{ text_logout }}</span>
+              </a>
+            </div>
+          </div>
+
+        
+
+
+    
+        </ul>
+        {% endif %}
+      </header>
+      <main class="flex">
+
+
+
+///////////////////////////////////////////////////////////////////
+coulmn left
+
+//////////////////////////////////////////////////////////////////
+
+<nav id="column-left" class="hidden md:block  w-64 h-full py-8 px-4 bg-primary-500 border-r">
+	<div id="navigation"><span class="fa-solid fa-bars"></span> {{ text_navigation }}</div>
+	
+	<ul id="menu" class="flex bg-whatsapp flex-col ">
+		{% set i = 0 %}
+		{% for menu in menus %}
+			<li id="{{ menu.id }}" x-data="{ isOpen: false }" >
+
+				{% if menu.href %}
+					<a href="{{ menu.href }}" class="with-icon"><i class="{{ menu.icon }} "></i> {{ menu.name }}</a>
+				{% else %}
+					<a href="#collapse-{{ i }}" @click="isOpen = !isOpen" data-bs-toggle="collapse" class="with-icon"><i class="{{ menu.icon }} text-white"></i> {{ menu.name }}</a>
+				{% endif %}
+
+				{% if menu.children %}
+					<ul id="collapse-{{ i }}"  >
+						{% set j = 0 %}
+						{% for children_1 in menu.children %}
+							<li x-show="isOpen" 
+							@click.away="isOpen = false"
+						
+							class="">{% if children_1.href %}
+									<a href="{{ children_1.href }}">{{ children_1.name }}</a>
+								{% else %}
+									<a href="#collapse-{{ i }}-{{ j }}" data-bs-toggle="collapse" class="parent">{{ children_1.name }}</a>
+								{% endif %}
+								{% if children_1.children %}
+									<ul id="collapse-{{ i }}-{{ j }}" class="">
+										{% set k = 0 %}
+										{% for children_2 in children_1.children %}
+											<li>{% if children_2.href %}
+													<a href="{{ children_2.href }}">{{ children_2.name }}</a>
+												{% else %}
+													<a href="#collapse-{{ i }}-{{ j }}-{{ k }}" data-bs-toggle="collapse" class="parent ">{{ children_2.name }}</a>
+												{% endif %}
+												{% if children_2.children %}
+													<ul id="collapse-{{ i }}-{{ j }}-{{ k }}" class="">
+														{% for children_3 in children_2.children %}
+															<li><a href="{{ children_3.href }}">{{ children_3.name }}</a></li>
+														{% endfor %}
+													</ul>
+												{% endif %}</li>
+											{% set k = k + 1 %}
+										{% endfor %}
+									</ul>
+								{% endif %}
+							</li>
+							{% set j = j + 1 %}
+						{% endfor %}
+					</ul>
+				{% endif %}
+			</li>
+			{% set i = i + 1 %}
+		{% endfor %}
+	</ul>
+{#
+	{% if statistics_status %}
+		<div id="stats">
+			<ul>
+				<li>
+					<div>{{ text_complete_status }} <span class="float-end">{{ complete_status }}%</span></div>
+					<div class="progress">
+						<div class="progress-bar bg-success" role="progressbar" aria-valuenow="{{ complete_status }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ complete_status }}%"><span class="sr-only">{{ complete_status }}%</span></div>
+					</div>
+				</li>
+				<li>
+					<div>{{ text_processing_status }} <span class="float-end">{{ processing_status }}%</span></div>
+					<div class="progress">
+						<div class="progress-bar bg-warning" role="progressbar" aria-valuenow="{{ processing_status }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ processing_status }}%"><span class="sr-only">{{ processing_status }}%</span></div>
+					</div>
+				</li>
+				<li>
+					<div>{{ text_other_status }} <span class="float-end">{{ other_status }}%</span></div>
+					<div class="progress">
+						<div class="progress-bar bg-danger" role="progressbar" aria-valuenow="{{ other_status }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ other_status }}%"><span class="sr-only">{{ other_status }}%</span></div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	{% endif %}
+	#}
+</nav>
+
+
+
+
+
+<!-- 
+{#
+<nav id="column-left" class="">
+	<div id="navigation"><span class="fa-solid fa-bars"></span> {{ text_navigation }}</div>
+	<ul id="menu">
+		{% set i = 0 %}
+		{% for menu in menus %}
+			<li id="{{ menu.id }}">
+				{% if menu.href %}
+					<a href="{{ menu.href }}"><i class="{{ menu.icon }}"></i> {{ menu.name }}</a>
+				{% else %}
+					<a href="#collapse-{{ i }}" data-bs-toggle="collapse" class="parent collapsed"><i class="{{ menu.icon }}"></i> {{ menu.name }}</a>
+				{% endif %}
+				{% if menu.children %}
+					<ul id="collapse-{{ i }}" class="collapse">
+						{% set j = 0 %}
+						{% for children_1 in menu.children %}
+							<li>{% if children_1.href %}
+									<a href="{{ children_1.href }}">{{ children_1.name }}</a>
+								{% else %}
+									<a href="#collapse-{{ i }}-{{ j }}" data-bs-toggle="collapse" class="parent collapsed">{{ children_1.name }}</a>
+								{% endif %}
+								{% if children_1.children %}
+									<ul id="collapse-{{ i }}-{{ j }}" class="collapse">
+										{% set k = 0 %}
+										{% for children_2 in children_1.children %}
+											<li>{% if children_2.href %}
+													<a href="{{ children_2.href }}">{{ children_2.name }}</a>
+												{% else %}
+													<a href="#collapse-{{ i }}-{{ j }}-{{ k }}" data-bs-toggle="collapse" class="parent collapsed">{{ children_2.name }}</a>
+												{% endif %}
+												{% if children_2.children %}
+													<ul id="collapse-{{ i }}-{{ j }}-{{ k }}" class="collapse">
+														{% for children_3 in children_2.children %}
+															<li><a href="{{ children_3.href }}">{{ children_3.name }}</a></li>
+														{% endfor %}
+													</ul>
+												{% endif %}</li>
+											{% set k = k + 1 %}
+										{% endfor %}
+									</ul>
+								{% endif %}
+							</li>
+							{% set j = j + 1 %}
+						{% endfor %}
+					</ul>
+				{% endif %}
+			</li>
+			{% set i = i + 1 %}
+		{% endfor %}
+	</ul>
+	{% if statistics_status %}
+		<div id="stats">
+			<ul>
+				<li>
+					<div>{{ text_complete_status }} <span class="float-end">{{ complete_status }}%</span></div>
+					<div class="progress">
+						<div class="progress-bar bg-success" role="progressbar" aria-valuenow="{{ complete_status }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ complete_status }}%"><span class="sr-only">{{ complete_status }}%</span></div>
+					</div>
+				</li>
+				<li>
+					<div>{{ text_processing_status }} <span class="float-end">{{ processing_status }}%</span></div>
+					<div class="progress">
+						<div class="progress-bar bg-warning" role="progressbar" aria-valuenow="{{ processing_status }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ processing_status }}%"><span class="sr-only">{{ processing_status }}%</span></div>
+					</div>
+				</li>
+				<li>
+					<div>{{ text_other_status }} <span class="float-end">{{ other_status }}%</span></div>
+					<div class="progress">
+						<div class="progress-bar bg-danger" role="progressbar" aria-valuenow="{{ other_status }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ other_status }}%"><span class="sr-only">{{ other_status }}%</span></div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	{% endif %}
+</nav>
+#} -->
+
+
+
+///////////////////////////////////////////
+
+dashboard
+////////////////////////////////////////////
+
+{{ header }} {{ column_left }}
+<div id="content" class=" container">
+ 
+  <div class="page-header ">
+    <div class="container-fluid">
+
+      <!-- {% if developer_status %}
+        <div class="float-end">
+          <button type="button" id="button-setting" data-bs-toggle="tooltip" title="{{ button_developer }}" class="btn btn-info"><i class="fa-solid fa-cog"></i></button>
+        </div>
+      {% endif %} -->
+
+      <h1 class="h-title my-2">{{ heading_title }}</h1>
+
+
+      <div class="breadcrumb">
+
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 breadcrumb-icon" viewBox="0 0 20 20" fill="currentColor">
+                 <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+             </svg>
+           
+         {% for breadcrumb in breadcrumbs %}
+          <a class="breadcrumb-child" href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a>
+          <span class="breadcrumb-span">
+          
+             <svg xmlns="http://www.w3.org/2000/svg" 
+             class="w-5 h-5 breadcrumb-icon" viewBox="0 0 20 20" fill="currentColor">
+                 <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+             </svg>
+         </span>
+         {% endfor %}
+       </div>
+
+      <!-- <ol class="breadcrumb">
+        {% for breadcrumb in breadcrumbs %}
+          <li class="breadcrumb-item"><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+        {% endfor %}
+      </ol> -->
+
+    </div>
+  </div>
+
+  <div class="container-fluid flex py-4 bg-primary-100 md:flex-row  flex-col">
+    {% for row in rows %}
+      <div class="row md:col">
+        {% for dashboard_1 in row %}
+          {% set class = 'col-lg-%s %s'|format(dashboard_1.width, 'col-md-3 col-sm-6') %}
+          {% for dashboard_2 in row %}
+            {% if dashboard_2.width > 3 %}
+              {% set class = 'col-lg-%s %s'|format(dashboard_1.width, 'col-md-12 col-sm-12') %}
+            {% endif %}
+          {% endfor %}
+          <div class=" bg-primary-400">{{ dashboard_1.output }}</div>
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
+
+
+  {{ security }}
+</div>
+<script type="text/javascript"><!--
+$('#button-setting').on('click', function () {
+    $.ajax({
+        url: 'index.php?route=common/developer&user_token={{ user_token }}',
+        dataType: 'html',
+        beforeSend: function () {
+            $('#button-setting').prop('disabled', true).addClass('loading');
+        },
+        complete: function () {
+            $('#button-setting').prop('disabled', false).removeClass('loading');
+        },
+        success: function (html) {
+            $('#modal-developer').remove();
+
+            $('body').prepend(html);
+
+            $('#modal-developer').modal('show');
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+$('input[name=\'developer_sass\']').on('change', function () {
+    $.ajax({
+        url: 'index.php?route=common/developer|edit&user_token={{ user_token }}',
+        type: 'post',
+        data: $('input[name=\'developer_sass\']:checked'),
+        dataType: 'json',
+        beforeSend: function () {
+            $('input[name=\'developer_sass\']').prop('disabled', true);
+        },
+        complete: function () {
+            $('input[name=\'developer_sass\']').prop('disabled', false);
+        },
+        success: function (json) {
+            $('.alert-dismissible').remove();
+
+            if (json['error']) {
+                $('#modal-developer .modal-body').prepend('<div class="alert alert-danger alert-dismissible"><i class="fa-solid fa-circle-exclamation"></i> ' + json['error'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+            }
+            if (json['success']) {
+                $('#modal-developer .modal-body').prepend('<div class="alert alert-success alert-dismissible"><i class="fa-solid fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+$('#modal-developer table button').on('click', function () {
+    var element = this;
+
+    $.ajax({
+        url: 'index.php?route=common/developer|' + $(element).attr('value') + '&user_token={{ user_token }}',
+        dataType: 'json',
+        beforeSend: function () {
+            $(element).prop('disabled', true).addClass('loading');
+        },
+        complete: function () {
+            $(element).prop('disabled', false).removeClass('loading');
+        },
+        success: function (json) {
+            $('.alert-dismissible').remove();
+
+            if (json['error']) {
+                $('#modal-developer .modal-body').prepend('<div class="alert alert-danger alert-dismissible"><i class="fa-solid fa-circle-exclamation"></i> ' + json['error'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+            }
+
+            if (json['success']) {
+                $('#modal-developer .modal-body').prepend('<div class="alert alert-success alert-dismissible"><i class="fa-solid fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+//--></script>
+{{ footer }}

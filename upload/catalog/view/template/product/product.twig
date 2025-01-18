@@ -1,0 +1,1166 @@
+{{ header }}
+  <div id="product-info" class= "py-2" x-data="{ tab: 'tab-description' }">
+
+
+ <div class="breadcrumb">
+   <a href="{{ home }}">
+   <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-secondary" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+        </svg>
+      </a>
+    {% for breadcrumb in breadcrumbs %}
+     <a class="breadcrumb-child" href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a>
+     <span class="mx-2  dark:text-gray-300 rtl:-scale-x-100">
+     
+        <svg xmlns="http://www.w3.org/2000/svg" 
+        class="w-5 h-5 fill-secondary" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+        </svg>
+    </span>
+    {% endfor %}
+  </div>
+  
+
+<div class="grid lg:pt-2 grid-cols-1 lg:grid-cols-10  gap-4" >
+
+
+
+<div class=" lg:col-span-3 my-2 self-center md:self-start" >
+   {% if thumb or images %}
+            <div class="magnific-popup flex flex-col gap-4 items-center">
+              {% if thumb %}
+                <a href="{{ popup }}" title="{{ heading_title }}">
+                <img src="{{ thumb }}" title="{{ heading_title }}" alt="{{ heading_title }}"  
+                     class="md:h-96 h-60 drop-shadow-lg object-cover "/>
+                </a>
+              {% endif %}
+              {% if images %}
+                <div class="flex flex-row gap-4">
+                  {% for image in images %}
+                    <a href="{{ image.popup }}" title="{{ heading_title }}">
+                    <img src="{{ image.thumb }}" title="{{ heading_title }}" 
+                    alt="{{ heading_title }}" 
+                    class="drop-shadow-lg"/></a>&nbsp;
+                 {%  endfor %}
+                </div>
+              {% endif %}
+            </div>
+          {% endif %}
+      
+</div>
+
+
+
+<div  class="lg:col-span-3">
+
+     
+     <div class="flex pl-4 gap-4  justify-between">
+      <h1 class="text-gray-900 overflow-auto text-3xl  font-bold ">{{ heading_title }}</h1>         
+     </div> 
+
+{% if review_status %}
+     <div hidden  class="flex flex-row-reverse  justify-end gap-2">
+       <p>
+           <div class="flex flex-row-reverse justify-center items-center ">
+{% for i in 1..5 %}
+   {% if rating < i %}
+<svg
+ xmlns="http://www.w3.org/2000/svg"
+ class="w-5 h-5"
+ fill="none"
+ viewBox="0 0 24 24"
+ stroke-width="1.5"
+ stroke="currentColor"
+>
+ <path
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"
+ />
+</svg>
+
+
+
+ {% else %}
+    <svg
+ xmlns="http://www.w3.org/2000/svg"
+ class="w-5 h-5 text-yellow-300 fill-yellow-300"
+ fill="none"
+ viewBox="0 0 24 24"
+ stroke-width="1.5"
+ stroke="currentColor"
+>
+ <path
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"
+ />
+</svg>
+
+
+    {% endif %}
+ {% endfor %}   
+</div>
+</div>
+{% endif %}   
+
+ {# price  #}
+ {% if price %}
+   <div class="flex text-2xl gap-4 mb-1">
+     {% if not special %}
+     <span class=" font-bold text-gray-900 dark:text-white">{{ price }}</span>
+       {% else %}
+       <span class=" font-bold text-gray-900 dark:text-white">{{ special }}</span> 
+       <span class=" line-through font-bold text-red-900 dark:text-white">{{ price }}</span>
+       {% endif %}
+      {% if tax %}
+       <span class=" font-bold text-gray-900 dark:text-white">{{ text_tax }} {{ tax }}</span>
+     {% endif %} 
+   </div>
+  
+   {% if points %}
+   <span class="text-xl font-bold text-gray-900 dark:text-white">{{ text_points }} {{ points }}</span>
+ {% endif %}
+
+ {% if discounts %}
+   <ul>
+   {% for discount in discounts %}
+     <li class="text-xl  text-gray-900 dark:text-white">{{ discount.quantity }}{{ text_discount }}{{ discount.price }}</li>
+   {% endfor %}
+   </ul>
+ {% endif %}
+   {% endif %}
+
+ 
+  
+   <div id="product">
+    <form id="form-product" class="flex flex-col gap-2">
+      {% if options %}
+  
+      <h3 class="text-xl">{{ text_option }}</h3>
+      <div>
+        {% for option in options %}
+          {% if option.type == 'select' %}
+            <div class="mb-3{% if option.required %} required{% endif %}">
+              <label for="input-option-{{ option.product_option_id }}" class="form-label">{{ option.name }}</label> 
+              <select name="option[{{ option.product_option_id }}]" id="input-option-{{ option.product_option_id }}" class=" form-control ">
+                <option value="" >{{ text_select }}</option>
+                {% for option_value in option.product_option_value %}
+                  <option value="{{ option_value.product_option_value_id }}">{{ option_value.name }}
+                    {% if option_value.price %}
+                      ({{ option_value.price_prefix }}{{ option_value.price }})
+                    {% endif %}</option>
+                {% endfor %}
+              </select>
+              <div id="error-option-{{ option.product_option_id }}" class="invalid-feedback"></div>
+            </div>
+          {% endif %}
+          {% if option.type == 'radio' %}
+            <div class="mb-3{% if option.required %} required{% endif %}">
+              <label class="form-label">{{ option.name }}</label>
+              <div id="input-option-{{ option.product_option_id }}">
+                {% for option_value in option.product_option_value %}
+                  <div class="form-check">
+                    <input type="radio" name="option[{{ option.product_option_id }}]" value="{{ option_value.product_option_value_id }}" id="input-option-value-{{ option_value.product_option_value_id }}" class="form-check-input"/> <label for="input-option-value-{{ option_value.product_option_value_id }}" class="form-check-label">{% if option_value.image %}<img src="{{ option_value.image }}" alt="{{ option_value.name }} {% if option_value.price %}{{ option_value.price_prefix }} {{ option_value.price }}{% endif %}" class="img-thumbnail"/>{% endif %}
+                      {{ option_value.name }}
+                      {% if option_value.price %}
+                        ({{ option_value.price_prefix }}{{ option_value.price }})
+                      {% endif %}
+                    </label>
+                  </div>
+                {% endfor %}
+              </div>
+              <div id="error-option-{{ option.product_option_id }}" class="invalid-feedback"></div>
+            </div>
+          {% endif %}
+  
+  
+          {% if option.type == 'checkbox' %}
+            <div class="mb-3{% if option.required %} required{% endif %}">
+              <label class="form-label font-semibold">{{ option.name }}</label>
+              <div id="input-option-{{ option.product_option_id }}" class="flex gap-2 flex-wrap ">
+  
+                {% for option_value in option.product_option_value %}
+                  <div class="form-check bg-yellow-300 py-1 px-2 flex  justify-center rounded-lg">
+                    <input type="checkbox" name="option[{{ option.product_option_id }}][]" value="{{ option_value.product_option_value_id }}" id="input-option-value-{{ option_value.product_option_value_id }}" class="form-check-input"/> <label for="input-option-value-{{ option_value.product_option_value_id }}" class="form-check-label">
+                      {% if option_value.image %}
+                        <img src="{{ option_value.image }}" alt="{{ option_value.name }} {% if option_value.price %}{{ option_value.price_prefix }} {{ option_value.price }}{% endif %}" class="img-thumbnail"/>{% endif %}
+                      {{ option_value.name }}
+                      {% if option_value.price %}
+                        <div>({{ option_value.price_prefix }}{{ option_value.price }})</div>
+                      {% endif %}</label>
+                  </div>
+                {% endfor %}
+              </div>
+              <div id="error-option-{{ option.product_option_id }}" class="invalid-feedback"></div>
+            </div>
+          {% endif %}
+  
+  
+          
+          {% if option.type == 'text' %}
+            <div class="mb-3{% if option.required %} required{% endif %}">
+              <label for="input-option-{{ option.product_option_id }}" class="form-label">{{ option.name }}</label> <input type="text" name="option[{{ option.product_option_id }}]" value="{{ option.value }}" placeholder="{{ option.name }}" id="input-option-{{ option.product_option_id }}" class="form-control"/>
+              <div id="error-option-{{ option.product_option_id }}" class="invalid-feedback"></div>
+            </div>
+          {% endif %}
+          {% if option.type == 'textarea' %}
+            <div class="mb-3{% if option.required %} required{% endif %}">
+              <label for="input-option-{{ option.product_option_id }}" class="form-label">{{ option.name }}</label> <textarea name="option[{{ option.product_option_id }}]" rows="5" placeholder="{{ option.name }}" id="input-option-{{ option.product_option_id }}" class="form-control">{{ option.value }}</textarea>
+              <div id="error-option-{{ option.product_option_id }}" class="invalid-feedback"></div>
+            </div>
+          {% endif %}
+          {% if option.type == 'file' %}
+            <div class="mb-3{% if option.required %} required{% endif %}">
+              <label for="button-upload-{{ option.product_option_id }}" class="form-label">{{ option.name }}</label>
+              <div>
+                <button type="button" id="button-upload-{{ option.product_option_id }}" data-oc-toggle="upload" data-oc-size-max="{{ config_file_max_size }}" data-oc-size-error="{{ error_upload_size }}" data-oc-url="{{ upload }}" data-oc-target="#input-option-{{ option.product_option_id }}" class="btn btn-light btn-block"><i class="fa-solid fa-upload"></i> {{ button_upload }}</button>
+                <input type="hidden" name="option[{{ option.product_option_id }}]" value="" id="input-option-{{ option.product_option_id }}"/>
+              </div>
+              <div id="error-option-{{ option.product_option_id }}" class="invalid-feedback"></div>
+            </div>
+          {% endif %}
+          {% if option.type == 'date' %}
+            <div class="mb-3{% if option.required %} required{% endif %}">
+              <label for="input-option-{{ option.product_option_id }}" class="form-label">{{ option.name }}</label>
+              <div class="input-group">
+                <input type="date" name="option[{{ option.product_option_id }}]" value="{{ option.value }}" id="input-option-{{ option.product_option_id }}" class="form-control date"/>
+                <div class="input-group-text"><i class="fa-regular fa-calendar"></i></div>
+              </div>
+              <div id="error-option-{{ option.product_option_id }}" class="invalid-feedback"></div>
+            </div>
+          {% endif %}
+          {% if option.type == 'datetime' %}
+            <div class="mb-3{% if option.required %} required{% endif %}">
+              <label for="input-option-{{ option.product_option_id }}" class="form-label">{{ option.name }}</label>
+              <div class="input-group">
+                <input type="datetime-local" name="option[{{ option.product_option_id }}]" value="{{ option.value }}" id="input-option-{{ option.product_option_id }}" class="form-control datetime"/>
+                <div class="input-group-text"><i class="fa-regular fa-calendar"></i></div>
+              </div>
+              <div id="error-option-{{ option.product_option_id }}" class="invalid-feedback"></div>
+            </div>
+          {% endif %}
+          {% if option.type == 'time' %}
+            <div class="mb-3{% if option.required %} required{% endif %}">
+              <label for="input-option-{{ option.product_option_id }}" class="form-label">{{ option.name }}</label>
+              <div class="input-group">
+                <input type="time" name="option[{{ option.product_option_id }}]" value="{{ option.value }}" id="input-option-{{ option.product_option_id }}" class="form-control time"/>
+                <div class="input-group-text"><i class="fa-regular fa-calendar"></i></div>
+              </div>
+              <div id="error-option-{{ option.product_option_id }}" class="invalid-feedback"></div>
+            </div>
+          {% endif %}
+        {% endfor %}
+        {% endif %}
+        {% if subscription_plans %}
+          <hr/>
+          <h3>{{ text_subscription }}</h3>
+          <div class="mb-3 required">
+            <select name="subscription_plan_id" id="input-subscription" class="form-select">
+              <option value="">{{ text_select }}</option>
+              {% for subscription_plan in subscription_plans %}
+                <option value="{{ subscription_plan.subscription_plan_id }}">{{ subscription_plan.name }}</option>
+              {% endfor %}
+            </select>
+            {% for subscription_plan in subscription_plans %}
+              <div id="subscription-description-{{ subscription_plan.subscription_plan_id }}" class="form-text subscription d-none">{{ subscription_plan.description }}</div>
+            {% endfor %}
+            <div id="error-subscription" class="invalid-feedback"></div>
+          </div>
+        {% endif %}
+        <div class="my-3 flex gap-4 items-center">
+  
+          <label for="input-quantity" class="form-label font-semibold">{{ entry_qty }}</label> 
+          
+          <!-- <input type="number" name="quantity" value="{{ minimum }}" size="2" id="input-quantity" class="form-control"/>  -->
+       
+          <div id="error-quantity" class="form-text"></div>
+       
+  
+          <div class="flex col-span-3 items-center gap-1">
+            <button
+              type="button"
+              class="w-6 h-6 flex justify-center rounded-full cursor-pointer text-white font-bold bg-primary-900"
+              data-quantity="plus"
+              data-field="{{ product.cart_id }}"
+            >
+              +
+            </button>
+    
+            <input
+            type="number"
+             name="quantity"
+              value="{{ minimum }}" 
+              size="2" 
+              id="input-quantity" 
+              class="rounded-full w-14 h-8"
+            
+            />
+            <button
+              type="button"
+              class="w-6 h-6 flex justify-center text-white font-bold cursor-pointer rounded-full bg-red-500"
+              data-quantity="minus"
+              data-field="{{ product.cart_id }}"
+            >
+              -
+            </button>
+            <input type="hidden" name="product_id" value="{{ product_id }}" id="input-product-id"/>
+          </div>
+    
+        </div>
+  
+  
+        {% if minimum > 1 %}
+          <div class="bg-primary-700"><i class="fa-solid fa-circle-info"></i> {{ text_minimum }}</div>
+        {% endif %}
+  
+      </div>
+  
+  
+  
+  
+  
+          {# <a href="" onclick="$('a[href=\'#tab-review\']').tab('show'); return false;">{{ text_reviews }}</a> / <a href="" onclick="$('a[href=\'#tab-review\']').tab('show'); return false;">{{ text_write }}</a></p>#} 
+     
+     <div class="flex gap-4 justify-between items-center">
+          <button
+          type="submit"
+          id="button-cart"
+          class="btn-order  bg-primary-800 hover:bg-#2bb826"
+        >
+          <svg
+            aria-hidden="true"
+            class="w-5 h-5"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"
+            ></path>
+          </svg>
+          <p class="text-xs font-bold">أضف للسلة</p>
+        </button>
+    </form>
+  
+    <form method="post"  data-oc-toggle="ajax" data-oc-load="{{ wishlist }}" data-oc-target="#wishlist">
+      <input type="hidden" name="product_id" value="{{ product_id }}"/>
+      <input type="hidden" name="quantity" value="{{ minimum }}" />
+     
+      {% set foo = false %}
+        {% for fafs in faf %}
+        {%if fafs ==  product_id %}
+        {% set foo = true %}
+        {%endif%}
+        {% endfor %} 
+  
+        <button
+        type="submit"
+        formaction="{{ add_to_wishlist }}"
+        title="{{ button_wishlist }}"
+        data-q="{{ product_id }}"
+        class="transition {% if foo ==  1 %} hidden  {% endif %} ease-in duration-300 bg-white flex items-center justify-center hover:text-purple-500 shadow hover:shadow-md text-gray-500 rounded-full w-10 h-10 text-center p-1"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-8 w-8"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+          />
+        </svg>
+      </button>
+      
+      
+        <button
+        type="submit" formaction="{{ remove }}" data-bs-toggle="tooltip" 
+          data-q="{{ product_id }}"
+          class="transition {% if foo !=  1 %} hidden  {% endif %} ease-in duration-300 bg-white flex items-center justify-center hover:text-purple-500 shadow hover:shadow-md text-gray-500 rounded-full w-10 h-10 text-center p-1"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-8 w-8 fill-red-700 text-red-700"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+            />
+          </svg>
+        </button>
+     
+  </form>
+  </div>
+
+</div>
+
+ 
+
+
+
+
+
+
+<div class=" lg:col-span-4">
+
+     {# tab header #}
+      <div   
+       class="flex font-semibold justify-evenly md:justify-around border-b mb-4 border-gray-200 dark:border-gray-700">
+
+    <button @click.prevent="tab = 'tab-description'"   data-bs-toggle="tab" 
+    class="flex items-center py-2 t   text-center"
+    :class="{ ' text-blue-500 border-b-2   border-blue-500 ' : tab === 'tab-description' }"
+    >
+       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"   :class="{ ' fill-blue-500' : tab === 'tab-description' }" shape-rendering="geometricPrecision" text-rendering="geometricPrecision"
+    image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 419 511.67">
+    <path
+        d="M93 39.4h46.13C141.84 17.18 159.77 0 181.52 0c21.61 0 39.45 16.95 42.33 38.94l46.77.46c2.61 0 4.7 2.1 4.7 4.71v51.84a4.69 4.69 0 0 1-4.7 4.71H93.05c-2.56 0-4.71-2.1-4.71-4.71V44.11A4.644 4.644 0 0 1 93 39.4zm221.97 264.22c57.47 0 104.03 46.58 104.03 104.02 0 57.47-46.59 104.03-104.03 104.03-57.47 0-104.02-46.58-104.02-104.03 0-57.47 46.58-104.02 104.02-104.02zm16.14 53.2c6.21 6.21 3.92 15.81-2.55 21.1-6.24 5.03-17.54 7.47-23.99 1.54-6.5-6.06-3.92-15.79 2.31-21.12 6.01-5.06 17.89-7.84 24.23-1.52zM294.4 438.4h5.3v-34.56h-10.05c0-13.7 25.14-4.81 43.65-9.47v44.03h7v14.71h-45.9V438.4zM41.73 59.28h23.93v24.37H41.73c-4.77 0-9.12 1.97-12.25 5.1-3.14 3.14-5.1 7.48-5.1 12.24v315.53c0 4.74 1.96 9.09 5.1 12.23 3.15 3.15 7.51 5.12 12.25 5.12h142.61c1.69 8.44 4.17 16.6 7.37 24.38H41.73c-11.45 0-21.9-4.71-29.47-12.28C4.72 438.43 0 427.98 0 416.52V100.99c0-11.48 4.7-21.91 12.25-29.46 7.55-7.55 17.99-12.25 29.48-12.25zm297.54 217.35V100.99c0-4.77-1.96-9.11-5.09-12.26a17.377 17.377 0 0 0-12.26-5.08H298V59.28h23.92c11.45 0 21.86 4.71 29.41 12.25 7.61 7.61 12.32 18.04 12.32 29.46V283.6c-7.79-3.07-15.95-5.42-24.38-6.97zm-206.74-8.06c-7.13 0-12.92-5.79-12.92-12.92s5.79-12.93 12.92-12.93h142.82c7.13 0 12.92 5.8 12.92 12.93s-5.79 12.92-12.92 12.92H132.53zM89.5 241.21c7.97 0 14.44 6.47 14.44 14.45 0 7.98-6.47 14.43-14.44 14.43s-14.44-6.45-14.44-14.43c0-7.98 6.47-14.45 14.44-14.45zm0 78.62c7.97 0 14.44 6.47 14.44 14.45 0 7.97-6.47 14.43-14.44 14.43s-14.44-6.46-14.44-14.43c0-7.98 6.47-14.45 14.44-14.45zm43.04 27.37c-7.13 0-12.93-5.8-12.93-12.93s5.8-12.93 12.93-12.93h80.96a133.376 133.376 0 0 0-17.26 25.86h-63.7zM89.5 162.61c7.97 0 14.44 6.46 14.44 14.43 0 7.98-6.47 14.44-14.44 14.44s-14.44-6.46-14.44-14.44c0-7.97 6.47-14.43 14.44-14.43zm43.03 27.35c-7.13 0-12.92-5.79-12.92-12.92s5.79-12.93 12.92-12.93h142.82c7.13 0 12.92 5.8 12.92 12.93s-5.79 12.92-12.92 12.92H132.53zm48.5-169.8c12.3 0 22.26 9.96 22.26 22.27 0 12.29-9.96 22.26-22.26 22.26s-22.26-9.97-22.26-22.26c0-12.31 9.96-22.27 22.26-22.27z" />
+</svg>
+
+        <span class="mx-1 ">
+         {{ tab_description }}
+        </span>
+    </button>
+
+ {% if attribute_groups %}
+    <button @click.prevent="tab = 'tab-specification'"    data-bs-toggle="tab" 
+    class="flex items-center py-2   text-center"
+    :class="{ ' text-blue-500 border-b-2   border-blue-500 ' : tab === 'tab-specification' }">
+        <svg xmlns="http://www.w3.org/2000/svg" :class="{ ' fill-blue-500' : tab === 'tab-specification' }" class="w-5 h-5 mx-1 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+        </svg>
+
+        <span class="mx-1 ">
+         {{ tab_attribute }}
+        </span>
+    </button>
+  {% endif %}
+
+
+  {% if review_status %}
+
+    <button    @click.prevent="tab = 'tab-review'"    data-bs-toggle="tab" 
+    class="flex items-center py-2   text-center"
+    :class="{ ' text-blue-500 border-b-2   border-blue-500 ' : tab === 'tab-review' }">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" 
+      :class="{ ' fill-blue-500' : tab === 'tab-review' }"
+      shape-rendering="geometricPrecision" text-rendering="geometricPrecision"
+    image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 475 511.95">
+    <path fill-rule="nonzero"
+        d="M112.09 29.97 88.85 84.39a8.82 8.82 0 0 1-7.86 5.37l-58.42 5.25 44.58 38.93a8.82 8.82 0 0 1 2.79 8.61l-13.18 57.69 50.8-30.37a8.855 8.855 0 0 1 9.22.1l24.28 14.52-4.13 18.08-24.84-14.85-53.02 31.69c-1.51.94-3.2 1.59-4.96 1.91-1.85.32-3.76.29-5.64-.13-3.84-.87-6.96-3.22-8.89-6.28-1.94-3.09-2.71-6.93-1.83-10.74l13.81-60.43-46.17-40.31c-.48-.36-.92-.77-1.32-1.22-.8-.81-1.51-1.73-2.09-2.72l-.44-.76C.81 97.29.31 95.7.11 94.01l-.08-.83c-.24-3.75 1.03-7.29 3.31-10.01 2.26-2.71 5.54-4.57 9.27-5l62.06-5.54L99 15.66c.73-1.7 1.74-3.25 3.02-4.52 1.07-1.05 2.34-1.97 3.78-2.68l.72-.34c3.61-1.54 7.51-1.48 10.9-.11 3.35 1.36 6.21 4.01 7.74 7.61l20.06 46.98-18.48 1.65-14.65-34.28zm103.82 340.37c0 4.65-3.78 8.43-8.43 8.43s-8.43-3.78-8.43-8.43v-15.58c-.45-.24-.88-.52-1.29-.85l-16.23-13.16-21.88-17.95c-4.07-3.36-8.68-5.68-13-6.54-2.77-.55-5.33-.49-7.33.33-1.62.66-3.02 1.97-3.96 4.06-1.23 2.71-1.8 6.6-1.46 11.82.3 4.64 1.92 9.74 4.06 14.6 3.17 7.2 7.49 13.8 10.67 18.05l64.53 97.63a8.297 8.297 0 0 1 1.33 3.66c1.28 10.54 3.52 18.44 6.82 23.39 2.4 3.59 5.51 5.41 9.38 5.31 32.71 0 68.2-1.35 100.56 0 6.21-.1 11.9-1.93 17.04-5.47 5.74-3.96 10.99-10.11 15.73-18.4l1.21-2.07c12.44-21.44 24.51-42.25 25.78-66.96l-.64-28.65-.09-1.26.09-6.75c.23-20.97.59-53.07-16.85-56.21h-11.3c.34 8.96-.18 18.22-.65 26.63-.28 4.96-.54 9.57-.54 13.85 0 4.65-3.78 8.43-8.44 8.43-4.65 0-8.43-3.78-8.43-8.43 0-3.97.3-9.18.62-14.78 1.18-20.89 2.75-48.83-11.84-51.6h-11.06c-.73 0-1.45-.09-2.13-.27.69 10.06.09 20.72-.45 30.26-.28 4.97-.54 9.58-.54 13.86 0 4.65-3.78 8.43-8.43 8.43-4.66 0-8.44-3.78-8.44-8.43 0-3.97.3-9.18.62-14.78 1.18-20.89 2.75-48.83-11.84-51.59h-11.06c-.76 0-1.5-.1-2.2-.29v43.5c0 4.66-3.78 8.43-8.43 8.43-4.66 0-8.43-3.77-8.43-8.43V216.6c0-14.66-5.99-23.92-13.63-27.78-2.8-1.41-5.82-2.13-8.8-2.13-2.96 0-5.96.7-8.75 2.11-7.55 3.84-13.46 13.14-13.46 28.15v153.39zm-16.86-37.04V229.48l-35.3 21.1a6.87 6.87 0 0 1-9.41-2.37 6.836 6.836 0 0 1-.8-5.06h-.01l19.15-83.76-64.73-56.52c-2.85-2.49-3.14-6.82-.64-9.68a6.844 6.844 0 0 1 4.8-2.34l85.32-7.65 33.75-79.01c1.49-3.5 5.52-5.13 9.01-3.64 1.72.73 2.99 2.08 3.65 3.68l33.73 78.97 85.55 7.68c3.77.32 6.57 3.65 6.24 7.42a6.814 6.814 0 0 1-2.32 4.57l-64.71 56.52 19.14 83.76a6.874 6.874 0 0 1-10.46 7.29l-33.6-20.09v13.99c.7-.19 1.44-.28 2.2-.28h11.62c.67 0 1.31.07 1.93.22 13.96 2.23 20.92 11.53 24.21 23.61 1.3-.83 2.86-1.31 4.51-1.31h11.62c.67 0 1.31.08 1.93.22 14.86 2.38 21.78 12.76 24.8 25.98.71-.19 1.46-.3 2.23-.3h11.63c.66 0 1.31.08 1.93.23 31.9 5.1 31.44 46.2 31.14 73-.04 12.4.52 24.74.65 37.13-1.42 28.91-14.53 51.5-28.03 74.77l-1.14 2c-5.98 10.44-12.91 18.42-20.81 23.86-7.99 5.49-16.83 8.32-26.5 8.43l-100.44.04c-10.03.17-17.81-4.22-23.53-12.79-4.61-6.91-7.67-16.58-9.32-28.76l-62.94-95.25c-3.71-4.97-8.77-12.71-12.55-21.29-2.84-6.45-5-13.45-5.45-20.32-.53-8.13.61-14.69 2.92-19.8 2.87-6.35 7.45-10.5 12.98-12.75 5.16-2.1 11-2.41 16.88-1.24 7.04 1.4 14.31 4.98 20.5 10.09l28.67 23.47zM342 396.57c0-3.8 3.09-6.89 6.89-6.89 3.79 0 6.88 3.09 6.88 6.89v31.48a6.886 6.886 0 0 1-13.77 0v-31.48zm-40.68-13.92c0-3.79 3.08-6.88 6.88-6.88s6.88 3.09 6.88 6.88v45.39c0 3.8-3.08 6.89-6.88 6.89s-6.88-3.09-6.88-6.89v-45.39zm74.67-366.99 24.34 56.97 62.06 5.54c3.73.43 7 2.29 9.27 5 2.28 2.71 3.55 6.26 3.31 10.01l-.08.83c-.2 1.69-.7 3.28-1.43 4.72l-.45.77c-.57.98-1.27 1.89-2.06 2.69-.4.45-.85.87-1.34 1.24l-46.17 40.31 13.81 60.43c.88 3.81.1 7.66-1.83 10.74a14.198 14.198 0 0 1-8.89 6.28c-1.88.42-3.8.45-5.64.13a14.41 14.41 0 0 1-4.96-1.91l-53.02-31.69-24.75 14.8-4.19-18.05 24.25-14.5a8.855 8.855 0 0 1 9.22-.1l50.8 30.37-13.19-57.69c-.69-3.07.28-6.41 2.8-8.61l44.58-38.93-58.42-5.25a8.82 8.82 0 0 1-7.86-5.37l-23.24-54.42-14.65 34.3-18.49-1.66 20.07-46.99c1.53-3.6 4.38-6.24 7.75-7.6 3.38-1.38 7.28-1.44 10.89.1l.7.33c1.44.71 2.73 1.64 3.79 2.7 1.29 1.26 2.29 2.81 3.02 4.51z" />
+</svg>
+
+        <span class="mx-1 ">
+          {{ text_reviews }}
+        </span>
+    </button>
+  {% endif %}
+
+  
+</div>
+ {# end tab header #}
+
+
+
+ {# Tab contact #}
+ <div class="tab-content">
+
+{#1 - description#}
+ <div id="tab-description"  x-show="tab === 'tab-description'" class="tabcontent  ">
+
+          {# table #}
+<div class="overflow-x-auto   relative  sm:rounded-lg">
+    <table class="w-full text-sm h-12  text-gray-500 dark:text-gray-400">
+{% if manufacturer %}   
+            <tr class=" bg-gray-50 dark:bg-gray-800">
+                <th scope="col" class="py-3 px-3">
+                 {{ text_manufacturer }}
+                </th>
+                <td class=" px-6">
+                 <a  href="{{ manufacturers }}">{{ manufacturer }}</a>
+                </td>
+            </tr>
+ {% endif %}
+
+                <tr>
+                <th scope="col" class="py-3 px-6">
+                 {{ text_model }}
+                </th>
+                <td class=" px-6">
+                   {{ model }}
+                </td>
+              </tr>
+
+ {% if reward %}
+              <tr class=" bg-gray-50 dark:bg-gray-800">
+                <th scope="col" class="py-3 px-6">
+                   {{ text_reward }} 
+                </th>
+                 <td class=" px-6">
+                  {{ reward }}
+                </td>
+                </tr>
+
+ {% endif %}
+                <tr>
+                <th scope="col" class="py-3 px-6">
+                  {{ text_stock }}
+                </th>
+               <td class=" px-6">
+                   {{ stock }}
+                </td>
+                </tr>
+            
+      
+
+    </table>
+</div>
+        {# end table #}
+
+        <div class="">
+         <h1 class=" text-xl font-bold">الوصف</h1>
+         <div class=" break-all max-h-48 rounded-md py-2 px-4   bg-primary-100 overflow-x-auto">  {{ description }} </div>
+        </div>
+
+</div>
+ {# end 1- description #}
+
+
+ {# 2- tab-specification #}
+          {% if attribute_groups %}
+            <div id="tab-specification" x-show="tab === 'tab-specification'" class="tabcontent w-full">
+              
+                <table class="w-full">
+                  {% for attribute_group in attribute_groups %}
+                    <thead class="font-semibold ">
+                      <tr>
+                        <th colspan="2" class="text-center py-1 border-primary-400 bg-red-300  border-y-2 w-1/2 "><strong class="  text-primary-700  rounded-lg">{{ attribute_group.name }}</strong></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for attribute in attribute_group.attribute %}
+                        <tr>
+                          <td class="  font-semibold pr-4 ">{{ attribute.name }}</td>
+                          <td>{{ attribute.text }}</td>
+                        </tr>
+                      {% endfor %}
+                    </tbody>
+                  {% endfor %}
+                </table>
+          
+            </div>
+          {% endif %}
+
+ {# end  2- tab-specification #}
+
+
+ {#   3- tab-specification #}
+   {% if review_status %}
+          
+            <div id="tab-review" x-show="tab === 'tab-review'" class="tabcontent ">
+<div>
+            {{ review }}
+             </div>
+         
+            </div>
+           
+          {% endif %}
+ {#   3- tab-specification #}
+
+</div>
+ {#   end tap contact #}
+
+
+
+
+
+      
+
+      </div>
+   </div>
+
+  </div>
+
+  {% if products %}
+   <h3 class="text-xl font-bold  my-2 bg-red-300 text-primary-700 w-full md:w-1/2 rounded-lg border-3 py-2 pr-2 border-red-600">
+        {{ text_related }}</h3>
+
+  <div class="grid-product">
+
+          {% for product in products %}
+           {{ product }}
+          {% endfor %}  
+      {% endif %}
+
+
+      {% if tags %}
+        <p>{{ text_tags }}
+          {% for i in 0..(tags|length - 1) %}
+            <a href="{{ tags[i].href }}">{{ tags[i].tag }}</a>{% if not loop.end %},{% endif %}
+          {% endfor %}
+        </p>
+        </div>
+      {% endif %}
+    </div>
+   
+ 
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript"><!--
+
+
+function open_whatsapp(){
+  var isMobile = {
+Android: function() {
+return navigator.userAgent.match(/Android/i);
+},
+BlackBerry: function() {
+return navigator.userAgent.match(/BlackBerry/i);
+},
+iOS: function() {
+return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+},
+Opera: function() {
+return navigator.userAgent.match(/Opera Mini/i);
+},
+Windows: function() {
+return navigator.userAgent.match(/IEMobile/i);
+},
+any: function() {
+return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+}
+};
+if( isMobile.any() ) {
+  
+var text = $(this).attr("data-text");
+var url = $(this).attr("data-link");
+var message = encodeURIComponent(text) + " - " + encodeURIComponent(url);
+var whatsapp_url = "whatsapp://send?phone=00967714589027?text=" + message;
+window.location.href = whatsapp_url;
+} else {
+alert("Please share this article in mobile device");
+}
+}
+
+ function open_messanger(){
+
+  var isMobile = {
+Android: function() {
+return navigator.userAgent.match(/Android/i);
+},
+BlackBerry: function() {
+return navigator.userAgent.match(/BlackBerry/i);
+},
+iOS: function() {
+return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+},
+Opera: function() {
+return navigator.userAgent.match(/Opera Mini/i);
+},
+Windows: function() {
+return navigator.userAgent.match(/IEMobile/i);
+},
+any: function() {
+return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+}
+};
+if( isMobile.any() ) {
+  
+var text = $(this).attr("data-text");
+var url = $(this).attr("data-link");
+var message = encodeURIComponent(text) + " - " + encodeURIComponent(url);
+var fp_messangerurl = 'fb-messenger://share?link=' + message;
+ window.open('fb-messenger://share?link=' + encodeURIComponent(url) + '&app_id=' + encodeURIComponent(app_id));
+} else {
+alert("Please share this article in mobile device");
+}
+
+ }
+
+
+/*
+function changeTab(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].classList.add("hidden");
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace("active", "");
+    tablinks[i].className = tablinks[i].className.replace("text-blue-600 bg-transparent border-b-2 border-blue-500","");
+   
+  }
+  
+  document.getElementById(cityName).classList.remove("hidden");
+
+  evt.currentTarget.className += "active";
+
+}
+*/
+
+
+$('#input-subscription').on('change', function (e) {
+    var element = this;
+
+    $('.subscription').addClass('d-none');
+
+    $('#subscription-description-' + $(element).val()).removeClass('d-none');
+});
+
+$('#form-product').on('submit', function (e) {
+    e.preventDefault();
+
+    $.ajax({
+        url: 'index.php?route=checkout/cart|add&language={{ language }}',
+        type: 'post',
+        data: $('#form-product').serialize(),
+        dataType: 'json',
+        contentType: 'application/x-www-form-urlencoded',
+        cache: false,
+        processData: false,
+        beforeSend: function () {
+            $('#button-cart').prop('disabled', true).addClass('loading');
+        },
+        complete: function () {
+            $('#button-cart').prop('disabled', false).removeClass('loading');
+        },
+        success: function (json) {
+            $('#form-product').find('.is-invalid').removeClass('is-invalid');
+            $('#form-product').find('.invalid-feedback').removeClass('d-block');
+
+            if (json['error']) {
+                for (key in json['error']) {
+                    $('#input-' + key.replaceAll('_', '-')).addClass('is-invalid').find('.form-control, .form-select, .form-check-input, .form-check-label').addClass('is-invalid');
+                    $('#error-' + key.replaceAll('_', '-')).html(json['error'][key]).addClass('d-block');
+                }
+            }
+
+            if (json['success']) {
+                $('#alert').prepend('<div class="alert alert-success alert-dismissible"><i class="fa-solid fa-circle-check"></i> ' + json['success'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+
+                $('#header-cart').load('index.php?route=common/cart|info');
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+$(document).ready(function () {
+    // $('.magnific-popup').magnificPopup({
+    //     type: 'image',
+    //     delegate: 'a',
+    //     gallery: {
+    //         enabled: true
+    //     }
+    // });
+
+   
+  
+  // This button will increment the value
+  $('[data-quantity="plus"]').on('click' , function(e){
+  
+     // Stop acting like a button
+    e.preventDefault();
+   
+     // Get the field name
+     fieldName = $(this).attr('data-field');
+     fieldName2 = 'input-quantity';
+    // alert($('#'+fieldName).val());
+     // Get its current value
+     var currentVal = parseInt($('#'+fieldName2).val());
+    
+     // If is not undefined
+     if (!isNaN(currentVal)) {
+         // Increment
+        $('#'+fieldName2).val(currentVal + 1);
+     } else {
+         // Otherwise put a 0 there
+        $('#'+fieldName2).val(0);
+     }
+  // $('button[name='+fieldName+']').click();
+ });
+ // This button will decrement the value till 0
+ $('[data-quantity="minus"]').on('click' , function(e) {
+   //alert("gg");
+     // Stop acting like a button
+    e.preventDefault();
+     // Get the field name
+     fieldName = $(this).attr('data-field');
+     fieldName2 = 'input-quantity';
+     // Get its current value
+     var currentVal = parseInt($('#'+fieldName2).val());
+     // If it isn't undefined or its greater than 0
+     if (!isNaN(currentVal) && currentVal > 0) {
+         // Decrement one
+         $('#'+fieldName2).val(currentVal - 1);
+     } else {
+         // Otherwise put a 0 there
+         $('#'+fieldName2).val(0);
+     }
+   //$('button[name='+fieldName+']').click();
+   
+ });
+
+
+});
+//--></script> 
+{{ footer }}  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{# <div id="product-info" class="container">
+  <ul class="breadcrumb">
+    {% for breadcrumb in breadcrumbs %}
+      <li class="breadcrumb-item"><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+    {% endfor %}
+  </ul>
+  <div class="row">{{ column_left }}
+    <div id="content" class="col">
+      {{ content_top }}
+      <div class="row mb-3">
+        <div class="col-sm">
+          {% if thumb or images %}
+            <div class="image magnific-popup">
+              {% if thumb %}
+                <a href="{{ popup }}" title="{{ heading_title }}"><img src="{{ thumb }}" title="{{ heading_title }}" alt="{{ heading_title }}" class="img-thumbnail mb-3"/></a>
+              {% endif %}
+              {% if images %}
+                <div>
+                  {% for image in images %}
+                    <a href="{{ image.popup }}" title="{{ heading_title }}"><img src="{{ image.thumb }}" title="{{ heading_title }}" alt="{{ heading_title }}" class="img-thumbnail"/></a>&nbsp;
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+        <div class="col-sm">
+          <h1>{{ heading_title }}</h1>
+          <ul class="list-unstyled">
+            {% if manufacturer %}
+              <li>{{ text_manufacturer }} <a href="{{ manufacturers }}">{{ manufacturer }}</a></li>
+            {% endif %}
+            <li>{{ text_model }} {{ model }}</li>
+            {% if reward %}
+              <li>{{ text_reward }} {{ reward }}</li>
+            {% endif %}
+            <li>{{ text_stock }} {{ stock }}</li>
+          </ul>
+          {% if price %}
+            <ul class="list-unstyled">
+              {% if not special %}
+                <li>
+                  <h2><span class="price-new">{{ price }}</span></h2>
+                </li>
+              {% else %}
+                <li><span class="price-old">{{ price }}</span></li>
+                <li><h2><span class="price-new">{{ special }}</span></h2></li>
+              {% endif %}
+              {% if tax %}
+                <li>{{ text_tax }} {{ tax }}</li>
+              {% endif %}
+              {% if points %}
+                <li>{{ text_points }} {{ points }}</li>
+              {% endif %}
+              {% if discounts %}
+                <li>
+                  <hr>
+                </li>
+                {% for discount in discounts %}
+                  <li>{{ discount.quantity }}{{ text_discount }}{{ discount.price }}</li>
+                {% endfor %}
+              {% endif %}
+            </ul>
+          {% endif %}
+          <form method="post" data-oc-toggle="ajax">
+            <div class="btn-group">
+              <button type="submit" formaction="{{ add_to_wishlist }}" data-bs-toggle="tooltip" class="btn btn-light" title="{{ button_wishlist }}"><i class="fa-solid fa-heart"></i></button>
+              <button type="submit" formaction="{{ add_to_compare }}" data-bs-toggle="tooltip" class="btn btn-light" title="{{ button_compare }}"><i class="fa-solid fa-arrow-right-arrow-left"></i></button>
+            </div>
+            <input type="hidden" name="product_id" value="{{ product_id }}"/>
+          </form>
+          <br/>
+          <div id="product">
+            <form id="form-product">
+              {% if options %}
+            <hr>
+              <h3>{{ text_option }}</h3>
+              <div>
+                {% for option in options %}
+                  {% if option.type == 'select' %}
+                    <div class="mb-3{% if option.required %} required{% endif %}">
+                      <label for="input-option-{{ option.product_option_id }}" class="form-label">{{ option.name }}</label> <select name="option[{{ option.product_option_id }}]" id="input-option-{{ option.product_option_id }}" class="form-select">
+                        <option value="">{{ text_select }}</option>
+                        {% for option_value in option.product_option_value %}
+                          <option value="{{ option_value.product_option_value_id }}">{{ option_value.name }}
+                            {% if option_value.price %}
+                              ({{ option_value.price_prefix }}{{ option_value.price }})
+                            {% endif %}</option>
+                        {% endfor %}
+                      </select>
+                      <div id="error-option-{{ option.product_option_id }}" class="invalid-feedback"></div>
+                    </div>
+                  {% endif %}
+                  {% if option.type == 'radio' %}
+                    <div class="mb-3{% if option.required %} required{% endif %}">
+                      <label class="form-label">{{ option.name }}</label>
+                      <div id="input-option-{{ option.product_option_id }}">
+                        {% for option_value in option.product_option_value %}
+                          <div class="form-check">
+                            <input type="radio" name="option[{{ option.product_option_id }}]" value="{{ option_value.product_option_value_id }}" id="input-option-value-{{ option_value.product_option_value_id }}" class="form-check-input"/> <label for="input-option-value-{{ option_value.product_option_value_id }}" class="form-check-label">{% if option_value.image %}<img src="{{ option_value.image }}" alt="{{ option_value.name }} {% if option_value.price %}{{ option_value.price_prefix }} {{ option_value.price }}{% endif %}" class="img-thumbnail"/>{% endif %}
+                              {{ option_value.name }}
+                              {% if option_value.price %}
+                                ({{ option_value.price_prefix }}{{ option_value.price }})
+                              {% endif %}
+                            </label>
+                          </div>
+                        {% endfor %}
+                      </div>
+                      <div id="error-option-{{ option.product_option_id }}" class="invalid-feedback"></div>
+                    </div>
+                  {% endif %}
+                  {% if option.type == 'checkbox' %}
+                    <div class="mb-3{% if option.required %} required{% endif %}">
+                      <label class="form-label">{{ option.name }}</label>
+                      <div id="input-option-{{ option.product_option_id }}">
+
+                        {% for option_value in option.product_option_value %}
+                          <div class="form-check">
+                            <input type="checkbox" name="option[{{ option.product_option_id }}][]" value="{{ option_value.product_option_value_id }}" id="input-option-value-{{ option_value.product_option_value_id }}" class="form-check-input"/> <label for="input-option-value-{{ option_value.product_option_value_id }}" class="form-check-label">
+                              {% if option_value.image %}
+                                <img src="{{ option_value.image }}" alt="{{ option_value.name }} {% if option_value.price %}{{ option_value.price_prefix }} {{ option_value.price }}{% endif %}" class="img-thumbnail"/>{% endif %}
+                              {{ option_value.name }}
+                              {% if option_value.price %}
+                                ({{ option_value.price_prefix }}{{ option_value.price }})
+                              {% endif %}</label>
+                          </div>
+                        {% endfor %}
+                      </div>
+                      <div id="error-option-{{ option.product_option_id }}" class="invalid-feedback"></div>
+                    </div>
+                  {% endif %}
+                  {% if option.type == 'text' %}
+                    <div class="mb-3{% if option.required %} required{% endif %}">
+                      <label for="input-option-{{ option.product_option_id }}" class="form-label">{{ option.name }}</label> <input type="text" name="option[{{ option.product_option_id }}]" value="{{ option.value }}" placeholder="{{ option.name }}" id="input-option-{{ option.product_option_id }}" class="form-control"/>
+                      <div id="error-option-{{ option.product_option_id }}" class="invalid-feedback"></div>
+                    </div>
+                  {% endif %}
+                  {% if option.type == 'textarea' %}
+                    <div class="mb-3{% if option.required %} required{% endif %}">
+                      <label for="input-option-{{ option.product_option_id }}" class="form-label">{{ option.name }}</label> <textarea name="option[{{ option.product_option_id }}]" rows="5" placeholder="{{ option.name }}" id="input-option-{{ option.product_option_id }}" class="form-control">{{ option.value }}</textarea>
+                      <div id="error-option-{{ option.product_option_id }}" class="invalid-feedback"></div>
+                    </div>
+                  {% endif %}
+                  {% if option.type == 'file' %}
+                    <div class="mb-3{% if option.required %} required{% endif %}">
+                      <label for="button-upload-{{ option.product_option_id }}" class="form-label">{{ option.name }}</label>
+                      <div>
+                        <button type="button" id="button-upload-{{ option.product_option_id }}" data-oc-toggle="upload" data-oc-size-max="{{ config_file_max_size }}" data-oc-size-error="{{ error_upload_size }}" data-oc-url="{{ upload }}" data-oc-target="#input-option-{{ option.product_option_id }}" class="btn btn-light btn-block"><i class="fa-solid fa-upload"></i> {{ button_upload }}</button>
+                        <input type="hidden" name="option[{{ option.product_option_id }}]" value="" id="input-option-{{ option.product_option_id }}"/>
+                      </div>
+                      <div id="error-option-{{ option.product_option_id }}" class="invalid-feedback"></div>
+                    </div>
+                  {% endif %}
+                  {% if option.type == 'date' %}
+                    <div class="mb-3{% if option.required %} required{% endif %}">
+                      <label for="input-option-{{ option.product_option_id }}" class="form-label">{{ option.name }}</label>
+                      <div class="input-group">
+                        <input type="text" name="option[{{ option.product_option_id }}]" value="{{ option.value }}" id="input-option-{{ option.product_option_id }}" class="form-control date"/>
+                        <div class="input-group-text"><i class="fa-regular fa-calendar"></i></div>
+                      </div>
+                      <div id="error-option-{{ option.product_option_id }}" class="invalid-feedback"></div>
+                    </div>
+                  {% endif %}
+                  {% if option.type == 'datetime' %}
+                    <div class="mb-3{% if option.required %} required{% endif %}">
+                      <label for="input-option-{{ option.product_option_id }}" class="form-label">{{ option.name }}</label>
+                      <div class="input-group">
+                        <input type="text" name="option[{{ option.product_option_id }}]" value="{{ option.value }}" id="input-option-{{ option.product_option_id }}" class="form-control datetime"/>
+                        <div class="input-group-text"><i class="fa-regular fa-calendar"></i></div>
+                      </div>
+                      <div id="error-option-{{ option.product_option_id }}" class="invalid-feedback"></div>
+                    </div>
+                  {% endif %}
+                  {% if option.type == 'time' %}
+                    <div class="mb-3{% if option.required %} required{% endif %}">
+                      <label for="input-option-{{ option.product_option_id }}" class="form-label">{{ option.name }}</label>
+                      <div class="input-group">
+                        <input type="text" name="option[{{ option.product_option_id }}]" value="{{ option.value }}" id="input-option-{{ option.product_option_id }}" class="form-control time"/>
+                        <div class="input-group-text"><i class="fa-regular fa-calendar"></i></div>
+                      </div>
+                      <div id="error-option-{{ option.product_option_id }}" class="invalid-feedback"></div>
+                    </div>
+                  {% endif %}
+                {% endfor %}
+                {% endif %}
+                {% if subscription_plans %}
+                  <hr/>
+                  <h3>{{ text_subscription }}</h3>
+                  <div class="mb-3 required">
+                    <select name="subscription_plan_id" id="input-subscription" class="form-select">
+                      <option value="">{{ text_select }}</option>
+                      {% for subscription_plan in subscription_plans %}
+                        <option value="{{ subscription_plan.subscription_plan_id }}">{{ subscription_plan.name }}</option>
+                      {% endfor %}
+                    </select>
+                    {% for subscription_plan in subscription_plans %}
+                      <div id="subscription-description-{{ subscription_plan.subscription_plan_id }}" class="form-text subscription d-none">{{ subscription_plan.description }}</div>
+                    {% endfor %}
+                    <div id="error-subscription" class="invalid-feedback"></div>
+                  </div>
+                {% endif %}
+                <div class="mb-3">
+                  <label for="input-quantity" class="form-label">{{ entry_qty }}</label> <input type="text" name="quantity" value="{{ minimum }}" size="2" id="input-quantity" class="form-control"/> <input type="hidden" name="product_id" value="{{ product_id }}" id="input-product-id"/>
+                  <div id="error-quantity" class="form-text"></div>
+                  <br/>
+                  <button type="submit" id="button-cart" class="btn btn-primary btn-lg btn-block">{{ button_cart }}</button>
+                </div>
+                {% if minimum > 1 %}
+                  <div class="alert alert-info"><i class="fa-solid fa-circle-info"></i> {{ text_minimum }}</div>
+                {% endif %}
+              </div>
+              {% if review_status %}
+                <div class="rating">
+                  <p>{% for i in 1..5 %}
+                      {% if rating < i %}
+                      <span class="fa-stack"><i class="fa-regular fa-star fa-stack-1x"></i></span>
+                    {% else %}
+                      <span class="fa-stack"><i class="fa-solid fa-star fa-stack-1x"></i><i class="fa-regular fa-star fa-stack-1x"></i></span>
+                    {% endif %}
+                    {% endfor %}
+                    <a href="" onclick="$('a[href=\'#tab-review\']').tab('show'); return false;">{{ text_reviews }}</a> / <a href="" onclick="$('a[href=\'#tab-review\']').tab('show'); return false;">{{ text_write }}</a></p>
+                </div>
+              {% endif %}
+            </form>
+          </div>
+        </div>
+
+
+
+        <ul class="nav nav-tabs">
+          <li class="nav-item"><a href="#tab-description" data-bs-toggle="tab" class="nav-link active">{{ tab_description }}</a></li>
+          {% if attribute_groups %}
+            <li class="nav-item"><a href="#tab-specification" data-bs-toggle="tab" class="nav-link">{{ tab_attribute }}</a></li>
+          {% endif %}
+          {% if review_status %}
+            <li class="nav-item"><a href="#tab-review" data-bs-toggle="tab" class="nav-link">{{ tab_review }}</a></li>
+          {% endif %}
+        </ul>
+
+
+
+        <div class="tab-content">
+
+          <div id="tab-description" class="tab-pane fade show active mb-4">{{ description }}</div>
+
+
+          {% if attribute_groups %}
+            <div id="tab-specification" class="tab-pane fade">
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                  {% for attribute_group in attribute_groups %}
+                    <thead>
+                      <tr>
+                        <td colspan="2"><strong>{{ attribute_group.name }}</strong></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for attribute in attribute_group.attribute %}
+                        <tr>
+                          <td>{{ attribute.name }}</td>
+                          <td>{{ attribute.text }}</td>
+                        </tr>
+                      {% endfor %}
+                    </tbody>
+                  {% endfor %}
+                </table>
+              </div>
+            </div>
+          {% endif %}
+
+          {% if review_status %}
+            <div id="tab-review" class="tab-pane fade mb-4">{{ review }}</div>
+          {% endif %}
+
+        </div>
+      </div>
+
+
+
+
+
+
+      {% if products %}
+        <h3>{{ text_related }}</h3>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4">
+          {% for product in products %}
+            <div class="col">{{ product }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+
+      {% if tags %}
+        <p>{{ text_tags }}
+          {% for i in 0..(tags|length - 1) %}
+            <a href="{{ tags[i].href }}">{{ tags[i].tag }}</a>{% if not loop.end %},{% endif %}
+          {% endfor %}
+        </p>
+      {% endif %}
+
+
+      {{ content_bottom }}</div>
+    {{ column_right }}</div>
+</div> #}

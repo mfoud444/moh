@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html dir="{{ direction }}" lang="{{ lang }}">
+<head>
+  <meta charset="UTF-8"/>
+  <title>{{ title }}</title>
+  <base href="{{ base }}"/>
+  {% if description %}
+    <meta name="description" content="{{ description }}"/>
+  {% endif %}
+  {% if keywords %}
+    <meta name="keywords" content="{{ keywords }}"/>
+  {% endif %}
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <link href="{{ bootstrap }}" rel="stylesheet" media="screen"/>
+  <link href="{{ icons }}" rel="stylesheet" type="text/css"/>
+  <link href="view/stylesheet/style.css" rel="stylesheet" type="text/css" />
+  {#<link href="{{ stylesheet }}" rel="stylesheet" type="text/css"/> #}
+  <script type="text/javascript" src="view/javascript/alpine.js"></script>
+  <script src="{{ jquery }}" type="text/javascript"></script>
+  <script type="text/javascript" src="view/javascript/jquery/datetimepicker/moment.min.js"></script>
+  <script type="text/javascript" src="view/javascript/jquery/datetimepicker/moment-with-locales.min.js"></script>
+  <script type="text/javascript" src="view/javascript/jquery/datetimepicker/daterangepicker.js"></script>
+  <link href="view/javascript/jquery/datetimepicker/daterangepicker.css" rel="stylesheet" type="text/css"/>
+  <script type="text/javascript" src="view/javascript/common.js"></script>
+  {% for style in styles %}
+    <link type="text/css" href="{{ style.href }}" rel="{{ style.rel }}" media="{{ style.media }}"/>
+  {% endfor %}
+  {% for link in links %}
+    <link href="{{ link.href }}" rel="{{ link.rel }}"/>
+  {% endfor %}
+  {% for script in scripts %}
+    <script type="text/javascript" src="{{ script.href }}"></script>
+  {% endfor %}
+</head>
+<body class="font-serif">
+<div id="container" class="  ">
+  <header id="header" class="navbar  navbar-expand navbar-light bg-light">
+    <div class="container-fluid flex bg-purple-800 px-4 flex-row items-center">
+      <a href="{{ home }}" class="navbar-brand d-none d-lg-block text-white text-3xl font-bold">خيال العطور</a>
+
+
+      {% if logged %}
+
+        <button type="button" id="button-menu" class="md:hidden ">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-white fill-white">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12H12m-8.25 5.25h16.5" />
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 hidden">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+          
+        </button>
+
+        <ul class="nav  flex items-center">
+
+          <li id="nav-notification" class="nav-item dropdown text-white">
+            <a href="#" data-bs-toggle="dropdown" class="nav-link dropdown-toggle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white ">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+            </svg>
+            {% if notification_total %} <span class="badge bg-danger">{{ notification_total }}</span>{% endif %}</a>
+            <div class="dropdown-menu dropdown-menu-end">
+              {% if notifications %}
+                {% for notification in notifications %}
+                  <a href="{{ notification.href }}" data-bs-toggle="modal" class="dropdown-item">{{ notification.title }}</a>
+                {% endfor %}
+                <a href="{{ notification_all }}" class="dropdown-item text-center text-primary">{{ text_notification_all }}</a>
+              {% else %}
+                <span class="dropdown-item text-center">{{ text_no_results }}</span>
+              {% endif %}
+            </div>
+          </li>
+        {#  <li id="nav-language" class="nav-item dropdown">{{ language }}</li> #}
+
+          <li id="nav-profile" class="nav-item  dropdown">
+            <a href="#" data-bs-toggle="dropdown" class="nav-link  text-white font-bold flex items-center dropdown-toggle">
+              <img src="{{ image }}" alt="{{ firstname }} {{ lastname }}" title="{{ username }}" class="rounded-circle"/><span class="d-none d-md-inline d-lg-inline">&nbsp;&nbsp;&nbsp;{{ firstname }} {{ lastname }} <i class="fa-solid fa-caret-down fa-fw"></i></span></a>
+            <ul class="dropdown-menu dropdown-menu-start">
+              <li class=""><a href="{{ profile }}" class="dropdown-item"><i class="fa-solid fa-user-circle fa-fw"></i> {{ text_profile }}</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><h6 class="dropdown-header">{{ text_store }}</h6></li>
+              {% for store in stores %}
+                <a href="{{ store.href }}" target="_blank" class="dropdown-item">{{ store.name }}</a>
+              {% endfor %}
+              <li id="nav-logout" class="nav-item"><a href="{{ logout }}" class="nav-link"><i class="fa-solid fa-sign-out"></i> <span class="d-none d-md-inline">{{ text_logout }}</span></a></li>
+            </ul>
+          </li>
+
+
+
+        </ul>
+      {% endif %}
+    </div>
+  </header>
+  <div id="alert" class="toast-container position-fixed top-0 end-0 p-3"></div>
+<main class="flex  min-h-screen ">

@@ -1,0 +1,103 @@
+<nav id="column-left" class="flex-none hidden md:block bg-red-200  w-64 p-2 md:p-4 font-bold text-[1rem]  ">
+	<!-- <div id="navigation"><span class="fa-solid fa-bars px-2 py-4"></span> {{ text_navigation }}</div> -->
+	<ul id="menu" class="flex  flex-col gap-2">
+		{% set i = 0 %}
+		{% for menu in menus %}
+			<li id="{{ menu.id }}" x-data="{ isOpen: false }">
+				{% if menu.href %}
+					<a href="{{ menu.href }}" @click="isOpen = !isOpen" class="flex  gap-2 rounded-lg  pr-8 py-2 flex-row bg-primary-900 hover:bg-primary-300 text-white cursor-pointer   items-center"><i class="{{ menu.icon }}"></i> {{ menu.name }}</a>
+				{% else %}
+					<div @click="isOpen = !isOpen" class=" flex gap-2 rounded-lg bg-purple-900 p-2  hover:bg-primary-300 text-white cursor-pointer  flex-row-reverse justify-end items-center ">
+						<div class="flex gap-2 items-center"><i class="{{ menu.icon }}"></i>{{ menu.name }}</div>
+						
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+						  </svg>
+					</div>
+				{% endif %}
+				{% if menu.children %}
+					<ul id="collapse-{{ i }}" class="px-4 py-2 flex flex-col gap-2"  x-show="isOpen" 
+					@click.away="isOpen = false"
+					x-transition:enter="transition ease-out duration-100"
+					x-transition:enter-start="opacity-0 scale-90"
+					x-transition:enter-end="opacity-100 scale-100"
+					x-transition:leave="transition ease-in duration-100"
+					x-transition:leave-start="opacity-100 scale-100"
+					x-transition:leave-end="opacity-0 scale-90" >
+						{% set j = 0 %}
+						{% for children_1 in menu.children %}
+							<li x-data="{ isOpen: false }" class="text-white bg-purple-700  rounded-lg ">
+								{% if children_1.href %}
+									<a @click="isOpen = !isOpen" href="{{ children_1.href }}" class="pr-4 p-2 block hover:bg-yellow-300  ">{{ children_1.name }}</a>
+								{% else %}
+									<div @click="isOpen = !isOpen" class=" cursor-pointer p-2 hover:bg-yellow-300 flex flex-row-reverse justify-end  items-center ">{{ children_1.name }} 
+										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+										<path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+									  </svg>
+									  </div>
+								{% endif %}
+								{% if children_1.children %}
+									<ul id="collapse-{{ i }}-{{ j }}" class="pr-8 px-4 py-2 flex flex-col gap-2" x-show="isOpen" 
+									@click.away="isOpen = false"
+									x-transition:enter="transition ease-out duration-100"
+									x-transition:enter-start="opacity-0 scale-90"
+									x-transition:enter-end="opacity-100 scale-100"
+									x-transition:leave="transition ease-in duration-100"
+									x-transition:leave-start="opacity-100 scale-100"
+									x-transition:leave-end="opacity-0 scale-90">
+										{% set k = 0 %}
+										{% for children_2 in children_1.children %}
+											<li  class="text-white bg-purple-500 p-1   rounded-lg">{% if children_2.href %}
+													<a href="{{ children_2.href }}">{{ children_2.name }}</a>
+												{% else %}
+													<a href="#collapse-{{ i }}-{{ j }}-{{ k }}">{{ children_2.name }}</a>
+												{% endif %}
+												{% if children_2.children %}
+													<ul id="collapse-{{ i }}-{{ j }}-{{ k }}" class="">
+														{% for children_3 in children_2.children %}
+															<li><a href="{{ children_3.href }}">{{ children_3.name }}</a></li>
+														{% endfor %}
+													</ul>
+												{% endif %}</li>
+											{% set k = k + 1 %}
+										{% endfor %}
+									</ul>
+								{% endif %}
+							</li>
+							{% set j = j + 1 %}
+						{% endfor %}
+					</ul>
+				{% endif %}
+			</li>
+			{% set i = i + 1 %}
+		{% endfor %}
+	</ul>
+
+{#
+	{% if statistics_status %}
+		<div id="stats">
+			<ul>
+				<li>
+					<div>{{ text_complete_status }} <span class="float-end">{{ complete_status }}%</span></div>
+					<div class="progress">
+						<div class="progress-bar bg-success" role="progressbar" aria-valuenow="{{ complete_status }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ complete_status }}%"><span class="sr-only">{{ complete_status }}%</span></div>
+					</div>
+				</li>
+				<li>
+					<div>{{ text_processing_status }} <span class="float-end">{{ processing_status }}%</span></div>
+					<div class="progress">
+						<div class="progress-bar bg-warning" role="progressbar" aria-valuenow="{{ processing_status }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ processing_status }}%"><span class="sr-only">{{ processing_status }}%</span></div>
+					</div>
+				</li>
+				<li>
+					<div>{{ text_other_status }} <span class="float-end">{{ other_status }}%</span></div>
+					<div class="progress">
+						<div class="progress-bar bg-danger" role="progressbar" aria-valuenow="{{ other_status }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ other_status }}%"><span class="sr-only">{{ other_status }}%</span></div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	{% endif %}
+
+	#}
+</nav>

@@ -1,0 +1,23 @@
+{
+  "name": "style",
+  "version": "1.0.0",
+  "description": "mohammed foud admin ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass-dev": "sass --watch --update --style=expanded myscss/main.scss:stylesheet.css",
+    "sass-prod": "sass --no-source-map --style=compressed myscss/main.scss:stylesheet.css",
+    "dev": "npx tailwindcss -i myscss/input.css -o style.css --watch"
+  },
+  "author": "mohammed foud",
+  "license": "ISC",
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.3",
+    "sass": "^1.55.0",
+    "tailwindcss": "^3.2.4",
+    "tailwindcss-rtl": "^0.9.0"
+  },
+  "dependencies": {
+    "flowbite": "^1.5.3"
+  }
+}

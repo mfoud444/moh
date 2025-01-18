@@ -1,0 +1,355 @@
+<?php
+
+use Twig\Environment;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Extension\SandboxExtension;
+use Twig\Markup;
+use Twig\Sandbox\SecurityError;
+use Twig\Sandbox\SecurityNotAllowedTagError;
+use Twig\Sandbox\SecurityNotAllowedFilterError;
+use Twig\Sandbox\SecurityNotAllowedFunctionError;
+use Twig\Source;
+use Twig\Template;
+
+/* catalog/view/template/checkout/payment_method.twig */
+class __TwigTemplate_97f5ab1fe7eb9c437711961a863e9b9f extends Template
+{
+    private $source;
+    private $macros = [];
+
+    public function __construct(Environment $env)
+    {
+        parent::__construct($env);
+
+        $this->source = $this->getSourceContext();
+
+        $this->parent = false;
+
+        $this->blocks = [
+        ];
+    }
+
+    protected function doDisplay(array $context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        // line 1
+        echo "<form id=\"form-payment-method\" class=\"mb-2\">
+  <fieldset >
+    <legend class=\"checkout-header\">";
+        // line 3
+        echo ($context["heading_title"] ?? null);
+        echo "
+
+        <svg id=\"Layer_1\" data-name=\"Layer 1\" class=\"h-6 w-6\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 81.28 122.88\">
+            <defs>
+                <style>
+                    .cls-1 {
+                        fill-rule: evenodd;
+                    }
+                </style>
+            </defs>
+            <title>payment</title>
+            <path class=\"cls-1\"
+                d=\"M0,49.17,49.6,0,81.28,31.13l-5.11,2.38-22-21.59-.26-.27a5.06,5.06,0,0,0-7.15.16l-1.79,1.86-.06-.06-8.4,8.9L4.34,53.42,0,49.17ZM13.41,76.85l-.3,1.92c-.79,5.12-2.07,13.44-2.59,16.38a2.18,2.18,0,0,1-.17.51,1.29,1.29,0,0,1-.26.42,19.68,19.68,0,0,0-1.61,2.39,6.65,6.65,0,0,0-.76,1.89,2.23,2.23,0,0,0,0,1,1.73,1.73,0,0,0,.48.79C13.08,107.05,18.26,112,23,117a6.54,6.54,0,0,0,5.34,1.68,31.75,31.75,0,0,0,5.3-1.15,43.8,43.8,0,0,0,5.54-1.61,15.85,15.85,0,0,0,4.9-3l4.08-4.26a1.37,1.37,0,0,1,.19-.22l0,0c.12-.12.47-.47,1-.94l0,0c2.7-2.64,6-5.89,4.13-8.59l-1.37-1.37-1,.9L49.8,99.53c-.7.61-1.35,1.19-1.94,1.77a2.11,2.11,0,0,1-3-3c.63-.63,1.39-1.31,2.18-2l.1-.08c2.65-2.35,5.68-5,4.2-7.2l-1.61-1.61c-.38.39-.78.76-1.18,1.13s-1,.92-1.52,1.36L46.9,90c-.68.6-1.32,1.16-1.91,1.75a2.11,2.11,0,0,1-3-3c.61-.61,1.36-1.28,2.15-2l.12-.11c2.65-2.34,5.68-5,4.21-7.2-.56-.55-1.13-1.1-1.67-1.67l-4.48,4.48a2.11,2.11,0,0,1-3-3l9-9a7.51,7.51,0,0,0,1.89-2.88,4.36,4.36,0,0,0,.08-2.8,3.8,3.8,0,0,0-.37-.79,3.69,3.69,0,0,0-.52-.66,3.48,3.48,0,0,0-.67-.53,4,4,0,0,0-.78-.36,4.34,4.34,0,0,0-2.79.1,8.14,8.14,0,0,0-2.94,2L20.59,86.06a2.11,2.11,0,0,1-3-3l.94-.93-5.16-5.27Zm10.15.28L36.42,64.27l-.24-.07A9.18,9.18,0,1,1,47.87,58a8.27,8.27,0,0,1,1.41.33h0a8,8,0,0,1,1.65.76,8.1,8.1,0,0,1,1.45,1.14l0,0a7.7,7.7,0,0,1,.54.6L65.12,48.41a6,6,0,0,1,.1-8.43L54.06,28.58a6,6,0,0,1-8.44-.09h0L15,59.9A6,6,0,0,1,15,68.33l8.61,8.8Zm30.78-8.58v0a11.7,11.7,0,0,1-3,4.85l-1.47,1.46,1.74,1.74.16.18.14.19a6.16,6.16,0,0,1,.52,7.14l.05,0a2.91,2.91,0,0,1,.33.26l1.7,1.71a.93.93,0,0,1,.16.18l.13.17a6.48,6.48,0,0,1,1.42,4.23A7,7,0,0,1,55,94.19l1.69,1.68.16.19.12.17c4.14,5.66-.68,10.37-4.57,14.17-.26.31-.69.69-1,1-1.36,1.42-3,3.34-4.4,4.6-3.92,3.55-7.78,4.5-12.25,5.59a32.67,32.67,0,0,1-6.12,1.27,10.61,10.61,0,0,1-8.52-2.9L5.33,105.18a5.8,5.8,0,0,1-1.59-2.55,6.49,6.49,0,0,1-.08-3.08v0a10.41,10.41,0,0,1,1-2.74A19.92,19.92,0,0,1,6.52,93.9c.38-2.17,1.21-7.7,2-12.78.45-3.05.89-5.92,1.22-8L1.43,64.63,50.6,15h0L78.83,43.85,54.34,68.55Z\" />
+        </svg>
+    </legend>
+    <div class=\"input-group my-2\">
+      <select name=\"payment_method\" id=\"input-payment-method\" class=\"form-select\"";
+        // line 19
+        if ( !($context["payment_methods"] ?? null)) {
+            echo "  ";
+        }
+        echo ">
+        
+        ";
+        // line 21
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(($context["payment_methods"] ?? null));
+        foreach ($context['_seq'] as $context["_key"] => $context["payment_method"]) {
+            // line 22
+            echo "          <option value=\"";
+            echo twig_get_attribute($this->env, $this->source, $context["payment_method"], "code", [], "any", false, false, false, 22);
+            echo "\"";
+            if ((twig_get_attribute($this->env, $this->source, $context["payment_method"], "code", [], "any", false, false, false, 22) == ($context["code"] ?? null))) {
+                echo " selected";
+            }
+            echo ">";
+            echo twig_get_attribute($this->env, $this->source, $context["payment_method"], "title", [], "any", false, false, false, 22);
+            echo "</option>
+        ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['payment_method'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 24
+        echo "
+        ";
+        // line 25
+        if (($context["stores"] ?? null)) {
+            // line 26
+            echo "          <optgroup label=\"";
+            echo ($context["text_stored"] ?? null);
+            echo "\">
+            ";
+            // line 27
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable(($context["stores"] ?? null));
+            foreach ($context['_seq'] as $context["_key"] => $context["store"]) {
+                // line 28
+                echo "              <option value=\"";
+                echo twig_get_attribute($this->env, $this->source, $context["store"], "code", [], "any", false, false, false, 28);
+                echo "\"";
+                if ((twig_get_attribute($this->env, $this->source, $context["store"], "code", [], "any", false, false, false, 28) == ($context["code"] ?? null))) {
+                    echo " selected";
+                }
+                echo ">";
+                echo twig_get_attribute($this->env, $this->source, $context["store"], "name", [], "any", false, false, false, 28);
+                echo "</option>
+            ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['store'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 30
+            echo "          </optgroup>
+        ";
+        }
+        // line 32
+        echo "      </select>
+      <button type=\"button\" hidden id=\"button-payment-method\" class=\"btn btn-light\"><i class=\"fa-solid fa-rotate\"></i></button>
+    </div>
+  </fieldset>
+</form>
+<div class=\"\">
+  <label for=\"input-comment\" class=\"form-label mr-2\"><strong>";
+        // line 38
+        echo ($context["text_comments"] ?? null);
+        echo "</strong></label> <textarea name=\"comment\" rows=\"3\" id=\"input-comment\" class=\"form-control\">";
+        echo ($context["comment"] ?? null);
+        echo "</textarea>
+</div>
+";
+        // line 40
+        if (($context["text_agree"] ?? null)) {
+            // line 41
+            echo "  <div class=\"\">
+    <div class=\"text-end\">";
+            // line 42
+            echo ($context["text_agree"] ?? null);
+            echo " <input type=\"checkbox\" name=\"agree\" value=\"1\" id=\"input-agree\" class=\"form-check-input\"";
+            if (($context["agree"] ?? null)) {
+                echo " checked";
+            }
+            echo "/></div>
+  </div>
+";
+        }
+        // line 45
+        echo "<script type=\"text/javascript\"><!--
+// Payment Methods
+\$('#button-payment-method').on('click', function () {
+    var element = this;
+   
+    chain.attach(function () {
+        return \$.ajax({
+            url: 'index.php?route=checkout/payment_method|getMethods&language=";
+        // line 52
+        echo ($context["language"] ?? null);
+        echo "',
+            dataType: 'json',
+            beforeSend: function () {
+                \$('#input-payment-method').prop('disabled', true);
+            },
+            success: function (json) {
+                console.log(json);
+               
+                if (json['redirect']) {
+                    location = json['redirect'];
+                }
+
+                if (json['error']) {
+                    \$('#alert').prepend('<div class=\"alert alert-danger alert-dismissible\"><i class=\"fa-solid fa-circle-exclamation\"></i> ' + json['error'] + ' <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\"></button></div>');
+                   
+                    \$('#input-shipping-method').prop('disabled', true);
+                }
+                html ='';
+               // html = '<option value=\"\">";
+        // line 70
+        echo ($context["text_select"] ?? null);
+        echo "</option>';
+
+                if (json['payment_methods']) {
+                   
+                    for (i in json['payment_methods']) {
+                        if (json['payment_methods'][i]['code'] == \$('#input-payment-method').val()) {
+                            html += '<option value=\"' + json['payment_methods'][i]['code'] + '\" selected>' + json['payment_methods'][i]['title'] + '</option>';
+                        } else {
+                            html += '<option value=\"' + json['payment_methods'][i]['code'] + '\">' + json['payment_methods'][i]['title'] + '</option>';
+                        }
+                    }
+                  
+                    \$('#input-payment-method').prop('disabled', false);
+                }
+
+                \$('#input-payment-method').html(html);
+               
+               
+                \$('#checkout-confirm').load('index.php?route=checkout/confirm|confirm&language=";
+        // line 88
+        echo ($context["language"] ?? null);
+        echo "');
+                \$('#input-payment-method').change();
+            
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                console.log(thrownError + \"\\r\\n\" + xhr.statusText + \"\\r\\n\" + xhr.responseText);
+            }
+        });
+    });
+});
+
+// Payment Method
+\$('#input-payment-method').on('change', function () {
+    var element = this;
+  
+    chain.attach(function () {
+        return \$.ajax({
+            url: 'index.php?route=checkout/payment_method|save&language=";
+        // line 105
+        echo ($context["language"] ?? null);
+        echo "',
+            type: 'post',
+            data: \$('#form-payment-method').serialize(),
+            dataType: 'json',
+            contentType: 'application/x-www-form-urlencoded',
+            beforeSend: function () {
+                \$(element).prop('disabled', true);
+            },
+            complete: function () {
+                \$(element).prop('disabled', false);
+            },
+            success: function (json) {
+                console.log(json);
+
+                if (json['redirect']) {
+                    location = json['redirect'];
+                }
+
+                if (json['error']) {
+                    \$('#alert').prepend('<div class=\"alert alert-danger alert-dismissible\"><i class=\"fa-solid fa-circle-exclamation\"></i> ' + json['error'] + ' <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\"></button></div>');
+                }
+
+                if (json['success']) {
+                    
+                //  \$('#alert').prepend('<div class=\"alert alert-success alert-dismissible\"><i class=\"fa-solid fa-circle-check\"></i> ' + json['success'] + ' <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\"></button></div>');
+
+                    \$('#checkout-confirm').load('index.php?route=checkout/confirm|confirm&language=";
+        // line 131
+        echo ($context["language"] ?? null);
+        echo "');
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                console.log(thrownError + \"\\r\\n\" + xhr.statusText + \"\\r\\n\" + xhr.responseText);
+            }
+        });
+    });
+});
+
+// Comment
+\$('#input-comment').on('focusout', function () {
+    var element = this;
+
+    chain.attach(function () {
+        return \$.ajax({
+            url: 'index.php?route=checkout/payment_method|comment&language=";
+        // line 147
+        echo ($context["language"] ?? null);
+        echo "',
+            type: 'post',
+            data: \$('#input-comment').serialize(),
+            dataType: 'json',
+            contentType: 'application/x-www-form-urlencoded',
+            beforeSend: function () {
+                \$(element).prop('disabled', true);
+            },
+            complete: function () {
+                \$(element).prop('disabled', false);
+            },
+            success: function (json) {
+                if (json['redirect']) {
+                    location = json['redirect'];
+                }
+
+                if (json['error']) {
+                    \$('#alert').prepend('<div class=\"alert alert-danger alert-dismissible\"><i class=\"fa-solid fa-circle-exclamation\"></i> ' + json['error'] + ' <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\"></button></div>');
+                }
+
+                if (json['success']) {
+                    \$('#alert').prepend('<div class=\"alert alert-success alert-dismissible\"><i class=\"fa-solid fa-circle-check\"></i> ' + json['success'] + ' <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\"></button></div>');
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                console.log(thrownError + \"\\r\\n\" + xhr.statusText + \"\\r\\n\" + xhr.responseText);
+            }
+        });
+    });
+});
+
+/* Agree to Terms */
+\$('#input-agree').on('change', function () {
+    var element = this;
+
+    chain.attach(function () {
+        return \$.ajax({
+            url: 'index.php?route=checkout/payment_method|agree&language=";
+        // line 184
+        echo ($context["language"] ?? null);
+        echo "',
+            type: 'post',
+            data: \$('#input-agree').serialize(),
+            dataType: 'json',
+            contentType: 'application/x-www-form-urlencoded',
+            beforeSend: function () {
+                \$(element).prop('disabled', true);
+            },
+            complete: function () {
+                \$(element).prop('disabled', false);
+            },
+            success: function (json) {
+                \$('#checkout-confirm').load('index.php?route=checkout/confirm|confirm&language=";
+        // line 196
+        echo ($context["language"] ?? null);
+        echo "');
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                console.log(thrownError + \"\\r\\n\" + xhr.statusText + \"\\r\\n\" + xhr.responseText);
+            }
+        });
+    });
+});
+//--></script>
+";
+    }
+
+    public function getTemplateName()
+    {
+        return "catalog/view/template/checkout/payment_method.twig";
+    }
+
+    public function isTraitable()
+    {
+        return false;
+    }
+
+    public function getDebugInfo()
+    {
+        return array (  323 => 196,  308 => 184,  268 => 147,  249 => 131,  220 => 105,  200 => 88,  179 => 70,  158 => 52,  149 => 45,  139 => 42,  136 => 41,  134 => 40,  127 => 38,  119 => 32,  115 => 30,  100 => 28,  96 => 27,  91 => 26,  89 => 25,  86 => 24,  71 => 22,  67 => 21,  60 => 19,  41 => 3,  37 => 1,);
+    }
+
+    public function getSourceContext()
+    {
+        return new Source("", "catalog/view/template/checkout/payment_method.twig", "/opt/lampp/htdocs/moh/upload/catalog/view/template/checkout/payment_method.twig");
+    }
+}

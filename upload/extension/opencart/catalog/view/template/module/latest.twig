@@ -1,0 +1,18 @@
+<h3 class="heading-title bg-primary-200  rounded-lg md:w-1/2 p-3 text-start my-4">{{ heading_title }}</h3>
+<div class="grid-product">
+  {% for product in products %}
+   {{ product }}
+  {% endfor %}
+</div>
+
+
+
+
+{#
+  <h3>{{ heading_title }}</h3>
+<div class="row{% if axis == 'horizontal' %}row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-{% endif %}">
+  {% for product in products %}
+    <div class="col">{{ product }}</div>
+  {% endfor %}
+</div>
+#}

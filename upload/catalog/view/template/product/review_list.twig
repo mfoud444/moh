@@ -1,0 +1,127 @@
+<div class="">
+{% if reviews %}
+  {% for review in reviews %}
+    <table class="mb-4  table-auto   border-2 border-solid w-full ">
+      <tr class="flex items-center px-4 rounded-b-lg   bg-primary-200 justify-between w-full">
+        <td class="">
+        <div class="flex flex-col">
+      <div class="flex flex-row-reverse justify-end gap-2 items-center">
+        <h1>{{review.author }}</h1>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+</svg>
+        </div>
+        <div>{{ review.date_added }}</div>
+</div>
+        
+        
+        </td >
+        <td class="text-end">
+        
+         <div class="flex flex-row-reverse justify-center items-center ">
+          {% for i in 1..5 %}
+              {% if review.rating < i %}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-6 h-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"
+            />
+          </svg>
+
+         
+
+            {% else %}
+               <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-6 h-6 text-yellow-300 fill-yellow-300"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"
+            />
+          </svg>
+
+          
+               {% endif %}
+            {% endfor %}   
+          </div>
+
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" class="px-2"><p class=" overflow-auto max-h-32">{{ review.text }}</p>
+     
+        </td>
+      </tr>
+    </table>
+  {% endfor %}
+  <div class="pre">{{ pagination }}</div>
+{% else %}
+  <p class="text-center">{{ text_no_results }}</p>
+{% endif %}
+</div>  
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{# <div class="">
+{% if reviews %}
+  {% for review in reviews %}
+    <table class="table table-striped table-bordered">
+      <tr>
+        <td style="width: 50%;"><strong>{{ review.author }}</strong></td>
+        <td class="text-end">{{ review.date_added }}</td>
+      </tr>
+      <tr>
+        <td colspan="2"><p>{{ review.text }}</p>
+          <div class="rating">
+            {% for i in 1..5 %}
+              {% if review.rating < i %}
+                <span class="fa-stack"><i class="fa-regular fa-star fa-stack-1x"></i></span>
+              {% else %}
+                <span class="fa-stack"><i class="fa-solid fa-star fa-stack-1x"></i><i class="fa-regular fa-star fa-stack-1x"></i></span>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </td>
+      </tr>
+    </table>
+  {% endfor %}
+  <div class="text-end">{{ pagination }}</div>
+{% else %}
+  <p class="text-center">{{ text_no_results }}</p>
+{% endif %}
+</div>   #}
+
