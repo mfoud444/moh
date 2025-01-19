@@ -43,8 +43,8 @@ COPY config.inc.php /var/www/html/phpmyadmin/
 RUN apt-get update && apt-get install -y mariadb-server \
     && service mariadb start \
     && mysql -e "CREATE DATABASE moh;" \
-    && mysql -e "CREATE USER 'root'@'localhost' IDENTIFIED BY 'pmapass';" \
-    && mysql -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost';" \
+    && mysql -e "CREATE USER 'bootmy'@'localhost' IDENTIFIED BY 'pmapass';" \
+    && mysql -e "GRANT ALL PRIVILEGES ON *.* TO 'bootmy'@'localhost';" \
     && mysql -e "FLUSH PRIVILEGES;"
 
 # Start Apache in the foreground
