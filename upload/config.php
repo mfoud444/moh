@@ -3,10 +3,10 @@
 define('APPLICATION', 'Catalog');
 
 // HTTP http://localhost/moh/upload/ http://192.168.221.35/moh/upload/
-define('HTTP_SERVER', 'http://localhost/moh/upload/');
+define('HTTP_SERVER', 'https://odd-loria-sarr-43e272d1.koyeb.app');
 
 // DIR
-define('DIR_OPENCART', '/opt/lampp/htdocs/moh/upload/');
+define('DIR_OPENCART', '');
 define('DIR_APPLICATION', DIR_OPENCART . 'catalog/');
 define('DIR_EXTENSION', DIR_OPENCART . 'extension/');
 define('DIR_IMAGE', DIR_OPENCART . 'image/');
