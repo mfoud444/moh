@@ -23,7 +23,7 @@ RUN apt-get update && apt-get install -y \
     mariadb-client \
     && docker-php-ext-install mysqli pdo pdo_mysql
 
-# Configure MariaDB
+# Configure MariaDB to skip grant tables
 RUN { \
         echo "[mysqld]"; \
         echo "skip-grant-tables"; \
@@ -31,6 +31,7 @@ RUN { \
 
 # Start MariaDB and initialize the database
 RUN service mariadb start && \
+    sleep 5 && \  # Give MariaDB some time to start
     mysql -u root -e "FLUSH PRIVILEGES;" && \
     mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}';" && \
     mysql -u root -p"${MYSQL_ROOT_PASSWORD}" -e "CREATE DATABASE IF NOT EXISTS ${MYSQL_DATABASE};" && \
@@ -45,6 +46,7 @@ COPY moh.sql /tmp/moh.sql
 
 # Import the SQL file into the database
 RUN service mariadb start && \
+    sleep 5 && \  # Give MariaDB some time to start
     mysql -u root -p"${MYSQL_ROOT_PASSWORD}" ${MYSQL_DATABASE} < /tmp/moh.sql && \
     service mariadb stop
 
