@@ -25,15 +25,20 @@ RUN apt-get update && apt-get install -y \
 
 # Configure MariaDB
 RUN { \
-        echo "ALTER USER 'root'@'localhost' IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}';"; \
-        echo "CREATE DATABASE IF NOT EXISTS ${MYSQL_DATABASE};"; \
-        echo "FLUSH PRIVILEGES;"; \
-    } > /tmp/init.sql
+        echo "[mysqld]"; \
+        echo "skip-grant-tables"; \
+    } > /etc/mysql/my.cnf
 
-# Initialize MariaDB and set root password
+# Start MariaDB and initialize the database
 RUN service mariadb start && \
-    mysql -u root -p"${MYSQL_ROOT_PASSWORD}" -e "source /tmp/init.sql;" && \
+    mysql -u root -e "FLUSH PRIVILEGES;" && \
+    mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}';" && \
+    mysql -u root -p"${MYSQL_ROOT_PASSWORD}" -e "CREATE DATABASE IF NOT EXISTS ${MYSQL_DATABASE};" && \
+    mysql -u root -p"${MYSQL_ROOT_PASSWORD}" -e "FLUSH PRIVILEGES;" && \
     service mariadb stop
+
+# Remove the temporary configuration
+RUN sed -i '/skip-grant-tables/d' /etc/mysql/my.cnf
 
 # Copy the SQL file to the container
 COPY moh.sql /tmp/moh.sql
