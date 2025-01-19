@@ -50,5 +50,7 @@ RUN apt-get update && apt-get install -y mariadb-server \
     && mysql -e "FLUSH PRIVILEGES;" \
     && mysql -u bootmy -ppmapass moh < /tmp/moh.sql
 
-# Start Apache in the foreground
-CMD service mariadb start && apache2-foreground
+COPY wait-for-mysql.sh /usr/local/bin/wait-for-mysql.sh
+RUN chmod +x /usr/local/bin/wait-for-mysql.sh
+
+CMD service mariadb start && /usr/local/bin/wait-for-mysql.sh && apache2-foreground
