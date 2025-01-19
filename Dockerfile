@@ -1,5 +1,3 @@
-
-
 FROM php:8.0-apache
 
 # Set working directory
@@ -25,9 +23,6 @@ RUN echo "error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT" > /usr/local/etc/
 RUN chown -R www-data:www-data /var/www/html/system/storage
 RUN chmod -R 777 /var/www/html/system/storage
 
-
-
-
 # Install necessary dependencies
 RUN apt-get update && apt-get install -y \
     default-mysql-client \
@@ -44,13 +39,13 @@ RUN wget https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.zi
 # Copy configuration file for phpMyAdmin
 COPY config.inc.php /var/www/html/phpmyadmin/
 
-# Install and configure MySQL server
-RUN apt-get install -y default-mysql-server \
-    && service mysql start \
+# Install and configure MariaDB server
+RUN apt-get update && apt-get install -y mariadb-server \
+    && service mariadb start \
     && mysql -e "CREATE DATABASE moh;" \
     && mysql -e "CREATE USER 'root'@'localhost' IDENTIFIED BY 'pmapass';" \
     && mysql -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost';" \
     && mysql -e "FLUSH PRIVILEGES;"
 
 # Start Apache in the foreground
-CMD service mysql start && apache2-foreground
+CMD service mariadb start && apache2-foreground
