@@ -39,13 +39,16 @@ RUN wget https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.zi
 # Copy configuration file for phpMyAdmin
 COPY config.inc.php /var/www/html/phpmyadmin/
 
+COPY moh.sql /tmp/moh.sql
+
 # Install and configure MariaDB server
 RUN apt-get update && apt-get install -y mariadb-server \
     && service mariadb start \
     && mysql -e "CREATE DATABASE moh;" \
     && mysql -e "CREATE USER 'bootmy'@'localhost' IDENTIFIED BY 'pmapass';" \
     && mysql -e "GRANT ALL PRIVILEGES ON *.* TO 'bootmy'@'localhost';" \
-    && mysql -e "FLUSH PRIVILEGES;"
+    && mysql -e "FLUSH PRIVILEGES;" \
+    && mysql -u bootmy -ppmapass moh < /tmp/moh.sql
 
 # Start Apache in the foreground
 CMD service mariadb start && apache2-foreground
