@@ -25,7 +25,7 @@ define('DIR_UPLOAD', DIR_STORAGE . 'upload/');
 
 // DB
 define('DB_DRIVER', 'mysqli');
-define('DB_HOSTNAME', 'localhost');
+define('DB_HOSTNAME', '127.0.0.1');
 define('DB_USERNAME', 'bootmy');
 define('DB_PASSWORD', 'pmapass');
 define('DB_DATABASE', 'moh');
