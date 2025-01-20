@@ -21,7 +21,7 @@ RUN docker-php-ext-install mysqli
 RUN echo "error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT" > /usr/local/etc/php/conf.d/error-reporting.ini
 
 # Fix file permissions
-# RUN chown -R www-data:www-data /var/www/html/system/storage
+RUN chown -R www-data:www-data /var/www/html/system/storage
 RUN chmod -R 777 /var/www/html/system/storage
 
 # Install necessary dependencies
