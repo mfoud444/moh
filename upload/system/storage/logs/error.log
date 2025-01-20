@@ -11793,3 +11793,5 @@ Line: 12
 File: /opt/lampp/htdocs/moh/upload/system/library/cart/user.php
 Line: 13
 
+2025-01-20 00:29:19 - PHP Unknown:  Creation of dynamic property Opencart\System\Library\Request::$request is deprecated in /opt/lampp/htdocs/moh/upload/system/library/request.php on line 27
+2025-01-20 00:29:19 - Exception:  Error: Could not make a database link using bootmy@127.0.0.1! in /opt/lampp/htdocs/moh/upload/system/library/db/mysqli.php on line 19

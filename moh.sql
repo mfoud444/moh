@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 06, 2022 at 09:16 PM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- Generation Time: Jan 20, 2025 at 01:29 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -41,7 +41,7 @@ CREATE TABLE `ks_address` (
   `zone_id` int(11) NOT NULL DEFAULT 0,
   `custom_field` text NOT NULL,
   `default` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_address`
@@ -107,7 +107,7 @@ CREATE TABLE `ks_address_format` (
   `address_format_id` int(11) NOT NULL,
   `name` varchar(128) NOT NULL,
   `address_format` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_address_format`
@@ -130,7 +130,7 @@ CREATE TABLE `ks_api` (
   `status` tinyint(1) NOT NULL,
   `date_added` datetime NOT NULL,
   `date_modified` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_api`
@@ -149,7 +149,7 @@ CREATE TABLE `ks_api_ip` (
   `api_ip_id` int(11) NOT NULL,
   `api_id` int(11) NOT NULL,
   `ip` varchar(40) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_api_ip`
@@ -171,7 +171,7 @@ CREATE TABLE `ks_api_session` (
   `ip` varchar(40) NOT NULL,
   `date_added` datetime NOT NULL,
   `date_modified` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -183,7 +183,7 @@ CREATE TABLE `ks_attribute` (
   `attribute_id` int(11) NOT NULL,
   `attribute_group_id` int(11) NOT NULL,
   `sort_order` int(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_attribute`
@@ -207,7 +207,7 @@ CREATE TABLE `ks_attribute_description` (
   `attribute_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
   `name` varchar(64) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_attribute_description`
@@ -230,7 +230,7 @@ INSERT INTO `ks_attribute_description` (`attribute_id`, `language_id`, `name`) V
 CREATE TABLE `ks_attribute_group` (
   `attribute_group_id` int(11) NOT NULL,
   `sort_order` int(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_attribute_group`
@@ -252,7 +252,7 @@ CREATE TABLE `ks_attribute_group_description` (
   `attribute_group_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
   `name` varchar(64) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_attribute_group_description`
@@ -274,7 +274,7 @@ CREATE TABLE `ks_banner` (
   `banner_id` int(11) NOT NULL,
   `name` varchar(64) NOT NULL,
   `status` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_banner`
@@ -299,7 +299,7 @@ CREATE TABLE `ks_banner_image` (
   `link` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL,
   `sort_order` int(3) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_banner_image`
@@ -331,7 +331,7 @@ CREATE TABLE `ks_cart` (
   `option` text NOT NULL,
   `quantity` int(5) NOT NULL,
   `date_added` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_cart`
@@ -364,10 +364,7 @@ INSERT INTO `ks_cart` (`cart_id`, `api_id`, `customer_id`, `session_id`, `produc
 (688, 0, 32, '85eb271f100f29cc2b07bd8334', 56, 0, '[]', 1, '2022-12-05 17:20:12'),
 (690, 0, 33, '85eb271f100f29cc2b07bd8334', 56, 0, '[]', 1, '2022-12-05 17:31:47'),
 (694, 0, 34, '85eb271f100f29cc2b07bd8334', 56, 0, '[]', 1, '2022-12-05 19:36:49'),
-(697, 0, 35, '85eb271f100f29cc2b07bd8334', 50, 0, '[]', 1, '2022-12-05 20:33:42'),
-(711, 0, 0, '9e59f0d6497c6dbda6958a75dd', 53, 0, '[]', 1, '2022-12-06 19:32:36'),
-(712, 0, 0, '9e32d8b7c727085e5f762357ac', 50, 0, '[]', 7, '2022-12-06 19:38:16'),
-(713, 0, 0, '9e32d8b7c727085e5f762357ac', 56, 0, '[]', 1, '2022-12-06 19:51:29');
+(697, 0, 35, '85eb271f100f29cc2b07bd8334', 50, 0, '[]', 1, '2022-12-05 20:33:42');
 
 -- --------------------------------------------------------
 
@@ -385,7 +382,7 @@ CREATE TABLE `ks_category` (
   `status` tinyint(1) NOT NULL,
   `date_added` datetime NOT NULL,
   `date_modified` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_category`
@@ -410,7 +407,7 @@ CREATE TABLE `ks_category_description` (
   `meta_title` varchar(255) NOT NULL,
   `meta_description` varchar(255) NOT NULL,
   `meta_keyword` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_category_description`
@@ -431,7 +428,7 @@ INSERT INTO `ks_category_description` (`category_id`, `language_id`, `name`, `de
 CREATE TABLE `ks_category_filter` (
   `category_id` int(11) NOT NULL,
   `filter_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -443,7 +440,7 @@ CREATE TABLE `ks_category_path` (
   `category_id` int(11) NOT NULL,
   `path_id` int(11) NOT NULL,
   `level` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_category_path`
@@ -466,7 +463,7 @@ CREATE TABLE `ks_category_to_layout` (
   `category_id` int(11) NOT NULL,
   `store_id` int(11) NOT NULL,
   `layout_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_category_to_layout`
@@ -486,7 +483,7 @@ INSERT INTO `ks_category_to_layout` (`category_id`, `store_id`, `layout_id`) VAL
 CREATE TABLE `ks_category_to_store` (
   `category_id` int(11) NOT NULL,
   `store_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_category_to_store`
@@ -511,7 +508,7 @@ CREATE TABLE `ks_country` (
   `address_format_id` int(11) NOT NULL,
   `postcode_required` tinyint(1) NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_country`
@@ -793,16 +790,16 @@ CREATE TABLE `ks_coupon` (
   `uses_customer` varchar(11) NOT NULL,
   `status` tinyint(1) NOT NULL,
   `date_added` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_coupon`
 --
 
 INSERT INTO `ks_coupon` (`coupon_id`, `name`, `code`, `type`, `discount`, `logged`, `shipping`, `total`, `date_start`, `date_end`, `uses_total`, `uses_customer`, `status`, `date_added`) VALUES
-(4, 'خصم 10 %', '2222', 'P', '10.0000', 0, 0, '0.0000', '2014-01-01', '2020-01-01', 10, '10', 0, '2009-01-27 13:55:03'),
-(5, 'تسوق مجاني', '3398', 'P', '0.0000', 0, 1, '100.0000', '2014-01-01', '2014-02-01', 10, '10', 0, '2009-03-14 21:13:53'),
-(6, 'خصم 3000 ريال', '1111', 'F', '3000.0000', 0, 0, '20000.0000', '2014-01-01', '2020-01-01', 100000, '10000', 0, '2009-03-14 21:15:18');
+(4, 'خصم 10 %', '2222', 'P', 10.0000, 0, 0, 0.0000, '2014-01-01', '2020-01-01', 10, '10', 0, '2009-01-27 13:55:03'),
+(5, 'تسوق مجاني', '3398', 'P', 0.0000, 0, 1, 100.0000, '2014-01-01', '2014-02-01', 10, '10', 0, '2009-03-14 21:13:53'),
+(6, 'خصم 3000 ريال', '1111', 'F', 3000.0000, 0, 0, 20000.0000, '2014-01-01', '2020-01-01', 100000, '10000', 0, '2009-03-14 21:15:18');
 
 -- --------------------------------------------------------
 
@@ -813,7 +810,7 @@ INSERT INTO `ks_coupon` (`coupon_id`, `name`, `code`, `type`, `discount`, `logge
 CREATE TABLE `ks_coupon_category` (
   `coupon_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -828,7 +825,7 @@ CREATE TABLE `ks_coupon_history` (
   `customer_id` int(11) NOT NULL,
   `amount` decimal(15,4) NOT NULL,
   `date_added` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -840,7 +837,7 @@ CREATE TABLE `ks_coupon_product` (
   `coupon_product_id` int(11) NOT NULL,
   `coupon_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -857,7 +854,7 @@ CREATE TABLE `ks_cron` (
   `status` tinyint(1) NOT NULL,
   `date_added` datetime NOT NULL,
   `date_modified` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_cron`
@@ -884,7 +881,7 @@ CREATE TABLE `ks_currency` (
   `value` double(15,8) NOT NULL,
   `status` tinyint(1) NOT NULL,
   `date_modified` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_currency`
@@ -919,7 +916,7 @@ CREATE TABLE `ks_customer` (
   `token` text NOT NULL,
   `code` varchar(40) NOT NULL,
   `date_added` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_customer`
@@ -976,7 +973,7 @@ CREATE TABLE `ks_customer_activity` (
   `data` text NOT NULL,
   `ip` varchar(40) NOT NULL,
   `date_added` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_customer_activity`
@@ -1267,7 +1264,7 @@ CREATE TABLE `ks_customer_affiliate` (
   `custom_field` text NOT NULL,
   `status` tinyint(1) NOT NULL,
   `date_added` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -1282,7 +1279,7 @@ CREATE TABLE `ks_customer_affiliate_report` (
   `ip` varchar(40) NOT NULL,
   `country` varchar(2) NOT NULL,
   `date_added` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -1295,7 +1292,7 @@ CREATE TABLE `ks_customer_approval` (
   `customer_id` int(11) NOT NULL,
   `type` varchar(9) NOT NULL,
   `date_added` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -1307,7 +1304,7 @@ CREATE TABLE `ks_customer_group` (
   `customer_group_id` int(11) NOT NULL,
   `approval` int(1) NOT NULL,
   `sort_order` int(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_customer_group`
@@ -1327,7 +1324,7 @@ CREATE TABLE `ks_customer_group_description` (
   `language_id` int(11) NOT NULL,
   `name` varchar(32) NOT NULL,
   `description` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_customer_group_description`
@@ -1348,7 +1345,7 @@ CREATE TABLE `ks_customer_history` (
   `customer_id` int(11) NOT NULL,
   `comment` text NOT NULL,
   `date_added` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -1363,7 +1360,7 @@ CREATE TABLE `ks_customer_ip` (
   `ip` varchar(40) NOT NULL,
   `country` varchar(2) NOT NULL,
   `date_added` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_customer_ip`
@@ -1428,7 +1425,7 @@ CREATE TABLE `ks_customer_login` (
   `total` int(4) NOT NULL,
   `date_added` datetime NOT NULL,
   `date_modified` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_customer_login`
@@ -1454,16 +1451,14 @@ CREATE TABLE `ks_customer_online` (
   `url` text NOT NULL,
   `referer` text NOT NULL,
   `date_added` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_customer_online`
 --
 
 INSERT INTO `ks_customer_online` (`ip`, `customer_id`, `url`, `referer`, `date_added`) VALUES
-('192.168.221.21', 36, 'http://192.168.221.35/moh/upload/index.php?route=account/account&amp;language=ar&amp;customer_token=f71be5e45e3b463808f0c2064f', 'http://192.168.221.35/moh/upload/index.php?route=account/transaction&amp;language=ar&amp;customer_token=f71be5e45e3b463808f0c2064f', '2022-12-06 20:02:58'),
-('192.168.221.35', 0, 'http://192.168.221.35/moh/upload/index.php?route=product/product&amp;language=ar&amp;product_id=54', 'http://192.168.221.35/moh/upload/', '2022-12-06 19:58:02'),
-('::1', 1, 'http://localhost/moh/upload/index.php?route=account/account&amp;language=ar&amp;customer_token=d8fececabb0532117b8585e815', 'http://localhost/moh/upload/index.php?route=account/account&amp;language=ar&amp;customer_token=d8fececabb0532117b8585e815', '2022-12-06 19:34:33');
+('::1', 0, 'http://localhost/zafa/upload/', '', '2025-01-18 17:26:44');
 
 -- --------------------------------------------------------
 
@@ -1484,7 +1479,7 @@ CREATE TABLE `ks_customer_payment` (
   `default` tinyint(1) NOT NULL,
   `status` tinyint(1) NOT NULL,
   `date_added` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -1499,7 +1494,7 @@ CREATE TABLE `ks_customer_reward` (
   `description` text NOT NULL,
   `points` int(8) NOT NULL DEFAULT 0,
   `date_added` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_customer_reward`
@@ -1527,7 +1522,7 @@ CREATE TABLE `ks_customer_search` (
   `products` int(11) NOT NULL,
   `ip` varchar(40) NOT NULL,
   `date_added` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_customer_search`
@@ -1841,7 +1836,7 @@ CREATE TABLE `ks_customer_transaction` (
   `description` text NOT NULL,
   `amount` decimal(15,4) NOT NULL,
   `date_added` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -1853,7 +1848,7 @@ CREATE TABLE `ks_customer_wishlist` (
   `customer_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `date_added` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_customer_wishlist`
@@ -1890,7 +1885,7 @@ CREATE TABLE `ks_custom_field` (
   `location` varchar(10) NOT NULL,
   `status` tinyint(1) NOT NULL,
   `sort_order` int(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_custom_field`
@@ -1935,7 +1930,7 @@ CREATE TABLE `ks_custom_field_customer_group` (
   `custom_field_id` int(11) NOT NULL,
   `customer_group_id` int(11) NOT NULL,
   `required` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_custom_field_customer_group`
@@ -1980,7 +1975,7 @@ CREATE TABLE `ks_custom_field_description` (
   `custom_field_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
   `name` varchar(128) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_custom_field_description`
@@ -2052,7 +2047,7 @@ CREATE TABLE `ks_custom_field_value` (
   `custom_field_value_id` int(11) NOT NULL,
   `custom_field_id` int(11) NOT NULL,
   `sort_order` int(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_custom_field_value`
@@ -2098,7 +2093,7 @@ CREATE TABLE `ks_custom_field_value_description` (
   `language_id` int(11) NOT NULL,
   `custom_field_id` int(11) NOT NULL,
   `name` varchar(128) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_custom_field_value_description`
@@ -2171,7 +2166,7 @@ CREATE TABLE `ks_download` (
   `filename` varchar(160) NOT NULL,
   `mask` varchar(128) NOT NULL,
   `date_added` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -2183,7 +2178,7 @@ CREATE TABLE `ks_download_description` (
   `download_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
   `name` varchar(64) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -2198,7 +2193,7 @@ CREATE TABLE `ks_download_report` (
   `ip` varchar(40) NOT NULL,
   `country` varchar(2) NOT NULL,
   `date_added` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -2214,7 +2209,7 @@ CREATE TABLE `ks_event` (
   `action` text NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT 0,
   `sort_order` int(3) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_event`
@@ -2276,7 +2271,7 @@ CREATE TABLE `ks_extension` (
   `extension` varchar(255) NOT NULL,
   `type` varchar(32) NOT NULL,
   `code` varchar(128) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_extension`
@@ -2356,7 +2351,7 @@ CREATE TABLE `ks_extension_install` (
   `link` varchar(255) NOT NULL,
   `status` tinyint(1) NOT NULL,
   `date_added` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_extension_install`
@@ -2378,7 +2373,7 @@ CREATE TABLE `ks_extension_path` (
   `extension_path_id` int(11) NOT NULL,
   `extension_install_id` int(11) NOT NULL,
   `path` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_extension_path`
@@ -2755,7 +2750,7 @@ CREATE TABLE `ks_filter` (
   `filter_id` int(11) NOT NULL,
   `filter_group_id` int(11) NOT NULL,
   `sort_order` int(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -2768,7 +2763,7 @@ CREATE TABLE `ks_filter_description` (
   `language_id` int(11) NOT NULL,
   `filter_group_id` int(11) NOT NULL,
   `name` varchar(64) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -2779,7 +2774,7 @@ CREATE TABLE `ks_filter_description` (
 CREATE TABLE `ks_filter_group` (
   `filter_group_id` int(11) NOT NULL,
   `sort_order` int(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -2791,7 +2786,7 @@ CREATE TABLE `ks_filter_group_description` (
   `filter_group_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
   `name` varchar(64) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -2808,7 +2803,7 @@ CREATE TABLE `ks_gdpr` (
   `action` varchar(6) NOT NULL,
   `status` tinyint(1) NOT NULL,
   `date_added` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -2822,7 +2817,7 @@ CREATE TABLE `ks_geo_zone` (
   `description` varchar(255) NOT NULL,
   `date_added` datetime NOT NULL,
   `date_modified` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_geo_zone`
@@ -2843,7 +2838,7 @@ CREATE TABLE `ks_information` (
   `bottom` int(1) NOT NULL DEFAULT 0,
   `sort_order` int(3) NOT NULL DEFAULT 0,
   `status` tinyint(1) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_information`
@@ -2869,7 +2864,7 @@ CREATE TABLE `ks_information_description` (
   `meta_title` varchar(255) NOT NULL,
   `meta_description` varchar(255) NOT NULL,
   `meta_keyword` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_information_description`
@@ -2894,7 +2889,7 @@ CREATE TABLE `ks_information_to_layout` (
   `information_id` int(11) NOT NULL,
   `store_id` int(11) NOT NULL,
   `layout_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_information_to_layout`
@@ -2915,7 +2910,7 @@ INSERT INTO `ks_information_to_layout` (`information_id`, `store_id`, `layout_id
 CREATE TABLE `ks_information_to_store` (
   `information_id` int(11) NOT NULL,
   `store_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_information_to_store`
@@ -2941,7 +2936,7 @@ CREATE TABLE `ks_language` (
   `extension` varchar(255) NOT NULL,
   `sort_order` int(3) NOT NULL DEFAULT 0,
   `status` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_language`
@@ -2959,7 +2954,7 @@ INSERT INTO `ks_language` (`language_id`, `name`, `code`, `locale`, `extension`,
 CREATE TABLE `ks_layout` (
   `layout_id` int(11) NOT NULL,
   `name` varchar(64) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_layout`
@@ -2992,7 +2987,7 @@ CREATE TABLE `ks_layout_module` (
   `code` varchar(64) NOT NULL,
   `position` varchar(14) NOT NULL,
   `sort_order` int(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_layout_module`
@@ -3020,7 +3015,7 @@ CREATE TABLE `ks_layout_route` (
   `layout_id` int(11) NOT NULL,
   `store_id` int(11) NOT NULL,
   `route` varchar(64) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_layout_route`
@@ -3051,16 +3046,16 @@ INSERT INTO `ks_layout_route` (`layout_route_id`, `layout_id`, `store_id`, `rout
 CREATE TABLE `ks_length_class` (
   `length_class_id` int(11) NOT NULL,
   `value` decimal(15,8) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_length_class`
 --
 
 INSERT INTO `ks_length_class` (`length_class_id`, `value`) VALUES
-(1, '1.00000000'),
-(2, '10.00000000'),
-(3, '0.39370000');
+(1, 1.00000000),
+(2, 10.00000000),
+(3, 0.39370000);
 
 -- --------------------------------------------------------
 
@@ -3073,7 +3068,7 @@ CREATE TABLE `ks_length_class_description` (
   `language_id` int(11) NOT NULL,
   `title` varchar(32) NOT NULL,
   `unit` varchar(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_length_class_description`
@@ -3102,7 +3097,7 @@ CREATE TABLE `ks_location` (
   `image` varchar(255) NOT NULL,
   `open` text NOT NULL,
   `comment` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_location`
@@ -3124,7 +3119,7 @@ CREATE TABLE `ks_manufacturer` (
   `name` varchar(64) NOT NULL,
   `image` varchar(255) NOT NULL,
   `sort_order` int(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_manufacturer`
@@ -3143,7 +3138,7 @@ CREATE TABLE `ks_manufacturer_to_layout` (
   `manufacturer_id` int(11) NOT NULL,
   `store_id` int(11) NOT NULL,
   `layout_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_manufacturer_to_layout`
@@ -3161,7 +3156,7 @@ INSERT INTO `ks_manufacturer_to_layout` (`manufacturer_id`, `store_id`, `layout_
 CREATE TABLE `ks_manufacturer_to_store` (
   `manufacturer_id` int(11) NOT NULL,
   `store_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_manufacturer_to_store`
@@ -3183,7 +3178,7 @@ CREATE TABLE `ks_marketing` (
   `code` varchar(64) NOT NULL,
   `clicks` int(5) NOT NULL DEFAULT 0,
   `date_added` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -3198,7 +3193,7 @@ CREATE TABLE `ks_marketing_report` (
   `ip` varchar(40) NOT NULL,
   `country` varchar(2) NOT NULL,
   `date_added` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -3211,7 +3206,7 @@ CREATE TABLE `ks_module` (
   `name` varchar(64) NOT NULL,
   `code` varchar(64) NOT NULL,
   `setting` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_module`
@@ -3239,7 +3234,7 @@ CREATE TABLE `ks_notification` (
   `text` text NOT NULL,
   `status` tinyint(11) NOT NULL,
   `date_added` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -3251,7 +3246,7 @@ CREATE TABLE `ks_option` (
   `option_id` int(11) NOT NULL,
   `type` varchar(32) NOT NULL,
   `sort_order` int(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_option`
@@ -3281,7 +3276,7 @@ CREATE TABLE `ks_option_description` (
   `option_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
   `name` varchar(128) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_option_description`
@@ -3317,7 +3312,7 @@ CREATE TABLE `ks_option_value` (
   `option_id` int(11) NOT NULL,
   `image` varchar(255) NOT NULL,
   `sort_order` int(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_option_value`
@@ -3351,7 +3346,7 @@ CREATE TABLE `ks_option_value_description` (
   `language_id` int(11) NOT NULL,
   `option_id` int(11) NOT NULL,
   `name` varchar(128) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_option_value_description`
@@ -3453,200 +3448,200 @@ CREATE TABLE `ks_order` (
   `accept_language` varchar(255) NOT NULL,
   `date_added` datetime NOT NULL,
   `date_modified` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_order`
 --
 
 INSERT INTO `ks_order` (`order_id`, `transaction_id`, `invoice_no`, `invoice_prefix`, `store_id`, `store_name`, `store_url`, `customer_id`, `customer_group_id`, `firstname`, `lastname`, `email`, `telephone`, `custom_field`, `payment_firstname`, `payment_lastname`, `payment_company`, `payment_address_1`, `payment_address_2`, `payment_city`, `payment_postcode`, `payment_country`, `payment_country_id`, `payment_zone`, `payment_zone_id`, `payment_address_format`, `payment_custom_field`, `payment_method`, `payment_code`, `shipping_firstname`, `shipping_lastname`, `shipping_company`, `shipping_address_1`, `shipping_address_2`, `shipping_city`, `shipping_postcode`, `shipping_country`, `shipping_country_id`, `shipping_zone`, `shipping_zone_id`, `shipping_address_format`, `shipping_custom_field`, `shipping_method`, `shipping_code`, `comment`, `total`, `order_status_id`, `affiliate_id`, `commission`, `marketing_id`, `tracking`, `language_id`, `language_code`, `currency_id`, `currency_code`, `currency_value`, `ip`, `forwarded_ip`, `user_agent`, `accept_language`, `date_added`, `date_modified`) VALUES
-(1, '', 1, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 1, 1, 'taha', 'kha', 'taha123@gmail.com', '', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', '', '', '', '', '', '', '09078', 'Yemen', 235, 'Ta\'izz', 3807, '{firstname} {lastname}\r\n{company}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', '[]', 'تكلفة ثابتة للشحن', 'flat.flat', '', '6000.9900', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-22 17:24:29', '2022-11-22 17:25:05'),
-(2, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 1, 1, 'taha', 'kha', 'taha123@gmail.com', '', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', '', '', '', '', '', '', '09078', 'Yemen', 235, 'Ta\'izz', 3807, '{firstname} {lastname}\r\n{company}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', '[]', 'تكلفة ثابتة للشحن', 'flat.flat', '', '106.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-22 17:30:18', '2022-11-22 17:30:21'),
-(3, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 1, 1, 'taha', 'kha', 'taha123@gmail.com', '', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'Jazan', '', 'Jazan', '', 'Yemen', 235, 'Adan', 3790, '{firstname} {lastname}\r\n{company}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', '\"\"', 'تكلفة ثابتة للشحن', 'flat.flat', '', '85.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-22 17:31:46', '2022-11-22 17:31:52'),
-(4, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 1, 1, 'taha', 'kha', 'taha123@gmail.com', '', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'Jazan', '', 'Jazan', '', 'Yemen', 235, 'Adan', 3790, 'High School<br/>Jazan<br/>Jazan, Adan<br/>Yemen', '\"\"', 'تكلفة ثابتة للشحن', 'flat.flat', 'jghkghghj', '505.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-22 17:39:37', '2022-11-22 17:39:58'),
-(5, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 1, 1, 'taha', 'kha', 'taha123@gmail.com', '', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'Jazan', '', 'Jazan', '', 'Yemen', 235, 'Adan', 3790, 'High School<br/>Jazan<br/>Jazan, Adan<br/>Yemen', '\"\"', 'تكلفة ثابتة للشحن', 'flat.flat', '', '106.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-22 17:42:11', '2022-11-22 17:42:46'),
-(6, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 1, 1, 'taha', 'kha', 'taha123@gmail.com', '', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', '', '', '', '', '', '', '09078', 'Yemen', 235, 'Ta\'izz', 3807, '{firstname} {lastname}\r\n{company}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', '[]', 'تكلفة ثابتة للشحن', 'flat.flat', 'hghghghghghk', '505.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-22 17:53:42', '2022-11-22 17:54:54'),
-(7, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 1, 1, 'taha', 'kha', 'taha123@gmail.com', '', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'Jazan', '', 'Jazan', '', 'Yemen', 235, 'Adan', 3790, 'High School<br/>Jazan<br/>Jazan, Adan<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '505.0000', 0, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-23 17:32:11', '2022-11-23 17:32:11'),
-(8, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 7, 1, 'hfhh', 'khfkkgf', 'ta009@gmail.com', '87969769769', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'hfhh', 'khfkkgf', '', 'hkjljgkhghg', 'hffgjfjgh', 'تعز', '', 'Yemen', 235, 'Ta\'izz', 3807, '{firstname} {lastname}\r\n{company}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '221.2000', 0, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '127.0.0.1', '', 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:107.0) Gecko/20100101 Firefox/107.0', 'en-US,en;q=0.5', '2022-11-23 19:14:28', '2022-11-23 20:48:58'),
-(9, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 6, 1, 'High', 'School', 'tah3@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'ghghghj', '', 'تعز', '', 'Yemen', 235, 'Ta\'izz', 3807, '{firstname} {lastname}\r\n{company}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '302.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-23 19:19:26', '2022-11-23 19:55:07'),
-(10, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 6, 1, 'High', 'School', 'tah3@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'ghghghj', '', 'تعز', '', 'Yemen', 235, 'Ta\'izz', 3807, 'High School<br/>ghghghj<br/>تعز, Ta\'izz<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '101.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-23 20:01:17', '2022-11-23 20:01:24'),
-(11, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 8, 1, 'High', 'School', 'taha17673@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'High', 'School', '', 'ghghghj', '', 'تعز', '', 'Yemen', 235, 'تعز', 3807, '{firstname} {lastname}\r\n{company}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '101.0000', 5, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-23 20:35:02', '2022-12-01 21:45:18'),
-(12, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 8, 1, 'High', 'School', 'taha17673@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'ghghghj', '', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'High School<br/>ghghghj<br/>تعز, تعز<br/>Yemen', '\"\"', 'قيمة الشحن للقطعة', 'item.item', 'ghghghjgghjhjhjh', '10000.0000', 0, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-23 20:42:55', '2022-11-24 12:59:25'),
-(13, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 11, 1, 'High', 'School', 'tah677567@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'High', 'School', '', 'ggy', 'ifhh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, '{firstname} {lastname}\r\n{company}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', '\"\"', 'الحوبان  (الوزن : 0.00kg)', 'weight.weight_4', '', '1214.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Mobile Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-24 17:17:52', '2022-11-24 17:19:01'),
-(14, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 11, 1, 'High', 'School', 'tah677567@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'ggy', 'ifhh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'High School<br/>ggy<br/>ifhh<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '1929.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Mobile Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-24 17:30:50', '2022-11-24 20:47:02'),
-(15, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'https://a14f-78-137-80-56.ap.ngrok.io/moh/upload/', 12, 1, 'محمد', 'فواد', 'mohammedfoud7431@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, '{firstname} {lastname}\r\n{company}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', '\"\"', 'الحوبان  (الوزن : 0.00kg)', 'weight.weight_4', 'Uuuuh', '612.0000', 0, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '89.189.86.206', '89.189.86.206', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-24 20:05:30', '2022-11-24 20:05:47'),
-(16, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 11, 1, 'High', 'School', 'tah677567@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'ggy', 'ifhh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'High School<br/>ggy<br/>ifhh<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '1204.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Mobile Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-24 20:51:35', '2022-11-24 20:51:43'),
-(17, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 11, 1, 'High', 'School', 'tah677567@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'High', 'School', '', 'ggy', 'ifhh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'High School<br/>ggy<br/>ifhh<br/>تعز, تعز<br/>Yemen', '\"\"', 'قيمة الشحن للقطعة', 'item.item', '', '7949.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Mobile Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-24 21:16:09', '2022-11-24 21:16:15'),
-(18, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 11, 1, 'High', 'School', 'tah677567@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'ggy', 'ifhh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'High School<br/>ggy<br/>ifhh<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', 'yftyfutfuty', '54919.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 17:20:59', '2022-11-25 17:29:56'),
-(19, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 11, 1, 'High', 'School', 'tah677567@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'High', 'School', '', 'ggy', 'ifhh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'High School<br/>ggy<br/>ifhh<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', 'yyyftyfyu', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 17:30:57', '2022-11-25 17:31:00'),
-(20, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 11, 1, 'High', 'School', 'tah677567@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'ggy', 'ifhh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'High School<br/>ggy<br/>ifhh<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 17:31:22', '2022-11-25 17:32:30'),
-(21, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 11, 1, 'High', 'School', 'tah677567@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'High', 'School', '', 'ggy', 'ifhh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'High School<br/>ggy<br/>ifhh<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 17:39:32', '2022-11-25 17:39:36'),
-(22, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 11, 1, 'High', 'School', 'tah677567@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'ggy', 'ifhh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'High School<br/>ggy<br/>ifhh<br/>تعز, تعز<br/>Yemen', '\"\"', 'قيمة الشحن للقطعة', 'item.item', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 17:42:15', '2022-11-25 17:42:18'),
-(23, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 11, 1, 'High', 'School', 'tah677567@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'ggy', 'ifhh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'High School<br/>ggy<br/>ifhh<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 17:46:06', '2022-11-25 17:46:09'),
-(24, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 11, 1, 'High', 'School', 'tah677567@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'ggy', 'ifhh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'High School<br/>ggy<br/>ifhh<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 17:54:57', '2022-11-25 17:55:00'),
-(25, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 11, 1, 'High', 'School', 'tah677567@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'High', 'School', '', 'ggy', 'ifhh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'High School<br/>ggy<br/>ifhh<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 17:55:15', '2022-11-25 17:56:02'),
-(26, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, '{firstname} {lastname}\r\n{company}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 17:57:29', '2022-11-25 17:57:36'),
-(27, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 18:23:20', '2022-11-25 18:23:24'),
-(28, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 18:24:02', '2022-11-25 18:24:04'),
-(29, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 18:24:27', '2022-11-25 18:24:29'),
-(30, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 18:25:34', '2022-11-25 18:26:19'),
-(31, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 18:26:35', '2022-11-25 18:27:31'),
-(32, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 18:28:51', '2022-11-25 18:30:58'),
-(33, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 18:33:10', '2022-11-25 18:33:13'),
-(34, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 18:34:14', '2022-11-25 18:34:16'),
-(35, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 18:34:49', '2022-11-25 18:34:51'),
-(36, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'hyhyhy', 'jkhjhlj', '', 'klkjh', 'efhjkehflkjhfe', 'efihoife', '', 'Yemen', 235, 'تعز', 3807, '{firstname} {lastname}\r\n{company}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 18:36:01', '2022-11-25 18:36:04'),
-(37, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 18:40:47', '2022-11-25 18:40:50'),
-(38, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 18:41:33', '2022-11-25 18:41:35'),
-(39, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 18:42:55', '2022-11-25 18:45:35'),
-(40, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 18:46:25', '2022-11-25 18:46:27'),
-(41, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 19:28:38', '2022-11-25 19:28:44'),
-(42, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 19:28:58', '2022-11-25 19:29:00'),
-(43, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 19:29:43', '2022-11-25 19:29:46'),
-(44, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 19:31:01', '2022-11-25 19:31:32'),
-(45, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 19:31:57', '2022-11-25 19:31:59'),
-(46, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 19:32:30', '2022-11-25 19:32:32'),
-(47, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 19:33:09', '2022-11-25 19:33:12'),
-(48, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 19:34:03', '2022-11-25 19:34:34'),
-(49, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 19:35:15', '2022-11-25 19:35:17'),
-(50, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 19:37:12', '2022-11-25 19:37:15'),
-(51, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 19:37:59', '2022-11-25 19:38:02'),
-(52, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 19:39:24', '2022-11-25 19:40:31'),
-(53, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 19:40:59', '2022-11-25 19:41:01'),
-(54, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 19:43:17', '2022-11-25 19:43:19'),
-(55, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 19:46:34', '2022-11-25 19:46:37'),
-(56, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 19:48:36', '2022-11-25 19:48:39'),
-(57, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 19:49:29', '2022-11-25 19:49:32'),
-(58, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 19:50:52', '2022-11-25 19:50:54'),
-(59, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 19:51:40', '2022-11-25 19:51:42'),
-(60, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 19:54:43', '2022-11-25 19:57:16'),
-(61, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 19:58:42', '2022-11-25 19:58:44'),
-(62, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 19:59:59', '2022-11-25 20:00:00'),
-(63, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 20:01:29', '2022-11-25 20:01:57'),
-(64, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 20:09:00', '2022-11-25 20:09:02'),
-(65, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'https://e69a-109-200-183-208.in.ngrok.io/moh/upload/', 14, 1, 'محمد', 'فواد', 'ml77o@example.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, '{firstname} {lastname}\r\n{company}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', '\"\"', 'الحوبان  (الوزن : 0.00kg)', 'weight.weight_4', '', '612.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '175.110.17.192', '175.110.17.192', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-25 20:17:50', '2022-11-25 20:18:05'),
-(66, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'https://e69a-109-200-183-208.in.ngrok.io/moh/upload/', 14, 1, 'محمد', 'فواد', 'ml77o@example.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '602.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '175.110.17.192', '175.110.17.192', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-25 20:19:42', '2022-11-25 20:19:46'),
-(67, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'https://e69a-109-200-183-208.in.ngrok.io/moh/upload/', 14, 1, 'محمد', 'فواد', 'ml77o@example.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '1204.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '188.240.110.3', '188.240.110.3', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-25 20:21:19', '2022-11-25 20:21:23'),
-(68, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'https://e69a-109-200-183-208.in.ngrok.io/moh/upload/', 14, 1, 'محمد', 'فواد', 'ml77o@example.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'قيمة الشحن للقطعة', 'item.item', '', '725.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '134.35.76.38', '134.35.76.38', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-25 20:32:57', '2022-11-25 20:33:01'),
-(69, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '616.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 21:19:08', '2022-11-25 21:19:31'),
-(70, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'قيمة الشحن للقطعة', 'item.item', '', '1232.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-26 17:44:11', '2022-11-26 17:44:45');
+(1, '', 1, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 1, 1, 'taha', 'kha', 'taha123@gmail.com', '', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', '', '', '', '', '', '', '09078', 'Yemen', 235, 'Ta\'izz', 3807, '{firstname} {lastname}\r\n{company}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', '[]', 'تكلفة ثابتة للشحن', 'flat.flat', '', 6000.9900, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-22 17:24:29', '2022-11-22 17:25:05'),
+(2, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 1, 1, 'taha', 'kha', 'taha123@gmail.com', '', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', '', '', '', '', '', '', '09078', 'Yemen', 235, 'Ta\'izz', 3807, '{firstname} {lastname}\r\n{company}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', '[]', 'تكلفة ثابتة للشحن', 'flat.flat', '', 106.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-22 17:30:18', '2022-11-22 17:30:21'),
+(3, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 1, 1, 'taha', 'kha', 'taha123@gmail.com', '', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'Jazan', '', 'Jazan', '', 'Yemen', 235, 'Adan', 3790, '{firstname} {lastname}\r\n{company}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', '\"\"', 'تكلفة ثابتة للشحن', 'flat.flat', '', 85.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-22 17:31:46', '2022-11-22 17:31:52'),
+(4, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 1, 1, 'taha', 'kha', 'taha123@gmail.com', '', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'Jazan', '', 'Jazan', '', 'Yemen', 235, 'Adan', 3790, 'High School<br/>Jazan<br/>Jazan, Adan<br/>Yemen', '\"\"', 'تكلفة ثابتة للشحن', 'flat.flat', 'jghkghghj', 505.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-22 17:39:37', '2022-11-22 17:39:58'),
+(5, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 1, 1, 'taha', 'kha', 'taha123@gmail.com', '', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'Jazan', '', 'Jazan', '', 'Yemen', 235, 'Adan', 3790, 'High School<br/>Jazan<br/>Jazan, Adan<br/>Yemen', '\"\"', 'تكلفة ثابتة للشحن', 'flat.flat', '', 106.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-22 17:42:11', '2022-11-22 17:42:46'),
+(6, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 1, 1, 'taha', 'kha', 'taha123@gmail.com', '', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', '', '', '', '', '', '', '09078', 'Yemen', 235, 'Ta\'izz', 3807, '{firstname} {lastname}\r\n{company}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', '[]', 'تكلفة ثابتة للشحن', 'flat.flat', 'hghghghghghk', 505.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-22 17:53:42', '2022-11-22 17:54:54'),
+(7, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 1, 1, 'taha', 'kha', 'taha123@gmail.com', '', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'Jazan', '', 'Jazan', '', 'Yemen', 235, 'Adan', 3790, 'High School<br/>Jazan<br/>Jazan, Adan<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 505.0000, 0, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-23 17:32:11', '2022-11-23 17:32:11'),
+(8, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 7, 1, 'hfhh', 'khfkkgf', 'ta009@gmail.com', '87969769769', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'hfhh', 'khfkkgf', '', 'hkjljgkhghg', 'hffgjfjgh', 'تعز', '', 'Yemen', 235, 'Ta\'izz', 3807, '{firstname} {lastname}\r\n{company}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 221.2000, 0, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '127.0.0.1', '', 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:107.0) Gecko/20100101 Firefox/107.0', 'en-US,en;q=0.5', '2022-11-23 19:14:28', '2022-11-23 20:48:58'),
+(9, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 6, 1, 'High', 'School', 'tah3@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'ghghghj', '', 'تعز', '', 'Yemen', 235, 'Ta\'izz', 3807, '{firstname} {lastname}\r\n{company}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 302.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-23 19:19:26', '2022-11-23 19:55:07'),
+(10, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 6, 1, 'High', 'School', 'tah3@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'ghghghj', '', 'تعز', '', 'Yemen', 235, 'Ta\'izz', 3807, 'High School<br/>ghghghj<br/>تعز, Ta\'izz<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 101.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-23 20:01:17', '2022-11-23 20:01:24'),
+(11, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 8, 1, 'High', 'School', 'taha17673@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'High', 'School', '', 'ghghghj', '', 'تعز', '', 'Yemen', 235, 'تعز', 3807, '{firstname} {lastname}\r\n{company}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 101.0000, 5, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-23 20:35:02', '2022-12-01 21:45:18'),
+(12, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 8, 1, 'High', 'School', 'taha17673@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'ghghghj', '', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'High School<br/>ghghghj<br/>تعز, تعز<br/>Yemen', '\"\"', 'قيمة الشحن للقطعة', 'item.item', 'ghghghjgghjhjhjh', 10000.0000, 0, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-23 20:42:55', '2022-11-24 12:59:25'),
+(13, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 11, 1, 'High', 'School', 'tah677567@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'High', 'School', '', 'ggy', 'ifhh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, '{firstname} {lastname}\r\n{company}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', '\"\"', 'الحوبان  (الوزن : 0.00kg)', 'weight.weight_4', '', 1214.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Mobile Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-24 17:17:52', '2022-11-24 17:19:01'),
+(14, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 11, 1, 'High', 'School', 'tah677567@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'ggy', 'ifhh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'High School<br/>ggy<br/>ifhh<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 1929.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Mobile Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-24 17:30:50', '2022-11-24 20:47:02'),
+(15, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'https://a14f-78-137-80-56.ap.ngrok.io/moh/upload/', 12, 1, 'محمد', 'فواد', 'mohammedfoud7431@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, '{firstname} {lastname}\r\n{company}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', '\"\"', 'الحوبان  (الوزن : 0.00kg)', 'weight.weight_4', 'Uuuuh', 612.0000, 0, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '89.189.86.206', '89.189.86.206', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-24 20:05:30', '2022-11-24 20:05:47'),
+(16, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 11, 1, 'High', 'School', 'tah677567@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'ggy', 'ifhh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'High School<br/>ggy<br/>ifhh<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 1204.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Mobile Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-24 20:51:35', '2022-11-24 20:51:43'),
+(17, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 11, 1, 'High', 'School', 'tah677567@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'High', 'School', '', 'ggy', 'ifhh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'High School<br/>ggy<br/>ifhh<br/>تعز, تعز<br/>Yemen', '\"\"', 'قيمة الشحن للقطعة', 'item.item', '', 7949.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Mobile Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-24 21:16:09', '2022-11-24 21:16:15'),
+(18, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 11, 1, 'High', 'School', 'tah677567@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'ggy', 'ifhh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'High School<br/>ggy<br/>ifhh<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', 'yftyfutfuty', 54919.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 17:20:59', '2022-11-25 17:29:56'),
+(19, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 11, 1, 'High', 'School', 'tah677567@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'High', 'School', '', 'ggy', 'ifhh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'High School<br/>ggy<br/>ifhh<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', 'yyyftyfyu', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 17:30:57', '2022-11-25 17:31:00'),
+(20, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 11, 1, 'High', 'School', 'tah677567@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'ggy', 'ifhh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'High School<br/>ggy<br/>ifhh<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 17:31:22', '2022-11-25 17:32:30'),
+(21, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 11, 1, 'High', 'School', 'tah677567@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'High', 'School', '', 'ggy', 'ifhh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'High School<br/>ggy<br/>ifhh<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 17:39:32', '2022-11-25 17:39:36'),
+(22, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 11, 1, 'High', 'School', 'tah677567@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'ggy', 'ifhh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'High School<br/>ggy<br/>ifhh<br/>تعز, تعز<br/>Yemen', '\"\"', 'قيمة الشحن للقطعة', 'item.item', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 17:42:15', '2022-11-25 17:42:18'),
+(23, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 11, 1, 'High', 'School', 'tah677567@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'ggy', 'ifhh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'High School<br/>ggy<br/>ifhh<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 17:46:06', '2022-11-25 17:46:09'),
+(24, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 11, 1, 'High', 'School', 'tah677567@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'ggy', 'ifhh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'High School<br/>ggy<br/>ifhh<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 17:54:57', '2022-11-25 17:55:00'),
+(25, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 11, 1, 'High', 'School', 'tah677567@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'High', 'School', '', 'ggy', 'ifhh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'High School<br/>ggy<br/>ifhh<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 17:55:15', '2022-11-25 17:56:02'),
+(26, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, '{firstname} {lastname}\r\n{company}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 17:57:29', '2022-11-25 17:57:36'),
+(27, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 18:23:20', '2022-11-25 18:23:24'),
+(28, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 18:24:02', '2022-11-25 18:24:04'),
+(29, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 18:24:27', '2022-11-25 18:24:29'),
+(30, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 18:25:34', '2022-11-25 18:26:19'),
+(31, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 18:26:35', '2022-11-25 18:27:31'),
+(32, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 18:28:51', '2022-11-25 18:30:58'),
+(33, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 18:33:10', '2022-11-25 18:33:13'),
+(34, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 18:34:14', '2022-11-25 18:34:16'),
+(35, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 18:34:49', '2022-11-25 18:34:51'),
+(36, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'hyhyhy', 'jkhjhlj', '', 'klkjh', 'efhjkehflkjhfe', 'efihoife', '', 'Yemen', 235, 'تعز', 3807, '{firstname} {lastname}\r\n{company}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 18:36:01', '2022-11-25 18:36:04'),
+(37, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 18:40:47', '2022-11-25 18:40:50'),
+(38, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 18:41:33', '2022-11-25 18:41:35'),
+(39, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 18:42:55', '2022-11-25 18:45:35'),
+(40, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 18:46:25', '2022-11-25 18:46:27'),
+(41, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 19:28:38', '2022-11-25 19:28:44'),
+(42, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 19:28:58', '2022-11-25 19:29:00'),
+(43, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 19:29:43', '2022-11-25 19:29:46'),
+(44, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 19:31:01', '2022-11-25 19:31:32'),
+(45, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 19:31:57', '2022-11-25 19:31:59'),
+(46, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 19:32:30', '2022-11-25 19:32:32'),
+(47, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 19:33:09', '2022-11-25 19:33:12'),
+(48, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 19:34:03', '2022-11-25 19:34:34'),
+(49, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 19:35:15', '2022-11-25 19:35:17'),
+(50, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 19:37:12', '2022-11-25 19:37:15'),
+(51, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 19:37:59', '2022-11-25 19:38:02'),
+(52, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 19:39:24', '2022-11-25 19:40:31'),
+(53, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 19:40:59', '2022-11-25 19:41:01'),
+(54, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 19:43:17', '2022-11-25 19:43:19'),
+(55, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 19:46:34', '2022-11-25 19:46:37'),
+(56, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 19:48:36', '2022-11-25 19:48:39'),
+(57, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 19:49:29', '2022-11-25 19:49:32'),
+(58, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 19:50:52', '2022-11-25 19:50:54'),
+(59, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 19:51:40', '2022-11-25 19:51:42'),
+(60, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 19:54:43', '2022-11-25 19:57:16'),
+(61, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 19:58:42', '2022-11-25 19:58:44'),
+(62, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 19:59:59', '2022-11-25 20:00:00'),
+(63, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 20:01:29', '2022-11-25 20:01:57'),
+(64, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 20:09:00', '2022-11-25 20:09:02'),
+(65, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'https://e69a-109-200-183-208.in.ngrok.io/moh/upload/', 14, 1, 'محمد', 'فواد', 'ml77o@example.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, '{firstname} {lastname}\r\n{company}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', '\"\"', 'الحوبان  (الوزن : 0.00kg)', 'weight.weight_4', '', 612.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '175.110.17.192', '175.110.17.192', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-25 20:17:50', '2022-11-25 20:18:05'),
+(66, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'https://e69a-109-200-183-208.in.ngrok.io/moh/upload/', 14, 1, 'محمد', 'فواد', 'ml77o@example.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 602.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '175.110.17.192', '175.110.17.192', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-25 20:19:42', '2022-11-25 20:19:46'),
+(67, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'https://e69a-109-200-183-208.in.ngrok.io/moh/upload/', 14, 1, 'محمد', 'فواد', 'ml77o@example.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 1204.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '188.240.110.3', '188.240.110.3', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-25 20:21:19', '2022-11-25 20:21:23'),
+(68, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'https://e69a-109-200-183-208.in.ngrok.io/moh/upload/', 14, 1, 'محمد', 'فواد', 'ml77o@example.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'قيمة الشحن للقطعة', 'item.item', '', 725.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '134.35.76.38', '134.35.76.38', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-25 20:32:57', '2022-11-25 20:33:01'),
+(69, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 616.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-25 21:19:08', '2022-11-25 21:19:31'),
+(70, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'قيمة الشحن للقطعة', 'item.item', '', 1232.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-26 17:44:11', '2022-11-26 17:44:45'),
+(71, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 492.8000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-26 17:47:08', '2022-11-26 17:47:11');
 INSERT INTO `ks_order` (`order_id`, `transaction_id`, `invoice_no`, `invoice_prefix`, `store_id`, `store_name`, `store_url`, `customer_id`, `customer_group_id`, `firstname`, `lastname`, `email`, `telephone`, `custom_field`, `payment_firstname`, `payment_lastname`, `payment_company`, `payment_address_1`, `payment_address_2`, `payment_city`, `payment_postcode`, `payment_country`, `payment_country_id`, `payment_zone`, `payment_zone_id`, `payment_address_format`, `payment_custom_field`, `payment_method`, `payment_code`, `shipping_firstname`, `shipping_lastname`, `shipping_company`, `shipping_address_1`, `shipping_address_2`, `shipping_city`, `shipping_postcode`, `shipping_country`, `shipping_country_id`, `shipping_zone`, `shipping_zone_id`, `shipping_address_format`, `shipping_custom_field`, `shipping_method`, `shipping_code`, `comment`, `total`, `order_status_id`, `affiliate_id`, `commission`, `marketing_id`, `tracking`, `language_id`, `language_code`, `currency_id`, `currency_code`, `currency_value`, `ip`, `forwarded_ip`, `user_agent`, `accept_language`, `date_added`, `date_modified`) VALUES
-(71, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '492.8000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-26 17:47:08', '2022-11-26 17:47:11'),
-(72, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-26 17:50:51', '2022-11-26 18:17:18'),
-(73, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-26 18:18:26', '2022-11-26 18:29:25'),
-(74, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 15, 1, 'jjj', 'jjghj', 'hjh@gmail.com', '7676875687567', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'jjj', 'jjghj', '', 'jgshghj', 'jshjk', 'تعز', '', 'Yemen', 235, 'تعز', 3807, '{firstname} {lastname}\r\n{company}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '127.0.0.1', '', 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:107.0) Gecko/20100101 Firefox/107.0', 'en-US,en;q=0.5', '2022-11-26 18:21:59', '2022-11-26 18:22:08'),
-(75, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 15, 1, 'jjj', 'jjghj', 'hjh@gmail.com', '7676875687567', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'jjj', 'jjghj', '', 'jgshghj', 'jshjk', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'jjj jjghj<br/>jgshghj<br/>jshjk<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 0, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '127.0.0.1', '', 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:107.0) Gecko/20100101 Firefox/107.0', 'en-US,en;q=0.5', '2022-11-26 18:22:31', '2022-11-26 18:22:31'),
-(76, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'قيمة الشحن للقطعة', 'item.item', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-26 18:31:17', '2022-11-26 18:31:48'),
-(77, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-26 18:32:05', '2022-11-26 18:33:17'),
-(78, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 0, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-26 18:39:17', '2022-11-26 18:39:17'),
-(79, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-26 18:39:17', '2022-11-26 18:47:32'),
-(80, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 0, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-26 18:48:14', '2022-11-26 18:48:14'),
-(81, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '246.4000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-26 18:48:14', '2022-11-26 19:06:39'),
-(82, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-26 19:08:24', '2022-11-26 19:08:59'),
-(83, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-26 19:09:18', '2022-11-26 19:10:06'),
-(84, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-26 19:10:21', '2022-11-26 19:11:02'),
-(85, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-26 19:11:22', '2022-11-26 19:15:06'),
-(86, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-26 19:18:55', '2022-11-26 19:19:59'),
-(87, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 0, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-26 19:22:16', '2022-11-26 19:22:16'),
-(88, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 0, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-26 19:22:16', '2022-11-26 19:22:16'),
-(89, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-26 19:22:16', '2022-11-26 19:25:09'),
-(90, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الحوبان  (الوزن : 0.00kg)', 'weight.weight_4', '', '108.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-26 19:42:34', '2022-11-27 12:23:38'),
-(91, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', 'hhhhh', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-27 12:24:20', '2022-11-27 12:48:03'),
-(92, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-27 12:52:21', '2022-11-27 12:52:23'),
-(93, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-27 12:54:05', '2022-11-27 12:54:07'),
-(94, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-27 12:54:25', '2022-11-27 12:54:31'),
-(95, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'قيمة الشحن للقطعة', 'item.item', '', '123.2000', 0, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-27 13:42:37', '2022-11-27 13:47:36'),
-(96, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 0, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-27 13:48:35', '2022-11-27 13:55:38'),
-(97, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-27 14:05:46', '2022-11-27 14:05:49'),
-(98, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-27 14:06:27', '2022-11-27 14:08:40'),
-(99, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الحوبان  (الوزن : 0.00kg)', 'weight.weight_4', '', '612.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-27 14:09:19', '2022-11-27 14:09:21'),
-(100, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '123.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-27 14:10:46', '2022-11-27 14:29:47'),
-(101, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'hyhyhy', 'jkhjhlj', '', 'klkjh', 'efhjkehflkjhfe', 'efihoife', '', 'Yemen', 235, 'تعز', 3807, 'hyhyhy jkhjhlj<br/>klkjh<br/>efhjkehflkjhfe<br/>efihoife, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '3654.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-27 14:39:39', '2022-11-27 14:58:25'),
-(102, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '6020.0000', 0, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Mobile Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-27 15:05:55', '2022-11-27 16:49:32'),
-(103, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, '{firstname} {lastname}\r\n{company}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', '\"\"', 'الحوبان  (الوزن : 0.00kg)', 'weight.weight_4', 'Ushehshhehe', '612.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.22', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-27 16:56:21', '2022-11-27 16:57:06'),
-(104, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 1, 1, 'taha', 'kha', 'taha123@gmail.com', '', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'Jazan', '', 'Jazan', '', 'Yemen', 235, '', 3790, 'High School<br/>Jazan<br/>Jazan,<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '2206.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-27 17:47:11', '2022-11-27 17:47:22'),
-(105, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/admin/', 1, 1, 'taha', 'kha', 'taha123@gmail.com', '', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'Jazan', '', 'Jazan', '', 'Yemen', 235, '', 3790, 'High School<br/>Jazan<br/>Jazan,<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '800.0000', 5, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-27 17:49:06', '2022-11-27 17:53:27'),
-(106, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '725.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.22', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-27 19:46:58', '2022-11-27 19:47:01'),
-(107, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الحوبان  (الوزن : 0.00kg)', 'weight.weight_4', '', '810.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.22', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-27 20:00:08', '2022-11-27 20:00:11'),
-(108, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '1204.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.22', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-27 20:17:07', '2022-11-27 20:17:20'),
-(109, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الحوبان  (الوزن : 0.00kg)', 'weight.weight_4', '', '6632.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 18:29:41', '2022-11-28 18:29:50'),
-(110, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '4214.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 20:00:44', '2022-11-28 20:00:49'),
-(111, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '602.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 20:01:20', '2022-11-28 20:01:31'),
-(112, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '800.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 20:10:22', '2022-11-28 20:10:35'),
-(113, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '602.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 20:14:07', '2022-11-28 20:14:11'),
-(114, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '602.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 20:15:01', '2022-11-28 20:15:05'),
-(115, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '98.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 20:19:13', '2022-11-28 20:19:15'),
-(116, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '602.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 20:19:43', '2022-11-28 20:19:50'),
-(117, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '602.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 20:24:11', '2022-11-28 20:24:14'),
-(118, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '725.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 20:25:13', '2022-11-28 20:25:17'),
-(119, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '823.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 20:27:18', '2022-11-28 20:27:28'),
-(120, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '725.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 20:29:18', '2022-11-28 20:29:19'),
-(121, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '725.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 20:34:48', '2022-11-28 20:34:51'),
-(122, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '725.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 20:36:08', '2022-11-28 20:36:12'),
-(123, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '725.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 20:36:32', '2022-11-28 20:36:33'),
-(124, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '725.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 20:38:33', '2022-11-28 20:38:36'),
-(125, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '2777.6000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 20:41:53', '2022-11-28 20:41:55'),
-(126, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '725.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 20:42:16', '2022-11-28 20:42:17'),
-(127, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '823.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 20:49:29', '2022-11-28 20:49:33'),
-(128, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '725.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 20:51:56', '2022-11-28 20:51:58'),
-(129, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '725.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 20:54:09', '2022-11-28 20:54:13'),
-(130, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '725.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 20:58:14', '2022-11-28 20:58:15'),
-(131, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '725.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 21:00:56', '2022-11-28 21:00:57'),
-(132, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '725.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 21:02:35', '2022-11-28 21:02:36'),
-(133, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '725.2000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 21:05:20', '2022-11-28 21:05:21'),
-(134, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.194.185/moh/upload/', 18, 1, 'محمد', 'فواد', 'mohammedfoud74@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'السوق', 'تعز', '', 'Yemen', 235, 'تعز', 3807, '{firstname} {lastname}\r\n{company}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '122.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.194.100', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-29 19:23:27', '2022-11-29 19:23:34'),
-(135, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.194.185/moh/upload/', 18, 1, 'محمد', 'فواد', 'mohammedfoud74@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'السوق', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>السوق<br/>تعز, تعز<br/>Yemen', '\"\"', 'قيمة الشحن للقطعة', 'item.item', '', '1414.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.194.100', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-29 19:28:02', '2022-11-29 19:46:50'),
-(136, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.194.185/moh/upload/', 18, 1, 'محمد', 'فواد', 'mohammedfoud74@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'السوق', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>السوق<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', 'Hhhjijnenwjwjkekekekeje', '65522.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.194.100', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-29 20:24:30', '2022-11-29 20:24:56'),
-(137, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'https://cc3f-46-35-71-208.in.ngrok.io/moh/upload/', 20, 1, 'محمد', 'فواد', 'tom34443@example.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الدهبلية', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, '{firstname} {lastname}\r\n{company}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '244.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '134.35.56.161', '134.35.56.161', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-29 22:10:51', '2022-11-29 22:11:33'),
-(138, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'https://cc3f-46-35-71-208.in.ngrok.io/moh/upload/', 20, 1, 'محمد', 'فواد', 'tom34443@example.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الدهبلية', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الدهبلية<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', 'عغفققلا', '488.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '134.35.56.161', '134.35.56.161', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-29 22:24:56', '2022-11-29 22:29:43');
+(72, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-26 17:50:51', '2022-11-26 18:17:18'),
+(73, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-26 18:18:26', '2022-11-26 18:29:25'),
+(74, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 15, 1, 'jjj', 'jjghj', 'hjh@gmail.com', '7676875687567', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'jjj', 'jjghj', '', 'jgshghj', 'jshjk', 'تعز', '', 'Yemen', 235, 'تعز', 3807, '{firstname} {lastname}\r\n{company}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '127.0.0.1', '', 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:107.0) Gecko/20100101 Firefox/107.0', 'en-US,en;q=0.5', '2022-11-26 18:21:59', '2022-11-26 18:22:08'),
+(75, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 15, 1, 'jjj', 'jjghj', 'hjh@gmail.com', '7676875687567', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'jjj', 'jjghj', '', 'jgshghj', 'jshjk', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'jjj jjghj<br/>jgshghj<br/>jshjk<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 0, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '127.0.0.1', '', 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:107.0) Gecko/20100101 Firefox/107.0', 'en-US,en;q=0.5', '2022-11-26 18:22:31', '2022-11-26 18:22:31'),
+(76, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'قيمة الشحن للقطعة', 'item.item', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-26 18:31:17', '2022-11-26 18:31:48'),
+(77, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-26 18:32:05', '2022-11-26 18:33:17'),
+(78, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 0, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-26 18:39:17', '2022-11-26 18:39:17'),
+(79, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-26 18:39:17', '2022-11-26 18:47:32'),
+(80, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 0, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-26 18:48:14', '2022-11-26 18:48:14'),
+(81, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 246.4000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-26 18:48:14', '2022-11-26 19:06:39'),
+(82, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-26 19:08:24', '2022-11-26 19:08:59'),
+(83, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-26 19:09:18', '2022-11-26 19:10:06'),
+(84, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-26 19:10:21', '2022-11-26 19:11:02'),
+(85, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-26 19:11:22', '2022-11-26 19:15:06'),
+(86, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-26 19:18:55', '2022-11-26 19:19:59'),
+(87, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 0, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-26 19:22:16', '2022-11-26 19:22:16'),
+(88, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 0, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-26 19:22:16', '2022-11-26 19:22:16'),
+(89, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-26 19:22:16', '2022-11-26 19:25:09'),
+(90, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الحوبان  (الوزن : 0.00kg)', 'weight.weight_4', '', 108.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-26 19:42:34', '2022-11-27 12:23:38'),
+(91, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', 'hhhhh', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-27 12:24:20', '2022-11-27 12:48:03'),
+(92, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-27 12:52:21', '2022-11-27 12:52:23'),
+(93, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-27 12:54:05', '2022-11-27 12:54:07'),
+(94, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-27 12:54:25', '2022-11-27 12:54:31'),
+(95, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'قيمة الشحن للقطعة', 'item.item', '', 123.2000, 0, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-27 13:42:37', '2022-11-27 13:47:36'),
+(96, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 0, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-27 13:48:35', '2022-11-27 13:55:38'),
+(97, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-27 14:05:46', '2022-11-27 14:05:49'),
+(98, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-27 14:06:27', '2022-11-27 14:08:40'),
+(99, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الحوبان  (الوزن : 0.00kg)', 'weight.weight_4', '', 612.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-27 14:09:19', '2022-11-27 14:09:21'),
+(100, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 123.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-27 14:10:46', '2022-11-27 14:29:47'),
+(101, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'hyhyhy', 'jkhjhlj', '', 'klkjh', 'efhjkehflkjhfe', 'efihoife', '', 'Yemen', 235, 'تعز', 3807, 'hyhyhy jkhjhlj<br/>klkjh<br/>efhjkehflkjhfe<br/>efihoife, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 3654.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-27 14:39:39', '2022-11-27 14:58:25'),
+(102, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 13, 1, 'محمد', 'فواد', 'ta98989@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الفرزة', 'المحل حق طة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>المحل حق طة<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 6020.0000, 0, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Mobile Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-27 15:05:55', '2022-11-27 16:49:32'),
+(103, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, '{firstname} {lastname}\r\n{company}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', '\"\"', 'الحوبان  (الوزن : 0.00kg)', 'weight.weight_4', 'Ushehshhehe', 612.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.22', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-27 16:56:21', '2022-11-27 16:57:06'),
+(104, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/', 1, 1, 'taha', 'kha', 'taha123@gmail.com', '', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'Jazan', '', 'Jazan', '', 'Yemen', 235, '', 3790, 'High School<br/>Jazan<br/>Jazan,<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 2206.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-27 17:47:11', '2022-11-27 17:47:22'),
+(105, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://localhost/moh/upload/admin/', 1, 1, 'taha', 'kha', 'taha123@gmail.com', '', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'Jazan', '', 'Jazan', '', 'Yemen', 235, '', 3790, 'High School<br/>Jazan<br/>Jazan,<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 800.0000, 5, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-11-27 17:49:06', '2022-11-27 17:53:27'),
+(106, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 725.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.22', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-27 19:46:58', '2022-11-27 19:47:01'),
+(107, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الحوبان  (الوزن : 0.00kg)', 'weight.weight_4', '', 810.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.22', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-27 20:00:08', '2022-11-27 20:00:11'),
+(108, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 1204.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.22', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-27 20:17:07', '2022-11-27 20:17:20'),
+(109, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الحوبان  (الوزن : 0.00kg)', 'weight.weight_4', '', 6632.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 18:29:41', '2022-11-28 18:29:50'),
+(110, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 4214.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 20:00:44', '2022-11-28 20:00:49'),
+(111, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 602.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 20:01:20', '2022-11-28 20:01:31'),
+(112, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 800.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 20:10:22', '2022-11-28 20:10:35'),
+(113, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 602.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 20:14:07', '2022-11-28 20:14:11'),
+(114, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 602.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 20:15:01', '2022-11-28 20:15:05'),
+(115, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 98.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 20:19:13', '2022-11-28 20:19:15'),
+(116, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 602.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 20:19:43', '2022-11-28 20:19:50'),
+(117, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 602.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 20:24:11', '2022-11-28 20:24:14'),
+(118, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 725.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 20:25:13', '2022-11-28 20:25:17'),
+(119, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 823.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 20:27:18', '2022-11-28 20:27:28'),
+(120, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 725.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 20:29:18', '2022-11-28 20:29:19'),
+(121, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 725.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 20:34:48', '2022-11-28 20:34:51'),
+(122, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 725.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 20:36:08', '2022-11-28 20:36:12'),
+(123, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 725.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 20:36:32', '2022-11-28 20:36:33'),
+(124, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 725.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 20:38:33', '2022-11-28 20:38:36'),
+(125, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 2777.6000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 20:41:53', '2022-11-28 20:41:55'),
+(126, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 725.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 20:42:16', '2022-11-28 20:42:17'),
+(127, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 823.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 20:49:29', '2022-11-28 20:49:33'),
+(128, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 725.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 20:51:56', '2022-11-28 20:51:58'),
+(129, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 725.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 20:54:09', '2022-11-28 20:54:13'),
+(130, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 725.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 20:58:14', '2022-11-28 20:58:15'),
+(131, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 725.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 21:00:56', '2022-11-28 21:00:57'),
+(132, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 725.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 21:02:35', '2022-11-28 21:02:36'),
+(133, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.221.35/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 725.2000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.26', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-28 21:05:20', '2022-11-28 21:05:21'),
+(134, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.194.185/moh/upload/', 18, 1, 'محمد', 'فواد', 'mohammedfoud74@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'السوق', 'تعز', '', 'Yemen', 235, 'تعز', 3807, '{firstname} {lastname}\r\n{company}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 122.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.194.100', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-29 19:23:27', '2022-11-29 19:23:34'),
+(135, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.194.185/moh/upload/', 18, 1, 'محمد', 'فواد', 'mohammedfoud74@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'السوق', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>السوق<br/>تعز, تعز<br/>Yemen', '\"\"', 'قيمة الشحن للقطعة', 'item.item', '', 1414.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.194.100', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-29 19:28:02', '2022-11-29 19:46:50'),
+(136, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'http://192.168.194.185/moh/upload/', 18, 1, 'محمد', 'فواد', 'mohammedfoud74@gmail.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الفرزة', 'السوق', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الفرزة<br/>السوق<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', 'Hhhjijnenwjwjkekekekeje', 65522.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.194.100', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-29 20:24:30', '2022-11-29 20:24:56'),
+(137, '', 0, 'INV-2022-00', 0, 'خيال العطور', 'https://cc3f-46-35-71-208.in.ngrok.io/moh/upload/', 20, 1, 'محمد', 'فواد', 'tom34443@example.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الدهبلية', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, '{firstname} {lastname}\r\n{company}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 244.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '134.35.56.161', '134.35.56.161', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-29 22:10:51', '2022-11-29 22:11:33'),
+(138, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'https://cc3f-46-35-71-208.in.ngrok.io/moh/upload/', 20, 1, 'محمد', 'فواد', 'tom34443@example.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الدهبلية', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الدهبلية<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', 'عغفققلا', 488.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '134.35.56.161', '134.35.56.161', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-29 22:24:56', '2022-11-29 22:29:43'),
+(139, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'https://cc3f-46-35-71-208.in.ngrok.io/moh/upload/', 20, 1, 'محمد', 'فواد', 'tom34443@example.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الدهبلية', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الدهبلية<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 71200.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '46.35.71.208', '46.35.71.208', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-29 22:32:48', '2022-11-29 22:33:39'),
+(140, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'https://cc3f-46-35-71-208.in.ngrok.io/moh/upload/', 20, 1, 'محمد', 'فواد', 'tom34443@example.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الدهبلية', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الدهبلية<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 244.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '188.209.239.227', '188.209.239.227', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-29 22:36:11', '2022-11-29 22:36:52');
 INSERT INTO `ks_order` (`order_id`, `transaction_id`, `invoice_no`, `invoice_prefix`, `store_id`, `store_name`, `store_url`, `customer_id`, `customer_group_id`, `firstname`, `lastname`, `email`, `telephone`, `custom_field`, `payment_firstname`, `payment_lastname`, `payment_company`, `payment_address_1`, `payment_address_2`, `payment_city`, `payment_postcode`, `payment_country`, `payment_country_id`, `payment_zone`, `payment_zone_id`, `payment_address_format`, `payment_custom_field`, `payment_method`, `payment_code`, `shipping_firstname`, `shipping_lastname`, `shipping_company`, `shipping_address_1`, `shipping_address_2`, `shipping_city`, `shipping_postcode`, `shipping_country`, `shipping_country_id`, `shipping_zone`, `shipping_zone_id`, `shipping_address_format`, `shipping_custom_field`, `shipping_method`, `shipping_code`, `comment`, `total`, `order_status_id`, `affiliate_id`, `commission`, `marketing_id`, `tracking`, `language_id`, `language_code`, `currency_id`, `currency_code`, `currency_value`, `ip`, `forwarded_ip`, `user_agent`, `accept_language`, `date_added`, `date_modified`) VALUES
-(139, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'https://cc3f-46-35-71-208.in.ngrok.io/moh/upload/', 20, 1, 'محمد', 'فواد', 'tom34443@example.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'فواد', '', 'الدهبلية', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الدهبلية<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '71200.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '46.35.71.208', '46.35.71.208', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-29 22:32:48', '2022-11-29 22:33:39'),
-(140, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'https://cc3f-46-35-71-208.in.ngrok.io/moh/upload/', 20, 1, 'محمد', 'فواد', 'tom34443@example.com', '+96725262626', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'فواد', '', 'الدهبلية', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد فواد<br/>الدهبلية<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '244.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '188.209.239.227', '188.209.239.227', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-11-29 22:36:11', '2022-11-29 22:36:52'),
-(141, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://localhost/moh/upload/', 1, 1, 'taha', 'kha', 'taha123@gmail.com', '', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'Jazan', '', 'Jazan', '', 'Yemen', 235, '', 3790, 'High School<br/>Jazan<br/>Jazan,<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '13163.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-12-01 21:15:23', '2022-12-01 21:15:24'),
-(142, '', 2, 'INV-2022-00', 0, 'خيال للعطور', 'http://localhost/moh/upload/', 1, 1, 'taha', 'kha', 'taha123@gmail.com', '', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'Jazan', '', 'Jazan', '', 'Yemen', 235, '', 3790, 'High School<br/>Jazan<br/>Jazan,<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '1660.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Mobile Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-12-01 22:01:08', '2022-12-01 22:01:11'),
-(143, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 7, 1, 'hfhh', 'khfkkgf', 'ta009@gmail.com', '87969769769', '\"[]\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'hfhh', 'khfkkgf', '', 'hkjljgkhghg', 'hffgjfjgh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'hfhh khfkkgf<br/>hkjljgkhghg<br/>hffgjfjgh<br/>تعز, تعز<br/>Yemen', '[]', 'الحوبان  (الوزن : 0.00kg)', 'weight.weight_4', '', '7000.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.25', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-12-02 20:18:31', '2022-12-02 20:18:55'),
-(144, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 7, 1, 'محمد', 'فؤاد', 'mohammedfoud238@gmail.com', '714589027', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'hfhh', 'khfkkgf', '', 'hkjljgkhghg', 'hffgjfjgh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'hfhh khfkkgf<br/>hkjljgkhghg<br/>hffgjfjgh<br/>تعز, تعز<br/>Yemen', '[]', 'الاستلام من المتجر', 'pickup.pickup', '', '12200.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.25', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-12-02 20:29:57', '2022-12-02 20:30:02'),
-(145, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 7, 1, 'محمد', 'فؤاد', 'mohammedfoud238@gmail.com', '714589027', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'عبدالكريم', '', 'الشارع العام', 'الظهرة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>الشارع العام<br/>الظهرة<br/>تعز, تعز<br/>Yemen', '[]', 'المركزي  (الوزن : 0.00kg)', 'weight.weight_3', '', '4830.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.25', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-12-02 20:30:53', '2022-12-02 20:32:23'),
-(146, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 22, 1, 'High', 'School', 'areejhakami778@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'gfjgfgh', 'ghj', 'تعز', '', 'Yemen', 235, 'تعز', 3807, '{firstname} {lastname}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', '\"\"', 'الحوبان  (الوزن : 0.00kg)', 'weight.weight_4', '', '7000.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.35', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-12-02 20:40:12', '2022-12-02 20:40:18'),
-(147, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 22, 1, 'High', 'School', 'areejhakami778@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'gfjgfgh', 'ghj', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'High School<br/>gfjgfgh<br/>ghj<br/>تعز, تعز<br/>Yemen', '\"\"', 'الحوبان  (الوزن : 0.00kg)', 'weight.weight_4', '', '7000.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.35', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-12-02 20:43:50', '2022-12-02 20:43:53'),
-(148, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 22, 1, 'High', 'School', 'areejhakami778@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'gfjgfgh', 'ghj', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'High School<br/>gfjgfgh<br/>ghj<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '0.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.35', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-12-02 20:49:19', '2022-12-02 20:49:22'),
-(149, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 22, 1, 'High', 'School', 'areejhakami778@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'gfjgfgh', 'ghj', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'High School<br/>gfjgfgh<br/>ghj<br/>تعز, تعز<br/>Yemen', '\"\"', 'المركزي  (الوزن : 0.00kg)', 'weight.weight_3', '', '4000.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.35', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-12-02 20:50:30', '2022-12-02 20:50:32'),
-(150, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 22, 1, 'High', 'School', 'areejhakami778@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'gfjgfgh', 'ghj', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'High School<br/>gfjgfgh<br/>ghj<br/>تعز, تعز<br/>Yemen', '\"\"', 'الحوبان  (الوزن : 0.00kg)', 'weight.weight_4', '', '7000.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.35', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-12-02 20:51:33', '2022-12-02 20:51:35'),
-(151, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 22, 1, 'High', 'School', 'areejhakami778@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'gfjgfgh', 'ghj', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'High School<br/>gfjgfgh<br/>ghj<br/>تعز, تعز<br/>Yemen', '\"\"', 'المركزي  (الوزن : 0.00kg)', 'weight.weight_3', '', '4000.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.35', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-12-02 20:52:24', '2022-12-02 20:52:25'),
-(152, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 7, 1, 'محمد', 'فؤاد', 'mohammedfoud238@gmail.com', '714589027', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'hfhh', 'khfkkgf', '', 'hkjljgkhghg', 'hffgjfjgh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'hfhh khfkkgf<br/>hkjljgkhghg<br/>hffgjfjgh<br/>تعز, تعز<br/>Yemen', '[]', 'الحوبان  (الوزن : 0.00kg)', 'weight.weight_4', '', '7830.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.25', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-12-02 20:52:56', '2022-12-02 20:52:58'),
-(153, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 22, 1, 'High', 'School', 'areejhakami778@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'High', 'School', '', 'gfjgfgh', 'ghj', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'High School<br/>gfjgfgh<br/>ghj<br/>تعز, تعز<br/>Yemen', '\"\"', 'الحوبان  (الوزن : 0.00kg)', 'weight.weight_4', '', '7000.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.35', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-12-02 20:59:25', '2022-12-02 21:00:15'),
-(154, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'https://09d7-46-35-94-15.ap.ngrok.io/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الحوبان  (الوزن : 0.00kg)', 'weight.weight_4', '', '91000.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '89.189.83.210', '89.189.83.210', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-12-02 22:43:07', '2022-12-02 22:43:18'),
-(155, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://localhost/moh/upload/', 1, 1, 'taha', 'kha', 'taha123@gmail.com', '', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'Jazan', '', 'Jazan', '', 'Yemen', 235, '', 3790, 'High School<br/>Jazan<br/>Jazan,<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '130.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Mobile Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-12-03 14:06:07', '2022-12-03 14:06:11'),
-(156, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://localhost/moh/upload/', 1, 1, 'taha', 'kha', 'taha123@gmail.com', '', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'Jazan', '', 'Jazan', '', 'Yemen', 235, '', 3790, 'High School<br/>Jazan<br/>Jazan,<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '130.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-12-03 14:06:54', '2022-12-03 14:06:57'),
-(157, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://localhost/moh/upload/', 1, 1, 'taha', 'kha', 'taha123@gmail.com', '', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'High', 'School', '', 'Jazan', '', 'Jazan', '', 'Yemen', 235, '', 3790, 'High School<br/>Jazan<br/>Jazan,<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '0.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-12-03 14:07:36', '2022-12-03 14:07:38'),
-(158, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://localhost/moh/upload/', 1, 1, 'taha', 'kha', 'taha123@gmail.com', '', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'High', 'School', '', 'Jazan', '', 'taiz', '', 'Yemen', 235, 'صنعاء', 3805, 'High School<br/>Jazan<br/>taiz, صنعاء<br/>Yemen', '[]', 'الاستلام من المتجر', 'pickup.pickup', '', '0.0000', 0, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-12-03 15:28:09', '2022-12-03 16:12:16'),
-(159, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://localhost/moh/upload/', 1, 1, 'طة', 'خالد', 'taha123@gmail.com', '0552224595', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'طة', 'خالد', '', 'المسراخ', 'الظهرة', 'تعز', '', 'Yemen', 235, 'صنعاء', 3805, 'طة خالد<br/>المسراخ<br/>الظهرة<br/>تعز, صنعاء<br/>Yemen', '[]', 'الاستلام من المتجر', 'pickup.pickup', '', '0.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-12-03 17:50:35', '2022-12-03 18:08:26'),
-(160, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 7, 1, 'محمد', 'فؤاد', 'mohammedfoud238@gmail.com', '714589027', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'hfhh', 'khfkkgf', '', 'hkjljgkhghg', 'hffgjfjgh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'hfhh khfkkgf<br/>hkjljgkhghg<br/>hffgjfjgh<br/>تعز, تعز<br/>Yemen', '[]', 'الاستلام من المتجر', 'pickup.pickup', '', '0.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.3', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-12-03 18:21:08', '2022-12-03 18:21:14'),
-(161, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 7, 1, 'محمد', 'فؤاد', 'mohammedfoud238@gmail.com', '714589027', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'عبدالكريم', '', 'الشارع العام', 'الظهرة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>الشارع العام<br/>الظهرة<br/>تعز, تعز<br/>Yemen', '[]', 'الاستلام من المتجر', 'pickup.pickup', '', '20500.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.3', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-12-03 18:29:38', '2022-12-03 18:29:52'),
-(162, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 7, 1, 'محمد', 'فؤاد', 'mohammedfoud238@gmail.com', '714589027', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'hfhh', 'khfkkgf', '', 'hkjljgkhghg', 'hffgjfjgh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'hfhh khfkkgf<br/>hkjljgkhghg<br/>hffgjfjgh<br/>تعز, تعز<br/>Yemen', '[]', 'الاستلام من المتجر', 'pickup.pickup', '', '12500.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.3', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-12-03 18:38:24', '2022-12-03 18:38:26'),
-(163, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 7, 1, 'محمد', 'فؤاد', 'mohammedfoud238@gmail.com', '714589027', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'hfhh', 'khfkkgf', '', 'hkjljgkhghg', 'hffgjfjgh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'hfhh khfkkgf<br/>hkjljgkhghg<br/>hffgjfjgh<br/>تعز, تعز<br/>Yemen', '[]', 'الاستلام من المتجر', 'pickup.pickup', '', '12500.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.3', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-12-03 18:40:56', '2022-12-03 18:41:00'),
-(164, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 7, 1, 'محمد', 'فؤاد', 'mohammedfoud238@gmail.com', '714589027', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'hfhh', 'khfkkgf', '', 'hkjljgkhghg', 'hffgjfjgh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'hfhh khfkkgf<br/>hkjljgkhghg<br/>hffgjfjgh<br/>تعز, تعز<br/>Yemen', '[]', 'الحوبان  (الوزن : 0.00kg)', 'weight.weight_4', '', '16500.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.3', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-12-03 18:44:08', '2022-12-03 18:44:12'),
-(165, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 7, 1, 'محمد', 'فؤاد', 'mohammedfoud238@gmail.com', '714589027', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'hfhh', 'khfkkgf', '', 'hkjljgkhghg', 'hffgjfjgh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'hfhh khfkkgf<br/>hkjljgkhghg<br/>hffgjfjgh<br/>تعز, تعز<br/>Yemen', '[]', 'الاستلام من المتجر', 'pickup.pickup', '', '1600.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.3', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-12-03 18:48:01', '2022-12-03 18:55:48'),
-(166, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 7, 1, 'محمد', 'فؤاد', 'mohammedfoud238@gmail.com', '714589027', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'hfhh', 'khfkkgf', '', 'hkjljgkhghg', 'hffgjfjgh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'hfhh khfkkgf<br/>hkjljgkhghg<br/>hffgjfjgh<br/>تعز, تعز<br/>Yemen', '[]', 'الاستلام من المتجر', 'pickup.pickup', '', '12500.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.3', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-12-03 18:56:22', '2022-12-03 18:56:23'),
-(167, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 7, 1, 'محمد', 'فؤاد', 'mohammedfoud238@gmail.com', '714589027', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'hfhh', 'khfkkgf', '', 'hkjljgkhghg', 'hffgjfjgh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'hfhh khfkkgf<br/>hkjljgkhghg<br/>hffgjfjgh<br/>تعز, تعز<br/>Yemen', '[]', 'الاستلام من المتجر', 'pickup.pickup', '', '12500.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.3', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-12-03 18:59:58', '2022-12-03 19:00:00'),
-(168, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 7, 1, 'محمد', 'فؤاد', 'mohammedfoud238@gmail.com', '714589027', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'hfhh', 'khfkkgf', '', 'hkjljgkhghg', 'hffgjfjgh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'hfhh khfkkgf<br/>hkjljgkhghg<br/>hffgjfjgh<br/>تعز, تعز<br/>Yemen', '[]', 'الاستلام من المتجر', 'pickup.pickup', '', '12500.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.3', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-12-03 19:03:37', '2022-12-03 19:03:45'),
-(169, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 7, 1, 'محمد', 'فؤاد', 'mohammedfoud238@gmail.com', '714589027', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'hfhh', 'khfkkgf', '', 'hkjljgkhghg', 'hffgjfjgh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'hfhh khfkkgf<br/>hkjljgkhghg<br/>hffgjfjgh<br/>تعز, تعز<br/>Yemen', '[]', 'الاستلام من المتجر', 'pickup.pickup', '', '12500.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.3', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-12-03 19:08:31', '2022-12-03 19:08:33'),
-(170, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 7, 1, 'محمد', 'فؤاد', 'mohammedfoud238@gmail.com', '714589027', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'hfhh', 'khfkkgf', '', 'hkjljgkhghg', 'hffgjfjgh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'hfhh khfkkgf<br/>hkjljgkhghg<br/>hffgjfjgh<br/>تعز, تعز<br/>Yemen', '[]', 'الاستلام من المتجر', 'pickup.pickup', '', '12500.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.3', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-12-03 19:12:43', '2022-12-03 19:12:44'),
-(171, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 7, 1, 'محمد', 'فؤاد', 'mohammedfoud238@gmail.com', '714589027', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'hfhh', 'khfkkgf', '', 'hkjljgkhghg', 'hffgjfjgh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'hfhh khfkkgf<br/>hkjljgkhghg<br/>hffgjfjgh<br/>تعز, تعز<br/>Yemen', '[]', 'الاستلام من المتجر', 'pickup.pickup', '', '12500.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.3', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-12-03 19:16:26', '2022-12-03 19:16:27'),
-(172, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 7, 1, 'محمد', 'فؤاد', 'mohammedfoud238@gmail.com', '714589027', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'hfhh', 'khfkkgf', '', 'hkjljgkhghg', 'hffgjfjgh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'hfhh khfkkgf<br/>hkjljgkhghg<br/>hffgjfjgh<br/>تعز, تعز<br/>Yemen', '[]', 'الاستلام من المتجر', 'pickup.pickup', '', '12000.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.3', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-12-03 19:18:44', '2022-12-03 19:18:48'),
-(173, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 7, 1, 'محمد', 'فؤاد', 'mohammedfoud238@gmail.com', '714589027', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'hfhh', 'khfkkgf', '', 'hkjljgkhghg', 'hffgjfjgh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'hfhh khfkkgf<br/>hkjljgkhghg<br/>hffgjfjgh<br/>تعز, تعز<br/>Yemen', '[]', 'الاستلام من المتجر', 'pickup.pickup', '', '20000.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.3', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-12-03 19:20:54', '2022-12-03 19:20:56'),
-(174, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 7, 1, 'محمد', 'فؤاد', 'mohammedfoud238@gmail.com', '714589027', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'hfhh', 'khfkkgf', '', 'hkjljgkhghg', 'hffgjfjgh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'hfhh khfkkgf<br/>hkjljgkhghg<br/>hffgjfjgh<br/>تعز, تعز<br/>Yemen', '[]', 'الاستلام من المتجر', 'pickup.pickup', '', '32000.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.3', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-12-03 19:23:50', '2022-12-03 19:23:51'),
-(175, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 26, 1, 'High', 'School', 'areejhaka888mi778@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'ghghghj', 'ghj', 'Jazan', '', 'Yemen', 235, 'تعز', 3807, '{firstname} {lastname}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', '\"\"', 'الحوبان  (الوزن : 2.00kg)', 'weight.weight_4', '', '21600.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.35', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-12-03 19:25:18', '2022-12-03 19:25:22'),
-(176, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 26, 1, 'High', 'School', 'areejhaka888mi778@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'ghghghj', 'ghj', 'Jazan', '', 'Yemen', 235, 'تعز', 3807, 'High School<br/>ghghghj<br/>ghj<br/>Jazan, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '12000.0000', 0, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.35', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-12-03 20:09:10', '2022-12-03 20:10:31'),
-(177, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 27, 1, 'High', 'School', 'areejhakam99i778@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'ghghghj', 'ifhh', 'Jazan', '', 'Yemen', 235, 'تعز', 3807, '{firstname} {lastname}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', '\"\"', 'الحوبان  (الوزن : 0.00kg)', 'weight.weight_4', '', '16000.0000', 0, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.35', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-12-03 20:20:55', '2022-12-03 20:21:21'),
-(178, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://localhost/moh/upload/', 10, 1, 'hghgkh', 'sdjgh', 'tah87677623@gmail.com', '8766', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'hghgkh', 'sdjgh', '', 'gsdhgh', 'jsdhjkgkhg', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'hghgkh sdjgh<br/>gsdhgh<br/>jsdhjkgkhg<br/>تعز, تعز<br/>Yemen', '\"\"', 'الحوبان  (الوزن : 0.00kg)', 'weight.weight_4', '', '5600.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Mobile Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-12-04 14:48:38', '2022-12-04 14:48:42'),
-(179, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://localhost/moh/upload/', 10, 1, 'hghgkh', 'sdjgh', 'tah87677623@gmail.com', '8766', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'hghgkh', 'sdjgh', '', 'gsdhgh', 'jsdhjkgkhg', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'hghgkh sdjgh<br/>gsdhgh<br/>jsdhjkgkhg<br/>تعز, تعز<br/>Yemen', '\"\"', 'الحوبان  (الوزن : 0.00kg)', 'weight.weight_4', '', '16000.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Mobile Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-12-04 16:06:36', '2022-12-04 16:06:55'),
-(180, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://localhost/moh/upload/', 34, 1, 'High', 'School', 'tahaqqq123@gmail.com', '055222459522', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'High', 'School', '', 'المسراخ', 'ssssss', '', '', 'Yemen', 235, 'تعز', 3807, '{firstname} {lastname}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', '\"\"', 'الحوبان  (الوزن : 0.00kg)', 'weight.weight_4', '', '16000.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-12-05 18:32:45', '2022-12-05 19:36:26'),
-(181, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://localhost/moh/upload/', 35, 1, 'High', 'School', 'taha333123@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'ييييييييييي', '', '', '', 'Yemen', 235, 'تعز', 3807, '{firstname} {lastname}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', '5000.0000', 0, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Mobile Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-12-05 20:33:58', '2022-12-05 20:33:58'),
-(182, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://localhost/moh/upload/', 1, 1, 'طة', 'خالد', 'taha123@gmail.com', '0552224595', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'طة', 'خالد', '', 'pppppp', 'الظهرة', '', '', 'Yemen', 235, 'تعز', 3807, '{firstname} {lastname}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', '\"\"', 'الحوبان  (الوزن : 0.00kg)', 'weight.weight_4', '', '11200.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Mobile Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-12-05 21:37:57', '2022-12-05 21:38:12'),
-(183, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://localhost/moh/upload/', 1, 1, 'طة', 'خالد', 'taha123@gmail.com', '0552224595', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'طة', 'خالد', '', 'pppppp', 'الظهرة', '', '', 'Yemen', 235, 'تعز', 3807, 'طة خالد<br/>pppppp<br/>الظهرة<br/>, تعز<br/>Yemen', '\"\"', 'المركزي  (الوزن : 0.00kg)', 'weight.weight_3', '', '3600.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-12-05 21:39:59', '2022-12-05 21:46:24'),
-(184, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 36, 1, 'محمد', 'عبدالكريم', 'muh2022@gmail.com', '714589027999', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'الشارع العام', 'الظهرة', '', '', 'Yemen', 235, 'تعز', 3807, '{firstname} {lastname}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', '\"\"', 'الحوبان  (الوزن : 0.00kg)', 'weight.weight_4', '', '16000.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.21', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-12-06 19:43:50', '2022-12-06 19:43:59'),
-(185, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 36, 1, 'محمد', 'عبدالكريم', 'muh2022@gmail.com', '714589027999', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'عبدالكريم', '', 'الشارع العام', 'الظهرة', '', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>الشارع العام<br/>الظهرة<br/>, تعز<br/>Yemen', '\"\"', 'الحوبان  (الوزن : 0.00kg)', 'weight.weight_4', '', '16000.0000', 1, 0, '0.0000', 0, '', 2, '', 9, 'YER', '1.00000000', '192.168.221.21', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-12-06 20:01:02', '2022-12-06 20:01:25');
+(141, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://localhost/moh/upload/', 1, 1, 'taha', 'kha', 'taha123@gmail.com', '', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'Jazan', '', 'Jazan', '', 'Yemen', 235, '', 3790, 'High School<br/>Jazan<br/>Jazan,<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 13163.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-12-01 21:15:23', '2022-12-01 21:15:24'),
+(142, '', 2, 'INV-2022-00', 0, 'خيال للعطور', 'http://localhost/moh/upload/', 1, 1, 'taha', 'kha', 'taha123@gmail.com', '', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'Jazan', '', 'Jazan', '', 'Yemen', 235, '', 3790, 'High School<br/>Jazan<br/>Jazan,<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 1660.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Mobile Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-12-01 22:01:08', '2022-12-01 22:01:11'),
+(143, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 7, 1, 'hfhh', 'khfkkgf', 'ta009@gmail.com', '87969769769', '\"[]\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'hfhh', 'khfkkgf', '', 'hkjljgkhghg', 'hffgjfjgh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'hfhh khfkkgf<br/>hkjljgkhghg<br/>hffgjfjgh<br/>تعز, تعز<br/>Yemen', '[]', 'الحوبان  (الوزن : 0.00kg)', 'weight.weight_4', '', 7000.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.25', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-12-02 20:18:31', '2022-12-02 20:18:55'),
+(144, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 7, 1, 'محمد', 'فؤاد', 'mohammedfoud238@gmail.com', '714589027', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'hfhh', 'khfkkgf', '', 'hkjljgkhghg', 'hffgjfjgh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'hfhh khfkkgf<br/>hkjljgkhghg<br/>hffgjfjgh<br/>تعز, تعز<br/>Yemen', '[]', 'الاستلام من المتجر', 'pickup.pickup', '', 12200.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.25', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-12-02 20:29:57', '2022-12-02 20:30:02'),
+(145, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 7, 1, 'محمد', 'فؤاد', 'mohammedfoud238@gmail.com', '714589027', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'عبدالكريم', '', 'الشارع العام', 'الظهرة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>الشارع العام<br/>الظهرة<br/>تعز, تعز<br/>Yemen', '[]', 'المركزي  (الوزن : 0.00kg)', 'weight.weight_3', '', 4830.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.25', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-12-02 20:30:53', '2022-12-02 20:32:23'),
+(146, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 22, 1, 'High', 'School', 'areejhakami778@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'gfjgfgh', 'ghj', 'تعز', '', 'Yemen', 235, 'تعز', 3807, '{firstname} {lastname}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', '\"\"', 'الحوبان  (الوزن : 0.00kg)', 'weight.weight_4', '', 7000.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.35', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-12-02 20:40:12', '2022-12-02 20:40:18'),
+(147, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 22, 1, 'High', 'School', 'areejhakami778@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'gfjgfgh', 'ghj', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'High School<br/>gfjgfgh<br/>ghj<br/>تعز, تعز<br/>Yemen', '\"\"', 'الحوبان  (الوزن : 0.00kg)', 'weight.weight_4', '', 7000.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.35', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-12-02 20:43:50', '2022-12-02 20:43:53'),
+(148, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 22, 1, 'High', 'School', 'areejhakami778@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'gfjgfgh', 'ghj', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'High School<br/>gfjgfgh<br/>ghj<br/>تعز, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 0.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.35', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-12-02 20:49:19', '2022-12-02 20:49:22'),
+(149, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 22, 1, 'High', 'School', 'areejhakami778@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'gfjgfgh', 'ghj', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'High School<br/>gfjgfgh<br/>ghj<br/>تعز, تعز<br/>Yemen', '\"\"', 'المركزي  (الوزن : 0.00kg)', 'weight.weight_3', '', 4000.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.35', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-12-02 20:50:30', '2022-12-02 20:50:32'),
+(150, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 22, 1, 'High', 'School', 'areejhakami778@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'gfjgfgh', 'ghj', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'High School<br/>gfjgfgh<br/>ghj<br/>تعز, تعز<br/>Yemen', '\"\"', 'الحوبان  (الوزن : 0.00kg)', 'weight.weight_4', '', 7000.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.35', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-12-02 20:51:33', '2022-12-02 20:51:35'),
+(151, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 22, 1, 'High', 'School', 'areejhakami778@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'gfjgfgh', 'ghj', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'High School<br/>gfjgfgh<br/>ghj<br/>تعز, تعز<br/>Yemen', '\"\"', 'المركزي  (الوزن : 0.00kg)', 'weight.weight_3', '', 4000.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.35', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-12-02 20:52:24', '2022-12-02 20:52:25'),
+(152, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 7, 1, 'محمد', 'فؤاد', 'mohammedfoud238@gmail.com', '714589027', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'hfhh', 'khfkkgf', '', 'hkjljgkhghg', 'hffgjfjgh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'hfhh khfkkgf<br/>hkjljgkhghg<br/>hffgjfjgh<br/>تعز, تعز<br/>Yemen', '[]', 'الحوبان  (الوزن : 0.00kg)', 'weight.weight_4', '', 7830.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.25', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-12-02 20:52:56', '2022-12-02 20:52:58'),
+(153, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 22, 1, 'High', 'School', 'areejhakami778@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'High', 'School', '', 'gfjgfgh', 'ghj', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'High School<br/>gfjgfgh<br/>ghj<br/>تعز, تعز<br/>Yemen', '\"\"', 'الحوبان  (الوزن : 0.00kg)', 'weight.weight_4', '', 7000.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.35', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-12-02 20:59:25', '2022-12-02 21:00:15'),
+(154, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'https://09d7-46-35-94-15.ap.ngrok.io/moh/upload/', 16, 1, 'محمد', 'عبدالكريم', 'mohammedfoud746631@gmail.com', '+96725262626', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'عبدالكريم', '', 'تعز', 'المسراخ', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>تعز<br/>المسراخ<br/>تعز, تعز<br/>Yemen', '\"\"', 'الحوبان  (الوزن : 0.00kg)', 'weight.weight_4', '', 91000.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '89.189.83.210', '89.189.83.210', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-12-02 22:43:07', '2022-12-02 22:43:18'),
+(155, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://localhost/moh/upload/', 1, 1, 'taha', 'kha', 'taha123@gmail.com', '', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'Jazan', '', 'Jazan', '', 'Yemen', 235, '', 3790, 'High School<br/>Jazan<br/>Jazan,<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 130.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Mobile Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-12-03 14:06:07', '2022-12-03 14:06:11'),
+(156, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://localhost/moh/upload/', 1, 1, 'taha', 'kha', 'taha123@gmail.com', '', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'Jazan', '', 'Jazan', '', 'Yemen', 235, '', 3790, 'High School<br/>Jazan<br/>Jazan,<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 130.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-12-03 14:06:54', '2022-12-03 14:06:57'),
+(157, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://localhost/moh/upload/', 1, 1, 'taha', 'kha', 'taha123@gmail.com', '', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'High', 'School', '', 'Jazan', '', 'Jazan', '', 'Yemen', 235, '', 3790, 'High School<br/>Jazan<br/>Jazan,<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 0.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-12-03 14:07:36', '2022-12-03 14:07:38'),
+(158, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://localhost/moh/upload/', 1, 1, 'taha', 'kha', 'taha123@gmail.com', '', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'High', 'School', '', 'Jazan', '', 'taiz', '', 'Yemen', 235, 'صنعاء', 3805, 'High School<br/>Jazan<br/>taiz, صنعاء<br/>Yemen', '[]', 'الاستلام من المتجر', 'pickup.pickup', '', 0.0000, 0, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-12-03 15:28:09', '2022-12-03 16:12:16'),
+(159, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://localhost/moh/upload/', 1, 1, 'طة', 'خالد', 'taha123@gmail.com', '0552224595', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'طة', 'خالد', '', 'المسراخ', 'الظهرة', 'تعز', '', 'Yemen', 235, 'صنعاء', 3805, 'طة خالد<br/>المسراخ<br/>الظهرة<br/>تعز, صنعاء<br/>Yemen', '[]', 'الاستلام من المتجر', 'pickup.pickup', '', 0.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-12-03 17:50:35', '2022-12-03 18:08:26'),
+(160, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 7, 1, 'محمد', 'فؤاد', 'mohammedfoud238@gmail.com', '714589027', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'hfhh', 'khfkkgf', '', 'hkjljgkhghg', 'hffgjfjgh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'hfhh khfkkgf<br/>hkjljgkhghg<br/>hffgjfjgh<br/>تعز, تعز<br/>Yemen', '[]', 'الاستلام من المتجر', 'pickup.pickup', '', 0.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.3', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-12-03 18:21:08', '2022-12-03 18:21:14'),
+(161, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 7, 1, 'محمد', 'فؤاد', 'mohammedfoud238@gmail.com', '714589027', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'عبدالكريم', '', 'الشارع العام', 'الظهرة', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>الشارع العام<br/>الظهرة<br/>تعز, تعز<br/>Yemen', '[]', 'الاستلام من المتجر', 'pickup.pickup', '', 20500.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.3', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-12-03 18:29:38', '2022-12-03 18:29:52'),
+(162, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 7, 1, 'محمد', 'فؤاد', 'mohammedfoud238@gmail.com', '714589027', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'hfhh', 'khfkkgf', '', 'hkjljgkhghg', 'hffgjfjgh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'hfhh khfkkgf<br/>hkjljgkhghg<br/>hffgjfjgh<br/>تعز, تعز<br/>Yemen', '[]', 'الاستلام من المتجر', 'pickup.pickup', '', 12500.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.3', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-12-03 18:38:24', '2022-12-03 18:38:26'),
+(163, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 7, 1, 'محمد', 'فؤاد', 'mohammedfoud238@gmail.com', '714589027', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'hfhh', 'khfkkgf', '', 'hkjljgkhghg', 'hffgjfjgh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'hfhh khfkkgf<br/>hkjljgkhghg<br/>hffgjfjgh<br/>تعز, تعز<br/>Yemen', '[]', 'الاستلام من المتجر', 'pickup.pickup', '', 12500.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.3', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-12-03 18:40:56', '2022-12-03 18:41:00'),
+(164, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 7, 1, 'محمد', 'فؤاد', 'mohammedfoud238@gmail.com', '714589027', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'hfhh', 'khfkkgf', '', 'hkjljgkhghg', 'hffgjfjgh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'hfhh khfkkgf<br/>hkjljgkhghg<br/>hffgjfjgh<br/>تعز, تعز<br/>Yemen', '[]', 'الحوبان  (الوزن : 0.00kg)', 'weight.weight_4', '', 16500.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.3', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-12-03 18:44:08', '2022-12-03 18:44:12'),
+(165, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 7, 1, 'محمد', 'فؤاد', 'mohammedfoud238@gmail.com', '714589027', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'hfhh', 'khfkkgf', '', 'hkjljgkhghg', 'hffgjfjgh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'hfhh khfkkgf<br/>hkjljgkhghg<br/>hffgjfjgh<br/>تعز, تعز<br/>Yemen', '[]', 'الاستلام من المتجر', 'pickup.pickup', '', 1600.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.3', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-12-03 18:48:01', '2022-12-03 18:55:48'),
+(166, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 7, 1, 'محمد', 'فؤاد', 'mohammedfoud238@gmail.com', '714589027', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'hfhh', 'khfkkgf', '', 'hkjljgkhghg', 'hffgjfjgh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'hfhh khfkkgf<br/>hkjljgkhghg<br/>hffgjfjgh<br/>تعز, تعز<br/>Yemen', '[]', 'الاستلام من المتجر', 'pickup.pickup', '', 12500.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.3', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-12-03 18:56:22', '2022-12-03 18:56:23'),
+(167, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 7, 1, 'محمد', 'فؤاد', 'mohammedfoud238@gmail.com', '714589027', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'hfhh', 'khfkkgf', '', 'hkjljgkhghg', 'hffgjfjgh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'hfhh khfkkgf<br/>hkjljgkhghg<br/>hffgjfjgh<br/>تعز, تعز<br/>Yemen', '[]', 'الاستلام من المتجر', 'pickup.pickup', '', 12500.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.3', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-12-03 18:59:58', '2022-12-03 19:00:00'),
+(168, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 7, 1, 'محمد', 'فؤاد', 'mohammedfoud238@gmail.com', '714589027', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'hfhh', 'khfkkgf', '', 'hkjljgkhghg', 'hffgjfjgh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'hfhh khfkkgf<br/>hkjljgkhghg<br/>hffgjfjgh<br/>تعز, تعز<br/>Yemen', '[]', 'الاستلام من المتجر', 'pickup.pickup', '', 12500.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.3', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-12-03 19:03:37', '2022-12-03 19:03:45'),
+(169, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 7, 1, 'محمد', 'فؤاد', 'mohammedfoud238@gmail.com', '714589027', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'hfhh', 'khfkkgf', '', 'hkjljgkhghg', 'hffgjfjgh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'hfhh khfkkgf<br/>hkjljgkhghg<br/>hffgjfjgh<br/>تعز, تعز<br/>Yemen', '[]', 'الاستلام من المتجر', 'pickup.pickup', '', 12500.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.3', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-12-03 19:08:31', '2022-12-03 19:08:33'),
+(170, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 7, 1, 'محمد', 'فؤاد', 'mohammedfoud238@gmail.com', '714589027', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'hfhh', 'khfkkgf', '', 'hkjljgkhghg', 'hffgjfjgh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'hfhh khfkkgf<br/>hkjljgkhghg<br/>hffgjfjgh<br/>تعز, تعز<br/>Yemen', '[]', 'الاستلام من المتجر', 'pickup.pickup', '', 12500.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.3', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-12-03 19:12:43', '2022-12-03 19:12:44'),
+(171, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 7, 1, 'محمد', 'فؤاد', 'mohammedfoud238@gmail.com', '714589027', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'hfhh', 'khfkkgf', '', 'hkjljgkhghg', 'hffgjfjgh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'hfhh khfkkgf<br/>hkjljgkhghg<br/>hffgjfjgh<br/>تعز, تعز<br/>Yemen', '[]', 'الاستلام من المتجر', 'pickup.pickup', '', 12500.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.3', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-12-03 19:16:26', '2022-12-03 19:16:27'),
+(172, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 7, 1, 'محمد', 'فؤاد', 'mohammedfoud238@gmail.com', '714589027', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'hfhh', 'khfkkgf', '', 'hkjljgkhghg', 'hffgjfjgh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'hfhh khfkkgf<br/>hkjljgkhghg<br/>hffgjfjgh<br/>تعز, تعز<br/>Yemen', '[]', 'الاستلام من المتجر', 'pickup.pickup', '', 12000.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.3', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-12-03 19:18:44', '2022-12-03 19:18:48'),
+(173, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 7, 1, 'محمد', 'فؤاد', 'mohammedfoud238@gmail.com', '714589027', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'hfhh', 'khfkkgf', '', 'hkjljgkhghg', 'hffgjfjgh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'hfhh khfkkgf<br/>hkjljgkhghg<br/>hffgjfjgh<br/>تعز, تعز<br/>Yemen', '[]', 'الاستلام من المتجر', 'pickup.pickup', '', 20000.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.3', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-12-03 19:20:54', '2022-12-03 19:20:56'),
+(174, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 7, 1, 'محمد', 'فؤاد', 'mohammedfoud238@gmail.com', '714589027', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'hfhh', 'khfkkgf', '', 'hkjljgkhghg', 'hffgjfjgh', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'hfhh khfkkgf<br/>hkjljgkhghg<br/>hffgjfjgh<br/>تعز, تعز<br/>Yemen', '[]', 'الاستلام من المتجر', 'pickup.pickup', '', 32000.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.3', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-12-03 19:23:50', '2022-12-03 19:23:51'),
+(175, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 26, 1, 'High', 'School', 'areejhaka888mi778@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'ghghghj', 'ghj', 'Jazan', '', 'Yemen', 235, 'تعز', 3807, '{firstname} {lastname}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', '\"\"', 'الحوبان  (الوزن : 2.00kg)', 'weight.weight_4', '', 21600.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.35', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-12-03 19:25:18', '2022-12-03 19:25:22'),
+(176, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 26, 1, 'High', 'School', 'areejhaka888mi778@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'ghghghj', 'ghj', 'Jazan', '', 'Yemen', 235, 'تعز', 3807, 'High School<br/>ghghghj<br/>ghj<br/>Jazan, تعز<br/>Yemen', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 12000.0000, 0, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.35', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-12-03 20:09:10', '2022-12-03 20:10:31'),
+(177, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 27, 1, 'High', 'School', 'areejhakam99i778@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'ghghghj', 'ifhh', 'Jazan', '', 'Yemen', 235, 'تعز', 3807, '{firstname} {lastname}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', '\"\"', 'الحوبان  (الوزن : 0.00kg)', 'weight.weight_4', '', 16000.0000, 0, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.35', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-12-03 20:20:55', '2022-12-03 20:21:21'),
+(178, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://localhost/moh/upload/', 10, 1, 'hghgkh', 'sdjgh', 'tah87677623@gmail.com', '8766', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'hghgkh', 'sdjgh', '', 'gsdhgh', 'jsdhjkgkhg', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'hghgkh sdjgh<br/>gsdhgh<br/>jsdhjkgkhg<br/>تعز, تعز<br/>Yemen', '\"\"', 'الحوبان  (الوزن : 0.00kg)', 'weight.weight_4', '', 5600.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Mobile Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-12-04 14:48:38', '2022-12-04 14:48:42'),
+(179, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://localhost/moh/upload/', 10, 1, 'hghgkh', 'sdjgh', 'tah87677623@gmail.com', '8766', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'hghgkh', 'sdjgh', '', 'gsdhgh', 'jsdhjkgkhg', 'تعز', '', 'Yemen', 235, 'تعز', 3807, 'hghgkh sdjgh<br/>gsdhgh<br/>jsdhjkgkhg<br/>تعز, تعز<br/>Yemen', '\"\"', 'الحوبان  (الوزن : 0.00kg)', 'weight.weight_4', '', 16000.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Mobile Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-12-04 16:06:36', '2022-12-04 16:06:55'),
+(180, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://localhost/moh/upload/', 34, 1, 'High', 'School', 'tahaqqq123@gmail.com', '055222459522', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'High', 'School', '', 'المسراخ', 'ssssss', '', '', 'Yemen', 235, 'تعز', 3807, '{firstname} {lastname}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', '\"\"', 'الحوبان  (الوزن : 0.00kg)', 'weight.weight_4', '', 16000.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-12-05 18:32:45', '2022-12-05 19:36:26'),
+(181, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://localhost/moh/upload/', 35, 1, 'High', 'School', 'taha333123@gmail.com', '+966552224595', '[]', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'High', 'School', '', 'ييييييييييي', '', '', '', 'Yemen', 235, 'تعز', 3807, '{firstname} {lastname}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', '\"\"', 'الاستلام من المتجر', 'pickup.pickup', '', 5000.0000, 0, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Mobile Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-12-05 20:33:58', '2022-12-05 20:33:58'),
+(182, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://localhost/moh/upload/', 1, 1, 'طة', 'خالد', 'taha123@gmail.com', '0552224595', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'طة', 'خالد', '', 'pppppp', 'الظهرة', '', '', 'Yemen', 235, 'تعز', 3807, '{firstname} {lastname}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', '\"\"', 'الحوبان  (الوزن : 0.00kg)', 'weight.weight_4', '', 11200.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Mobile Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-12-05 21:37:57', '2022-12-05 21:38:12'),
+(183, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://localhost/moh/upload/', 1, 1, 'طة', 'خالد', 'taha123@gmail.com', '0552224595', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'طة', 'خالد', '', 'pppppp', 'الظهرة', '', '', 'Yemen', 235, 'تعز', 3807, 'طة خالد<br/>pppppp<br/>الظهرة<br/>, تعز<br/>Yemen', '\"\"', 'المركزي  (الوزن : 0.00kg)', 'weight.weight_3', '', 3600.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '::1', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36', 'en-US,en;q=0.9,ar;q=0.8', '2022-12-05 21:39:59', '2022-12-05 21:46:24'),
+(184, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 36, 1, 'محمد', 'عبدالكريم', 'muh2022@gmail.com', '714589027999', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'الدفع عند الاستلام', 'cod', 'محمد', 'عبدالكريم', '', 'الشارع العام', 'الظهرة', '', '', 'Yemen', 235, 'تعز', 3807, '{firstname} {lastname}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', '\"\"', 'الحوبان  (الوزن : 0.00kg)', 'weight.weight_4', '', 16000.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.21', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-12-06 19:43:50', '2022-12-06 19:43:59'),
+(185, '', 0, 'INV-2022-00', 0, 'خيال للعطور', 'http://192.168.221.35/moh/upload/', 36, 1, 'محمد', 'عبدالكريم', 'muh2022@gmail.com', '714589027999', '\"\"', '', '', '', '', '', '', '', '', 0, '', 0, '', '[]', 'تـحـويـل بـنـكـي', 'bank_transfer', 'محمد', 'عبدالكريم', '', 'الشارع العام', 'الظهرة', '', '', 'Yemen', 235, 'تعز', 3807, 'محمد عبدالكريم<br/>الشارع العام<br/>الظهرة<br/>, تعز<br/>Yemen', '\"\"', 'الحوبان  (الوزن : 0.00kg)', 'weight.weight_4', '', 16000.0000, 1, 0, 0.0000, 0, '', 2, '', 9, 'YER', 1.00000000, '192.168.221.21', '', 'Mozilla/5.0 (Linux; Android 11; M2004J19C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36 OPR/72.2.3767.68393', 'en-US,en;q=0.9', '2022-12-06 20:01:02', '2022-12-06 20:01:25');
 
 -- --------------------------------------------------------
 
@@ -3661,7 +3656,7 @@ CREATE TABLE `ks_order_history` (
   `notify` tinyint(1) NOT NULL DEFAULT 0,
   `comment` text NOT NULL,
   `date_added` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_order_history`
@@ -7354,7 +7349,7 @@ CREATE TABLE `ks_order_option` (
   `name` varchar(255) NOT NULL,
   `value` text NOT NULL,
   `type` varchar(32) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_order_option`
@@ -7401,252 +7396,252 @@ CREATE TABLE `ks_order_product` (
   `total` decimal(15,4) NOT NULL DEFAULT 0.0000,
   `tax` decimal(15,4) NOT NULL DEFAULT 0.0000,
   `reward` int(8) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_order_product`
 --
 
 INSERT INTO `ks_order_product` (`order_product_id`, `order_id`, `product_id`, `master_id`, `name`, `model`, `quantity`, `price`, `total`, `tax`, `reward`) VALUES
-(5, 1, 43, 0, 'MacBook', 'Product 16', 10, '500.0000', '5000.0000', '0.0000', 6000),
-(6, 1, 40, 0, 'iPhone', 'product 11', 6, '101.0000', '606.0000', '0.0000', 0),
-(7, 1, 29, 0, 'Palm Treo Pro', 'Product 2', 1, '279.9900', '279.9900', '0.0000', 0),
-(8, 1, 35, 0, 'Product 8', 'Product 8', 1, '110.0000', '110.0000', '0.0000', 0),
-(9, 2, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '0.0000', 0),
-(10, 3, 30, 0, 'Canon EOS 5D', 'Product 3', 1, '80.0000', '80.0000', '0.0000', 200),
-(11, 4, 43, 0, 'MacBook', 'Product 16', 1, '500.0000', '500.0000', '0.0000', 600),
-(12, 5, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '0.0000', 0),
-(14, 6, 43, 0, 'MacBook', 'Product 16', 1, '500.0000', '500.0000', '0.0000', 600),
-(15, 7, 40, 0, 'iPhone', 'product 11', 5, '101.0000', '505.0000', '0.0000', 0),
-(809, 9, 40, 0, 'iPhone', 'product 11', 2, '101.0000', '202.0000', '0.0000', 0),
-(810, 9, 41, 0, 'iMac', 'Product 14', 1, '100.0000', '100.0000', '0.0000', 0),
-(811, 10, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '0.0000', 0),
-(814, 11, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '0.0000', 0),
-(834, 8, 30, 0, 'Canon EOS 5D', 'Product 3', 1, '80.0000', '80.0000', '18.0000', 200),
-(835, 8, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(1191, 12, 52, 0, 'عطر فيسبوك', 'رجالي', 1, '10000.0000', '10000.0000', '0.0000', 0),
-(1200, 13, 43, 0, 'MacBook', 'Product 16', 2, '500.0000', '1000.0000', '102.0000', 1200),
-(2157, 15, 43, 0, 'MacBook', 'Product 16', 1, '500.0000', '500.0000', '102.0000', 600),
-(2160, 14, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2161, 14, 43, 0, 'MacBook', 'Product 16', 3, '500.0000', '1500.0000', '102.0000', 1800),
-(2162, 16, 43, 0, 'MacBook', 'Product 16', 2, '500.0000', '1000.0000', '102.0000', 1200),
-(2163, 17, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2164, 17, 43, 0, 'MacBook', 'Product 16', 13, '500.0000', '6500.0000', '102.0000', 7800),
-(2195, 18, 40, 0, 'iPhone', 'product 11', 6, '101.0000', '606.0000', '22.2000', 0),
-(2196, 18, 43, 0, 'MacBook', 'Product 16', 90, '500.0000', '45000.0000', '102.0000', 54000),
-(2197, 19, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2198, 20, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2199, 21, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2200, 22, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2201, 23, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2202, 24, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2203, 25, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2204, 26, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2205, 27, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2206, 28, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2207, 29, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2208, 30, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2209, 31, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2210, 32, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2211, 33, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2212, 34, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2213, 35, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2214, 36, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2215, 37, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2216, 38, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2217, 39, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2218, 40, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2219, 41, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2220, 42, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2221, 43, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2222, 44, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2223, 45, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2224, 46, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2225, 47, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2226, 48, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2227, 49, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2228, 50, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2229, 51, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2230, 52, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2231, 53, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2232, 54, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2233, 55, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2234, 56, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2235, 57, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2236, 58, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2237, 59, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2238, 60, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2239, 61, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2240, 62, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2241, 63, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2242, 64, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2243, 65, 43, 0, 'MacBook', 'Product 16', 1, '500.0000', '500.0000', '102.0000', 600),
-(2244, 66, 43, 0, 'MacBook', 'Product 16', 1, '500.0000', '500.0000', '102.0000', 600),
-(2245, 67, 43, 0, 'MacBook', 'Product 16', 2, '500.0000', '1000.0000', '102.0000', 1200),
-(2246, 68, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2247, 68, 43, 0, 'MacBook', 'Product 16', 1, '500.0000', '500.0000', '102.0000', 600),
-(2248, 69, 40, 0, 'iPhone', 'product 11', 5, '101.0000', '505.0000', '22.2000', 0),
-(2249, 70, 40, 0, 'iPhone', 'product 11', 10, '101.0000', '1010.0000', '22.2000', 0),
-(2250, 71, 40, 0, 'iPhone', 'product 11', 4, '101.0000', '404.0000', '22.2000', 0),
-(2326, 72, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2341, 74, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2344, 75, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2362, 73, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2365, 76, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2377, 77, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2378, 78, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2382, 79, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2383, 80, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2472, 81, 40, 0, 'iPhone', 'product 11', 2, '101.0000', '202.0000', '22.2000', 0),
-(2478, 82, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2481, 83, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2490, 84, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2548, 85, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2549, 85, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2553, 86, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2554, 87, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2555, 88, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2557, 89, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2558, 90, 30, 0, 'Canon EOS 5D', 'Product 3', 1, '80.0000', '80.0000', '18.0000', 200),
-(2564, 91, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2565, 92, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2566, 93, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2567, 94, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2627, 95, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2631, 96, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2632, 97, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2645, 98, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(2646, 99, 43, 0, 'MacBook', 'Product 16', 1, '500.0000', '500.0000', '102.0000', 600),
-(2779, 100, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(3164, 101, 40, 0, 'iPhone', 'product 11', 15, '101.0000', '1515.0000', '22.2000', 0),
-(3165, 101, 43, 0, 'MacBook', 'Product 16', 3, '500.0000', '1500.0000', '102.0000', 1800),
-(3570, 102, 43, 0, 'MacBook', 'Product 16', 10, '500.0000', '5000.0000', '102.0000', 6000),
-(3572, 103, 43, 0, 'MacBook', 'Product 16', 1, '500.0000', '500.0000', '102.0000', 600),
-(3573, 104, 40, 0, 'iPhone', 'product 11', 6, '101.0000', '606.0000', '0.0000', 0),
-(3574, 104, 53, 0, 'عطر زمردة', 'رجالي', 2, '800.0000', '1600.0000', '0.0000', 20),
-(3576, 105, 53, 0, 'عطر زمردة', 'رجالي', 1, '800.0000', '800.0000', '0.0000', 10),
-(3577, 106, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(3578, 106, 43, 0, 'MacBook', 'Product 16', 1, '500.0000', '500.0000', '102.0000', 600),
-(3579, 107, 53, 0, 'عطر زمردة', 'رجالي', 1, '800.0000', '800.0000', '0.0000', 10),
-(3581, 108, 43, 0, 'MacBook', 'Product 16', 2, '500.0000', '1000.0000', '102.0000', 1200),
-(3583, 109, 43, 0, 'MacBook', 'Product 16', 11, '500.0000', '5500.0000', '102.0000', 6600),
-(3584, 110, 43, 0, 'MacBook', 'Product 16', 7, '500.0000', '3500.0000', '102.0000', 4200),
-(3585, 111, 43, 0, 'MacBook', 'Product 16', 1, '500.0000', '500.0000', '102.0000', 600),
-(3586, 112, 53, 0, 'عطر زمردة', 'رجالي', 1, '800.0000', '800.0000', '0.0000', 10),
-(3587, 113, 43, 0, 'MacBook', 'Product 16', 1, '500.0000', '500.0000', '102.0000', 600),
-(3589, 114, 43, 0, 'MacBook', 'Product 16', 1, '500.0000', '500.0000', '102.0000', 600),
-(3590, 115, 30, 0, 'Canon EOS 5D', 'Product 3', 1, '80.0000', '80.0000', '18.0000', 200),
-(3591, 116, 43, 0, 'MacBook', 'Product 16', 1, '500.0000', '500.0000', '102.0000', 600),
-(3593, 117, 43, 0, 'MacBook', 'Product 16', 1, '500.0000', '500.0000', '102.0000', 600),
-(3594, 118, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(3595, 118, 43, 0, 'MacBook', 'Product 16', 1, '500.0000', '500.0000', '102.0000', 600),
-(3599, 119, 30, 0, 'Canon EOS 5D', 'Product 3', 1, '80.0000', '80.0000', '18.0000', 200),
-(3600, 119, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(3601, 119, 43, 0, 'MacBook', 'Product 16', 1, '500.0000', '500.0000', '102.0000', 600),
-(3602, 120, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(3603, 120, 43, 0, 'MacBook', 'Product 16', 1, '500.0000', '500.0000', '102.0000', 600),
-(3606, 121, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(3607, 121, 43, 0, 'MacBook', 'Product 16', 1, '500.0000', '500.0000', '102.0000', 600),
-(3610, 122, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(3611, 122, 43, 0, 'MacBook', 'Product 16', 1, '500.0000', '500.0000', '102.0000', 600),
-(3612, 123, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(3613, 123, 43, 0, 'MacBook', 'Product 16', 1, '500.0000', '500.0000', '102.0000', 600),
-(3614, 124, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(3615, 124, 43, 0, 'MacBook', 'Product 16', 1, '500.0000', '500.0000', '102.0000', 600),
-(3616, 125, 40, 0, 'iPhone', 'product 11', 3, '101.0000', '303.0000', '22.2000', 0),
-(3617, 125, 43, 0, 'MacBook', 'Product 16', 4, '500.0000', '2000.0000', '102.0000', 2400),
-(3618, 126, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(3619, 126, 43, 0, 'MacBook', 'Product 16', 1, '500.0000', '500.0000', '102.0000', 600),
-(3620, 127, 30, 0, 'Canon EOS 5D', 'Product 3', 1, '80.0000', '80.0000', '18.0000', 200),
-(3621, 127, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(3622, 127, 43, 0, 'MacBook', 'Product 16', 1, '500.0000', '500.0000', '102.0000', 600),
-(3623, 128, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(3624, 128, 43, 0, 'MacBook', 'Product 16', 1, '500.0000', '500.0000', '102.0000', 600),
-(3627, 129, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(3628, 129, 43, 0, 'MacBook', 'Product 16', 1, '500.0000', '500.0000', '102.0000', 600),
-(3629, 130, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(3630, 130, 43, 0, 'MacBook', 'Product 16', 1, '500.0000', '500.0000', '102.0000', 600),
-(3631, 131, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(3632, 131, 43, 0, 'MacBook', 'Product 16', 1, '500.0000', '500.0000', '102.0000', 600),
-(3633, 132, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(3634, 132, 43, 0, 'MacBook', 'Product 16', 1, '500.0000', '500.0000', '102.0000', 600),
-(3635, 133, 40, 0, 'iPhone', 'product 11', 1, '101.0000', '101.0000', '22.2000', 0),
-(3636, 133, 43, 0, 'MacBook', 'Product 16', 1, '500.0000', '500.0000', '102.0000', 600),
-(3637, 134, 40, 0, 'منبب', 'product 11', 1, '100.0000', '100.0000', '22.0000', 0),
-(3687, 135, 35, 0, 'Product 8', 'Product 8', 4, '115.0000', '460.0000', '25.0000', 0),
-(3688, 135, 40, 0, 'منبب', 'product 11', 7, '100.0000', '700.0000', '22.0000', 0),
-(3697, 136, 35, 0, 'Product 8', 'Product 8', 7, '115.0000', '805.0000', '25.0000', 0),
-(3698, 136, 40, 0, 'منبب', 'product 11', 11, '100.0000', '1100.0000', '22.0000', 0),
-(3699, 136, 52, 0, 'عطر فيسبوك', 'رجالي', 6, '10000.0000', '60000.0000', '0.0000', 0),
-(3700, 136, 53, 0, 'عطر زمردة', 'رجالي', 4, '800.0000', '3200.0000', '0.0000', 40),
-(3705, 137, 40, 0, 'منبب', 'product 11', 2, '100.0000', '200.0000', '22.0000', 0),
-(3715, 138, 40, 0, 'منبب', 'product 11', 4, '100.0000', '400.0000', '22.0000', 0),
-(3717, 139, 50, 0, 'هههههه', 'عطور', 89, '800.0000', '71200.0000', '0.0000', 890),
-(3718, 140, 40, 0, 'منبب', 'product 11', 2, '100.0000', '200.0000', '22.0000', 0),
-(3719, 141, 52, 0, 'عطر فيسبوك', 'رجالي', 1, '12333.0000', '12333.0000', '0.0000', 0),
-(3720, 141, 54, 0, 'غمدان', 'رجالي', 1, '830.0000', '830.0000', '0.0000', 0),
-(3721, 142, 54, 0, 'غمدان', 'رجالي', 2, '830.0000', '1660.0000', '0.0000', 0),
-(3722, 143, 56, 0, 'jkjkj', 'رجالي', 4, '0.0000', '0.0000', '0.0000', 0),
-(3723, 144, 52, 0, 'عطر فيسبوك', 'رجالي', 1, '12200.0000', '12200.0000', '0.0000', 0),
-(3729, 145, 54, 0, 'غمدان', 'رجالي', 1, '830.0000', '830.0000', '0.0000', 0),
-(3730, 146, 55, 0, 'iui', 'نسائي', 1, '0.0000', '0.0000', '0.0000', 0),
-(3731, 147, 55, 0, 'iui', 'نسائي', 1, '0.0000', '0.0000', '0.0000', 0),
-(3732, 148, 55, 0, 'iui', 'نسائي', 1, '0.0000', '0.0000', '0.0000', 0),
-(3733, 149, 55, 0, 'iui', 'نسائي', 1, '0.0000', '0.0000', '0.0000', 0),
-(3734, 150, 55, 0, 'iui', 'نسائي', 1, '0.0000', '0.0000', '0.0000', 0),
-(3735, 151, 55, 0, 'iui', 'نسائي', 1, '0.0000', '0.0000', '0.0000', 0),
-(3736, 152, 54, 0, 'غمدان', 'رجالي', 1, '830.0000', '830.0000', '0.0000', 0),
-(3737, 152, 55, 0, 'iui', 'نسائي', 2, '0.0000', '0.0000', '0.0000', 0),
-(3741, 153, 55, 0, 'iui', 'نسائي', 1, '0.0000', '0.0000', '0.0000', 0),
-(3742, 154, 53, 0, 'عطر SERENE سيرين', 'رجالي', 7, '12000.0000', '84000.0000', '0.0000', 70),
-(3743, 155, 54, 0, 'غمدان', 'رجالي', 1, '130.0000', '130.0000', '0.0000', 2),
-(3744, 155, 56, 0, 'jkjkj', 'رجالي', 1, '0.0000', '0.0000', '0.0000', 0),
-(3745, 156, 54, 0, 'غمدان', 'رجالي', 1, '130.0000', '130.0000', '0.0000', 2),
-(3746, 157, 55, 0, 'عطور المسك', 'نسائي ورجالي', 1, '0.0000', '0.0000', '0.0000', 0),
-(3761, 158, 55, 0, 'عطور المسك', 'نسائي ورجالي', 1, '0.0000', '0.0000', '0.0000', 0),
-(3795, 159, 55, 0, 'عطور المسك', 'نسائي ورجالي', 9, '0.0000', '0.0000', '0.0000', 0),
-(3798, 160, 55, 0, 'عطور المسك', 'نسائي ورجالي', 1, '0.0000', '0.0000', '0.0000', 0),
-(3799, 160, 56, 0, 'jkjkj', 'رجالي', 1, '0.0000', '0.0000', '0.0000', 0),
-(3800, 161, 50, 0, 'عطور أطفال Panda 🐼', 'عطور', 1, '8000.0000', '8000.0000', '0.0000', 10),
-(3801, 161, 56, 0, 'jkjkj', 'رجالي', 1, '12000.0000', '12000.0000', '0.0000', 0),
-(3802, 161, 57, 0, 'popop', 'رجالي', 1, '500.0000', '500.0000', '0.0000', 0),
-(3803, 162, 56, 0, 'jkjkj', 'رجالي', 1, '12000.0000', '12000.0000', '0.0000', 0),
-(3804, 162, 57, 0, 'popop', 'رجالي', 1, '500.0000', '500.0000', '0.0000', 0),
-(3807, 163, 56, 0, 'jkjkj', 'رجالي', 1, '12000.0000', '12000.0000', '0.0000', 0),
-(3808, 163, 57, 0, 'popop', 'رجالي', 1, '500.0000', '500.0000', '0.0000', 0),
-(3809, 164, 56, 0, 'jkjkj', 'رجالي', 1, '12000.0000', '12000.0000', '0.0000', 0),
-(3810, 164, 57, 0, 'popop', 'رجالي', 1, '500.0000', '500.0000', '0.0000', 0),
-(3817, 165, 56, 0, 'jkjkj', 'رجالي', 2, '800.0000', '1600.0000', '0.0000', 0),
-(3818, 166, 56, 0, 'jkjkj', 'رجالي', 1, '12000.0000', '12000.0000', '0.0000', 0),
-(3819, 166, 57, 0, 'popop', 'رجالي', 1, '500.0000', '500.0000', '0.0000', 0),
-(3820, 167, 56, 0, 'jkjkj', 'رجالي', 1, '12000.0000', '12000.0000', '0.0000', 0),
-(3821, 167, 57, 0, 'popop', 'رجالي', 1, '500.0000', '500.0000', '0.0000', 0),
-(3824, 168, 56, 0, 'jkjkj', 'رجالي', 1, '12000.0000', '12000.0000', '0.0000', 0),
-(3825, 168, 57, 0, 'popop', 'رجالي', 1, '500.0000', '500.0000', '0.0000', 0),
-(3826, 169, 56, 0, 'jkjkj', 'رجالي', 1, '12000.0000', '12000.0000', '0.0000', 0),
-(3827, 169, 57, 0, 'popop', 'رجالي', 1, '500.0000', '500.0000', '0.0000', 0),
-(3828, 170, 56, 0, 'jkjkj', 'رجالي', 1, '12000.0000', '12000.0000', '0.0000', 0),
-(3829, 170, 57, 0, 'popop', 'رجالي', 1, '500.0000', '500.0000', '0.0000', 0),
-(3830, 171, 56, 0, 'jkjkj', 'رجالي', 1, '12000.0000', '12000.0000', '0.0000', 0),
-(3831, 171, 57, 0, 'popop', 'رجالي', 1, '500.0000', '500.0000', '0.0000', 0),
-(3833, 172, 56, 0, 'jkjkj', 'رجالي', 1, '12000.0000', '12000.0000', '0.0000', 0),
-(3834, 173, 50, 0, 'عطور أطفال Panda 🐼', 'عطور', 1, '8000.0000', '8000.0000', '0.0000', 10),
-(3835, 173, 53, 0, 'عطر SERENE سيرين', 'رجالي', 1, '12000.0000', '12000.0000', '0.0000', 10),
-(3836, 174, 50, 0, 'عطور أطفال Panda 🐼', 'عطور', 1, '8000.0000', '8000.0000', '0.0000', 10),
-(3837, 174, 53, 0, 'عطر SERENE سيرين', 'رجالي', 2, '12000.0000', '24000.0000', '0.0000', 20),
-(3841, 175, 55, 0, 'عطور المسك', 'نسائي ورجالي', 2, '8000.0000', '16000.0000', '0.0000', 0),
-(3842, 175, 56, 0, 'jkjkj', 'رجالي', 1, '800.0000', '800.0000', '0.0000', 0),
-(3843, 175, 56, 0, 'jkjkj', 'رجالي', 1, '800.0000', '800.0000', '0.0000', 0),
-(3847, 176, 56, 0, 'jkjkj', 'رجالي', 1, '12000.0000', '12000.0000', '0.0000', 0),
-(3849, 177, 56, 0, 'jkjkj', 'رجالي', 1, '12000.0000', '12000.0000', '0.0000', 0),
-(3850, 178, 56, 0, 'jkjkj', 'رجالي', 2, '800.0000', '1600.0000', '0.0000', 0),
-(3854, 179, 56, 0, 'jkjkj', 'رجالي', 1, '12000.0000', '12000.0000', '0.0000', 0),
-(4296, 180, 53, 0, 'عطر SERENE سيرين', 'رجالي', 1, '12000.0000', '12000.0000', '0.0000', 10),
-(4297, 181, 50, 0, 'عطور أطفال Panda 🐼', 'عطور', 1, '5000.0000', '5000.0000', '0.0000', 10),
-(4298, 182, 56, 0, 'jkjkj', 'رجالي', 9, '800.0000', '7200.0000', '0.0000', 0),
-(4356, 183, 56, 0, 'jkjkj', 'رجالي', 2, '800.0000', '1600.0000', '0.0000', 0),
-(4357, 184, 56, 0, 'jkjkj', 'رجالي', 1, '12000.0000', '12000.0000', '0.0000', 0),
-(4358, 185, 56, 0, 'jkjkj', 'رجالي', 1, '12000.0000', '12000.0000', '0.0000', 0);
+(5, 1, 43, 0, 'MacBook', 'Product 16', 10, 500.0000, 5000.0000, 0.0000, 6000),
+(6, 1, 40, 0, 'iPhone', 'product 11', 6, 101.0000, 606.0000, 0.0000, 0),
+(7, 1, 29, 0, 'Palm Treo Pro', 'Product 2', 1, 279.9900, 279.9900, 0.0000, 0),
+(8, 1, 35, 0, 'Product 8', 'Product 8', 1, 110.0000, 110.0000, 0.0000, 0),
+(9, 2, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 0.0000, 0),
+(10, 3, 30, 0, 'Canon EOS 5D', 'Product 3', 1, 80.0000, 80.0000, 0.0000, 200),
+(11, 4, 43, 0, 'MacBook', 'Product 16', 1, 500.0000, 500.0000, 0.0000, 600),
+(12, 5, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 0.0000, 0),
+(14, 6, 43, 0, 'MacBook', 'Product 16', 1, 500.0000, 500.0000, 0.0000, 600),
+(15, 7, 40, 0, 'iPhone', 'product 11', 5, 101.0000, 505.0000, 0.0000, 0),
+(809, 9, 40, 0, 'iPhone', 'product 11', 2, 101.0000, 202.0000, 0.0000, 0),
+(810, 9, 41, 0, 'iMac', 'Product 14', 1, 100.0000, 100.0000, 0.0000, 0),
+(811, 10, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 0.0000, 0),
+(814, 11, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 0.0000, 0),
+(834, 8, 30, 0, 'Canon EOS 5D', 'Product 3', 1, 80.0000, 80.0000, 18.0000, 200),
+(835, 8, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(1191, 12, 52, 0, 'عطر فيسبوك', 'رجالي', 1, 10000.0000, 10000.0000, 0.0000, 0),
+(1200, 13, 43, 0, 'MacBook', 'Product 16', 2, 500.0000, 1000.0000, 102.0000, 1200),
+(2157, 15, 43, 0, 'MacBook', 'Product 16', 1, 500.0000, 500.0000, 102.0000, 600),
+(2160, 14, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2161, 14, 43, 0, 'MacBook', 'Product 16', 3, 500.0000, 1500.0000, 102.0000, 1800),
+(2162, 16, 43, 0, 'MacBook', 'Product 16', 2, 500.0000, 1000.0000, 102.0000, 1200),
+(2163, 17, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2164, 17, 43, 0, 'MacBook', 'Product 16', 13, 500.0000, 6500.0000, 102.0000, 7800),
+(2195, 18, 40, 0, 'iPhone', 'product 11', 6, 101.0000, 606.0000, 22.2000, 0),
+(2196, 18, 43, 0, 'MacBook', 'Product 16', 90, 500.0000, 45000.0000, 102.0000, 54000),
+(2197, 19, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2198, 20, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2199, 21, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2200, 22, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2201, 23, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2202, 24, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2203, 25, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2204, 26, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2205, 27, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2206, 28, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2207, 29, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2208, 30, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2209, 31, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2210, 32, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2211, 33, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2212, 34, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2213, 35, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2214, 36, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2215, 37, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2216, 38, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2217, 39, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2218, 40, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2219, 41, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2220, 42, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2221, 43, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2222, 44, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2223, 45, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2224, 46, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2225, 47, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2226, 48, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2227, 49, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2228, 50, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2229, 51, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2230, 52, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2231, 53, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2232, 54, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2233, 55, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2234, 56, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2235, 57, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2236, 58, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2237, 59, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2238, 60, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2239, 61, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2240, 62, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2241, 63, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2242, 64, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2243, 65, 43, 0, 'MacBook', 'Product 16', 1, 500.0000, 500.0000, 102.0000, 600),
+(2244, 66, 43, 0, 'MacBook', 'Product 16', 1, 500.0000, 500.0000, 102.0000, 600),
+(2245, 67, 43, 0, 'MacBook', 'Product 16', 2, 500.0000, 1000.0000, 102.0000, 1200),
+(2246, 68, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2247, 68, 43, 0, 'MacBook', 'Product 16', 1, 500.0000, 500.0000, 102.0000, 600),
+(2248, 69, 40, 0, 'iPhone', 'product 11', 5, 101.0000, 505.0000, 22.2000, 0),
+(2249, 70, 40, 0, 'iPhone', 'product 11', 10, 101.0000, 1010.0000, 22.2000, 0),
+(2250, 71, 40, 0, 'iPhone', 'product 11', 4, 101.0000, 404.0000, 22.2000, 0),
+(2326, 72, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2341, 74, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2344, 75, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2362, 73, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2365, 76, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2377, 77, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2378, 78, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2382, 79, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2383, 80, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2472, 81, 40, 0, 'iPhone', 'product 11', 2, 101.0000, 202.0000, 22.2000, 0),
+(2478, 82, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2481, 83, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2490, 84, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2548, 85, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2549, 85, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2553, 86, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2554, 87, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2555, 88, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2557, 89, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2558, 90, 30, 0, 'Canon EOS 5D', 'Product 3', 1, 80.0000, 80.0000, 18.0000, 200),
+(2564, 91, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2565, 92, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2566, 93, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2567, 94, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2627, 95, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2631, 96, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2632, 97, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2645, 98, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(2646, 99, 43, 0, 'MacBook', 'Product 16', 1, 500.0000, 500.0000, 102.0000, 600),
+(2779, 100, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(3164, 101, 40, 0, 'iPhone', 'product 11', 15, 101.0000, 1515.0000, 22.2000, 0),
+(3165, 101, 43, 0, 'MacBook', 'Product 16', 3, 500.0000, 1500.0000, 102.0000, 1800),
+(3570, 102, 43, 0, 'MacBook', 'Product 16', 10, 500.0000, 5000.0000, 102.0000, 6000),
+(3572, 103, 43, 0, 'MacBook', 'Product 16', 1, 500.0000, 500.0000, 102.0000, 600),
+(3573, 104, 40, 0, 'iPhone', 'product 11', 6, 101.0000, 606.0000, 0.0000, 0),
+(3574, 104, 53, 0, 'عطر زمردة', 'رجالي', 2, 800.0000, 1600.0000, 0.0000, 20),
+(3576, 105, 53, 0, 'عطر زمردة', 'رجالي', 1, 800.0000, 800.0000, 0.0000, 10),
+(3577, 106, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(3578, 106, 43, 0, 'MacBook', 'Product 16', 1, 500.0000, 500.0000, 102.0000, 600),
+(3579, 107, 53, 0, 'عطر زمردة', 'رجالي', 1, 800.0000, 800.0000, 0.0000, 10),
+(3581, 108, 43, 0, 'MacBook', 'Product 16', 2, 500.0000, 1000.0000, 102.0000, 1200),
+(3583, 109, 43, 0, 'MacBook', 'Product 16', 11, 500.0000, 5500.0000, 102.0000, 6600),
+(3584, 110, 43, 0, 'MacBook', 'Product 16', 7, 500.0000, 3500.0000, 102.0000, 4200),
+(3585, 111, 43, 0, 'MacBook', 'Product 16', 1, 500.0000, 500.0000, 102.0000, 600),
+(3586, 112, 53, 0, 'عطر زمردة', 'رجالي', 1, 800.0000, 800.0000, 0.0000, 10),
+(3587, 113, 43, 0, 'MacBook', 'Product 16', 1, 500.0000, 500.0000, 102.0000, 600),
+(3589, 114, 43, 0, 'MacBook', 'Product 16', 1, 500.0000, 500.0000, 102.0000, 600),
+(3590, 115, 30, 0, 'Canon EOS 5D', 'Product 3', 1, 80.0000, 80.0000, 18.0000, 200),
+(3591, 116, 43, 0, 'MacBook', 'Product 16', 1, 500.0000, 500.0000, 102.0000, 600),
+(3593, 117, 43, 0, 'MacBook', 'Product 16', 1, 500.0000, 500.0000, 102.0000, 600),
+(3594, 118, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(3595, 118, 43, 0, 'MacBook', 'Product 16', 1, 500.0000, 500.0000, 102.0000, 600),
+(3599, 119, 30, 0, 'Canon EOS 5D', 'Product 3', 1, 80.0000, 80.0000, 18.0000, 200),
+(3600, 119, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(3601, 119, 43, 0, 'MacBook', 'Product 16', 1, 500.0000, 500.0000, 102.0000, 600),
+(3602, 120, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(3603, 120, 43, 0, 'MacBook', 'Product 16', 1, 500.0000, 500.0000, 102.0000, 600),
+(3606, 121, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(3607, 121, 43, 0, 'MacBook', 'Product 16', 1, 500.0000, 500.0000, 102.0000, 600),
+(3610, 122, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(3611, 122, 43, 0, 'MacBook', 'Product 16', 1, 500.0000, 500.0000, 102.0000, 600),
+(3612, 123, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(3613, 123, 43, 0, 'MacBook', 'Product 16', 1, 500.0000, 500.0000, 102.0000, 600),
+(3614, 124, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(3615, 124, 43, 0, 'MacBook', 'Product 16', 1, 500.0000, 500.0000, 102.0000, 600),
+(3616, 125, 40, 0, 'iPhone', 'product 11', 3, 101.0000, 303.0000, 22.2000, 0),
+(3617, 125, 43, 0, 'MacBook', 'Product 16', 4, 500.0000, 2000.0000, 102.0000, 2400),
+(3618, 126, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(3619, 126, 43, 0, 'MacBook', 'Product 16', 1, 500.0000, 500.0000, 102.0000, 600),
+(3620, 127, 30, 0, 'Canon EOS 5D', 'Product 3', 1, 80.0000, 80.0000, 18.0000, 200),
+(3621, 127, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(3622, 127, 43, 0, 'MacBook', 'Product 16', 1, 500.0000, 500.0000, 102.0000, 600),
+(3623, 128, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(3624, 128, 43, 0, 'MacBook', 'Product 16', 1, 500.0000, 500.0000, 102.0000, 600),
+(3627, 129, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(3628, 129, 43, 0, 'MacBook', 'Product 16', 1, 500.0000, 500.0000, 102.0000, 600),
+(3629, 130, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(3630, 130, 43, 0, 'MacBook', 'Product 16', 1, 500.0000, 500.0000, 102.0000, 600),
+(3631, 131, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(3632, 131, 43, 0, 'MacBook', 'Product 16', 1, 500.0000, 500.0000, 102.0000, 600),
+(3633, 132, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(3634, 132, 43, 0, 'MacBook', 'Product 16', 1, 500.0000, 500.0000, 102.0000, 600),
+(3635, 133, 40, 0, 'iPhone', 'product 11', 1, 101.0000, 101.0000, 22.2000, 0),
+(3636, 133, 43, 0, 'MacBook', 'Product 16', 1, 500.0000, 500.0000, 102.0000, 600),
+(3637, 134, 40, 0, 'منبب', 'product 11', 1, 100.0000, 100.0000, 22.0000, 0),
+(3687, 135, 35, 0, 'Product 8', 'Product 8', 4, 115.0000, 460.0000, 25.0000, 0),
+(3688, 135, 40, 0, 'منبب', 'product 11', 7, 100.0000, 700.0000, 22.0000, 0),
+(3697, 136, 35, 0, 'Product 8', 'Product 8', 7, 115.0000, 805.0000, 25.0000, 0),
+(3698, 136, 40, 0, 'منبب', 'product 11', 11, 100.0000, 1100.0000, 22.0000, 0),
+(3699, 136, 52, 0, 'عطر فيسبوك', 'رجالي', 6, 10000.0000, 60000.0000, 0.0000, 0),
+(3700, 136, 53, 0, 'عطر زمردة', 'رجالي', 4, 800.0000, 3200.0000, 0.0000, 40),
+(3705, 137, 40, 0, 'منبب', 'product 11', 2, 100.0000, 200.0000, 22.0000, 0),
+(3715, 138, 40, 0, 'منبب', 'product 11', 4, 100.0000, 400.0000, 22.0000, 0),
+(3717, 139, 50, 0, 'هههههه', 'عطور', 89, 800.0000, 71200.0000, 0.0000, 890),
+(3718, 140, 40, 0, 'منبب', 'product 11', 2, 100.0000, 200.0000, 22.0000, 0),
+(3719, 141, 52, 0, 'عطر فيسبوك', 'رجالي', 1, 12333.0000, 12333.0000, 0.0000, 0),
+(3720, 141, 54, 0, 'غمدان', 'رجالي', 1, 830.0000, 830.0000, 0.0000, 0),
+(3721, 142, 54, 0, 'غمدان', 'رجالي', 2, 830.0000, 1660.0000, 0.0000, 0),
+(3722, 143, 56, 0, 'jkjkj', 'رجالي', 4, 0.0000, 0.0000, 0.0000, 0),
+(3723, 144, 52, 0, 'عطر فيسبوك', 'رجالي', 1, 12200.0000, 12200.0000, 0.0000, 0),
+(3729, 145, 54, 0, 'غمدان', 'رجالي', 1, 830.0000, 830.0000, 0.0000, 0),
+(3730, 146, 55, 0, 'iui', 'نسائي', 1, 0.0000, 0.0000, 0.0000, 0),
+(3731, 147, 55, 0, 'iui', 'نسائي', 1, 0.0000, 0.0000, 0.0000, 0),
+(3732, 148, 55, 0, 'iui', 'نسائي', 1, 0.0000, 0.0000, 0.0000, 0),
+(3733, 149, 55, 0, 'iui', 'نسائي', 1, 0.0000, 0.0000, 0.0000, 0),
+(3734, 150, 55, 0, 'iui', 'نسائي', 1, 0.0000, 0.0000, 0.0000, 0),
+(3735, 151, 55, 0, 'iui', 'نسائي', 1, 0.0000, 0.0000, 0.0000, 0),
+(3736, 152, 54, 0, 'غمدان', 'رجالي', 1, 830.0000, 830.0000, 0.0000, 0),
+(3737, 152, 55, 0, 'iui', 'نسائي', 2, 0.0000, 0.0000, 0.0000, 0),
+(3741, 153, 55, 0, 'iui', 'نسائي', 1, 0.0000, 0.0000, 0.0000, 0),
+(3742, 154, 53, 0, 'عطر SERENE سيرين', 'رجالي', 7, 12000.0000, 84000.0000, 0.0000, 70),
+(3743, 155, 54, 0, 'غمدان', 'رجالي', 1, 130.0000, 130.0000, 0.0000, 2),
+(3744, 155, 56, 0, 'jkjkj', 'رجالي', 1, 0.0000, 0.0000, 0.0000, 0),
+(3745, 156, 54, 0, 'غمدان', 'رجالي', 1, 130.0000, 130.0000, 0.0000, 2),
+(3746, 157, 55, 0, 'عطور المسك', 'نسائي ورجالي', 1, 0.0000, 0.0000, 0.0000, 0),
+(3761, 158, 55, 0, 'عطور المسك', 'نسائي ورجالي', 1, 0.0000, 0.0000, 0.0000, 0),
+(3795, 159, 55, 0, 'عطور المسك', 'نسائي ورجالي', 9, 0.0000, 0.0000, 0.0000, 0),
+(3798, 160, 55, 0, 'عطور المسك', 'نسائي ورجالي', 1, 0.0000, 0.0000, 0.0000, 0),
+(3799, 160, 56, 0, 'jkjkj', 'رجالي', 1, 0.0000, 0.0000, 0.0000, 0),
+(3800, 161, 50, 0, 'عطور أطفال Panda 🐼', 'عطور', 1, 8000.0000, 8000.0000, 0.0000, 10),
+(3801, 161, 56, 0, 'jkjkj', 'رجالي', 1, 12000.0000, 12000.0000, 0.0000, 0),
+(3802, 161, 57, 0, 'popop', 'رجالي', 1, 500.0000, 500.0000, 0.0000, 0),
+(3803, 162, 56, 0, 'jkjkj', 'رجالي', 1, 12000.0000, 12000.0000, 0.0000, 0),
+(3804, 162, 57, 0, 'popop', 'رجالي', 1, 500.0000, 500.0000, 0.0000, 0),
+(3807, 163, 56, 0, 'jkjkj', 'رجالي', 1, 12000.0000, 12000.0000, 0.0000, 0),
+(3808, 163, 57, 0, 'popop', 'رجالي', 1, 500.0000, 500.0000, 0.0000, 0),
+(3809, 164, 56, 0, 'jkjkj', 'رجالي', 1, 12000.0000, 12000.0000, 0.0000, 0),
+(3810, 164, 57, 0, 'popop', 'رجالي', 1, 500.0000, 500.0000, 0.0000, 0),
+(3817, 165, 56, 0, 'jkjkj', 'رجالي', 2, 800.0000, 1600.0000, 0.0000, 0),
+(3818, 166, 56, 0, 'jkjkj', 'رجالي', 1, 12000.0000, 12000.0000, 0.0000, 0),
+(3819, 166, 57, 0, 'popop', 'رجالي', 1, 500.0000, 500.0000, 0.0000, 0),
+(3820, 167, 56, 0, 'jkjkj', 'رجالي', 1, 12000.0000, 12000.0000, 0.0000, 0),
+(3821, 167, 57, 0, 'popop', 'رجالي', 1, 500.0000, 500.0000, 0.0000, 0),
+(3824, 168, 56, 0, 'jkjkj', 'رجالي', 1, 12000.0000, 12000.0000, 0.0000, 0),
+(3825, 168, 57, 0, 'popop', 'رجالي', 1, 500.0000, 500.0000, 0.0000, 0),
+(3826, 169, 56, 0, 'jkjkj', 'رجالي', 1, 12000.0000, 12000.0000, 0.0000, 0),
+(3827, 169, 57, 0, 'popop', 'رجالي', 1, 500.0000, 500.0000, 0.0000, 0),
+(3828, 170, 56, 0, 'jkjkj', 'رجالي', 1, 12000.0000, 12000.0000, 0.0000, 0),
+(3829, 170, 57, 0, 'popop', 'رجالي', 1, 500.0000, 500.0000, 0.0000, 0),
+(3830, 171, 56, 0, 'jkjkj', 'رجالي', 1, 12000.0000, 12000.0000, 0.0000, 0),
+(3831, 171, 57, 0, 'popop', 'رجالي', 1, 500.0000, 500.0000, 0.0000, 0),
+(3833, 172, 56, 0, 'jkjkj', 'رجالي', 1, 12000.0000, 12000.0000, 0.0000, 0),
+(3834, 173, 50, 0, 'عطور أطفال Panda 🐼', 'عطور', 1, 8000.0000, 8000.0000, 0.0000, 10),
+(3835, 173, 53, 0, 'عطر SERENE سيرين', 'رجالي', 1, 12000.0000, 12000.0000, 0.0000, 10),
+(3836, 174, 50, 0, 'عطور أطفال Panda 🐼', 'عطور', 1, 8000.0000, 8000.0000, 0.0000, 10),
+(3837, 174, 53, 0, 'عطر SERENE سيرين', 'رجالي', 2, 12000.0000, 24000.0000, 0.0000, 20),
+(3841, 175, 55, 0, 'عطور المسك', 'نسائي ورجالي', 2, 8000.0000, 16000.0000, 0.0000, 0),
+(3842, 175, 56, 0, 'jkjkj', 'رجالي', 1, 800.0000, 800.0000, 0.0000, 0),
+(3843, 175, 56, 0, 'jkjkj', 'رجالي', 1, 800.0000, 800.0000, 0.0000, 0),
+(3847, 176, 56, 0, 'jkjkj', 'رجالي', 1, 12000.0000, 12000.0000, 0.0000, 0),
+(3849, 177, 56, 0, 'jkjkj', 'رجالي', 1, 12000.0000, 12000.0000, 0.0000, 0),
+(3850, 178, 56, 0, 'jkjkj', 'رجالي', 2, 800.0000, 1600.0000, 0.0000, 0),
+(3854, 179, 56, 0, 'jkjkj', 'رجالي', 1, 12000.0000, 12000.0000, 0.0000, 0),
+(4296, 180, 53, 0, 'عطر SERENE سيرين', 'رجالي', 1, 12000.0000, 12000.0000, 0.0000, 10),
+(4297, 181, 50, 0, 'عطور أطفال Panda 🐼', 'عطور', 1, 5000.0000, 5000.0000, 0.0000, 10),
+(4298, 182, 56, 0, 'jkjkj', 'رجالي', 9, 800.0000, 7200.0000, 0.0000, 0),
+(4356, 183, 56, 0, 'jkjkj', 'رجالي', 2, 800.0000, 1600.0000, 0.0000, 0),
+(4357, 184, 56, 0, 'jkjkj', 'رجالي', 1, 12000.0000, 12000.0000, 0.0000, 0),
+(4358, 185, 56, 0, 'jkjkj', 'رجالي', 1, 12000.0000, 12000.0000, 0.0000, 0);
 
 -- --------------------------------------------------------
 
@@ -7658,7 +7653,7 @@ CREATE TABLE `ks_order_status` (
   `order_status_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
   `name` varchar(32) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_order_status`
@@ -7701,840 +7696,840 @@ CREATE TABLE `ks_order_total` (
   `title` varchar(255) NOT NULL,
   `value` decimal(15,4) NOT NULL DEFAULT 0.0000,
   `sort_order` int(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_order_total`
 --
 
 INSERT INTO `ks_order_total` (`order_total_id`, `order_id`, `extension`, `code`, `title`, `value`, `sort_order`) VALUES
-(4, 1, 'opencart', 'sub_total', 'الاجمالي', '5995.9900', 1),
-(5, 1, 'opencart', 'shipping', 'تكلفة ثابتة للشحن', '5.0000', 3),
-(6, 1, 'opencart', 'total', 'الاجمالي النهائي', '6000.9900', 9),
-(7, 2, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8, 2, 'opencart', 'shipping', 'تكلفة ثابتة للشحن', '5.0000', 3),
-(9, 2, 'opencart', 'total', 'الاجمالي النهائي', '106.0000', 9),
-(10, 3, 'opencart', 'sub_total', 'الاجمالي', '80.0000', 1),
-(11, 3, 'opencart', 'shipping', 'تكلفة ثابتة للشحن', '5.0000', 3),
-(12, 3, 'opencart', 'total', 'الاجمالي النهائي', '85.0000', 9),
-(13, 4, 'opencart', 'sub_total', 'الاجمالي', '500.0000', 1),
-(14, 4, 'opencart', 'shipping', 'تكلفة ثابتة للشحن', '5.0000', 3),
-(15, 4, 'opencart', 'total', 'الاجمالي النهائي', '505.0000', 9),
-(16, 5, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(17, 5, 'opencart', 'shipping', 'تكلفة ثابتة للشحن', '5.0000', 3),
-(18, 5, 'opencart', 'total', 'الاجمالي النهائي', '106.0000', 9),
-(22, 6, 'opencart', 'sub_total', 'الاجمالي', '500.0000', 1),
-(23, 6, 'opencart', 'shipping', 'تكلفة ثابتة للشحن', '5.0000', 3),
-(24, 6, 'opencart', 'total', 'الاجمالي النهائي', '505.0000', 9),
-(25, 7, 'opencart', 'sub_total', 'الاجمالي', '505.0000', 1),
-(26, 7, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(27, 7, 'opencart', 'total', 'الاجمالي النهائي', '505.0000', 9),
-(1225, 9, 'opencart', 'sub_total', 'الاجمالي', '302.0000', 1),
-(1226, 9, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(1227, 9, 'opencart', 'total', 'الاجمالي النهائي', '302.0000', 9),
-(1228, 10, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(1229, 10, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(1230, 10, 'opencart', 'total', 'الاجمالي النهائي', '101.0000', 9),
-(1237, 11, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(1238, 11, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(1239, 11, 'opencart', 'total', 'الاجمالي النهائي', '101.0000', 9),
-(1335, 8, 'opencart', 'sub_total', 'الاجمالي', '181.0000', 1),
-(1336, 8, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(1337, 8, 'opencart', 'tax', 'Eco Tax (-2.00)', '4.0000', 5),
-(1338, 8, 'opencart', 'tax', 'VAT (20%)', '36.2000', 5),
-(1339, 8, 'opencart', 'total', 'الاجمالي النهائي', '221.2000', 9),
-(3107, 12, 'opencart', 'sub_total', 'الاجمالي', '10000.0000', 1),
-(3108, 12, 'opencart', 'shipping', 'قيمة الشحن للقطعة', '0.0000', 3),
-(3109, 12, 'opencart', 'total', 'الاجمالي النهائي', '10000.0000', 9),
-(3150, 13, 'opencart', 'sub_total', 'الاجمالي', '1000.0000', 1),
-(3151, 13, 'opencart', 'shipping', 'الحوبان  (الوزن : 0.00kg)', '10.0000', 3),
-(3152, 13, 'opencart', 'tax', 'Eco Tax (-2.00)', '4.0000', 5),
-(3153, 13, 'opencart', 'tax', 'VAT (20%)', '200.0000', 5),
-(3154, 13, 'opencart', 'total', 'الاجمالي النهائي', '1214.0000', 9),
-(7935, 15, 'opencart', 'sub_total', 'الاجمالي', '500.0000', 1),
-(7936, 15, 'opencart', 'shipping', 'الحوبان  (الوزن : 0.00kg)', '10.0000', 3),
-(7937, 15, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(7938, 15, 'opencart', 'tax', 'VAT (20%)', '100.0000', 5),
-(7939, 15, 'opencart', 'total', 'الاجمالي النهائي', '612.0000', 9),
-(7945, 14, 'opencart', 'sub_total', 'الاجمالي', '1601.0000', 1),
-(7946, 14, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(7947, 14, 'opencart', 'tax', 'Eco Tax (-2.00)', '8.0000', 5),
-(7948, 14, 'opencart', 'tax', 'VAT (20%)', '320.2000', 5),
-(7949, 14, 'opencart', 'total', 'الاجمالي النهائي', '1929.2000', 9),
-(7950, 16, 'opencart', 'sub_total', 'الاجمالي', '1000.0000', 1),
-(7951, 16, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(7952, 16, 'opencart', 'tax', 'Eco Tax (-2.00)', '4.0000', 5),
-(7953, 16, 'opencart', 'tax', 'VAT (20%)', '200.0000', 5),
-(7954, 16, 'opencart', 'total', 'الاجمالي النهائي', '1204.0000', 9),
-(7955, 17, 'opencart', 'sub_total', 'الاجمالي', '6601.0000', 1),
-(7956, 17, 'opencart', 'shipping', 'قيمة الشحن للقطعة', '0.0000', 3),
-(7957, 17, 'opencart', 'tax', 'Eco Tax (-2.00)', '28.0000', 5),
-(7958, 17, 'opencart', 'tax', 'VAT (20%)', '1320.2000', 5),
-(7959, 17, 'opencart', 'total', 'الاجمالي النهائي', '7949.2000', 9),
-(8035, 18, 'opencart', 'sub_total', 'الاجمالي', '45606.0000', 1),
-(8036, 18, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8037, 18, 'opencart', 'tax', 'Eco Tax (-2.00)', '192.0000', 5),
-(8038, 18, 'opencart', 'tax', 'VAT (20%)', '9121.2000', 5),
-(8039, 18, 'opencart', 'total', 'الاجمالي النهائي', '54919.2000', 9),
-(8040, 19, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8041, 19, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8042, 19, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8043, 19, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8044, 19, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8045, 20, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8046, 20, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8047, 20, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8048, 20, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8049, 20, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8050, 21, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8051, 21, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8052, 21, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8053, 21, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8054, 21, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8055, 22, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8056, 22, 'opencart', 'shipping', 'قيمة الشحن للقطعة', '0.0000', 3),
-(8057, 22, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8058, 22, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8059, 22, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8060, 23, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8061, 23, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8062, 23, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8063, 23, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8064, 23, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8065, 24, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8066, 24, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8067, 24, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8068, 24, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8069, 24, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8070, 25, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8071, 25, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8072, 25, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8073, 25, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8074, 25, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8075, 26, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8076, 26, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8077, 26, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8078, 26, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8079, 26, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8080, 27, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8081, 27, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8082, 27, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8083, 27, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8084, 27, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8085, 28, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8086, 28, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8087, 28, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8088, 28, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8089, 28, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8090, 29, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8091, 29, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8092, 29, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8093, 29, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8094, 29, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8095, 30, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8096, 30, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8097, 30, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8098, 30, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8099, 30, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8100, 31, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8101, 31, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8102, 31, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8103, 31, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8104, 31, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8105, 32, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8106, 32, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8107, 32, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8108, 32, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8109, 32, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8110, 33, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8111, 33, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8112, 33, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8113, 33, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8114, 33, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8115, 34, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8116, 34, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8117, 34, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8118, 34, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8119, 34, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8120, 35, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8121, 35, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8122, 35, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8123, 35, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8124, 35, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8125, 36, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8126, 36, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8127, 36, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8128, 36, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8129, 36, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8130, 37, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8131, 37, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8132, 37, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8133, 37, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8134, 37, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8135, 38, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8136, 38, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8137, 38, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8138, 38, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8139, 38, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8140, 39, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8141, 39, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8142, 39, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8143, 39, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8144, 39, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8145, 40, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8146, 40, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8147, 40, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8148, 40, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8149, 40, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8150, 41, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8151, 41, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8152, 41, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8153, 41, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8154, 41, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8155, 42, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8156, 42, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8157, 42, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8158, 42, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8159, 42, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8160, 43, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8161, 43, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8162, 43, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8163, 43, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8164, 43, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8165, 44, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8166, 44, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8167, 44, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8168, 44, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8169, 44, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8170, 45, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8171, 45, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8172, 45, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8173, 45, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8174, 45, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8175, 46, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8176, 46, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8177, 46, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8178, 46, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8179, 46, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8180, 47, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8181, 47, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8182, 47, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8183, 47, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8184, 47, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8185, 48, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8186, 48, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8187, 48, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8188, 48, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8189, 48, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8190, 49, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8191, 49, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8192, 49, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8193, 49, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8194, 49, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8195, 50, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8196, 50, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8197, 50, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8198, 50, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8199, 50, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8200, 51, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8201, 51, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8202, 51, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8203, 51, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8204, 51, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8205, 52, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8206, 52, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8207, 52, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8208, 52, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8209, 52, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8210, 53, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8211, 53, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8212, 53, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8213, 53, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8214, 53, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8215, 54, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8216, 54, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8217, 54, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8218, 54, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8219, 54, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8220, 55, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8221, 55, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8222, 55, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8223, 55, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8224, 55, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8225, 56, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8226, 56, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8227, 56, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8228, 56, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8229, 56, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8230, 57, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8231, 57, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8232, 57, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8233, 57, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8234, 57, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8235, 58, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8236, 58, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8237, 58, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8238, 58, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8239, 58, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8240, 59, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8241, 59, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8242, 59, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8243, 59, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8244, 59, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8245, 60, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8246, 60, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8247, 60, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8248, 60, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8249, 60, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8250, 61, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8251, 61, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8252, 61, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8253, 61, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8254, 61, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8255, 62, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8256, 62, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8257, 62, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8258, 62, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8259, 62, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8260, 63, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8261, 63, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8262, 63, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8263, 63, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8264, 63, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8265, 64, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8266, 64, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8267, 64, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8268, 64, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8269, 64, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8270, 65, 'opencart', 'sub_total', 'الاجمالي', '500.0000', 1),
-(8271, 65, 'opencart', 'shipping', 'الحوبان  (الوزن : 0.00kg)', '10.0000', 3),
-(8272, 65, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8273, 65, 'opencart', 'tax', 'VAT (20%)', '100.0000', 5),
-(8274, 65, 'opencart', 'total', 'الاجمالي النهائي', '612.0000', 9),
-(8275, 66, 'opencart', 'sub_total', 'الاجمالي', '500.0000', 1),
-(8276, 66, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8277, 66, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8278, 66, 'opencart', 'tax', 'VAT (20%)', '100.0000', 5),
-(8279, 66, 'opencart', 'total', 'الاجمالي النهائي', '602.0000', 9),
-(8280, 67, 'opencart', 'sub_total', 'الاجمالي', '1000.0000', 1),
-(8281, 67, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8282, 67, 'opencart', 'tax', 'Eco Tax (-2.00)', '4.0000', 5),
-(8283, 67, 'opencart', 'tax', 'VAT (20%)', '200.0000', 5),
-(8284, 67, 'opencart', 'total', 'الاجمالي النهائي', '1204.0000', 9),
-(8285, 68, 'opencart', 'sub_total', 'الاجمالي', '601.0000', 1),
-(8286, 68, 'opencart', 'shipping', 'قيمة الشحن للقطعة', '0.0000', 3),
-(8287, 68, 'opencart', 'tax', 'Eco Tax (-2.00)', '4.0000', 5),
-(8288, 68, 'opencart', 'tax', 'VAT (20%)', '120.2000', 5),
-(8289, 68, 'opencart', 'total', 'الاجمالي النهائي', '725.2000', 9),
-(8290, 69, 'opencart', 'sub_total', 'الاجمالي', '505.0000', 1),
-(8291, 69, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8292, 69, 'opencart', 'tax', 'Eco Tax (-2.00)', '10.0000', 5),
-(8293, 69, 'opencart', 'tax', 'VAT (20%)', '101.0000', 5),
-(8294, 69, 'opencart', 'total', 'الاجمالي النهائي', '616.0000', 9),
-(8295, 70, 'opencart', 'sub_total', 'الاجمالي', '1010.0000', 1),
-(8296, 70, 'opencart', 'shipping', 'قيمة الشحن للقطعة', '0.0000', 3),
-(8297, 70, 'opencart', 'tax', 'Eco Tax (-2.00)', '20.0000', 5),
-(8298, 70, 'opencart', 'tax', 'VAT (20%)', '202.0000', 5),
-(8299, 70, 'opencart', 'total', 'الاجمالي النهائي', '1232.0000', 9),
-(8300, 71, 'opencart', 'sub_total', 'الاجمالي', '404.0000', 1),
-(8301, 71, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8302, 71, 'opencart', 'tax', 'Eco Tax (-2.00)', '8.0000', 5),
-(8303, 71, 'opencart', 'tax', 'VAT (20%)', '80.8000', 5),
-(8304, 71, 'opencart', 'total', 'الاجمالي النهائي', '492.8000', 9),
-(8676, 72, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8677, 72, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8678, 72, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8679, 72, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8680, 72, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8681, 72, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8682, 72, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8683, 72, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8684, 72, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8755, 74, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8756, 74, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8757, 74, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8758, 74, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8759, 74, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8770, 75, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8771, 75, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8772, 75, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8773, 75, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8774, 75, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8860, 73, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8861, 73, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8862, 73, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8863, 73, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8864, 73, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8875, 76, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8876, 76, 'opencart', 'shipping', 'قيمة الشحن للقطعة', '0.0000', 3),
-(8877, 76, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8878, 76, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8879, 76, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8935, 77, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8936, 77, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8937, 77, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8938, 77, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8939, 77, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8940, 78, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8941, 78, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8942, 78, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8943, 78, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8944, 78, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8960, 79, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8961, 79, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8962, 79, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8963, 79, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8964, 79, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(8965, 80, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(8966, 80, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(8967, 80, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(8968, 80, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(8969, 80, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(9410, 81, 'opencart', 'sub_total', 'الاجمالي', '202.0000', 1),
-(9411, 81, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(9412, 81, 'opencart', 'tax', 'Eco Tax (-2.00)', '4.0000', 5),
-(9413, 81, 'opencart', 'tax', 'VAT (20%)', '40.4000', 5),
-(9414, 81, 'opencart', 'total', 'الاجمالي النهائي', '246.4000', 9),
-(9440, 82, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(9441, 82, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(9442, 82, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(9443, 82, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(9444, 82, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(9452, 83, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(9453, 83, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(9454, 83, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(9455, 83, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(9456, 83, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(9457, 83, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(9458, 83, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(9459, 83, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(9500, 84, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(9501, 84, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(9502, 84, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(9503, 84, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(9504, 84, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(9790, 85, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(9791, 85, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(9792, 85, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(9793, 85, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(9794, 85, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(9795, 85, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(9796, 85, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(9797, 85, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(9798, 85, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(9799, 85, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(9813, 86, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(9814, 86, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(9815, 86, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(9816, 86, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(9817, 86, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(9818, 86, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(9819, 86, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(9820, 87, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(9821, 87, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(9822, 87, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(9823, 87, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(9824, 88, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(9825, 87, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(9826, 88, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(9827, 88, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(9828, 88, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(9830, 88, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(9835, 89, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(9836, 89, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(9837, 89, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(9838, 89, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(9839, 89, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(9840, 90, 'opencart', 'sub_total', 'الاجمالي', '80.0000', 1),
-(9841, 90, 'opencart', 'shipping', 'الحوبان  (الوزن : 0.00kg)', '10.0000', 3),
-(9842, 90, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(9843, 90, 'opencart', 'tax', 'VAT (20%)', '16.0000', 5),
-(9844, 90, 'opencart', 'total', 'الاجمالي النهائي', '108.0000', 9),
-(9866, 91, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(9867, 91, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(9868, 91, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(9869, 91, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(9870, 91, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(9871, 91, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(9872, 91, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(9873, 91, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(9874, 91, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(9875, 92, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(9876, 92, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(9877, 92, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(9878, 92, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(9879, 92, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(9880, 93, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(9881, 93, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(9882, 93, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(9883, 93, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(9884, 93, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(9885, 94, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(9886, 94, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(9887, 94, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(9888, 94, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(9889, 94, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(10185, 95, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(10186, 95, 'opencart', 'shipping', 'قيمة الشحن للقطعة', '0.0000', 3),
-(10187, 95, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(10188, 95, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(10189, 95, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(10204, 96, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(10205, 96, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(10206, 96, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(10207, 96, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(10208, 96, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(10209, 96, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(10210, 97, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(10211, 97, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(10212, 97, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(10213, 97, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(10214, 97, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(10273, 98, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(10274, 98, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(10275, 98, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(10276, 98, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(10277, 98, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(10278, 98, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(10279, 98, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(10280, 99, 'opencart', 'sub_total', 'الاجمالي', '500.0000', 1),
-(10281, 99, 'opencart', 'shipping', 'الحوبان  (الوزن : 0.00kg)', '10.0000', 3),
-(10282, 99, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(10283, 99, 'opencart', 'tax', 'VAT (20%)', '100.0000', 5),
-(10284, 99, 'opencart', 'total', 'الاجمالي النهائي', '612.0000', 9),
-(10943, 100, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(10944, 100, 'opencart', 'sub_total', 'الاجمالي', '101.0000', 1),
-(10945, 100, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(10946, 100, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(10947, 100, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(10948, 100, 'opencart', 'tax', 'VAT (20%)', '20.2000', 5),
-(10949, 100, 'opencart', 'total', 'الاجمالي النهائي', '123.2000', 9),
-(11910, 101, 'opencart', 'sub_total', 'الاجمالي', '3015.0000', 1),
-(11911, 101, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(11912, 101, 'opencart', 'tax', 'Eco Tax (-2.00)', '36.0000', 5),
-(11913, 101, 'opencart', 'tax', 'VAT (20%)', '603.0000', 5),
-(11914, 101, 'opencart', 'total', 'الاجمالي النهائي', '3654.0000', 9),
-(13935, 102, 'opencart', 'sub_total', 'الاجمالي', '5000.0000', 1),
-(13936, 102, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(13937, 102, 'opencart', 'tax', 'Eco Tax (-2.00)', '20.0000', 5),
-(13938, 102, 'opencart', 'tax', 'VAT (20%)', '1000.0000', 5),
-(13939, 102, 'opencart', 'total', 'الاجمالي النهائي', '6020.0000', 9),
-(13945, 103, 'opencart', 'sub_total', 'الاجمالي', '500.0000', 1),
-(13946, 103, 'opencart', 'shipping', 'الحوبان  (الوزن : 0.00kg)', '10.0000', 3),
-(13947, 103, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(13948, 103, 'opencart', 'tax', 'VAT (20%)', '100.0000', 5),
-(13949, 103, 'opencart', 'total', 'الاجمالي النهائي', '612.0000', 9),
-(13950, 104, 'opencart', 'sub_total', 'الاجمالي', '2206.0000', 1),
-(13951, 104, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(13952, 104, 'opencart', 'total', 'الاجمالي النهائي', '2206.0000', 9),
-(13956, 105, 'opencart', 'sub_total', 'الاجمالي', '800.0000', 1),
-(13957, 105, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(13958, 105, 'opencart', 'total', 'الاجمالي النهائي', '800.0000', 9),
-(13959, 106, 'opencart', 'sub_total', 'الاجمالي', '601.0000', 1),
-(13960, 106, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(13961, 106, 'opencart', 'tax', 'Eco Tax (-2.00)', '4.0000', 5),
-(13962, 106, 'opencart', 'tax', 'VAT (20%)', '120.2000', 5),
-(13963, 106, 'opencart', 'total', 'الاجمالي النهائي', '725.2000', 9),
-(13964, 107, 'opencart', 'sub_total', 'الاجمالي', '800.0000', 1),
-(13965, 107, 'opencart', 'shipping', 'الحوبان  (الوزن : 0.00kg)', '10.0000', 3),
-(13966, 107, 'opencart', 'total', 'الاجمالي النهائي', '810.0000', 9),
-(13972, 108, 'opencart', 'sub_total', 'الاجمالي', '1000.0000', 1),
-(13973, 108, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(13974, 108, 'opencart', 'tax', 'Eco Tax (-2.00)', '4.0000', 5),
-(13975, 108, 'opencart', 'tax', 'VAT (20%)', '200.0000', 5),
-(13976, 108, 'opencart', 'total', 'الاجمالي النهائي', '1204.0000', 9),
-(13982, 109, 'opencart', 'sub_total', 'الاجمالي', '5500.0000', 1),
-(13983, 109, 'opencart', 'shipping', 'الحوبان  (الوزن : 0.00kg)', '10.0000', 3),
-(13984, 109, 'opencart', 'tax', 'Eco Tax (-2.00)', '22.0000', 5),
-(13985, 109, 'opencart', 'tax', 'VAT (20%)', '1100.0000', 5),
-(13986, 109, 'opencart', 'total', 'الاجمالي النهائي', '6632.0000', 9),
-(13987, 110, 'opencart', 'sub_total', 'الاجمالي', '3500.0000', 1),
-(13988, 110, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(13989, 110, 'opencart', 'tax', 'Eco Tax (-2.00)', '14.0000', 5),
-(13990, 110, 'opencart', 'tax', 'VAT (20%)', '700.0000', 5),
-(13991, 110, 'opencart', 'total', 'الاجمالي النهائي', '4214.0000', 9),
-(13992, 111, 'opencart', 'sub_total', 'الاجمالي', '500.0000', 1),
-(13993, 111, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(13994, 111, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(13995, 111, 'opencart', 'tax', 'VAT (20%)', '100.0000', 5),
-(13996, 111, 'opencart', 'total', 'الاجمالي النهائي', '602.0000', 9),
-(13997, 112, 'opencart', 'sub_total', 'الاجمالي', '800.0000', 1),
-(13998, 112, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(13999, 112, 'opencart', 'total', 'الاجمالي النهائي', '800.0000', 9),
-(14000, 113, 'opencart', 'sub_total', 'الاجمالي', '500.0000', 1),
-(14001, 113, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14002, 113, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(14003, 113, 'opencart', 'tax', 'VAT (20%)', '100.0000', 5),
-(14004, 113, 'opencart', 'total', 'الاجمالي النهائي', '602.0000', 9),
-(14010, 114, 'opencart', 'sub_total', 'الاجمالي', '500.0000', 1),
-(14011, 114, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14012, 114, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(14013, 114, 'opencart', 'tax', 'VAT (20%)', '100.0000', 5),
-(14014, 114, 'opencart', 'total', 'الاجمالي النهائي', '602.0000', 9),
-(14015, 115, 'opencart', 'sub_total', 'الاجمالي', '80.0000', 1),
-(14016, 115, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14017, 115, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(14018, 115, 'opencart', 'tax', 'VAT (20%)', '16.0000', 5),
-(14019, 115, 'opencart', 'total', 'الاجمالي النهائي', '98.0000', 9),
-(14020, 116, 'opencart', 'sub_total', 'الاجمالي', '500.0000', 1),
-(14021, 116, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14022, 116, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(14023, 116, 'opencart', 'tax', 'VAT (20%)', '100.0000', 5),
-(14024, 116, 'opencart', 'total', 'الاجمالي النهائي', '602.0000', 9),
-(14030, 117, 'opencart', 'sub_total', 'الاجمالي', '500.0000', 1),
-(14031, 117, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14032, 117, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(14033, 117, 'opencart', 'tax', 'VAT (20%)', '100.0000', 5),
-(14034, 117, 'opencart', 'total', 'الاجمالي النهائي', '602.0000', 9),
-(14035, 118, 'opencart', 'sub_total', 'الاجمالي', '601.0000', 1),
-(14036, 118, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14037, 118, 'opencart', 'tax', 'Eco Tax (-2.00)', '4.0000', 5),
-(14038, 118, 'opencart', 'tax', 'VAT (20%)', '120.2000', 5),
-(14039, 118, 'opencart', 'total', 'الاجمالي النهائي', '725.2000', 9),
-(14045, 119, 'opencart', 'sub_total', 'الاجمالي', '681.0000', 1),
-(14046, 119, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14047, 119, 'opencart', 'tax', 'Eco Tax (-2.00)', '6.0000', 5),
-(14048, 119, 'opencart', 'tax', 'VAT (20%)', '136.2000', 5),
-(14049, 119, 'opencart', 'total', 'الاجمالي النهائي', '823.2000', 9),
-(14050, 120, 'opencart', 'sub_total', 'الاجمالي', '601.0000', 1),
-(14051, 120, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14052, 120, 'opencart', 'tax', 'Eco Tax (-2.00)', '4.0000', 5),
-(14053, 120, 'opencart', 'tax', 'VAT (20%)', '120.2000', 5),
-(14054, 120, 'opencart', 'total', 'الاجمالي النهائي', '725.2000', 9),
-(14060, 121, 'opencart', 'sub_total', 'الاجمالي', '601.0000', 1),
-(14061, 121, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14062, 121, 'opencart', 'tax', 'Eco Tax (-2.00)', '4.0000', 5),
-(14063, 121, 'opencart', 'tax', 'VAT (20%)', '120.2000', 5),
-(14064, 121, 'opencart', 'total', 'الاجمالي النهائي', '725.2000', 9),
-(14070, 122, 'opencart', 'sub_total', 'الاجمالي', '601.0000', 1),
-(14071, 122, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14072, 122, 'opencart', 'tax', 'Eco Tax (-2.00)', '4.0000', 5),
-(14073, 122, 'opencart', 'tax', 'VAT (20%)', '120.2000', 5),
-(14074, 122, 'opencart', 'total', 'الاجمالي النهائي', '725.2000', 9),
-(14075, 123, 'opencart', 'sub_total', 'الاجمالي', '601.0000', 1),
-(14076, 123, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14077, 123, 'opencart', 'tax', 'Eco Tax (-2.00)', '4.0000', 5),
-(14078, 123, 'opencart', 'tax', 'VAT (20%)', '120.2000', 5),
-(14079, 123, 'opencart', 'total', 'الاجمالي النهائي', '725.2000', 9),
-(14080, 124, 'opencart', 'sub_total', 'الاجمالي', '601.0000', 1),
-(14081, 124, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14082, 124, 'opencart', 'tax', 'Eco Tax (-2.00)', '4.0000', 5),
-(14083, 124, 'opencart', 'tax', 'VAT (20%)', '120.2000', 5),
-(14084, 124, 'opencart', 'total', 'الاجمالي النهائي', '725.2000', 9),
-(14085, 125, 'opencart', 'sub_total', 'الاجمالي', '2303.0000', 1),
-(14086, 125, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14087, 125, 'opencart', 'tax', 'Eco Tax (-2.00)', '14.0000', 5),
-(14088, 125, 'opencart', 'tax', 'VAT (20%)', '460.6000', 5),
-(14089, 125, 'opencart', 'total', 'الاجمالي النهائي', '2777.6000', 9),
-(14090, 126, 'opencart', 'sub_total', 'الاجمالي', '601.0000', 1),
-(14091, 126, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14092, 126, 'opencart', 'tax', 'Eco Tax (-2.00)', '4.0000', 5),
-(14093, 126, 'opencart', 'tax', 'VAT (20%)', '120.2000', 5),
-(14094, 126, 'opencart', 'total', 'الاجمالي النهائي', '725.2000', 9),
-(14095, 127, 'opencart', 'sub_total', 'الاجمالي', '681.0000', 1),
-(14096, 127, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14097, 127, 'opencart', 'tax', 'Eco Tax (-2.00)', '6.0000', 5),
-(14098, 127, 'opencart', 'tax', 'VAT (20%)', '136.2000', 5),
-(14099, 127, 'opencart', 'total', 'الاجمالي النهائي', '823.2000', 9),
-(14100, 128, 'opencart', 'sub_total', 'الاجمالي', '601.0000', 1),
-(14101, 128, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14102, 128, 'opencart', 'tax', 'Eco Tax (-2.00)', '4.0000', 5),
-(14103, 128, 'opencart', 'tax', 'VAT (20%)', '120.2000', 5),
-(14104, 128, 'opencart', 'total', 'الاجمالي النهائي', '725.2000', 9),
-(14110, 129, 'opencart', 'sub_total', 'الاجمالي', '601.0000', 1),
-(14111, 129, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14112, 129, 'opencart', 'tax', 'Eco Tax (-2.00)', '4.0000', 5),
-(14113, 129, 'opencart', 'tax', 'VAT (20%)', '120.2000', 5),
-(14114, 129, 'opencart', 'total', 'الاجمالي النهائي', '725.2000', 9),
-(14115, 130, 'opencart', 'sub_total', 'الاجمالي', '601.0000', 1),
-(14116, 130, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14117, 130, 'opencart', 'tax', 'Eco Tax (-2.00)', '4.0000', 5),
-(14118, 130, 'opencart', 'tax', 'VAT (20%)', '120.2000', 5),
-(14119, 130, 'opencart', 'total', 'الاجمالي النهائي', '725.2000', 9),
-(14120, 131, 'opencart', 'sub_total', 'الاجمالي', '601.0000', 1),
-(14121, 131, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14122, 131, 'opencart', 'tax', 'Eco Tax (-2.00)', '4.0000', 5),
-(14123, 131, 'opencart', 'tax', 'VAT (20%)', '120.2000', 5),
-(14124, 131, 'opencart', 'total', 'الاجمالي النهائي', '725.2000', 9),
-(14125, 132, 'opencart', 'sub_total', 'الاجمالي', '601.0000', 1),
-(14126, 132, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14127, 132, 'opencart', 'tax', 'Eco Tax (-2.00)', '4.0000', 5),
-(14128, 132, 'opencart', 'tax', 'VAT (20%)', '120.2000', 5),
-(14129, 132, 'opencart', 'total', 'الاجمالي النهائي', '725.2000', 9),
-(14130, 133, 'opencart', 'sub_total', 'الاجمالي', '601.0000', 1),
-(14131, 133, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14132, 133, 'opencart', 'tax', 'Eco Tax (-2.00)', '4.0000', 5),
-(14133, 133, 'opencart', 'tax', 'VAT (20%)', '120.2000', 5),
-(14134, 133, 'opencart', 'total', 'الاجمالي النهائي', '725.2000', 9),
-(14135, 134, 'opencart', 'sub_total', 'الاجمالي', '100.0000', 1),
-(14136, 134, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14137, 134, 'opencart', 'tax', 'Eco Tax (-2.00)', '2.0000', 5),
-(14138, 134, 'opencart', 'tax', 'VAT (20%)', '20.0000', 5),
-(14139, 134, 'opencart', 'total', 'الاجمالي النهائي', '122.0000', 9),
-(14264, 135, 'opencart', 'sub_total', 'الاجمالي', '1160.0000', 1),
-(14265, 135, 'opencart', 'shipping', 'قيمة الشحن للقطعة', '0.0000', 3),
-(14266, 135, 'opencart', 'tax', 'Eco Tax (-2.00)', '22.0000', 5),
-(14267, 135, 'opencart', 'tax', 'VAT (20%)', '232.0000', 5),
-(14268, 135, 'opencart', 'total', 'الاجمالي النهائي', '1414.0000', 9),
-(14279, 136, 'opencart', 'sub_total', 'الاجمالي', '65105.0000', 1),
-(14280, 136, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14281, 136, 'opencart', 'tax', 'Eco Tax (-2.00)', '36.0000', 5),
-(14282, 136, 'opencart', 'tax', 'VAT (20%)', '381.0000', 5),
-(14283, 136, 'opencart', 'total', 'الاجمالي النهائي', '65522.0000', 9),
-(14304, 137, 'opencart', 'sub_total', 'الاجمالي', '200.0000', 1),
-(14305, 137, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14306, 137, 'opencart', 'tax', 'Eco Tax (-2.00)', '4.0000', 5),
-(14307, 137, 'opencart', 'tax', 'VAT (20%)', '40.0000', 5),
-(14308, 137, 'opencart', 'total', 'الاجمالي النهائي', '244.0000', 9),
-(14354, 138, 'opencart', 'sub_total', 'الاجمالي', '400.0000', 1),
-(14355, 138, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14356, 138, 'opencart', 'tax', 'Eco Tax (-2.00)', '8.0000', 5),
-(14357, 138, 'opencart', 'tax', 'VAT (20%)', '80.0000', 5),
-(14358, 138, 'opencart', 'total', 'الاجمالي النهائي', '488.0000', 9),
-(14362, 139, 'opencart', 'sub_total', 'الاجمالي', '71200.0000', 1),
-(14363, 139, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14364, 139, 'opencart', 'total', 'الاجمالي النهائي', '71200.0000', 9),
-(14365, 140, 'opencart', 'sub_total', 'الاجمالي', '200.0000', 1),
-(14366, 140, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14367, 140, 'opencart', 'tax', 'Eco Tax (-2.00)', '4.0000', 5),
-(14368, 140, 'opencart', 'tax', 'VAT (20%)', '40.0000', 5),
-(14369, 140, 'opencart', 'total', 'الاجمالي النهائي', '244.0000', 9),
-(14370, 141, 'opencart', 'sub_total', 'الاجمالي', '13163.0000', 1),
-(14371, 141, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14372, 141, 'opencart', 'total', 'الاجمالي النهائي', '13163.0000', 9),
-(14373, 142, 'opencart', 'sub_total', 'الاجمالي', '1660.0000', 1),
-(14374, 142, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14375, 142, 'opencart', 'total', 'الاجمالي النهائي', '1660.0000', 9),
-(14376, 143, 'opencart', 'sub_total', 'الاجمالي', '0.0000', 1),
-(14377, 143, 'opencart', 'shipping', 'الحوبان  (الوزن : 0.00kg)', '7000.0000', 3),
-(14378, 143, 'opencart', 'total', 'الاجمالي النهائي', '7000.0000', 9),
-(14379, 144, 'opencart', 'sub_total', 'الاجمالي', '12200.0000', 1),
-(14380, 144, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14381, 144, 'opencart', 'total', 'الاجمالي النهائي', '12200.0000', 9),
-(14397, 145, 'opencart', 'sub_total', 'الاجمالي', '830.0000', 1),
-(14398, 145, 'opencart', 'shipping', 'المركزي  (الوزن : 0.00kg)', '4000.0000', 3),
-(14399, 145, 'opencart', 'total', 'الاجمالي النهائي', '4830.0000', 9),
-(14400, 146, 'opencart', 'sub_total', 'الاجمالي', '0.0000', 1),
-(14401, 146, 'opencart', 'shipping', 'الحوبان  (الوزن : 0.00kg)', '7000.0000', 3),
-(14402, 146, 'opencart', 'total', 'الاجمالي النهائي', '7000.0000', 9),
-(14403, 147, 'opencart', 'sub_total', 'الاجمالي', '0.0000', 1),
-(14404, 147, 'opencart', 'shipping', 'الحوبان  (الوزن : 0.00kg)', '7000.0000', 3),
-(14405, 147, 'opencart', 'total', 'الاجمالي النهائي', '7000.0000', 9),
-(14406, 148, 'opencart', 'sub_total', 'الاجمالي', '0.0000', 1),
-(14407, 148, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14408, 148, 'opencart', 'total', 'الاجمالي النهائي', '0.0000', 9),
-(14409, 149, 'opencart', 'sub_total', 'الاجمالي', '0.0000', 1),
-(14410, 149, 'opencart', 'shipping', 'المركزي  (الوزن : 0.00kg)', '4000.0000', 3),
-(14411, 149, 'opencart', 'total', 'الاجمالي النهائي', '4000.0000', 9),
-(14412, 150, 'opencart', 'sub_total', 'الاجمالي', '0.0000', 1),
-(14413, 150, 'opencart', 'shipping', 'الحوبان  (الوزن : 0.00kg)', '7000.0000', 3),
-(14414, 150, 'opencart', 'total', 'الاجمالي النهائي', '7000.0000', 9),
-(14415, 151, 'opencart', 'sub_total', 'الاجمالي', '0.0000', 1),
-(14416, 151, 'opencart', 'shipping', 'المركزي  (الوزن : 0.00kg)', '4000.0000', 3),
-(14417, 151, 'opencart', 'total', 'الاجمالي النهائي', '4000.0000', 9),
-(14418, 152, 'opencart', 'sub_total', 'الاجمالي', '830.0000', 1),
-(14419, 152, 'opencart', 'shipping', 'الحوبان  (الوزن : 0.00kg)', '7000.0000', 3),
-(14420, 152, 'opencart', 'total', 'الاجمالي النهائي', '7830.0000', 9),
-(14430, 153, 'opencart', 'sub_total', 'الاجمالي', '0.0000', 1),
-(14431, 153, 'opencart', 'shipping', 'الحوبان  (الوزن : 0.00kg)', '7000.0000', 3),
-(14432, 153, 'opencart', 'total', 'الاجمالي النهائي', '7000.0000', 9),
-(14433, 154, 'opencart', 'sub_total', 'الاجمالي', '84000.0000', 1),
-(14434, 154, 'opencart', 'shipping', 'الحوبان  (الوزن : 0.00kg)', '7000.0000', 3),
-(14435, 154, 'opencart', 'total', 'الاجمالي النهائي', '91000.0000', 9),
-(14436, 155, 'opencart', 'sub_total', 'الاجمالي', '130.0000', 1),
-(14437, 155, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14438, 155, 'opencart', 'total', 'الاجمالي النهائي', '130.0000', 9),
-(14439, 156, 'opencart', 'sub_total', 'الاجمالي', '130.0000', 1),
-(14440, 156, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14441, 156, 'opencart', 'total', 'الاجمالي النهائي', '130.0000', 9),
-(14442, 157, 'opencart', 'sub_total', 'الاجمالي', '0.0000', 1),
-(14443, 157, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14444, 157, 'opencart', 'total', 'الاجمالي النهائي', '0.0000', 9),
-(14487, 158, 'opencart', 'sub_total', 'الاجمالي', '0.0000', 1),
-(14488, 158, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14489, 158, 'opencart', 'total', 'الاجمالي النهائي', '0.0000', 9),
-(14589, 159, 'opencart', 'sub_total', 'الاجمالي', '0.0000', 1),
-(14590, 159, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14591, 159, 'opencart', 'total', 'الاجمالي النهائي', '0.0000', 9),
-(14595, 160, 'opencart', 'sub_total', 'الاجمالي', '0.0000', 1),
-(14596, 160, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14597, 160, 'opencart', 'total', 'الاجمالي النهائي', '0.0000', 9),
-(14598, 161, 'opencart', 'sub_total', 'الاجمالي', '20500.0000', 1),
-(14599, 161, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14600, 161, 'opencart', 'total', 'الاجمالي النهائي', '20500.0000', 9),
-(14601, 162, 'opencart', 'sub_total', 'الاجمالي', '12500.0000', 1),
-(14602, 162, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14603, 162, 'opencart', 'total', 'الاجمالي النهائي', '12500.0000', 9),
-(14607, 163, 'opencart', 'sub_total', 'الاجمالي', '12500.0000', 1),
-(14608, 163, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14609, 163, 'opencart', 'total', 'الاجمالي النهائي', '12500.0000', 9),
-(14610, 164, 'opencart', 'sub_total', 'الاجمالي', '12500.0000', 1),
-(14611, 164, 'opencart', 'shipping', 'الحوبان  (الوزن : 0.00kg)', '4000.0000', 3),
-(14612, 164, 'opencart', 'total', 'الاجمالي النهائي', '16500.0000', 9),
-(14631, 165, 'opencart', 'sub_total', 'الاجمالي', '1600.0000', 1),
-(14632, 165, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14633, 165, 'opencart', 'total', 'الاجمالي النهائي', '1600.0000', 9),
-(14634, 166, 'opencart', 'sub_total', 'الاجمالي', '12500.0000', 1),
-(14635, 166, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14636, 166, 'opencart', 'total', 'الاجمالي النهائي', '12500.0000', 9),
-(14637, 167, 'opencart', 'sub_total', 'الاجمالي', '12500.0000', 1),
-(14638, 167, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14639, 167, 'opencart', 'total', 'الاجمالي النهائي', '12500.0000', 9),
-(14643, 168, 'opencart', 'sub_total', 'الاجمالي', '12500.0000', 1),
-(14644, 168, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14645, 168, 'opencart', 'total', 'الاجمالي النهائي', '12500.0000', 9);
+(4, 1, 'opencart', 'sub_total', 'الاجمالي', 5995.9900, 1),
+(5, 1, 'opencart', 'shipping', 'تكلفة ثابتة للشحن', 5.0000, 3),
+(6, 1, 'opencart', 'total', 'الاجمالي النهائي', 6000.9900, 9),
+(7, 2, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8, 2, 'opencart', 'shipping', 'تكلفة ثابتة للشحن', 5.0000, 3),
+(9, 2, 'opencart', 'total', 'الاجمالي النهائي', 106.0000, 9),
+(10, 3, 'opencart', 'sub_total', 'الاجمالي', 80.0000, 1),
+(11, 3, 'opencart', 'shipping', 'تكلفة ثابتة للشحن', 5.0000, 3),
+(12, 3, 'opencart', 'total', 'الاجمالي النهائي', 85.0000, 9),
+(13, 4, 'opencart', 'sub_total', 'الاجمالي', 500.0000, 1),
+(14, 4, 'opencart', 'shipping', 'تكلفة ثابتة للشحن', 5.0000, 3),
+(15, 4, 'opencart', 'total', 'الاجمالي النهائي', 505.0000, 9),
+(16, 5, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(17, 5, 'opencart', 'shipping', 'تكلفة ثابتة للشحن', 5.0000, 3),
+(18, 5, 'opencart', 'total', 'الاجمالي النهائي', 106.0000, 9),
+(22, 6, 'opencart', 'sub_total', 'الاجمالي', 500.0000, 1),
+(23, 6, 'opencart', 'shipping', 'تكلفة ثابتة للشحن', 5.0000, 3),
+(24, 6, 'opencart', 'total', 'الاجمالي النهائي', 505.0000, 9),
+(25, 7, 'opencart', 'sub_total', 'الاجمالي', 505.0000, 1),
+(26, 7, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(27, 7, 'opencart', 'total', 'الاجمالي النهائي', 505.0000, 9),
+(1225, 9, 'opencart', 'sub_total', 'الاجمالي', 302.0000, 1),
+(1226, 9, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(1227, 9, 'opencart', 'total', 'الاجمالي النهائي', 302.0000, 9),
+(1228, 10, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(1229, 10, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(1230, 10, 'opencart', 'total', 'الاجمالي النهائي', 101.0000, 9),
+(1237, 11, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(1238, 11, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(1239, 11, 'opencart', 'total', 'الاجمالي النهائي', 101.0000, 9),
+(1335, 8, 'opencart', 'sub_total', 'الاجمالي', 181.0000, 1),
+(1336, 8, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(1337, 8, 'opencart', 'tax', 'Eco Tax (-2.00)', 4.0000, 5),
+(1338, 8, 'opencart', 'tax', 'VAT (20%)', 36.2000, 5),
+(1339, 8, 'opencart', 'total', 'الاجمالي النهائي', 221.2000, 9),
+(3107, 12, 'opencart', 'sub_total', 'الاجمالي', 10000.0000, 1),
+(3108, 12, 'opencart', 'shipping', 'قيمة الشحن للقطعة', 0.0000, 3),
+(3109, 12, 'opencart', 'total', 'الاجمالي النهائي', 10000.0000, 9),
+(3150, 13, 'opencart', 'sub_total', 'الاجمالي', 1000.0000, 1),
+(3151, 13, 'opencart', 'shipping', 'الحوبان  (الوزن : 0.00kg)', 10.0000, 3),
+(3152, 13, 'opencart', 'tax', 'Eco Tax (-2.00)', 4.0000, 5),
+(3153, 13, 'opencart', 'tax', 'VAT (20%)', 200.0000, 5),
+(3154, 13, 'opencart', 'total', 'الاجمالي النهائي', 1214.0000, 9),
+(7935, 15, 'opencart', 'sub_total', 'الاجمالي', 500.0000, 1),
+(7936, 15, 'opencart', 'shipping', 'الحوبان  (الوزن : 0.00kg)', 10.0000, 3),
+(7937, 15, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(7938, 15, 'opencart', 'tax', 'VAT (20%)', 100.0000, 5),
+(7939, 15, 'opencart', 'total', 'الاجمالي النهائي', 612.0000, 9),
+(7945, 14, 'opencart', 'sub_total', 'الاجمالي', 1601.0000, 1),
+(7946, 14, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(7947, 14, 'opencart', 'tax', 'Eco Tax (-2.00)', 8.0000, 5),
+(7948, 14, 'opencart', 'tax', 'VAT (20%)', 320.2000, 5),
+(7949, 14, 'opencart', 'total', 'الاجمالي النهائي', 1929.2000, 9),
+(7950, 16, 'opencart', 'sub_total', 'الاجمالي', 1000.0000, 1),
+(7951, 16, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(7952, 16, 'opencart', 'tax', 'Eco Tax (-2.00)', 4.0000, 5),
+(7953, 16, 'opencart', 'tax', 'VAT (20%)', 200.0000, 5),
+(7954, 16, 'opencart', 'total', 'الاجمالي النهائي', 1204.0000, 9),
+(7955, 17, 'opencart', 'sub_total', 'الاجمالي', 6601.0000, 1),
+(7956, 17, 'opencart', 'shipping', 'قيمة الشحن للقطعة', 0.0000, 3),
+(7957, 17, 'opencart', 'tax', 'Eco Tax (-2.00)', 28.0000, 5),
+(7958, 17, 'opencart', 'tax', 'VAT (20%)', 1320.2000, 5),
+(7959, 17, 'opencart', 'total', 'الاجمالي النهائي', 7949.2000, 9),
+(8035, 18, 'opencart', 'sub_total', 'الاجمالي', 45606.0000, 1),
+(8036, 18, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8037, 18, 'opencart', 'tax', 'Eco Tax (-2.00)', 192.0000, 5),
+(8038, 18, 'opencart', 'tax', 'VAT (20%)', 9121.2000, 5),
+(8039, 18, 'opencart', 'total', 'الاجمالي النهائي', 54919.2000, 9),
+(8040, 19, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8041, 19, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8042, 19, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8043, 19, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8044, 19, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8045, 20, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8046, 20, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8047, 20, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8048, 20, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8049, 20, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8050, 21, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8051, 21, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8052, 21, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8053, 21, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8054, 21, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8055, 22, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8056, 22, 'opencart', 'shipping', 'قيمة الشحن للقطعة', 0.0000, 3),
+(8057, 22, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8058, 22, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8059, 22, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8060, 23, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8061, 23, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8062, 23, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8063, 23, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8064, 23, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8065, 24, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8066, 24, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8067, 24, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8068, 24, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8069, 24, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8070, 25, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8071, 25, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8072, 25, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8073, 25, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8074, 25, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8075, 26, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8076, 26, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8077, 26, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8078, 26, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8079, 26, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8080, 27, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8081, 27, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8082, 27, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8083, 27, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8084, 27, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8085, 28, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8086, 28, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8087, 28, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8088, 28, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8089, 28, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8090, 29, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8091, 29, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8092, 29, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8093, 29, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8094, 29, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8095, 30, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8096, 30, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8097, 30, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8098, 30, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8099, 30, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8100, 31, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8101, 31, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8102, 31, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8103, 31, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8104, 31, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8105, 32, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8106, 32, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8107, 32, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8108, 32, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8109, 32, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8110, 33, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8111, 33, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8112, 33, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8113, 33, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8114, 33, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8115, 34, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8116, 34, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8117, 34, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8118, 34, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8119, 34, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8120, 35, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8121, 35, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8122, 35, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8123, 35, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8124, 35, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8125, 36, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8126, 36, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8127, 36, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8128, 36, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8129, 36, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8130, 37, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8131, 37, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8132, 37, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8133, 37, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8134, 37, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8135, 38, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8136, 38, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8137, 38, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8138, 38, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8139, 38, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8140, 39, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8141, 39, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8142, 39, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8143, 39, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8144, 39, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8145, 40, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8146, 40, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8147, 40, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8148, 40, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8149, 40, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8150, 41, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8151, 41, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8152, 41, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8153, 41, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8154, 41, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8155, 42, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8156, 42, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8157, 42, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8158, 42, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8159, 42, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8160, 43, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8161, 43, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8162, 43, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8163, 43, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8164, 43, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8165, 44, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8166, 44, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8167, 44, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8168, 44, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8169, 44, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8170, 45, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8171, 45, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8172, 45, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8173, 45, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8174, 45, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8175, 46, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8176, 46, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8177, 46, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8178, 46, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8179, 46, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8180, 47, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8181, 47, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8182, 47, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8183, 47, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8184, 47, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8185, 48, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8186, 48, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8187, 48, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8188, 48, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8189, 48, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8190, 49, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8191, 49, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8192, 49, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8193, 49, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8194, 49, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8195, 50, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8196, 50, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8197, 50, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8198, 50, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8199, 50, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8200, 51, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8201, 51, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8202, 51, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8203, 51, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8204, 51, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8205, 52, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8206, 52, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8207, 52, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8208, 52, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8209, 52, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8210, 53, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8211, 53, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8212, 53, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8213, 53, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8214, 53, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8215, 54, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8216, 54, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8217, 54, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8218, 54, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8219, 54, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8220, 55, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8221, 55, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8222, 55, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8223, 55, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8224, 55, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8225, 56, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8226, 56, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8227, 56, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8228, 56, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8229, 56, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8230, 57, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8231, 57, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8232, 57, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8233, 57, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8234, 57, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8235, 58, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8236, 58, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8237, 58, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8238, 58, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8239, 58, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8240, 59, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8241, 59, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8242, 59, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8243, 59, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8244, 59, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8245, 60, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8246, 60, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8247, 60, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8248, 60, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8249, 60, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8250, 61, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8251, 61, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8252, 61, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8253, 61, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8254, 61, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8255, 62, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8256, 62, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8257, 62, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8258, 62, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8259, 62, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8260, 63, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8261, 63, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8262, 63, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8263, 63, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8264, 63, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8265, 64, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8266, 64, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8267, 64, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8268, 64, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8269, 64, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8270, 65, 'opencart', 'sub_total', 'الاجمالي', 500.0000, 1),
+(8271, 65, 'opencart', 'shipping', 'الحوبان  (الوزن : 0.00kg)', 10.0000, 3),
+(8272, 65, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8273, 65, 'opencart', 'tax', 'VAT (20%)', 100.0000, 5),
+(8274, 65, 'opencart', 'total', 'الاجمالي النهائي', 612.0000, 9),
+(8275, 66, 'opencart', 'sub_total', 'الاجمالي', 500.0000, 1),
+(8276, 66, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8277, 66, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8278, 66, 'opencart', 'tax', 'VAT (20%)', 100.0000, 5),
+(8279, 66, 'opencart', 'total', 'الاجمالي النهائي', 602.0000, 9),
+(8280, 67, 'opencart', 'sub_total', 'الاجمالي', 1000.0000, 1),
+(8281, 67, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8282, 67, 'opencart', 'tax', 'Eco Tax (-2.00)', 4.0000, 5),
+(8283, 67, 'opencart', 'tax', 'VAT (20%)', 200.0000, 5),
+(8284, 67, 'opencart', 'total', 'الاجمالي النهائي', 1204.0000, 9),
+(8285, 68, 'opencart', 'sub_total', 'الاجمالي', 601.0000, 1),
+(8286, 68, 'opencart', 'shipping', 'قيمة الشحن للقطعة', 0.0000, 3),
+(8287, 68, 'opencart', 'tax', 'Eco Tax (-2.00)', 4.0000, 5),
+(8288, 68, 'opencart', 'tax', 'VAT (20%)', 120.2000, 5),
+(8289, 68, 'opencart', 'total', 'الاجمالي النهائي', 725.2000, 9),
+(8290, 69, 'opencart', 'sub_total', 'الاجمالي', 505.0000, 1),
+(8291, 69, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8292, 69, 'opencart', 'tax', 'Eco Tax (-2.00)', 10.0000, 5),
+(8293, 69, 'opencart', 'tax', 'VAT (20%)', 101.0000, 5),
+(8294, 69, 'opencart', 'total', 'الاجمالي النهائي', 616.0000, 9),
+(8295, 70, 'opencart', 'sub_total', 'الاجمالي', 1010.0000, 1),
+(8296, 70, 'opencart', 'shipping', 'قيمة الشحن للقطعة', 0.0000, 3),
+(8297, 70, 'opencart', 'tax', 'Eco Tax (-2.00)', 20.0000, 5),
+(8298, 70, 'opencart', 'tax', 'VAT (20%)', 202.0000, 5),
+(8299, 70, 'opencart', 'total', 'الاجمالي النهائي', 1232.0000, 9),
+(8300, 71, 'opencart', 'sub_total', 'الاجمالي', 404.0000, 1),
+(8301, 71, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8302, 71, 'opencart', 'tax', 'Eco Tax (-2.00)', 8.0000, 5),
+(8303, 71, 'opencart', 'tax', 'VAT (20%)', 80.8000, 5),
+(8304, 71, 'opencart', 'total', 'الاجمالي النهائي', 492.8000, 9),
+(8676, 72, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8677, 72, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8678, 72, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8679, 72, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8680, 72, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8681, 72, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8682, 72, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8683, 72, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8684, 72, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8755, 74, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8756, 74, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8757, 74, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8758, 74, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8759, 74, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8770, 75, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8771, 75, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8772, 75, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8773, 75, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8774, 75, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8860, 73, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8861, 73, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8862, 73, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8863, 73, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8864, 73, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8875, 76, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8876, 76, 'opencart', 'shipping', 'قيمة الشحن للقطعة', 0.0000, 3),
+(8877, 76, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8878, 76, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8879, 76, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8935, 77, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8936, 77, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8937, 77, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8938, 77, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8939, 77, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8940, 78, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8941, 78, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8942, 78, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8943, 78, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8944, 78, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8960, 79, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8961, 79, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8962, 79, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8963, 79, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8964, 79, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(8965, 80, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(8966, 80, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(8967, 80, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(8968, 80, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(8969, 80, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(9410, 81, 'opencart', 'sub_total', 'الاجمالي', 202.0000, 1),
+(9411, 81, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(9412, 81, 'opencart', 'tax', 'Eco Tax (-2.00)', 4.0000, 5),
+(9413, 81, 'opencart', 'tax', 'VAT (20%)', 40.4000, 5),
+(9414, 81, 'opencart', 'total', 'الاجمالي النهائي', 246.4000, 9),
+(9440, 82, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(9441, 82, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(9442, 82, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(9443, 82, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(9444, 82, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(9452, 83, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(9453, 83, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(9454, 83, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(9455, 83, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(9456, 83, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(9457, 83, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(9458, 83, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(9459, 83, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(9500, 84, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(9501, 84, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(9502, 84, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(9503, 84, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(9504, 84, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(9790, 85, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(9791, 85, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(9792, 85, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(9793, 85, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(9794, 85, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(9795, 85, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(9796, 85, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(9797, 85, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(9798, 85, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(9799, 85, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(9813, 86, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(9814, 86, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(9815, 86, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(9816, 86, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(9817, 86, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(9818, 86, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(9819, 86, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(9820, 87, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(9821, 87, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(9822, 87, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(9823, 87, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(9824, 88, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(9825, 87, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(9826, 88, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(9827, 88, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(9828, 88, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(9830, 88, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(9835, 89, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(9836, 89, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(9837, 89, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(9838, 89, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(9839, 89, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(9840, 90, 'opencart', 'sub_total', 'الاجمالي', 80.0000, 1),
+(9841, 90, 'opencart', 'shipping', 'الحوبان  (الوزن : 0.00kg)', 10.0000, 3),
+(9842, 90, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(9843, 90, 'opencart', 'tax', 'VAT (20%)', 16.0000, 5),
+(9844, 90, 'opencart', 'total', 'الاجمالي النهائي', 108.0000, 9),
+(9866, 91, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(9867, 91, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(9868, 91, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(9869, 91, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(9870, 91, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(9871, 91, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(9872, 91, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(9873, 91, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(9874, 91, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(9875, 92, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(9876, 92, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(9877, 92, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(9878, 92, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(9879, 92, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(9880, 93, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(9881, 93, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(9882, 93, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(9883, 93, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(9884, 93, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(9885, 94, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(9886, 94, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(9887, 94, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(9888, 94, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(9889, 94, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(10185, 95, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(10186, 95, 'opencart', 'shipping', 'قيمة الشحن للقطعة', 0.0000, 3),
+(10187, 95, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(10188, 95, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(10189, 95, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(10204, 96, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(10205, 96, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(10206, 96, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(10207, 96, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(10208, 96, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(10209, 96, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(10210, 97, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(10211, 97, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(10212, 97, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(10213, 97, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(10214, 97, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(10273, 98, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(10274, 98, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(10275, 98, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(10276, 98, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(10277, 98, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(10278, 98, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(10279, 98, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(10280, 99, 'opencart', 'sub_total', 'الاجمالي', 500.0000, 1),
+(10281, 99, 'opencart', 'shipping', 'الحوبان  (الوزن : 0.00kg)', 10.0000, 3),
+(10282, 99, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(10283, 99, 'opencart', 'tax', 'VAT (20%)', 100.0000, 5),
+(10284, 99, 'opencart', 'total', 'الاجمالي النهائي', 612.0000, 9),
+(10943, 100, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(10944, 100, 'opencart', 'sub_total', 'الاجمالي', 101.0000, 1),
+(10945, 100, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(10946, 100, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(10947, 100, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(10948, 100, 'opencart', 'tax', 'VAT (20%)', 20.2000, 5),
+(10949, 100, 'opencart', 'total', 'الاجمالي النهائي', 123.2000, 9),
+(11910, 101, 'opencart', 'sub_total', 'الاجمالي', 3015.0000, 1),
+(11911, 101, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(11912, 101, 'opencart', 'tax', 'Eco Tax (-2.00)', 36.0000, 5),
+(11913, 101, 'opencart', 'tax', 'VAT (20%)', 603.0000, 5),
+(11914, 101, 'opencart', 'total', 'الاجمالي النهائي', 3654.0000, 9),
+(13935, 102, 'opencart', 'sub_total', 'الاجمالي', 5000.0000, 1),
+(13936, 102, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(13937, 102, 'opencart', 'tax', 'Eco Tax (-2.00)', 20.0000, 5),
+(13938, 102, 'opencart', 'tax', 'VAT (20%)', 1000.0000, 5),
+(13939, 102, 'opencart', 'total', 'الاجمالي النهائي', 6020.0000, 9),
+(13945, 103, 'opencart', 'sub_total', 'الاجمالي', 500.0000, 1),
+(13946, 103, 'opencart', 'shipping', 'الحوبان  (الوزن : 0.00kg)', 10.0000, 3),
+(13947, 103, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(13948, 103, 'opencart', 'tax', 'VAT (20%)', 100.0000, 5),
+(13949, 103, 'opencart', 'total', 'الاجمالي النهائي', 612.0000, 9),
+(13950, 104, 'opencart', 'sub_total', 'الاجمالي', 2206.0000, 1),
+(13951, 104, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(13952, 104, 'opencart', 'total', 'الاجمالي النهائي', 2206.0000, 9),
+(13956, 105, 'opencart', 'sub_total', 'الاجمالي', 800.0000, 1),
+(13957, 105, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(13958, 105, 'opencart', 'total', 'الاجمالي النهائي', 800.0000, 9),
+(13959, 106, 'opencart', 'sub_total', 'الاجمالي', 601.0000, 1),
+(13960, 106, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(13961, 106, 'opencart', 'tax', 'Eco Tax (-2.00)', 4.0000, 5),
+(13962, 106, 'opencart', 'tax', 'VAT (20%)', 120.2000, 5),
+(13963, 106, 'opencart', 'total', 'الاجمالي النهائي', 725.2000, 9),
+(13964, 107, 'opencart', 'sub_total', 'الاجمالي', 800.0000, 1),
+(13965, 107, 'opencart', 'shipping', 'الحوبان  (الوزن : 0.00kg)', 10.0000, 3),
+(13966, 107, 'opencart', 'total', 'الاجمالي النهائي', 810.0000, 9),
+(13972, 108, 'opencart', 'sub_total', 'الاجمالي', 1000.0000, 1),
+(13973, 108, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(13974, 108, 'opencart', 'tax', 'Eco Tax (-2.00)', 4.0000, 5),
+(13975, 108, 'opencart', 'tax', 'VAT (20%)', 200.0000, 5),
+(13976, 108, 'opencart', 'total', 'الاجمالي النهائي', 1204.0000, 9),
+(13982, 109, 'opencart', 'sub_total', 'الاجمالي', 5500.0000, 1),
+(13983, 109, 'opencart', 'shipping', 'الحوبان  (الوزن : 0.00kg)', 10.0000, 3),
+(13984, 109, 'opencart', 'tax', 'Eco Tax (-2.00)', 22.0000, 5),
+(13985, 109, 'opencart', 'tax', 'VAT (20%)', 1100.0000, 5),
+(13986, 109, 'opencart', 'total', 'الاجمالي النهائي', 6632.0000, 9),
+(13987, 110, 'opencart', 'sub_total', 'الاجمالي', 3500.0000, 1),
+(13988, 110, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(13989, 110, 'opencart', 'tax', 'Eco Tax (-2.00)', 14.0000, 5),
+(13990, 110, 'opencart', 'tax', 'VAT (20%)', 700.0000, 5),
+(13991, 110, 'opencart', 'total', 'الاجمالي النهائي', 4214.0000, 9),
+(13992, 111, 'opencart', 'sub_total', 'الاجمالي', 500.0000, 1),
+(13993, 111, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(13994, 111, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(13995, 111, 'opencart', 'tax', 'VAT (20%)', 100.0000, 5),
+(13996, 111, 'opencart', 'total', 'الاجمالي النهائي', 602.0000, 9),
+(13997, 112, 'opencart', 'sub_total', 'الاجمالي', 800.0000, 1),
+(13998, 112, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(13999, 112, 'opencart', 'total', 'الاجمالي النهائي', 800.0000, 9),
+(14000, 113, 'opencart', 'sub_total', 'الاجمالي', 500.0000, 1),
+(14001, 113, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14002, 113, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(14003, 113, 'opencart', 'tax', 'VAT (20%)', 100.0000, 5),
+(14004, 113, 'opencart', 'total', 'الاجمالي النهائي', 602.0000, 9),
+(14010, 114, 'opencart', 'sub_total', 'الاجمالي', 500.0000, 1),
+(14011, 114, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14012, 114, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(14013, 114, 'opencart', 'tax', 'VAT (20%)', 100.0000, 5),
+(14014, 114, 'opencart', 'total', 'الاجمالي النهائي', 602.0000, 9),
+(14015, 115, 'opencart', 'sub_total', 'الاجمالي', 80.0000, 1),
+(14016, 115, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14017, 115, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(14018, 115, 'opencart', 'tax', 'VAT (20%)', 16.0000, 5),
+(14019, 115, 'opencart', 'total', 'الاجمالي النهائي', 98.0000, 9),
+(14020, 116, 'opencart', 'sub_total', 'الاجمالي', 500.0000, 1),
+(14021, 116, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14022, 116, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(14023, 116, 'opencart', 'tax', 'VAT (20%)', 100.0000, 5),
+(14024, 116, 'opencart', 'total', 'الاجمالي النهائي', 602.0000, 9),
+(14030, 117, 'opencart', 'sub_total', 'الاجمالي', 500.0000, 1),
+(14031, 117, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14032, 117, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(14033, 117, 'opencart', 'tax', 'VAT (20%)', 100.0000, 5),
+(14034, 117, 'opencart', 'total', 'الاجمالي النهائي', 602.0000, 9),
+(14035, 118, 'opencart', 'sub_total', 'الاجمالي', 601.0000, 1),
+(14036, 118, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14037, 118, 'opencart', 'tax', 'Eco Tax (-2.00)', 4.0000, 5),
+(14038, 118, 'opencart', 'tax', 'VAT (20%)', 120.2000, 5),
+(14039, 118, 'opencart', 'total', 'الاجمالي النهائي', 725.2000, 9),
+(14045, 119, 'opencart', 'sub_total', 'الاجمالي', 681.0000, 1),
+(14046, 119, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14047, 119, 'opencart', 'tax', 'Eco Tax (-2.00)', 6.0000, 5),
+(14048, 119, 'opencart', 'tax', 'VAT (20%)', 136.2000, 5),
+(14049, 119, 'opencart', 'total', 'الاجمالي النهائي', 823.2000, 9),
+(14050, 120, 'opencart', 'sub_total', 'الاجمالي', 601.0000, 1),
+(14051, 120, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14052, 120, 'opencart', 'tax', 'Eco Tax (-2.00)', 4.0000, 5),
+(14053, 120, 'opencart', 'tax', 'VAT (20%)', 120.2000, 5),
+(14054, 120, 'opencart', 'total', 'الاجمالي النهائي', 725.2000, 9),
+(14060, 121, 'opencart', 'sub_total', 'الاجمالي', 601.0000, 1),
+(14061, 121, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14062, 121, 'opencart', 'tax', 'Eco Tax (-2.00)', 4.0000, 5),
+(14063, 121, 'opencart', 'tax', 'VAT (20%)', 120.2000, 5),
+(14064, 121, 'opencart', 'total', 'الاجمالي النهائي', 725.2000, 9),
+(14070, 122, 'opencart', 'sub_total', 'الاجمالي', 601.0000, 1),
+(14071, 122, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14072, 122, 'opencart', 'tax', 'Eco Tax (-2.00)', 4.0000, 5),
+(14073, 122, 'opencart', 'tax', 'VAT (20%)', 120.2000, 5),
+(14074, 122, 'opencart', 'total', 'الاجمالي النهائي', 725.2000, 9),
+(14075, 123, 'opencart', 'sub_total', 'الاجمالي', 601.0000, 1),
+(14076, 123, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14077, 123, 'opencart', 'tax', 'Eco Tax (-2.00)', 4.0000, 5),
+(14078, 123, 'opencart', 'tax', 'VAT (20%)', 120.2000, 5),
+(14079, 123, 'opencart', 'total', 'الاجمالي النهائي', 725.2000, 9),
+(14080, 124, 'opencart', 'sub_total', 'الاجمالي', 601.0000, 1),
+(14081, 124, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14082, 124, 'opencart', 'tax', 'Eco Tax (-2.00)', 4.0000, 5),
+(14083, 124, 'opencart', 'tax', 'VAT (20%)', 120.2000, 5),
+(14084, 124, 'opencart', 'total', 'الاجمالي النهائي', 725.2000, 9),
+(14085, 125, 'opencart', 'sub_total', 'الاجمالي', 2303.0000, 1),
+(14086, 125, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14087, 125, 'opencart', 'tax', 'Eco Tax (-2.00)', 14.0000, 5),
+(14088, 125, 'opencart', 'tax', 'VAT (20%)', 460.6000, 5),
+(14089, 125, 'opencart', 'total', 'الاجمالي النهائي', 2777.6000, 9),
+(14090, 126, 'opencart', 'sub_total', 'الاجمالي', 601.0000, 1),
+(14091, 126, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14092, 126, 'opencart', 'tax', 'Eco Tax (-2.00)', 4.0000, 5),
+(14093, 126, 'opencart', 'tax', 'VAT (20%)', 120.2000, 5),
+(14094, 126, 'opencart', 'total', 'الاجمالي النهائي', 725.2000, 9),
+(14095, 127, 'opencart', 'sub_total', 'الاجمالي', 681.0000, 1),
+(14096, 127, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14097, 127, 'opencart', 'tax', 'Eco Tax (-2.00)', 6.0000, 5),
+(14098, 127, 'opencart', 'tax', 'VAT (20%)', 136.2000, 5),
+(14099, 127, 'opencart', 'total', 'الاجمالي النهائي', 823.2000, 9),
+(14100, 128, 'opencart', 'sub_total', 'الاجمالي', 601.0000, 1),
+(14101, 128, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14102, 128, 'opencart', 'tax', 'Eco Tax (-2.00)', 4.0000, 5),
+(14103, 128, 'opencart', 'tax', 'VAT (20%)', 120.2000, 5),
+(14104, 128, 'opencart', 'total', 'الاجمالي النهائي', 725.2000, 9),
+(14110, 129, 'opencart', 'sub_total', 'الاجمالي', 601.0000, 1),
+(14111, 129, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14112, 129, 'opencart', 'tax', 'Eco Tax (-2.00)', 4.0000, 5),
+(14113, 129, 'opencart', 'tax', 'VAT (20%)', 120.2000, 5),
+(14114, 129, 'opencart', 'total', 'الاجمالي النهائي', 725.2000, 9),
+(14115, 130, 'opencart', 'sub_total', 'الاجمالي', 601.0000, 1),
+(14116, 130, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14117, 130, 'opencart', 'tax', 'Eco Tax (-2.00)', 4.0000, 5),
+(14118, 130, 'opencart', 'tax', 'VAT (20%)', 120.2000, 5),
+(14119, 130, 'opencart', 'total', 'الاجمالي النهائي', 725.2000, 9),
+(14120, 131, 'opencart', 'sub_total', 'الاجمالي', 601.0000, 1),
+(14121, 131, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14122, 131, 'opencart', 'tax', 'Eco Tax (-2.00)', 4.0000, 5),
+(14123, 131, 'opencart', 'tax', 'VAT (20%)', 120.2000, 5),
+(14124, 131, 'opencart', 'total', 'الاجمالي النهائي', 725.2000, 9),
+(14125, 132, 'opencart', 'sub_total', 'الاجمالي', 601.0000, 1),
+(14126, 132, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14127, 132, 'opencart', 'tax', 'Eco Tax (-2.00)', 4.0000, 5),
+(14128, 132, 'opencart', 'tax', 'VAT (20%)', 120.2000, 5),
+(14129, 132, 'opencart', 'total', 'الاجمالي النهائي', 725.2000, 9),
+(14130, 133, 'opencart', 'sub_total', 'الاجمالي', 601.0000, 1),
+(14131, 133, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14132, 133, 'opencart', 'tax', 'Eco Tax (-2.00)', 4.0000, 5),
+(14133, 133, 'opencart', 'tax', 'VAT (20%)', 120.2000, 5),
+(14134, 133, 'opencart', 'total', 'الاجمالي النهائي', 725.2000, 9),
+(14135, 134, 'opencart', 'sub_total', 'الاجمالي', 100.0000, 1),
+(14136, 134, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14137, 134, 'opencart', 'tax', 'Eco Tax (-2.00)', 2.0000, 5),
+(14138, 134, 'opencart', 'tax', 'VAT (20%)', 20.0000, 5),
+(14139, 134, 'opencart', 'total', 'الاجمالي النهائي', 122.0000, 9),
+(14264, 135, 'opencart', 'sub_total', 'الاجمالي', 1160.0000, 1),
+(14265, 135, 'opencart', 'shipping', 'قيمة الشحن للقطعة', 0.0000, 3),
+(14266, 135, 'opencart', 'tax', 'Eco Tax (-2.00)', 22.0000, 5),
+(14267, 135, 'opencart', 'tax', 'VAT (20%)', 232.0000, 5),
+(14268, 135, 'opencart', 'total', 'الاجمالي النهائي', 1414.0000, 9),
+(14279, 136, 'opencart', 'sub_total', 'الاجمالي', 65105.0000, 1),
+(14280, 136, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14281, 136, 'opencart', 'tax', 'Eco Tax (-2.00)', 36.0000, 5),
+(14282, 136, 'opencart', 'tax', 'VAT (20%)', 381.0000, 5),
+(14283, 136, 'opencart', 'total', 'الاجمالي النهائي', 65522.0000, 9),
+(14304, 137, 'opencart', 'sub_total', 'الاجمالي', 200.0000, 1),
+(14305, 137, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14306, 137, 'opencart', 'tax', 'Eco Tax (-2.00)', 4.0000, 5),
+(14307, 137, 'opencart', 'tax', 'VAT (20%)', 40.0000, 5),
+(14308, 137, 'opencart', 'total', 'الاجمالي النهائي', 244.0000, 9),
+(14354, 138, 'opencart', 'sub_total', 'الاجمالي', 400.0000, 1),
+(14355, 138, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14356, 138, 'opencart', 'tax', 'Eco Tax (-2.00)', 8.0000, 5),
+(14357, 138, 'opencart', 'tax', 'VAT (20%)', 80.0000, 5),
+(14358, 138, 'opencart', 'total', 'الاجمالي النهائي', 488.0000, 9),
+(14362, 139, 'opencart', 'sub_total', 'الاجمالي', 71200.0000, 1),
+(14363, 139, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14364, 139, 'opencart', 'total', 'الاجمالي النهائي', 71200.0000, 9),
+(14365, 140, 'opencart', 'sub_total', 'الاجمالي', 200.0000, 1),
+(14366, 140, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14367, 140, 'opencart', 'tax', 'Eco Tax (-2.00)', 4.0000, 5),
+(14368, 140, 'opencart', 'tax', 'VAT (20%)', 40.0000, 5),
+(14369, 140, 'opencart', 'total', 'الاجمالي النهائي', 244.0000, 9),
+(14370, 141, 'opencart', 'sub_total', 'الاجمالي', 13163.0000, 1),
+(14371, 141, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14372, 141, 'opencart', 'total', 'الاجمالي النهائي', 13163.0000, 9),
+(14373, 142, 'opencart', 'sub_total', 'الاجمالي', 1660.0000, 1),
+(14374, 142, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14375, 142, 'opencart', 'total', 'الاجمالي النهائي', 1660.0000, 9),
+(14376, 143, 'opencart', 'sub_total', 'الاجمالي', 0.0000, 1),
+(14377, 143, 'opencart', 'shipping', 'الحوبان  (الوزن : 0.00kg)', 7000.0000, 3),
+(14378, 143, 'opencart', 'total', 'الاجمالي النهائي', 7000.0000, 9),
+(14379, 144, 'opencart', 'sub_total', 'الاجمالي', 12200.0000, 1),
+(14380, 144, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14381, 144, 'opencart', 'total', 'الاجمالي النهائي', 12200.0000, 9),
+(14397, 145, 'opencart', 'sub_total', 'الاجمالي', 830.0000, 1),
+(14398, 145, 'opencart', 'shipping', 'المركزي  (الوزن : 0.00kg)', 4000.0000, 3),
+(14399, 145, 'opencart', 'total', 'الاجمالي النهائي', 4830.0000, 9),
+(14400, 146, 'opencart', 'sub_total', 'الاجمالي', 0.0000, 1),
+(14401, 146, 'opencart', 'shipping', 'الحوبان  (الوزن : 0.00kg)', 7000.0000, 3),
+(14402, 146, 'opencart', 'total', 'الاجمالي النهائي', 7000.0000, 9),
+(14403, 147, 'opencart', 'sub_total', 'الاجمالي', 0.0000, 1),
+(14404, 147, 'opencart', 'shipping', 'الحوبان  (الوزن : 0.00kg)', 7000.0000, 3),
+(14405, 147, 'opencart', 'total', 'الاجمالي النهائي', 7000.0000, 9),
+(14406, 148, 'opencart', 'sub_total', 'الاجمالي', 0.0000, 1),
+(14407, 148, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14408, 148, 'opencart', 'total', 'الاجمالي النهائي', 0.0000, 9),
+(14409, 149, 'opencart', 'sub_total', 'الاجمالي', 0.0000, 1),
+(14410, 149, 'opencart', 'shipping', 'المركزي  (الوزن : 0.00kg)', 4000.0000, 3),
+(14411, 149, 'opencart', 'total', 'الاجمالي النهائي', 4000.0000, 9),
+(14412, 150, 'opencart', 'sub_total', 'الاجمالي', 0.0000, 1),
+(14413, 150, 'opencart', 'shipping', 'الحوبان  (الوزن : 0.00kg)', 7000.0000, 3),
+(14414, 150, 'opencart', 'total', 'الاجمالي النهائي', 7000.0000, 9),
+(14415, 151, 'opencart', 'sub_total', 'الاجمالي', 0.0000, 1),
+(14416, 151, 'opencart', 'shipping', 'المركزي  (الوزن : 0.00kg)', 4000.0000, 3),
+(14417, 151, 'opencart', 'total', 'الاجمالي النهائي', 4000.0000, 9),
+(14418, 152, 'opencart', 'sub_total', 'الاجمالي', 830.0000, 1),
+(14419, 152, 'opencart', 'shipping', 'الحوبان  (الوزن : 0.00kg)', 7000.0000, 3),
+(14420, 152, 'opencart', 'total', 'الاجمالي النهائي', 7830.0000, 9),
+(14430, 153, 'opencart', 'sub_total', 'الاجمالي', 0.0000, 1),
+(14431, 153, 'opencart', 'shipping', 'الحوبان  (الوزن : 0.00kg)', 7000.0000, 3),
+(14432, 153, 'opencart', 'total', 'الاجمالي النهائي', 7000.0000, 9),
+(14433, 154, 'opencart', 'sub_total', 'الاجمالي', 84000.0000, 1),
+(14434, 154, 'opencart', 'shipping', 'الحوبان  (الوزن : 0.00kg)', 7000.0000, 3),
+(14435, 154, 'opencart', 'total', 'الاجمالي النهائي', 91000.0000, 9),
+(14436, 155, 'opencart', 'sub_total', 'الاجمالي', 130.0000, 1),
+(14437, 155, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14438, 155, 'opencart', 'total', 'الاجمالي النهائي', 130.0000, 9),
+(14439, 156, 'opencart', 'sub_total', 'الاجمالي', 130.0000, 1),
+(14440, 156, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14441, 156, 'opencart', 'total', 'الاجمالي النهائي', 130.0000, 9),
+(14442, 157, 'opencart', 'sub_total', 'الاجمالي', 0.0000, 1),
+(14443, 157, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14444, 157, 'opencart', 'total', 'الاجمالي النهائي', 0.0000, 9),
+(14487, 158, 'opencart', 'sub_total', 'الاجمالي', 0.0000, 1),
+(14488, 158, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14489, 158, 'opencart', 'total', 'الاجمالي النهائي', 0.0000, 9),
+(14589, 159, 'opencart', 'sub_total', 'الاجمالي', 0.0000, 1),
+(14590, 159, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14591, 159, 'opencart', 'total', 'الاجمالي النهائي', 0.0000, 9),
+(14595, 160, 'opencart', 'sub_total', 'الاجمالي', 0.0000, 1),
+(14596, 160, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14597, 160, 'opencart', 'total', 'الاجمالي النهائي', 0.0000, 9),
+(14598, 161, 'opencart', 'sub_total', 'الاجمالي', 20500.0000, 1),
+(14599, 161, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14600, 161, 'opencart', 'total', 'الاجمالي النهائي', 20500.0000, 9),
+(14601, 162, 'opencart', 'sub_total', 'الاجمالي', 12500.0000, 1),
+(14602, 162, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14603, 162, 'opencart', 'total', 'الاجمالي النهائي', 12500.0000, 9),
+(14607, 163, 'opencart', 'sub_total', 'الاجمالي', 12500.0000, 1),
+(14608, 163, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14609, 163, 'opencart', 'total', 'الاجمالي النهائي', 12500.0000, 9),
+(14610, 164, 'opencart', 'sub_total', 'الاجمالي', 12500.0000, 1),
+(14611, 164, 'opencart', 'shipping', 'الحوبان  (الوزن : 0.00kg)', 4000.0000, 3),
+(14612, 164, 'opencart', 'total', 'الاجمالي النهائي', 16500.0000, 9),
+(14631, 165, 'opencart', 'sub_total', 'الاجمالي', 1600.0000, 1),
+(14632, 165, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14633, 165, 'opencart', 'total', 'الاجمالي النهائي', 1600.0000, 9),
+(14634, 166, 'opencart', 'sub_total', 'الاجمالي', 12500.0000, 1),
+(14635, 166, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14636, 166, 'opencart', 'total', 'الاجمالي النهائي', 12500.0000, 9),
+(14637, 167, 'opencart', 'sub_total', 'الاجمالي', 12500.0000, 1),
+(14638, 167, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14639, 167, 'opencart', 'total', 'الاجمالي النهائي', 12500.0000, 9),
+(14643, 168, 'opencart', 'sub_total', 'الاجمالي', 12500.0000, 1),
+(14644, 168, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14645, 168, 'opencart', 'total', 'الاجمالي النهائي', 12500.0000, 9),
+(14646, 169, 'opencart', 'sub_total', 'الاجمالي', 12500.0000, 1),
+(14647, 169, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14648, 169, 'opencart', 'total', 'الاجمالي النهائي', 12500.0000, 9),
+(14649, 170, 'opencart', 'sub_total', 'الاجمالي', 12500.0000, 1),
+(14650, 170, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14651, 170, 'opencart', 'total', 'الاجمالي النهائي', 12500.0000, 9),
+(14652, 171, 'opencart', 'sub_total', 'الاجمالي', 12500.0000, 1),
+(14653, 171, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14654, 171, 'opencart', 'total', 'الاجمالي النهائي', 12500.0000, 9),
+(14658, 172, 'opencart', 'sub_total', 'الاجمالي', 12000.0000, 1),
+(14659, 172, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14660, 172, 'opencart', 'total', 'الاجمالي النهائي', 12000.0000, 9),
+(14661, 173, 'opencart', 'sub_total', 'الاجمالي', 20000.0000, 1),
+(14662, 173, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14663, 173, 'opencart', 'total', 'الاجمالي النهائي', 20000.0000, 9),
+(14664, 174, 'opencart', 'sub_total', 'الاجمالي', 32000.0000, 1),
+(14665, 174, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(14666, 174, 'opencart', 'total', 'الاجمالي النهائي', 32000.0000, 9),
+(14670, 175, 'opencart', 'sub_total', 'الاجمالي', 17600.0000, 1),
+(14671, 175, 'opencart', 'shipping', 'الحوبان  (الوزن : 2.00kg)', 4000.0000, 3),
+(14672, 175, 'opencart', 'total', 'الاجمالي النهائي', 21600.0000, 9),
+(14682, 176, 'opencart', 'sub_total', 'الاجمالي', 12000.0000, 1),
+(14683, 176, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3);
 INSERT INTO `ks_order_total` (`order_total_id`, `order_id`, `extension`, `code`, `title`, `value`, `sort_order`) VALUES
-(14646, 169, 'opencart', 'sub_total', 'الاجمالي', '12500.0000', 1),
-(14647, 169, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14648, 169, 'opencart', 'total', 'الاجمالي النهائي', '12500.0000', 9),
-(14649, 170, 'opencart', 'sub_total', 'الاجمالي', '12500.0000', 1),
-(14650, 170, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14651, 170, 'opencart', 'total', 'الاجمالي النهائي', '12500.0000', 9),
-(14652, 171, 'opencart', 'sub_total', 'الاجمالي', '12500.0000', 1),
-(14653, 171, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14654, 171, 'opencart', 'total', 'الاجمالي النهائي', '12500.0000', 9),
-(14658, 172, 'opencart', 'sub_total', 'الاجمالي', '12000.0000', 1),
-(14659, 172, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14660, 172, 'opencart', 'total', 'الاجمالي النهائي', '12000.0000', 9),
-(14661, 173, 'opencart', 'sub_total', 'الاجمالي', '20000.0000', 1),
-(14662, 173, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14663, 173, 'opencart', 'total', 'الاجمالي النهائي', '20000.0000', 9),
-(14664, 174, 'opencart', 'sub_total', 'الاجمالي', '32000.0000', 1),
-(14665, 174, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14666, 174, 'opencart', 'total', 'الاجمالي النهائي', '32000.0000', 9),
-(14670, 175, 'opencart', 'sub_total', 'الاجمالي', '17600.0000', 1),
-(14671, 175, 'opencart', 'shipping', 'الحوبان  (الوزن : 2.00kg)', '4000.0000', 3),
-(14672, 175, 'opencart', 'total', 'الاجمالي النهائي', '21600.0000', 9),
-(14682, 176, 'opencart', 'sub_total', 'الاجمالي', '12000.0000', 1),
-(14683, 176, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(14684, 176, 'opencart', 'total', 'الاجمالي النهائي', '12000.0000', 9),
-(14688, 177, 'opencart', 'sub_total', 'الاجمالي', '12000.0000', 1),
-(14689, 177, 'opencart', 'shipping', 'الحوبان  (الوزن : 0.00kg)', '4000.0000', 3),
-(14690, 177, 'opencart', 'total', 'الاجمالي النهائي', '16000.0000', 9),
-(14691, 178, 'opencart', 'sub_total', 'الاجمالي', '1600.0000', 1),
-(14692, 178, 'opencart', 'shipping', 'الحوبان  (الوزن : 0.00kg)', '4000.0000', 3),
-(14693, 178, 'opencart', 'total', 'الاجمالي النهائي', '5600.0000', 9),
-(14703, 179, 'opencart', 'sub_total', 'الاجمالي', '12000.0000', 1),
-(14704, 179, 'opencart', 'shipping', 'الحوبان  (الوزن : 0.00kg)', '4000.0000', 3),
-(14705, 179, 'opencart', 'total', 'الاجمالي النهائي', '16000.0000', 9),
-(16029, 180, 'opencart', 'sub_total', 'الاجمالي', '12000.0000', 1),
-(16030, 180, 'opencart', 'shipping', 'الحوبان  (الوزن : 0.00kg)', '4000.0000', 3),
-(16031, 180, 'opencart', 'total', 'الاجمالي النهائي', '16000.0000', 9),
-(16032, 181, 'opencart', 'sub_total', 'الاجمالي', '5000.0000', 1),
-(16033, 181, 'opencart', 'shipping', 'الاستلام من المتجر', '0.0000', 3),
-(16034, 181, 'opencart', 'total', 'الاجمالي النهائي', '5000.0000', 9),
-(16035, 182, 'opencart', 'sub_total', 'الاجمالي', '7200.0000', 1),
-(16036, 182, 'opencart', 'shipping', 'الحوبان  (الوزن : 0.00kg)', '4000.0000', 3),
-(16037, 182, 'opencart', 'total', 'الاجمالي النهائي', '11200.0000', 9),
-(16209, 183, 'opencart', 'sub_total', 'الاجمالي', '1600.0000', 1),
-(16210, 183, 'opencart', 'shipping', 'المركزي  (الوزن : 0.00kg)', '2000.0000', 3),
-(16211, 183, 'opencart', 'total', 'الاجمالي النهائي', '3600.0000', 9),
-(16212, 184, 'opencart', 'sub_total', 'الاجمالي', '12000.0000', 1),
-(16213, 184, 'opencart', 'shipping', 'الحوبان  (الوزن : 0.00kg)', '4000.0000', 3),
-(16214, 184, 'opencart', 'total', 'الاجمالي النهائي', '16000.0000', 9),
-(16215, 185, 'opencart', 'sub_total', 'الاجمالي', '12000.0000', 1),
-(16216, 185, 'opencart', 'shipping', 'الحوبان  (الوزن : 0.00kg)', '4000.0000', 3),
-(16217, 185, 'opencart', 'total', 'الاجمالي النهائي', '16000.0000', 9);
+(14684, 176, 'opencart', 'total', 'الاجمالي النهائي', 12000.0000, 9),
+(14688, 177, 'opencart', 'sub_total', 'الاجمالي', 12000.0000, 1),
+(14689, 177, 'opencart', 'shipping', 'الحوبان  (الوزن : 0.00kg)', 4000.0000, 3),
+(14690, 177, 'opencart', 'total', 'الاجمالي النهائي', 16000.0000, 9),
+(14691, 178, 'opencart', 'sub_total', 'الاجمالي', 1600.0000, 1),
+(14692, 178, 'opencart', 'shipping', 'الحوبان  (الوزن : 0.00kg)', 4000.0000, 3),
+(14693, 178, 'opencart', 'total', 'الاجمالي النهائي', 5600.0000, 9),
+(14703, 179, 'opencart', 'sub_total', 'الاجمالي', 12000.0000, 1),
+(14704, 179, 'opencart', 'shipping', 'الحوبان  (الوزن : 0.00kg)', 4000.0000, 3),
+(14705, 179, 'opencart', 'total', 'الاجمالي النهائي', 16000.0000, 9),
+(16029, 180, 'opencart', 'sub_total', 'الاجمالي', 12000.0000, 1),
+(16030, 180, 'opencart', 'shipping', 'الحوبان  (الوزن : 0.00kg)', 4000.0000, 3),
+(16031, 180, 'opencart', 'total', 'الاجمالي النهائي', 16000.0000, 9),
+(16032, 181, 'opencart', 'sub_total', 'الاجمالي', 5000.0000, 1),
+(16033, 181, 'opencart', 'shipping', 'الاستلام من المتجر', 0.0000, 3),
+(16034, 181, 'opencart', 'total', 'الاجمالي النهائي', 5000.0000, 9),
+(16035, 182, 'opencart', 'sub_total', 'الاجمالي', 7200.0000, 1),
+(16036, 182, 'opencart', 'shipping', 'الحوبان  (الوزن : 0.00kg)', 4000.0000, 3),
+(16037, 182, 'opencart', 'total', 'الاجمالي النهائي', 11200.0000, 9),
+(16209, 183, 'opencart', 'sub_total', 'الاجمالي', 1600.0000, 1),
+(16210, 183, 'opencart', 'shipping', 'المركزي  (الوزن : 0.00kg)', 2000.0000, 3),
+(16211, 183, 'opencart', 'total', 'الاجمالي النهائي', 3600.0000, 9),
+(16212, 184, 'opencart', 'sub_total', 'الاجمالي', 12000.0000, 1),
+(16213, 184, 'opencart', 'shipping', 'الحوبان  (الوزن : 0.00kg)', 4000.0000, 3),
+(16214, 184, 'opencart', 'total', 'الاجمالي النهائي', 16000.0000, 9),
+(16215, 185, 'opencart', 'sub_total', 'الاجمالي', 12000.0000, 1),
+(16216, 185, 'opencart', 'shipping', 'الحوبان  (الوزن : 0.00kg)', 4000.0000, 3),
+(16217, 185, 'opencart', 'total', 'الاجمالي النهائي', 16000.0000, 9);
 
 -- --------------------------------------------------------
 
@@ -8555,7 +8550,7 @@ CREATE TABLE `ks_order_voucher` (
   `voucher_theme_id` int(11) NOT NULL,
   `message` text NOT NULL,
   `amount` decimal(15,4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -8597,19 +8592,19 @@ CREATE TABLE `ks_product` (
   `status` tinyint(1) NOT NULL DEFAULT 0,
   `date_added` datetime NOT NULL,
   `date_modified` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_product`
 --
 
 INSERT INTO `ks_product` (`product_id`, `master_id`, `model`, `sku`, `upc`, `ean`, `jan`, `isbn`, `mpn`, `location`, `variant`, `override`, `quantity`, `stock_status_id`, `image`, `manufacturer_id`, `shipping`, `price`, `points`, `tax_class_id`, `date_available`, `weight`, `weight_class_id`, `length`, `width`, `height`, `length_class_id`, `subtract`, `minimum`, `sort_order`, `status`, `date_added`, `date_modified`) VALUES
-(50, 0, 'عطور', '', '', '', '', '', '', '', '', '', 900, 6, 'catalog/967730281071_status_17fd849ee8ca423a925dcf78936590d6.jpg', 0, 1, '8000.0000', 90, 0, '2022-12-04', '0.00000000', 2, '2.00000000', '2.00000000', '4.00000000', 1, 1, 1, 1, 1, '2022-11-15 16:54:35', '2022-12-05 21:26:01'),
-(52, 0, 'رجالي', '', '', '', '', '', '', '', '', '', 42, 6, 'catalog/INMt72n41eK8EpyS9qoEtg5kezZ8OJrkX9Zdd39o.jpeg', 0, 1, '12000.0000', 300, 0, '2022-11-26', '100.00000000', 5, '0.00000000', '0.00000000', '0.00000000', 2, 1, 1, 1, 1, '2022-11-24 12:55:00', '2022-12-06 19:49:01'),
-(53, 0, 'رجالي', '', '', '', '', '', '', '', '', '', 14, 6, 'catalog/967730281071_status_c5bab540e2014fb18a4b6ea8db5dcfbc.jpg', 0, 1, '12000.0000', 90, 0, '2022-12-02', '0.00000000', 1, '5.00000000', '0.00000000', '0.00000000', 2, 1, 1, 1, 1, '2022-11-27 17:41:10', '2022-12-06 17:55:10'),
-(54, 0, 'رجالي', '', '', '', '', '', '', '', '', '', 493, 8, 'catalog/sL7j9P38HaKf1JBeIcA491j45fWLSj7DKjGGvP1l.jpeg', 0, 1, '800.0000', 2, 0, '2022-12-01', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 1, '2022-12-01 20:57:44', '2022-12-03 13:32:18'),
-(55, 0, 'نسائي ورجالي', '', '', '', '', '', '', '', '', '', 17, 5, 'catalog/967730281071_status_d3c35a4eff5845e9a6499949d2a91bca.jpg', 0, 1, '8000.0000', 0, 0, '2022-12-02', '1.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 1, '2022-12-02 16:34:21', '2022-12-03 18:27:37'),
-(56, 0, 'رجالي', '', '', '', '', '', '', '', '', '', 151, 5, 'catalog/967730281071_status_d3c35a4eff5845e9a6499949d2a91bca.jpg', 0, 1, '12000.0000', 0, 0, '2022-12-02', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 1, '2022-12-02 16:36:37', '2022-12-03 18:28:13');
+(50, 0, 'عطور', '', '', '', '', '', '', '', '', '', 900, 6, 'catalog/967730281071_status_17fd849ee8ca423a925dcf78936590d6.jpg', 0, 1, 8000.0000, 90, 0, '2022-12-04', 0.00000000, 2, 2.00000000, 2.00000000, 4.00000000, 1, 1, 1, 1, 1, '2022-11-15 16:54:35', '2022-12-05 21:26:01'),
+(52, 0, 'رجالي', '', '', '', '', '', '', '', '', '', 42, 6, 'catalog/INMt72n41eK8EpyS9qoEtg5kezZ8OJrkX9Zdd39o.jpeg', 0, 1, 12000.0000, 300, 0, '2022-11-26', 100.00000000, 5, 0.00000000, 0.00000000, 0.00000000, 2, 1, 1, 1, 1, '2022-11-24 12:55:00', '2022-12-06 19:49:01'),
+(53, 0, 'رجالي', '', '', '', '', '', '', '', '', '', 14, 6, 'catalog/967730281071_status_c5bab540e2014fb18a4b6ea8db5dcfbc.jpg', 0, 1, 12000.0000, 90, 0, '2022-12-02', 0.00000000, 1, 5.00000000, 0.00000000, 0.00000000, 2, 1, 1, 1, 1, '2022-11-27 17:41:10', '2022-12-06 17:55:10'),
+(54, 0, 'رجالي', '', '', '', '', '', '', '', '', '', 493, 8, 'catalog/sL7j9P38HaKf1JBeIcA491j45fWLSj7DKjGGvP1l.jpeg', 0, 1, 800.0000, 2, 0, '2022-12-01', 0.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, 1, 1, '2022-12-01 20:57:44', '2022-12-03 13:32:18'),
+(55, 0, 'نسائي ورجالي', '', '', '', '', '', '', '', '', '', 17, 5, 'catalog/967730281071_status_d3c35a4eff5845e9a6499949d2a91bca.jpg', 0, 1, 8000.0000, 0, 0, '2022-12-02', 1.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, 1, 1, '2022-12-02 16:34:21', '2022-12-03 18:27:37'),
+(56, 0, 'رجالي', '', '', '', '', '', '', '', '', '', 151, 5, 'catalog/967730281071_status_d3c35a4eff5845e9a6499949d2a91bca.jpg', 0, 1, 12000.0000, 0, 0, '2022-12-02', 0.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, 1, 1, '2022-12-02 16:36:37', '2022-12-03 18:28:13');
 
 -- --------------------------------------------------------
 
@@ -8622,7 +8617,7 @@ CREATE TABLE `ks_product_attribute` (
   `attribute_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
   `text` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_product_attribute`
@@ -8653,7 +8648,7 @@ CREATE TABLE `ks_product_description` (
   `meta_title` varchar(255) NOT NULL,
   `meta_description` varchar(255) NOT NULL,
   `meta_keyword` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_product_description`
@@ -8682,19 +8677,19 @@ CREATE TABLE `ks_product_discount` (
   `price` decimal(15,4) NOT NULL DEFAULT 0.0000,
   `date_start` date NOT NULL,
   `date_end` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_product_discount`
 --
 
 INSERT INTO `ks_product_discount` (`product_discount_id`, `product_id`, `customer_group_id`, `quantity`, `priority`, `price`, `date_start`, `date_end`) VALUES
-(513, 54, 1, 40, 1, '200.0000', '2022-12-08', '2022-12-31'),
-(517, 56, 1, 2, 1, '800.0000', '2022-12-01', '2022-12-23'),
-(539, 50, 1, 10, 1, '931.0000', '2022-12-05', '2022-12-31'),
-(542, 53, 1, 100, 1, '7000.0000', '2022-11-27', '2022-11-30'),
-(543, 53, 1, 288, 1, '200.0000', '2022-12-02', '2022-12-30'),
-(544, 52, 1, 20, 1, '10000.0000', '2022-11-24', '2022-11-30');
+(513, 54, 1, 40, 1, 200.0000, '2022-12-08', '2022-12-31'),
+(517, 56, 1, 2, 1, 800.0000, '2022-12-01', '2022-12-23'),
+(539, 50, 1, 10, 1, 931.0000, '2022-12-05', '2022-12-31'),
+(542, 53, 1, 100, 1, 7000.0000, '2022-11-27', '2022-11-30'),
+(543, 53, 1, 288, 1, 200.0000, '2022-12-02', '2022-12-30'),
+(544, 52, 1, 20, 1, 10000.0000, '2022-11-24', '2022-11-30');
 
 -- --------------------------------------------------------
 
@@ -8705,7 +8700,7 @@ INSERT INTO `ks_product_discount` (`product_discount_id`, `product_id`, `custome
 CREATE TABLE `ks_product_filter` (
   `product_id` int(11) NOT NULL,
   `filter_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -8718,7 +8713,7 @@ CREATE TABLE `ks_product_image` (
   `product_id` int(11) NOT NULL,
   `image` varchar(255) NOT NULL,
   `sort_order` int(3) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_product_image`
@@ -8741,7 +8736,7 @@ CREATE TABLE `ks_product_option` (
   `option_id` int(11) NOT NULL,
   `value` text NOT NULL,
   `required` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_product_option`
@@ -8775,21 +8770,21 @@ CREATE TABLE `ks_product_option_value` (
   `points_prefix` varchar(1) NOT NULL,
   `weight` decimal(15,8) NOT NULL,
   `weight_prefix` varchar(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_product_option_value`
 --
 
 INSERT INTO `ks_product_option_value` (`product_option_value_id`, `product_option_id`, `product_id`, `option_id`, `option_value_id`, `quantity`, `subtract`, `price`, `price_prefix`, `points`, `points_prefix`, `weight`, `weight_prefix`) VALUES
-(17, 227, 54, 13, 50, 1, 0, '30.0000', '+', 40, '+', '0.00000000', '+'),
-(18, 227, 54, 13, 49, 1, 0, '30.0000', '+', 8, '+', '0.00000000', '+'),
-(19, 228, 52, 5, 40, 0, 1, '200.0000', '+', 3, '+', '0.00000000', '+'),
-(20, 228, 52, 5, 39, 1, 0, '33.0000', '+', 0, '+', '0.00000000', '+'),
-(21, 228, 52, 5, 41, 1, 0, '333.0000', '+', 0, '+', '0.00000000', '+'),
-(25, 233, 50, 5, 40, 1, 1, '2000.0000', '+', 0, '+', '0.00000000', '+'),
-(26, 233, 50, 5, 39, 1, 1, '100.0000', '-', 0, '+', '0.00000000', '+'),
-(27, 233, 50, 5, 41, 490, 0, '500.0000', '+', 0, '+', '0.00000000', '+');
+(17, 227, 54, 13, 50, 1, 0, 30.0000, '+', 40, '+', 0.00000000, '+'),
+(18, 227, 54, 13, 49, 1, 0, 30.0000, '+', 8, '+', 0.00000000, '+'),
+(19, 228, 52, 5, 40, 0, 1, 200.0000, '+', 3, '+', 0.00000000, '+'),
+(20, 228, 52, 5, 39, 1, 0, 33.0000, '+', 0, '+', 0.00000000, '+'),
+(21, 228, 52, 5, 41, 1, 0, 333.0000, '+', 0, '+', 0.00000000, '+'),
+(25, 233, 50, 5, 40, 1, 1, 2000.0000, '+', 0, '+', 0.00000000, '+'),
+(26, 233, 50, 5, 39, 1, 1, 100.0000, '-', 0, '+', 0.00000000, '+'),
+(27, 233, 50, 5, 41, 490, 0, 500.0000, '+', 0, '+', 0.00000000, '+');
 
 -- --------------------------------------------------------
 
@@ -8800,7 +8795,7 @@ INSERT INTO `ks_product_option_value` (`product_option_value_id`, `product_optio
 CREATE TABLE `ks_product_related` (
   `product_id` int(11) NOT NULL,
   `related_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_product_related`
@@ -8827,7 +8822,7 @@ CREATE TABLE `ks_product_report` (
   `ip` varchar(40) NOT NULL,
   `country` varchar(2) NOT NULL,
   `date_added` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -8840,7 +8835,7 @@ CREATE TABLE `ks_product_reward` (
   `product_id` int(11) NOT NULL DEFAULT 0,
   `customer_group_id` int(11) NOT NULL DEFAULT 0,
   `points` int(8) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_product_reward`
@@ -8865,17 +8860,17 @@ CREATE TABLE `ks_product_special` (
   `price` decimal(15,4) NOT NULL DEFAULT 0.0000,
   `date_start` date NOT NULL,
   `date_end` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_product_special`
 --
 
 INSERT INTO `ks_product_special` (`product_special_id`, `product_id`, `customer_group_id`, `priority`, `price`, `date_start`, `date_end`) VALUES
-(482, 54, 1, 1, '100.0000', '0000-00-00', '0000-00-00'),
-(504, 50, 1, 1, '5000.0000', '2022-12-05', '2022-12-30'),
-(506, 53, 1, 1, '800.0000', '2022-11-27', '2022-11-30'),
-(507, 52, 1, 2, '10000.0000', '2022-12-06', '2022-12-28');
+(482, 54, 1, 1, 100.0000, '0000-00-00', '0000-00-00'),
+(504, 50, 1, 1, 5000.0000, '2022-12-05', '2022-12-30'),
+(506, 53, 1, 1, 800.0000, '2022-11-27', '2022-11-30'),
+(507, 52, 1, 2, 10000.0000, '2022-12-06', '2022-12-28');
 
 -- --------------------------------------------------------
 
@@ -8887,7 +8882,7 @@ CREATE TABLE `ks_product_subscription` (
   `product_id` int(11) NOT NULL,
   `subscription_plan_id` int(11) NOT NULL,
   `customer_group_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -8898,7 +8893,7 @@ CREATE TABLE `ks_product_subscription` (
 CREATE TABLE `ks_product_to_category` (
   `product_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_product_to_category`
@@ -8925,7 +8920,7 @@ INSERT INTO `ks_product_to_category` (`product_id`, `category_id`) VALUES
 CREATE TABLE `ks_product_to_download` (
   `product_id` int(11) NOT NULL,
   `download_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -8937,7 +8932,7 @@ CREATE TABLE `ks_product_to_layout` (
   `product_id` int(11) NOT NULL,
   `store_id` int(11) NOT NULL,
   `layout_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_product_to_layout`
@@ -8960,7 +8955,7 @@ INSERT INTO `ks_product_to_layout` (`product_id`, `store_id`, `layout_id`) VALUE
 CREATE TABLE `ks_product_to_store` (
   `product_id` int(11) NOT NULL,
   `store_id` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_product_to_store`
@@ -8983,7 +8978,7 @@ INSERT INTO `ks_product_to_store` (`product_id`, `store_id`) VALUES
 CREATE TABLE `ks_product_viewed` (
   `product_id` int(11) NOT NULL,
   `viewed` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -9011,7 +9006,7 @@ CREATE TABLE `ks_return` (
   `date_ordered` date NOT NULL,
   `date_added` datetime NOT NULL,
   `date_modified` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -9023,7 +9018,7 @@ CREATE TABLE `ks_return_action` (
   `return_action_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL DEFAULT 0,
   `name` varchar(64) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_return_action`
@@ -9050,7 +9045,7 @@ CREATE TABLE `ks_return_history` (
   `notify` tinyint(1) NOT NULL,
   `comment` text NOT NULL,
   `date_added` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -9062,7 +9057,7 @@ CREATE TABLE `ks_return_reason` (
   `return_reason_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL DEFAULT 0,
   `name` varchar(128) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_return_reason`
@@ -9090,7 +9085,7 @@ CREATE TABLE `ks_return_status` (
   `return_status_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL DEFAULT 0,
   `name` varchar(32) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_return_status`
@@ -9120,7 +9115,7 @@ CREATE TABLE `ks_review` (
   `status` tinyint(1) NOT NULL DEFAULT 0,
   `date_added` datetime NOT NULL,
   `date_modified` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_review`
@@ -9148,7 +9143,7 @@ CREATE TABLE `ks_seo_url` (
   `value` varchar(255) NOT NULL,
   `keyword` varchar(255) NOT NULL,
   `sort_order` int(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_seo_url`
@@ -9180,7 +9175,7 @@ CREATE TABLE `ks_session` (
   `session_id` varchar(32) NOT NULL,
   `data` text NOT NULL,
   `expire` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_session`
@@ -9232,7 +9227,6 @@ INSERT INTO `ks_session` (`session_id`, `data`, `expire`) VALUES
 ('1fad6f51b8bd27927869635df1', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":140,\"customer\":{\"customer_id\":\"20\",\"customer_group_id\":\"1\",\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"email\":\"tom34443@example.com\",\"telephone\":\"+96725262626\",\"custom_field\":[]},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"company\":\"\",\"address_1\":\"\\u0627\\u0644\\u062f\\u0647\\u0628\\u0644\\u064a\\u0629\",\"address_2\":\"\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e\",\"postcode\":\"\",\"city\":\"\\u062a\\u0639\\u0632\",\"zone_id\":\"3807\",\"zone\":\"\\u062a\\u0639\\u0632\",\"zone_code\":\"TA\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"\\u0645\\u062d\\u0645\\u062f \\u0641\\u0648\\u0627\\u062f<br\\/>\\u0627\\u0644\\u062f\\u0647\\u0628\\u0644\\u064a\\u0629<br\\/>\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e<br\\/>\\u062a\\u0639\\u0632, \\u062a\\u0639\\u0632<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[],\"tax\":\"20%\"}', '2054-08-08 03:28:17'),
 ('2106e6e8771e9bcf4cc83429e5', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":105,\"customer\":{\"customer_id\":\"1\",\"customer_group_id\":\"1\",\"firstname\":\"taha\",\"lastname\":\"kha\",\"email\":\"taha123@gmail.com\",\"telephone\":\"\",\"custom_field\":\"\"},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"High\",\"lastname\":\"School\",\"company\":\"\",\"address_1\":\"Jazan\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Jazan\",\"zone_id\":\"3790\",\"zone\":\"\",\"zone_code\":\"\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"High School<br\\/>Jazan<br\\/>Jazan,<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[]}', '2054-08-05 19:56:51'),
 ('2164e336c896d9cb8fea29b846', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":172,\"customer\":{\"customer_id\":\"7\",\"customer_group_id\":\"1\",\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0624\\u0627\\u062f\",\"email\":\"mohammedfoud238@gmail.com\",\"telephone\":\"714589027\",\"custom_field\":[]},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"hfhh\",\"lastname\":\"khfkkgf\",\"company\":\"\",\"address_1\":\"hkjljgkhghg\",\"address_2\":\"hffgjfjgh\",\"postcode\":\"\",\"city\":\"\\u062a\\u0639\\u0632\",\"zone_id\":\"3807\",\"zone\":\"\\u062a\\u0639\\u0632\",\"zone_code\":\"TA\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"hfhh khfkkgf<br\\/>hkjljgkhghg<br\\/>hffgjfjgh<br\\/>\\u062a\\u0639\\u0632, \\u062a\\u0639\\u0632<br\\/>Yemen\",\"custom_field\":[]},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[]}', '2054-08-13 16:25:24'),
-('2207881e3bffcc695a6eda1d23', '{\"currency\":\"YER\",\"customer_id\":\"36\",\"customer\":{\"customer_id\":36,\"customer_group_id\":1,\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645\",\"email\":\"muh2022@gmail.com\",\"telephone\":\"714589027999\",\"custom_field\":\"\"},\"customer_token\":\"f71be5e45e3b463808f0c2064f\",\"review_token\":\"2ed1be6c877a529308cb7acbfadcaecc\",\"wishlist\":[56]}', '2022-12-07 20:02:58'),
 ('225a5947d195d3d4e354438b58', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":105,\"customer\":{\"customer_id\":\"1\",\"customer_group_id\":\"1\",\"firstname\":\"taha\",\"lastname\":\"kha\",\"email\":\"taha123@gmail.com\",\"telephone\":\"\",\"custom_field\":\"\"},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"High\",\"lastname\":\"School\",\"company\":\"\",\"address_1\":\"Jazan\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Jazan\",\"zone_id\":\"3790\",\"zone\":\"\",\"zone_code\":\"\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"High School<br\\/>Jazan<br\\/>Jazan,<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[]}', '2054-08-05 19:51:02'),
 ('2322b727036a69a1e8880cc801', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":105,\"customer\":{\"customer_id\":\"1\",\"customer_group_id\":\"1\",\"firstname\":\"taha\",\"lastname\":\"kha\",\"email\":\"taha123@gmail.com\",\"telephone\":\"\",\"custom_field\":\"\"},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"High\",\"lastname\":\"School\",\"company\":\"\",\"address_1\":\"Jazan\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Jazan\",\"zone_id\":\"3790\",\"zone\":\"\",\"zone_code\":\"\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"High School<br\\/>Jazan<br\\/>Jazan,<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[]}', '2054-08-05 19:58:22'),
 ('23666b01bca7deddfd3609e6ed', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":139,\"customer\":{\"customer_id\":\"20\",\"customer_group_id\":\"1\",\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"email\":\"tom34443@example.com\",\"telephone\":\"+96725262626\",\"custom_field\":[]},\"payment_method\":\"bank_transfer\",\"shipping_address\":{\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"company\":\"\",\"address_1\":\"\\u0627\\u0644\\u062f\\u0647\\u0628\\u0644\\u064a\\u0629\",\"address_2\":\"\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e\",\"postcode\":\"\",\"city\":\"\\u062a\\u0639\\u0632\",\"zone_id\":\"3807\",\"zone\":\"\\u062a\\u0639\\u0632\",\"zone_code\":\"TA\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"\\u0645\\u062d\\u0645\\u062f \\u0641\\u0648\\u0627\\u062f<br\\/>\\u0627\\u0644\\u062f\\u0647\\u0628\\u0644\\u064a\\u0629<br\\/>\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e<br\\/>\\u062a\\u0639\\u0632, \\u062a\\u0639\\u0632<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[]}', '2054-08-09 23:43:29'),
@@ -9266,7 +9260,6 @@ INSERT INTO `ks_session` (`session_id`, `data`, `expire`) VALUES
 ('477a5fdd9baaf1dd8413f75455', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":105,\"customer\":{\"customer_id\":\"1\",\"customer_group_id\":\"1\",\"firstname\":\"taha\",\"lastname\":\"kha\",\"email\":\"taha123@gmail.com\",\"telephone\":\"\",\"custom_field\":\"\"},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"High\",\"lastname\":\"School\",\"company\":\"\",\"address_1\":\"Jazan\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Jazan\",\"zone_id\":\"3790\",\"zone\":\"\",\"zone_code\":\"\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"High School<br\\/>Jazan<br\\/>Jazan,<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[]}', '2054-08-05 19:50:19'),
 ('48175323158ec6a9499c478a77', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":105,\"customer\":{\"customer_id\":\"1\",\"customer_group_id\":\"1\",\"firstname\":\"taha\",\"lastname\":\"kha\",\"email\":\"taha123@gmail.com\",\"telephone\":\"\",\"custom_field\":\"\"},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"High\",\"lastname\":\"School\",\"company\":\"\",\"address_1\":\"Jazan\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Jazan\",\"zone_id\":\"3790\",\"zone\":\"\",\"zone_code\":\"\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"High School<br\\/>Jazan<br\\/>Jazan,<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[]}', '2054-08-05 19:58:13'),
 ('489ba4a647db8df72779caefe1', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":16,\"customer\":{\"customer_id\":\"11\",\"customer_group_id\":\"1\",\"firstname\":\"High\",\"lastname\":\"School\",\"email\":\"tah677567@gmail.com\",\"telephone\":\"+966552224595\",\"custom_field\":[]},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"High\",\"lastname\":\"School\",\"company\":\"\",\"address_1\":\"ggy\",\"address_2\":\"ifhh\",\"postcode\":\"\",\"city\":\"\\u062a\\u0639\\u0632\",\"zone_id\":\"3807\",\"zone\":\"\\u062a\\u0639\\u0632\",\"zone_code\":\"TA\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"High School<br\\/>ggy<br\\/>ifhh<br\\/>\\u062a\\u0639\\u0632, \\u062a\\u0639\\u0632<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[],\"tax\":\"20%\"}', '2054-08-02 22:54:47'),
-('48a208d8a2fa070bd5a4945585', '{\"currency\":\"YER\",\"register_token\":\"aac327c97bb6516e49e448be86\",\"review_token\":\"02876be75361bc4c02f7be3710a1fe2d\",\"wishlist\":[42,43,40,35,30],\"compare\":[],\"user_id\":\"1\",\"user_token\":\"af219ec23bb0c2af2550010046f9a868\",\"customer_id\":\"1\",\"customer\":{\"customer_id\":\"1\",\"customer_group_id\":\"1\",\"firstname\":\"taha\",\"lastname\":\"kha\",\"email\":\"taha123@gmail.com\",\"telephone\":\"\",\"custom_field\":\"\"},\"customer_token\":\"ce3596a72abbe3de77ea9758db\",\"api_session\":\"2164e336c896d9cb8fea29b846\"}', '2022-12-07 20:01:37'),
 ('4a64a960aa8fa4eb447cc6f1eb', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":105,\"customer\":{\"customer_id\":\"1\",\"customer_group_id\":\"1\",\"firstname\":\"taha\",\"lastname\":\"kha\",\"email\":\"taha123@gmail.com\",\"telephone\":\"\",\"custom_field\":\"\"},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"High\",\"lastname\":\"School\",\"company\":\"\",\"address_1\":\"Jazan\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Jazan\",\"zone_id\":\"3790\",\"zone\":\"\",\"zone_code\":\"\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"High School<br\\/>Jazan<br\\/>Jazan,<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[]}', '2054-08-05 19:55:33'),
 ('4b2a4aa8dc6b6a8175536b7411', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":140,\"customer\":{\"customer_id\":\"20\",\"customer_group_id\":\"1\",\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"email\":\"tom34443@example.com\",\"telephone\":\"+96725262626\",\"custom_field\":[]},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"company\":\"\",\"address_1\":\"\\u0627\\u0644\\u062f\\u0647\\u0628\\u0644\\u064a\\u0629\",\"address_2\":\"\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e\",\"postcode\":\"\",\"city\":\"\\u062a\\u0639\\u0632\",\"zone_id\":\"3807\",\"zone\":\"\\u062a\\u0639\\u0632\",\"zone_code\":\"TA\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"\\u0645\\u062d\\u0645\\u062f \\u0641\\u0648\\u0627\\u062f<br\\/>\\u0627\\u0644\\u062f\\u0647\\u0628\\u0644\\u064a\\u0629<br\\/>\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e<br\\/>\\u062a\\u0639\\u0632, \\u062a\\u0639\\u0632<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[],\"tax\":\"20%\"}', '2054-08-08 03:16:31'),
 ('4d6b485bb4ce94a6cd616dfece', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":107,\"customer\":{\"customer_id\":\"16\",\"customer_group_id\":\"1\",\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645\",\"email\":\"mohammedfoud746631@gmail.com\",\"telephone\":\"+96725262626\",\"custom_field\":[]},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645\",\"company\":\"\",\"address_1\":\"\\u062a\\u0639\\u0632\",\"address_2\":\"\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e\",\"postcode\":\"\",\"city\":\"\\u062a\\u0639\\u0632\",\"zone_id\":\"3807\",\"zone\":\"\\u062a\\u0639\\u0632\",\"zone_code\":\"TA\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"\\u0645\\u062d\\u0645\\u062f \\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645<br\\/>\\u062a\\u0639\\u0632<br\\/>\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e<br\\/>\\u062a\\u0639\\u0632, \\u062a\\u0639\\u0632<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"weight.weight_4\",\"comment\":\"\",\"vouchers\":[],\"shipping\":\"\\u0627\\u0644\\u0648\\u0632\\u0646 : 0.00kg\"}', '2054-08-05 21:57:02'),
@@ -9284,15 +9277,16 @@ INSERT INTO `ks_session` (`session_id`, `data`, `expire`) VALUES
 ('590af0f7a36eb04da251a67a30', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":140,\"customer\":{\"customer_id\":\"20\",\"customer_group_id\":\"1\",\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"email\":\"tom34443@example.com\",\"telephone\":\"+96725262626\",\"custom_field\":[]},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"company\":\"\",\"address_1\":\"\\u0627\\u0644\\u062f\\u0647\\u0628\\u0644\\u064a\\u0629\",\"address_2\":\"\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e\",\"postcode\":\"\",\"city\":\"\\u062a\\u0639\\u0632\",\"zone_id\":\"3807\",\"zone\":\"\\u062a\\u0639\\u0632\",\"zone_code\":\"TA\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"\\u0645\\u062d\\u0645\\u062f \\u0641\\u0648\\u0627\\u062f<br\\/>\\u0627\\u0644\\u062f\\u0647\\u0628\\u0644\\u064a\\u0629<br\\/>\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e<br\\/>\\u062a\\u0639\\u0632, \\u062a\\u0639\\u0632<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[],\"tax\":\"20%\"}', '2054-08-08 03:15:08'),
 ('59df17573f484da51747bb2efe', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":105,\"customer\":{\"customer_id\":\"1\",\"customer_group_id\":\"1\",\"firstname\":\"taha\",\"lastname\":\"kha\",\"email\":\"taha123@gmail.com\",\"telephone\":\"\",\"custom_field\":\"\"},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"High\",\"lastname\":\"School\",\"company\":\"\",\"address_1\":\"Jazan\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Jazan\",\"zone_id\":\"3790\",\"zone\":\"\",\"zone_code\":\"\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"High School<br\\/>Jazan<br\\/>Jazan,<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[]}', '2054-08-05 19:58:04'),
 ('5a99cbf6c85c25adb3888691ad', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":107,\"customer\":{\"customer_id\":\"16\",\"customer_group_id\":\"1\",\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645\",\"email\":\"mohammedfoud746631@gmail.com\",\"telephone\":\"+96725262626\",\"custom_field\":[]},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645\",\"company\":\"\",\"address_1\":\"\\u062a\\u0639\\u0632\",\"address_2\":\"\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e\",\"postcode\":\"\",\"city\":\"\\u062a\\u0639\\u0632\",\"zone_id\":\"3807\",\"zone\":\"\\u062a\\u0639\\u0632\",\"zone_code\":\"TA\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"\\u0645\\u062d\\u0645\\u062f \\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645<br\\/>\\u062a\\u0639\\u0632<br\\/>\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e<br\\/>\\u062a\\u0639\\u0632, \\u062a\\u0639\\u0632<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"weight.weight_4\",\"comment\":\"\",\"vouchers\":[],\"shipping\":\"\\u0627\\u0644\\u0648\\u0632\\u0646 : 0.00kg\"}', '2054-08-05 21:51:43'),
+('5ae60eb2063c2758369f18c258', '{\"currency\":\"YER\",\"login_token\":\"d71a358709c353d2941f1aa6dd44c719\"}', '2025-01-19 17:31:32'),
 ('5b08a28486e08c87ae54c72bc1', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":140,\"customer\":{\"customer_id\":\"20\",\"customer_group_id\":\"1\",\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"email\":\"tom34443@example.com\",\"telephone\":\"+96725262626\",\"custom_field\":[]},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"company\":\"\",\"address_1\":\"\\u0627\\u0644\\u062f\\u0647\\u0628\\u0644\\u064a\\u0629\",\"address_2\":\"\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e\",\"postcode\":\"\",\"city\":\"\\u062a\\u0639\\u0632\",\"zone_id\":\"3807\",\"zone\":\"\\u062a\\u0639\\u0632\",\"zone_code\":\"TA\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"\\u0645\\u062d\\u0645\\u062f \\u0641\\u0648\\u0627\\u062f<br\\/>\\u0627\\u0644\\u062f\\u0647\\u0628\\u0644\\u064a\\u0629<br\\/>\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e<br\\/>\\u062a\\u0639\\u0632, \\u062a\\u0639\\u0632<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[],\"tax\":\"20%\"}', '2054-08-08 03:15:03'),
 ('5d4c1f0e28adc955fdd8e49524', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":133,\"customer\":{\"customer_id\":\"16\",\"customer_group_id\":\"1\",\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645\",\"email\":\"mohammedfoud746631@gmail.com\",\"telephone\":\"+96725262626\",\"custom_field\":[]},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645\",\"company\":\"\",\"address_1\":\"\\u062a\\u0639\\u0632\",\"address_2\":\"\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e\",\"postcode\":\"\",\"city\":\"\\u062a\\u0639\\u0632\",\"zone_id\":\"3807\",\"zone\":\"\\u062a\\u0639\\u0632\",\"zone_code\":\"TA\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"\\u0645\\u062d\\u0645\\u062f \\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645<br\\/>\\u062a\\u0639\\u0632<br\\/>\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e<br\\/>\\u062a\\u0639\\u0632, \\u062a\\u0639\\u0632<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[],\"tax\":\"20%\"}', '2054-08-09 23:43:12'),
 ('5dadfb5350341261d5fbaa3a38', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":107,\"customer\":{\"customer_id\":\"16\",\"customer_group_id\":\"1\",\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645\",\"email\":\"mohammedfoud746631@gmail.com\",\"telephone\":\"+96725262626\",\"custom_field\":[]},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645\",\"company\":\"\",\"address_1\":\"\\u062a\\u0639\\u0632\",\"address_2\":\"\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e\",\"postcode\":\"\",\"city\":\"\\u062a\\u0639\\u0632\",\"zone_id\":\"3807\",\"zone\":\"\\u062a\\u0639\\u0632\",\"zone_code\":\"TA\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"\\u0645\\u062d\\u0645\\u062f \\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645<br\\/>\\u062a\\u0639\\u0632<br\\/>\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e<br\\/>\\u062a\\u0639\\u0632, \\u062a\\u0639\\u0632<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"weight.weight_4\",\"comment\":\"\",\"vouchers\":[],\"shipping\":\"\\u0627\\u0644\\u0648\\u0632\\u0646 : 0.00kg\"}', '2054-08-05 22:57:03'),
 ('5dd169140c2d08ff82ea311fb0', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":5,\"customer\":{\"customer_id\":\"1\",\"customer_group_id\":\"1\",\"firstname\":\"taha\",\"lastname\":\"kha\",\"email\":\"taha123@gmail.com\",\"telephone\":\"\",\"custom_field\":\"\"},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"High\",\"lastname\":\"School\",\"company\":\"\",\"address_1\":\"Jazan\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Jazan\",\"zone_id\":\"3790\",\"zone\":\"Adan\",\"zone_code\":\"AD\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"High School<br\\/>Jazan<br\\/>Jazan, Adan<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"flat.flat\",\"comment\":\"\",\"vouchers\":[]}', '2054-08-01 21:49:47'),
 ('5e01218c1d75cc431ef039e656', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":105,\"customer\":{\"customer_id\":\"1\",\"customer_group_id\":\"1\",\"firstname\":\"taha\",\"lastname\":\"kha\",\"email\":\"taha123@gmail.com\",\"telephone\":\"\",\"custom_field\":\"\"},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"High\",\"lastname\":\"School\",\"company\":\"\",\"address_1\":\"Jazan\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Jazan\",\"zone_id\":\"3790\",\"zone\":\"\",\"zone_code\":\"\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"High School<br\\/>Jazan<br\\/>Jazan,<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[]}', '2054-08-05 19:54:09'),
 ('5e3134a66f02b17e994becd2cd', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":105,\"customer\":{\"customer_id\":\"1\",\"customer_group_id\":\"1\",\"firstname\":\"taha\",\"lastname\":\"kha\",\"email\":\"taha123@gmail.com\",\"telephone\":\"\",\"custom_field\":\"\"},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"High\",\"lastname\":\"School\",\"company\":\"\",\"address_1\":\"Jazan\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Jazan\",\"zone_id\":\"3790\",\"zone\":\"\",\"zone_code\":\"\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"High School<br\\/>Jazan<br\\/>Jazan,<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[]}', '2054-08-05 19:56:01'),
-('5ef46176d52a5572c5b6ce4bf4', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":105,\"customer\":{\"customer_id\":\"1\",\"customer_group_id\":\"1\",\"firstname\":\"taha\",\"lastname\":\"kha\",\"email\":\"taha123@gmail.com\",\"telephone\":\"\",\"custom_field\":\"\"},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"High\",\"lastname\":\"School\",\"company\":\"\",\"address_1\":\"Jazan\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Jazan\",\"zone_id\":\"3790\",\"zone\":\"\",\"zone_code\":\"\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"High School<br\\/>Jazan<br\\/>Jazan,<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[]}', '2054-08-05 19:51:59');
+('5ef46176d52a5572c5b6ce4bf4', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":105,\"customer\":{\"customer_id\":\"1\",\"customer_group_id\":\"1\",\"firstname\":\"taha\",\"lastname\":\"kha\",\"email\":\"taha123@gmail.com\",\"telephone\":\"\",\"custom_field\":\"\"},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"High\",\"lastname\":\"School\",\"company\":\"\",\"address_1\":\"Jazan\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Jazan\",\"zone_id\":\"3790\",\"zone\":\"\",\"zone_code\":\"\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"High School<br\\/>Jazan<br\\/>Jazan,<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[]}', '2054-08-05 19:51:59'),
+('5f11057625f0676383aeaf9b3b', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":105,\"customer\":{\"customer_id\":\"1\",\"customer_group_id\":\"1\",\"firstname\":\"taha\",\"lastname\":\"kha\",\"email\":\"taha123@gmail.com\",\"telephone\":\"\",\"custom_field\":\"\"},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"High\",\"lastname\":\"School\",\"company\":\"\",\"address_1\":\"Jazan\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Jazan\",\"zone_id\":\"3790\",\"zone\":\"\",\"zone_code\":\"\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"High School<br\\/>Jazan<br\\/>Jazan,<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[]}', '2054-08-05 19:55:14');
 INSERT INTO `ks_session` (`session_id`, `data`, `expire`) VALUES
-('5f11057625f0676383aeaf9b3b', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":105,\"customer\":{\"customer_id\":\"1\",\"customer_group_id\":\"1\",\"firstname\":\"taha\",\"lastname\":\"kha\",\"email\":\"taha123@gmail.com\",\"telephone\":\"\",\"custom_field\":\"\"},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"High\",\"lastname\":\"School\",\"company\":\"\",\"address_1\":\"Jazan\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Jazan\",\"zone_id\":\"3790\",\"zone\":\"\",\"zone_code\":\"\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"High School<br\\/>Jazan<br\\/>Jazan,<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[]}', '2054-08-05 19:55:14'),
 ('5f278d45d4b1aef00ee6bfdb72', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":105,\"customer\":{\"customer_id\":\"1\",\"customer_group_id\":\"1\",\"firstname\":\"taha\",\"lastname\":\"kha\",\"email\":\"taha123@gmail.com\",\"telephone\":\"\",\"custom_field\":\"\"},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"High\",\"lastname\":\"School\",\"company\":\"\",\"address_1\":\"Jazan\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Jazan\",\"zone_id\":\"3790\",\"zone\":\"\",\"zone_code\":\"\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"High School<br\\/>Jazan<br\\/>Jazan,<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[]}', '2054-08-05 19:49:57'),
 ('5f541d1809099c0613114e9c86', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":140,\"customer\":{\"customer_id\":\"20\",\"customer_group_id\":\"1\",\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"email\":\"tom34443@example.com\",\"telephone\":\"+96725262626\",\"custom_field\":[]},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"company\":\"\",\"address_1\":\"\\u0627\\u0644\\u062f\\u0647\\u0628\\u0644\\u064a\\u0629\",\"address_2\":\"\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e\",\"postcode\":\"\",\"city\":\"\\u062a\\u0639\\u0632\",\"zone_id\":\"3807\",\"zone\":\"\\u062a\\u0639\\u0632\",\"zone_code\":\"TA\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"\\u0645\\u062d\\u0645\\u062f \\u0641\\u0648\\u0627\\u062f<br\\/>\\u0627\\u0644\\u062f\\u0647\\u0628\\u0644\\u064a\\u0629<br\\/>\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e<br\\/>\\u062a\\u0639\\u0632, \\u062a\\u0639\\u0632<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[],\"tax\":\"20%\"}', '2054-08-08 03:29:15'),
 ('5fafee99917d1e5e5622cc3a17', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":137,\"customer\":{\"customer_id\":\"20\",\"customer_group_id\":\"1\",\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"email\":\"tom34443@example.com\",\"telephone\":\"+96725262626\",\"custom_field\":[]},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"company\":\"\",\"address_1\":\"\\u0627\\u0644\\u062f\\u0647\\u0628\\u0644\\u064a\\u0629\",\"address_2\":\"\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e\",\"postcode\":\"\",\"city\":\"\\u062a\\u0639\\u0632\",\"zone_id\":\"3807\",\"zone\":\"\\u062a\\u0639\\u0632\",\"zone_code\":\"TA\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"{firstname} {lastname}\\r\\n{company}\\r\\n{address_1}\\r\\n{address_2}\\r\\n{city}, {zone} {postcode}\\r\\n{country}\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[],\"tax\":\"20%\"}', '2054-08-08 04:11:19'),
@@ -9333,13 +9327,12 @@ INSERT INTO `ks_session` (`session_id`, `data`, `expire`) VALUES
 ('83fce3bb53a4e1dce00e7390f3', '{\"currency\":\"YER\"}', '2054-08-01 20:39:41'),
 ('842a4644b3c4f3bc5eebd3189e', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":105,\"customer\":{\"customer_id\":\"1\",\"customer_group_id\":\"1\",\"firstname\":\"taha\",\"lastname\":\"kha\",\"email\":\"taha123@gmail.com\",\"telephone\":\"\",\"custom_field\":\"\"},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"High\",\"lastname\":\"School\",\"company\":\"\",\"address_1\":\"Jazan\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Jazan\",\"zone_id\":\"3790\",\"zone\":\"\",\"zone_code\":\"\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"High School<br\\/>Jazan<br\\/>Jazan,<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[]}', '2054-08-05 19:50:10'),
 ('857cb6be679ffd1a444d913bcb', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":107,\"customer\":{\"customer_id\":\"16\",\"customer_group_id\":\"1\",\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645\",\"email\":\"mohammedfoud746631@gmail.com\",\"telephone\":\"+96725262626\",\"custom_field\":[]},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645\",\"company\":\"\",\"address_1\":\"\\u062a\\u0639\\u0632\",\"address_2\":\"\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e\",\"postcode\":\"\",\"city\":\"\\u062a\\u0639\\u0632\",\"zone_id\":\"3807\",\"zone\":\"\\u062a\\u0639\\u0632\",\"zone_code\":\"TA\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"\\u0645\\u062d\\u0645\\u062f \\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645<br\\/>\\u062a\\u0639\\u0632<br\\/>\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e<br\\/>\\u062a\\u0639\\u0632, \\u062a\\u0639\\u0632<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"weight.weight_4\",\"comment\":\"\",\"vouchers\":[],\"shipping\":\"\\u0627\\u0644\\u0648\\u0632\\u0646 : 0.00kg\"}', '2054-08-05 21:50:18'),
-('85eb271f100f29cc2b07bd8334', '{\"currency\":\"YER\",\"login_token\":\"6a9f0791a8edf3ea4754de4203\",\"review_token\":\"6aedb92c3bc2d6ffb7e0e3cca83166b3\",\"wishlist\":[54,57,55,56,53],\"register_token\":\"7356e37eafcf125eaa0a2def7f\",\"customer_id\":\"1\",\"customer\":{\"customer_id\":\"1\",\"customer_group_id\":\"1\",\"firstname\":\"\\u0637\\u0629\",\"lastname\":\"\\u062e\\u0627\\u0644\\u062f\",\"email\":\"taha123@gmail.com\",\"telephone\":\"0552224595\",\"custom_field\":\"\"},\"customer_token\":\"d8fececabb0532117b8585e815\",\"shipping_address\":{\"address_id\":\"1\",\"firstname\":\"\\u0637\\u0629\",\"lastname\":\"\\u062e\\u0627\\u0644\\u062f\",\"company\":\"\",\"address_1\":\"\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e\",\"address_2\":\"\\u0627\\u0644\\u0638\\u0647\\u0631\\u0629\",\"postcode\":\"\",\"city\":\"\\u062a\\u0639\\u0632\",\"zone_id\":\"3805\",\"zone\":\"\\u0635\\u0646\\u0639\\u0627\\u0621\",\"zone_code\":\"SN\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"\\u0637\\u0629 \\u062e\\u0627\\u0644\\u062f<br\\/>\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e<br\\/>\\u0627\\u0644\\u0638\\u0647\\u0631\\u0629<br\\/>\\u062a\\u0639\\u0632, \\u0635\\u0646\\u0639\\u0627\\u0621<br\\/>Yemen\",\"custom_field\":null,\"default\":\"1\"},\"comment\":\"\"}', '2022-12-07 19:34:33'),
 ('86b414675a3469de488fb90ea0', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":140,\"customer\":{\"customer_id\":\"20\",\"customer_group_id\":\"1\",\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"email\":\"tom34443@example.com\",\"telephone\":\"+96725262626\",\"custom_field\":[]},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"company\":\"\",\"address_1\":\"\\u0627\\u0644\\u062f\\u0647\\u0628\\u0644\\u064a\\u0629\",\"address_2\":\"\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e\",\"postcode\":\"\",\"city\":\"\\u062a\\u0639\\u0632\",\"zone_id\":\"3807\",\"zone\":\"\\u062a\\u0639\\u0632\",\"zone_code\":\"TA\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"\\u0645\\u062d\\u0645\\u062f \\u0641\\u0648\\u0627\\u062f<br\\/>\\u0627\\u0644\\u062f\\u0647\\u0628\\u0644\\u064a\\u0629<br\\/>\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e<br\\/>\\u062a\\u0639\\u0632, \\u062a\\u0639\\u0632<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[],\"tax\":\"20%\"}', '2054-08-08 03:12:23'),
 ('877285dd74e924cf20392e55e0', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":140,\"customer\":{\"customer_id\":\"20\",\"customer_group_id\":\"1\",\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"email\":\"tom34443@example.com\",\"telephone\":\"+96725262626\",\"custom_field\":[]},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"company\":\"\",\"address_1\":\"\\u0627\\u0644\\u062f\\u0647\\u0628\\u0644\\u064a\\u0629\",\"address_2\":\"\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e\",\"postcode\":\"\",\"city\":\"\\u062a\\u0639\\u0632\",\"zone_id\":\"3807\",\"zone\":\"\\u062a\\u0639\\u0632\",\"zone_code\":\"TA\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"\\u0645\\u062d\\u0645\\u062f \\u0641\\u0648\\u0627\\u062f<br\\/>\\u0627\\u0644\\u062f\\u0647\\u0628\\u0644\\u064a\\u0629<br\\/>\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e<br\\/>\\u062a\\u0639\\u0632, \\u062a\\u0639\\u0632<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[],\"tax\":\"20%\"}', '2054-08-08 03:15:37'),
-('884e7e9ee1f0fd4f9ffcaee0fe', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":107,\"customer\":{\"customer_id\":\"16\",\"customer_group_id\":\"1\",\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645\",\"email\":\"mohammedfoud746631@gmail.com\",\"telephone\":\"+96725262626\",\"custom_field\":[]},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645\",\"company\":\"\",\"address_1\":\"\\u062a\\u0639\\u0632\",\"address_2\":\"\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e\",\"postcode\":\"\",\"city\":\"\\u062a\\u0639\\u0632\",\"zone_id\":\"3807\",\"zone\":\"\\u062a\\u0639\\u0632\",\"zone_code\":\"TA\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"\\u0645\\u062d\\u0645\\u062f \\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645<br\\/>\\u062a\\u0639\\u0632<br\\/>\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e<br\\/>\\u062a\\u0639\\u0632, \\u062a\\u0639\\u0632<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"weight.weight_4\",\"comment\":\"\",\"vouchers\":[],\"shipping\":\"\\u0627\\u0644\\u0648\\u0632\\u0646 : 0.00kg\"}', '2054-08-05 22:57:04');
-INSERT INTO `ks_session` (`session_id`, `data`, `expire`) VALUES
+('884e7e9ee1f0fd4f9ffcaee0fe', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":107,\"customer\":{\"customer_id\":\"16\",\"customer_group_id\":\"1\",\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645\",\"email\":\"mohammedfoud746631@gmail.com\",\"telephone\":\"+96725262626\",\"custom_field\":[]},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645\",\"company\":\"\",\"address_1\":\"\\u062a\\u0639\\u0632\",\"address_2\":\"\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e\",\"postcode\":\"\",\"city\":\"\\u062a\\u0639\\u0632\",\"zone_id\":\"3807\",\"zone\":\"\\u062a\\u0639\\u0632\",\"zone_code\":\"TA\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"\\u0645\\u062d\\u0645\\u062f \\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645<br\\/>\\u062a\\u0639\\u0632<br\\/>\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e<br\\/>\\u062a\\u0639\\u0632, \\u062a\\u0639\\u0632<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"weight.weight_4\",\"comment\":\"\",\"vouchers\":[],\"shipping\":\"\\u0627\\u0644\\u0648\\u0632\\u0646 : 0.00kg\"}', '2054-08-05 22:57:04'),
 ('8962f9e3e6a1638baa2bd90c83', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":105,\"customer\":{\"customer_id\":\"1\",\"customer_group_id\":\"1\",\"firstname\":\"taha\",\"lastname\":\"kha\",\"email\":\"taha123@gmail.com\",\"telephone\":\"\",\"custom_field\":\"\"},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"High\",\"lastname\":\"School\",\"company\":\"\",\"address_1\":\"Jazan\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Jazan\",\"zone_id\":\"3790\",\"zone\":\"\",\"zone_code\":\"\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"High School<br\\/>Jazan<br\\/>Jazan,<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[]}', '2054-08-05 19:55:17'),
-('8a6c82ad76ccd574a57458f318', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":140,\"customer\":{\"customer_id\":\"20\",\"customer_group_id\":\"1\",\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"email\":\"tom34443@example.com\",\"telephone\":\"+96725262626\",\"custom_field\":[]},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"company\":\"\",\"address_1\":\"\\u0627\\u0644\\u062f\\u0647\\u0628\\u0644\\u064a\\u0629\",\"address_2\":\"\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e\",\"postcode\":\"\",\"city\":\"\\u062a\\u0639\\u0632\",\"zone_id\":\"3807\",\"zone\":\"\\u062a\\u0639\\u0632\",\"zone_code\":\"TA\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"\\u0645\\u062d\\u0645\\u062f \\u0641\\u0648\\u0627\\u062f<br\\/>\\u0627\\u0644\\u062f\\u0647\\u0628\\u0644\\u064a\\u0629<br\\/>\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e<br\\/>\\u062a\\u0639\\u0632, \\u062a\\u0639\\u0632<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[],\"tax\":\"20%\"}', '2054-08-08 03:29:16'),
+('8a6c82ad76ccd574a57458f318', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":140,\"customer\":{\"customer_id\":\"20\",\"customer_group_id\":\"1\",\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"email\":\"tom34443@example.com\",\"telephone\":\"+96725262626\",\"custom_field\":[]},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"company\":\"\",\"address_1\":\"\\u0627\\u0644\\u062f\\u0647\\u0628\\u0644\\u064a\\u0629\",\"address_2\":\"\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e\",\"postcode\":\"\",\"city\":\"\\u062a\\u0639\\u0632\",\"zone_id\":\"3807\",\"zone\":\"\\u062a\\u0639\\u0632\",\"zone_code\":\"TA\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"\\u0645\\u062d\\u0645\\u062f \\u0641\\u0648\\u0627\\u062f<br\\/>\\u0627\\u0644\\u062f\\u0647\\u0628\\u0644\\u064a\\u0629<br\\/>\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e<br\\/>\\u062a\\u0639\\u0632, \\u062a\\u0639\\u0632<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[],\"tax\":\"20%\"}', '2054-08-08 03:29:16');
+INSERT INTO `ks_session` (`session_id`, `data`, `expire`) VALUES
 ('8c6bb892bba7a8c1b13cca87d1', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":105,\"customer\":{\"customer_id\":\"1\",\"customer_group_id\":\"1\",\"firstname\":\"taha\",\"lastname\":\"kha\",\"email\":\"taha123@gmail.com\",\"telephone\":\"\",\"custom_field\":\"\"},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"High\",\"lastname\":\"School\",\"company\":\"\",\"address_1\":\"Jazan\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Jazan\",\"zone_id\":\"3790\",\"zone\":\"\",\"zone_code\":\"\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"High School<br\\/>Jazan<br\\/>Jazan,<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[]}', '2054-08-05 19:50:22'),
 ('8c812d1a66699918976e6168f0', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":107,\"customer\":{\"customer_id\":\"16\",\"customer_group_id\":\"1\",\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645\",\"email\":\"mohammedfoud746631@gmail.com\",\"telephone\":\"+96725262626\",\"custom_field\":[]},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645\",\"company\":\"\",\"address_1\":\"\\u062a\\u0639\\u0632\",\"address_2\":\"\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e\",\"postcode\":\"\",\"city\":\"\\u062a\\u0639\\u0632\",\"zone_id\":\"3807\",\"zone\":\"\\u062a\\u0639\\u0632\",\"zone_code\":\"TA\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"\\u0645\\u062d\\u0645\\u062f \\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645<br\\/>\\u062a\\u0639\\u0632<br\\/>\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e<br\\/>\\u062a\\u0639\\u0632, \\u062a\\u0639\\u0632<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"weight.weight_4\",\"comment\":\"\",\"vouchers\":[],\"shipping\":\"\\u0627\\u0644\\u0648\\u0632\\u0646 : 0.00kg\"}', '2054-08-05 21:57:45'),
 ('8d12100e5edbdc1fe5f6139d14', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":105,\"customer\":{\"customer_id\":\"1\",\"customer_group_id\":\"1\",\"firstname\":\"taha\",\"lastname\":\"kha\",\"email\":\"taha123@gmail.com\",\"telephone\":\"\",\"custom_field\":\"\"},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"High\",\"lastname\":\"School\",\"company\":\"\",\"address_1\":\"Jazan\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Jazan\",\"zone_id\":\"3790\",\"zone\":\"\",\"zone_code\":\"\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"High School<br\\/>Jazan<br\\/>Jazan,<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[]}', '2054-08-05 19:54:01'),
@@ -9359,9 +9352,7 @@ INSERT INTO `ks_session` (`session_id`, `data`, `expire`) VALUES
 ('9c0fec0c3422fab459088a2cee', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":105,\"customer\":{\"customer_id\":\"1\",\"customer_group_id\":\"1\",\"firstname\":\"taha\",\"lastname\":\"kha\",\"email\":\"taha123@gmail.com\",\"telephone\":\"\",\"custom_field\":\"\"},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"High\",\"lastname\":\"School\",\"company\":\"\",\"address_1\":\"Jazan\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Jazan\",\"zone_id\":\"3790\",\"zone\":\"\",\"zone_code\":\"\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"High School<br\\/>Jazan<br\\/>Jazan,<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[]}', '2054-08-05 19:49:57'),
 ('9c7a905b90dd7e8115de571066', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":107,\"customer\":{\"customer_id\":\"16\",\"customer_group_id\":\"1\",\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645\",\"email\":\"mohammedfoud746631@gmail.com\",\"telephone\":\"+96725262626\",\"custom_field\":[]},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645\",\"company\":\"\",\"address_1\":\"\\u062a\\u0639\\u0632\",\"address_2\":\"\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e\",\"postcode\":\"\",\"city\":\"\\u062a\\u0639\\u0632\",\"zone_id\":\"3807\",\"zone\":\"\\u062a\\u0639\\u0632\",\"zone_code\":\"TA\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"\\u0645\\u062d\\u0645\\u062f \\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645<br\\/>\\u062a\\u0639\\u0632<br\\/>\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e<br\\/>\\u062a\\u0639\\u0632, \\u062a\\u0639\\u0632<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"weight.weight_4\",\"comment\":\"\",\"vouchers\":[],\"shipping\":\"\\u0627\\u0644\\u0648\\u0632\\u0646 : 0.00kg\"}', '2054-08-05 22:57:11'),
 ('9d63056b9e698a0ecaae711dec', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":140,\"customer\":{\"customer_id\":\"20\",\"customer_group_id\":\"1\",\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"email\":\"tom34443@example.com\",\"telephone\":\"+96725262626\",\"custom_field\":[]},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"company\":\"\",\"address_1\":\"\\u0627\\u0644\\u062f\\u0647\\u0628\\u0644\\u064a\\u0629\",\"address_2\":\"\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e\",\"postcode\":\"\",\"city\":\"\\u062a\\u0639\\u0632\",\"zone_id\":\"3807\",\"zone\":\"\\u062a\\u0639\\u0632\",\"zone_code\":\"TA\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"\\u0645\\u062d\\u0645\\u062f \\u0641\\u0648\\u0627\\u062f<br\\/>\\u0627\\u0644\\u062f\\u0647\\u0628\\u0644\\u064a\\u0629<br\\/>\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e<br\\/>\\u062a\\u0639\\u0632, \\u062a\\u0639\\u0632<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[],\"tax\":\"20%\"}', '2054-08-08 03:17:19'),
-('9e32d8b7c727085e5f762357ac', '{\"currency\":\"YER\",\"review_token\":\"5155e447d5c204325edfedc7d595e87c\",\"login_token\":\"92daa00b2129023e45967e2248\",\"register_token\":\"6d86a9d6e242edd97c7e1a15b7\",\"wishlist\":[50]}', '2022-12-07 19:58:02'),
 ('9e3dfe5a729bca0bec1c78f2a5', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":140,\"customer\":{\"customer_id\":\"20\",\"customer_group_id\":\"1\",\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"email\":\"tom34443@example.com\",\"telephone\":\"+96725262626\",\"custom_field\":[]},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"company\":\"\",\"address_1\":\"\\u0627\\u0644\\u062f\\u0647\\u0628\\u0644\\u064a\\u0629\",\"address_2\":\"\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e\",\"postcode\":\"\",\"city\":\"\\u062a\\u0639\\u0632\",\"zone_id\":\"3807\",\"zone\":\"\\u062a\\u0639\\u0632\",\"zone_code\":\"TA\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"\\u0645\\u062d\\u0645\\u062f \\u0641\\u0648\\u0627\\u062f<br\\/>\\u0627\\u0644\\u062f\\u0647\\u0628\\u0644\\u064a\\u0629<br\\/>\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e<br\\/>\\u062a\\u0639\\u0632, \\u062a\\u0639\\u0632<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[],\"tax\":\"20%\"}', '2054-08-08 03:14:18'),
-('9e59f0d6497c6dbda6958a75dd', '{\"currency\":\"YER\"}', '2022-12-07 19:32:36'),
 ('9edd37df5316cfdb15a8a56d2e', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":140,\"customer\":{\"customer_id\":\"20\",\"customer_group_id\":\"1\",\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"email\":\"tom34443@example.com\",\"telephone\":\"+96725262626\",\"custom_field\":[]},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"company\":\"\",\"address_1\":\"\\u0627\\u0644\\u062f\\u0647\\u0628\\u0644\\u064a\\u0629\",\"address_2\":\"\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e\",\"postcode\":\"\",\"city\":\"\\u062a\\u0639\\u0632\",\"zone_id\":\"3807\",\"zone\":\"\\u062a\\u0639\\u0632\",\"zone_code\":\"TA\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"\\u0645\\u062d\\u0645\\u062f \\u0641\\u0648\\u0627\\u062f<br\\/>\\u0627\\u0644\\u062f\\u0647\\u0628\\u0644\\u064a\\u0629<br\\/>\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e<br\\/>\\u062a\\u0639\\u0632, \\u062a\\u0639\\u0632<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[],\"tax\":\"20%\"}', '2054-08-08 03:16:28'),
 ('9f6beb0ef228145f14ddccae6c', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":107,\"customer\":{\"customer_id\":\"16\",\"customer_group_id\":\"1\",\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645\",\"email\":\"mohammedfoud746631@gmail.com\",\"telephone\":\"+96725262626\",\"custom_field\":[]},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645\",\"company\":\"\",\"address_1\":\"\\u062a\\u0639\\u0632\",\"address_2\":\"\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e\",\"postcode\":\"\",\"city\":\"\\u062a\\u0639\\u0632\",\"zone_id\":\"3807\",\"zone\":\"\\u062a\\u0639\\u0632\",\"zone_code\":\"TA\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"\\u0645\\u062d\\u0645\\u062f \\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645<br\\/>\\u062a\\u0639\\u0632<br\\/>\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e<br\\/>\\u062a\\u0639\\u0632, \\u062a\\u0639\\u0632<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"weight.weight_4\",\"comment\":\"\",\"vouchers\":[],\"shipping\":\"\\u0627\\u0644\\u0648\\u0632\\u0646 : 0.00kg\"}', '2054-08-05 22:57:03'),
 ('a1cf000ec0b0e69d382fa09cca', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":107,\"customer\":{\"customer_id\":\"16\",\"customer_group_id\":\"1\",\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645\",\"email\":\"mohammedfoud746631@gmail.com\",\"telephone\":\"+96725262626\",\"custom_field\":[]},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645\",\"company\":\"\",\"address_1\":\"\\u062a\\u0639\\u0632\",\"address_2\":\"\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e\",\"postcode\":\"\",\"city\":\"\\u062a\\u0639\\u0632\",\"zone_id\":\"3807\",\"zone\":\"\\u062a\\u0639\\u0632\",\"zone_code\":\"TA\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"\\u0645\\u062d\\u0645\\u062f \\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645<br\\/>\\u062a\\u0639\\u0632<br\\/>\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e<br\\/>\\u062a\\u0639\\u0632, \\u062a\\u0639\\u0632<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"weight.weight_4\",\"comment\":\"\",\"vouchers\":[],\"shipping\":\"\\u0627\\u0644\\u0648\\u0632\\u0646 : 0.00kg\"}', '2054-08-05 21:58:59'),
@@ -9373,7 +9364,6 @@ INSERT INTO `ks_session` (`session_id`, `data`, `expire`) VALUES
 ('aa105e2a48228dcea6eed2437a', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":107,\"customer\":{\"customer_id\":\"16\",\"customer_group_id\":\"1\",\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645\",\"email\":\"mohammedfoud746631@gmail.com\",\"telephone\":\"+96725262626\",\"custom_field\":[]},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645\",\"company\":\"\",\"address_1\":\"\\u062a\\u0639\\u0632\",\"address_2\":\"\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e\",\"postcode\":\"\",\"city\":\"\\u062a\\u0639\\u0632\",\"zone_id\":\"3807\",\"zone\":\"\\u062a\\u0639\\u0632\",\"zone_code\":\"TA\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"\\u0645\\u062d\\u0645\\u062f \\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645<br\\/>\\u062a\\u0639\\u0632<br\\/>\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e<br\\/>\\u062a\\u0639\\u0632, \\u062a\\u0639\\u0632<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"weight.weight_4\",\"comment\":\"\",\"vouchers\":[],\"shipping\":\"\\u0627\\u0644\\u0648\\u0632\\u0646 : 0.00kg\"}', '2054-08-05 21:57:31'),
 ('aad35bff508303defff0c565cf', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":140,\"customer\":{\"customer_id\":\"20\",\"customer_group_id\":\"1\",\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"email\":\"tom34443@example.com\",\"telephone\":\"+96725262626\",\"custom_field\":[]},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"company\":\"\",\"address_1\":\"\\u0627\\u0644\\u062f\\u0647\\u0628\\u0644\\u064a\\u0629\",\"address_2\":\"\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e\",\"postcode\":\"\",\"city\":\"\\u062a\\u0639\\u0632\",\"zone_id\":\"3807\",\"zone\":\"\\u062a\\u0639\\u0632\",\"zone_code\":\"TA\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"\\u0645\\u062d\\u0645\\u062f \\u0641\\u0648\\u0627\\u062f<br\\/>\\u0627\\u0644\\u062f\\u0647\\u0628\\u0644\\u064a\\u0629<br\\/>\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e<br\\/>\\u062a\\u0639\\u0632, \\u062a\\u0639\\u0632<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[],\"tax\":\"20%\"}', '2054-08-08 03:29:19'),
 ('ae19c8898ecb9b01905c4869d5', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":107,\"customer\":{\"customer_id\":\"16\",\"customer_group_id\":\"1\",\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645\",\"email\":\"mohammedfoud746631@gmail.com\",\"telephone\":\"+96725262626\",\"custom_field\":[]},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645\",\"company\":\"\",\"address_1\":\"\\u062a\\u0639\\u0632\",\"address_2\":\"\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e\",\"postcode\":\"\",\"city\":\"\\u062a\\u0639\\u0632\",\"zone_id\":\"3807\",\"zone\":\"\\u062a\\u0639\\u0632\",\"zone_code\":\"TA\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"\\u0645\\u062d\\u0645\\u062f \\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645<br\\/>\\u062a\\u0639\\u0632<br\\/>\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e<br\\/>\\u062a\\u0639\\u0632, \\u062a\\u0639\\u0632<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"weight.weight_4\",\"comment\":\"\",\"vouchers\":[],\"shipping\":\"\\u0627\\u0644\\u0648\\u0632\\u0646 : 0.00kg\"}', '2054-08-05 21:57:42'),
-('af5058e6b91c06b621ea61d614', '{\"login_token\":\"29ddefd1780cebce11647496407cce9b\"}', '2022-12-07 19:22:26'),
 ('afad0ab866345b0ddbc56cf351', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":140,\"customer\":{\"customer_id\":\"20\",\"customer_group_id\":\"1\",\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"email\":\"tom34443@example.com\",\"telephone\":\"+96725262626\",\"custom_field\":[]},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"company\":\"\",\"address_1\":\"\\u0627\\u0644\\u062f\\u0647\\u0628\\u0644\\u064a\\u0629\",\"address_2\":\"\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e\",\"postcode\":\"\",\"city\":\"\\u062a\\u0639\\u0632\",\"zone_id\":\"3807\",\"zone\":\"\\u062a\\u0639\\u0632\",\"zone_code\":\"TA\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"\\u0645\\u062d\\u0645\\u062f \\u0641\\u0648\\u0627\\u062f<br\\/>\\u0627\\u0644\\u062f\\u0647\\u0628\\u0644\\u064a\\u0629<br\\/>\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e<br\\/>\\u062a\\u0639\\u0632, \\u062a\\u0639\\u0632<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[],\"tax\":\"20%\"}', '2054-08-08 03:27:50'),
 ('b1cf66ab0d03b1fb3860697076', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":140,\"customer\":{\"customer_id\":\"20\",\"customer_group_id\":\"1\",\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"email\":\"tom34443@example.com\",\"telephone\":\"+96725262626\",\"custom_field\":[]},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"company\":\"\",\"address_1\":\"\\u0627\\u0644\\u062f\\u0647\\u0628\\u0644\\u064a\\u0629\",\"address_2\":\"\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e\",\"postcode\":\"\",\"city\":\"\\u062a\\u0639\\u0632\",\"zone_id\":\"3807\",\"zone\":\"\\u062a\\u0639\\u0632\",\"zone_code\":\"TA\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"\\u0645\\u062d\\u0645\\u062f \\u0641\\u0648\\u0627\\u062f<br\\/>\\u0627\\u0644\\u062f\\u0647\\u0628\\u0644\\u064a\\u0629<br\\/>\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e<br\\/>\\u062a\\u0639\\u0632, \\u062a\\u0639\\u0632<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[],\"tax\":\"20%\"}', '2054-08-08 03:13:28'),
 ('b207cb0d695794766d312e76c7', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":105,\"customer\":{\"customer_id\":\"1\",\"customer_group_id\":\"1\",\"firstname\":\"taha\",\"lastname\":\"kha\",\"email\":\"taha123@gmail.com\",\"telephone\":\"\",\"custom_field\":\"\"},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"High\",\"lastname\":\"School\",\"company\":\"\",\"address_1\":\"Jazan\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Jazan\",\"zone_id\":\"3790\",\"zone\":\"\",\"zone_code\":\"\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"High School<br\\/>Jazan<br\\/>Jazan,<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[]}', '2054-08-05 19:56:30'),
@@ -9387,10 +9377,10 @@ INSERT INTO `ks_session` (`session_id`, `data`, `expire`) VALUES
 ('b93d2d57b0bfd4b973b38480ba', '{\"currency\":\"YER\"}', '2054-08-01 20:47:32'),
 ('bb67fb4c35a019d975926566b2', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":105,\"customer\":{\"customer_id\":\"1\",\"customer_group_id\":\"1\",\"firstname\":\"taha\",\"lastname\":\"kha\",\"email\":\"taha123@gmail.com\",\"telephone\":\"\",\"custom_field\":\"\"},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"High\",\"lastname\":\"School\",\"company\":\"\",\"address_1\":\"Jazan\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Jazan\",\"zone_id\":\"3790\",\"zone\":\"\",\"zone_code\":\"\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"High School<br\\/>Jazan<br\\/>Jazan,<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[]}', '2054-08-05 19:58:06'),
 ('bc9bc61d9f6d84fe588e536404', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":105,\"customer\":{\"customer_id\":\"1\",\"customer_group_id\":\"1\",\"firstname\":\"taha\",\"lastname\":\"kha\",\"email\":\"taha123@gmail.com\",\"telephone\":\"\",\"custom_field\":\"\"},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"High\",\"lastname\":\"School\",\"company\":\"\",\"address_1\":\"Jazan\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Jazan\",\"zone_id\":\"3790\",\"zone\":\"\",\"zone_code\":\"\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"High School<br\\/>Jazan<br\\/>Jazan,<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[]}', '2054-08-05 19:58:02'),
-('bce09f875e68853ccc5ee7c34a', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":140,\"customer\":{\"customer_id\":\"20\",\"customer_group_id\":\"1\",\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"email\":\"tom34443@example.com\",\"telephone\":\"+96725262626\",\"custom_field\":[]},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"company\":\"\",\"address_1\":\"\\u0627\\u0644\\u062f\\u0647\\u0628\\u0644\\u064a\\u0629\",\"address_2\":\"\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e\",\"postcode\":\"\",\"city\":\"\\u062a\\u0639\\u0632\",\"zone_id\":\"3807\",\"zone\":\"\\u062a\\u0639\\u0632\",\"zone_code\":\"TA\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"\\u0645\\u062d\\u0645\\u062f \\u0641\\u0648\\u0627\\u062f<br\\/>\\u0627\\u0644\\u062f\\u0647\\u0628\\u0644\\u064a\\u0629<br\\/>\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e<br\\/>\\u062a\\u0639\\u0632, \\u062a\\u0639\\u0632<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[],\"tax\":\"20%\"}', '2054-08-08 03:11:09');
-INSERT INTO `ks_session` (`session_id`, `data`, `expire`) VALUES
+('bce09f875e68853ccc5ee7c34a', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":140,\"customer\":{\"customer_id\":\"20\",\"customer_group_id\":\"1\",\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"email\":\"tom34443@example.com\",\"telephone\":\"+96725262626\",\"custom_field\":[]},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"company\":\"\",\"address_1\":\"\\u0627\\u0644\\u062f\\u0647\\u0628\\u0644\\u064a\\u0629\",\"address_2\":\"\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e\",\"postcode\":\"\",\"city\":\"\\u062a\\u0639\\u0632\",\"zone_id\":\"3807\",\"zone\":\"\\u062a\\u0639\\u0632\",\"zone_code\":\"TA\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"\\u0645\\u062d\\u0645\\u062f \\u0641\\u0648\\u0627\\u062f<br\\/>\\u0627\\u0644\\u062f\\u0647\\u0628\\u0644\\u064a\\u0629<br\\/>\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e<br\\/>\\u062a\\u0639\\u0632, \\u062a\\u0639\\u0632<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[],\"tax\":\"20%\"}', '2054-08-08 03:11:09'),
 ('bd7d2583dbb918b58168c936be', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":105,\"customer\":{\"customer_id\":\"1\",\"customer_group_id\":\"1\",\"firstname\":\"taha\",\"lastname\":\"kha\",\"email\":\"taha123@gmail.com\",\"telephone\":\"\",\"custom_field\":\"\"},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"High\",\"lastname\":\"School\",\"company\":\"\",\"address_1\":\"Jazan\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Jazan\",\"zone_id\":\"3790\",\"zone\":\"\",\"zone_code\":\"\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"High School<br\\/>Jazan<br\\/>Jazan,<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[]}', '2054-08-05 19:57:04'),
-('c031b3975aa7001395bcca9155', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":107,\"customer\":{\"customer_id\":\"16\",\"customer_group_id\":\"1\",\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645\",\"email\":\"mohammedfoud746631@gmail.com\",\"telephone\":\"+96725262626\",\"custom_field\":[]},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645\",\"company\":\"\",\"address_1\":\"\\u062a\\u0639\\u0632\",\"address_2\":\"\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e\",\"postcode\":\"\",\"city\":\"\\u062a\\u0639\\u0632\",\"zone_id\":\"3807\",\"zone\":\"\\u062a\\u0639\\u0632\",\"zone_code\":\"TA\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"\\u0645\\u062d\\u0645\\u062f \\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645<br\\/>\\u062a\\u0639\\u0632<br\\/>\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e<br\\/>\\u062a\\u0639\\u0632, \\u062a\\u0639\\u0632<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"weight.weight_4\",\"comment\":\"\",\"vouchers\":[],\"shipping\":\"\\u0627\\u0644\\u0648\\u0632\\u0646 : 0.00kg\"}', '2054-08-05 22:57:03'),
+('c031b3975aa7001395bcca9155', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":107,\"customer\":{\"customer_id\":\"16\",\"customer_group_id\":\"1\",\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645\",\"email\":\"mohammedfoud746631@gmail.com\",\"telephone\":\"+96725262626\",\"custom_field\":[]},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645\",\"company\":\"\",\"address_1\":\"\\u062a\\u0639\\u0632\",\"address_2\":\"\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e\",\"postcode\":\"\",\"city\":\"\\u062a\\u0639\\u0632\",\"zone_id\":\"3807\",\"zone\":\"\\u062a\\u0639\\u0632\",\"zone_code\":\"TA\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"\\u0645\\u062d\\u0645\\u062f \\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645<br\\/>\\u062a\\u0639\\u0632<br\\/>\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e<br\\/>\\u062a\\u0639\\u0632, \\u062a\\u0639\\u0632<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"weight.weight_4\",\"comment\":\"\",\"vouchers\":[],\"shipping\":\"\\u0627\\u0644\\u0648\\u0632\\u0646 : 0.00kg\"}', '2054-08-05 22:57:03');
+INSERT INTO `ks_session` (`session_id`, `data`, `expire`) VALUES
 ('c202d0ed210402cd659881fffd', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":105,\"customer\":{\"customer_id\":\"1\",\"customer_group_id\":\"1\",\"firstname\":\"taha\",\"lastname\":\"kha\",\"email\":\"taha123@gmail.com\",\"telephone\":\"\",\"custom_field\":\"\"},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"High\",\"lastname\":\"School\",\"company\":\"\",\"address_1\":\"Jazan\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Jazan\",\"zone_id\":\"3790\",\"zone\":\"\",\"zone_code\":\"\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"High School<br\\/>Jazan<br\\/>Jazan,<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[]}', '2054-08-05 19:55:19'),
 ('c31313d8bb94278440169e0d00', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":105,\"customer\":{\"customer_id\":\"1\",\"customer_group_id\":\"1\",\"firstname\":\"taha\",\"lastname\":\"kha\",\"email\":\"taha123@gmail.com\",\"telephone\":\"\",\"custom_field\":\"\"},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"High\",\"lastname\":\"School\",\"company\":\"\",\"address_1\":\"Jazan\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Jazan\",\"zone_id\":\"3790\",\"zone\":\"\",\"zone_code\":\"\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"High School<br\\/>Jazan<br\\/>Jazan,<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[]}', '2054-08-05 19:51:35'),
 ('c4e6036d9247a78a27c00a4a79', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":140,\"customer\":{\"customer_id\":\"20\",\"customer_group_id\":\"1\",\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"email\":\"tom34443@example.com\",\"telephone\":\"+96725262626\",\"custom_field\":[]},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"company\":\"\",\"address_1\":\"\\u0627\\u0644\\u062f\\u0647\\u0628\\u0644\\u064a\\u0629\",\"address_2\":\"\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e\",\"postcode\":\"\",\"city\":\"\\u062a\\u0639\\u0632\",\"zone_id\":\"3807\",\"zone\":\"\\u062a\\u0639\\u0632\",\"zone_code\":\"TA\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"\\u0645\\u062d\\u0645\\u062f \\u0641\\u0648\\u0627\\u062f<br\\/>\\u0627\\u0644\\u062f\\u0647\\u0628\\u0644\\u064a\\u0629<br\\/>\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e<br\\/>\\u062a\\u0639\\u0632, \\u062a\\u0639\\u0632<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[],\"tax\":\"20%\"}', '2054-08-08 03:14:23'),
@@ -9420,6 +9410,7 @@ INSERT INTO `ks_session` (`session_id`, `data`, `expire`) VALUES
 ('da0cbbc576e726c3eb180cbba7', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":105,\"customer\":{\"customer_id\":\"1\",\"customer_group_id\":\"1\",\"firstname\":\"taha\",\"lastname\":\"kha\",\"email\":\"taha123@gmail.com\",\"telephone\":\"\",\"custom_field\":\"\"},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"High\",\"lastname\":\"School\",\"company\":\"\",\"address_1\":\"Jazan\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Jazan\",\"zone_id\":\"3790\",\"zone\":\"\",\"zone_code\":\"\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"High School<br\\/>Jazan<br\\/>Jazan,<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[]}', '2054-08-05 19:54:37'),
 ('da273fa7136f23f8c1f2ab9b00', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":105,\"customer\":{\"customer_id\":\"1\",\"customer_group_id\":\"1\",\"firstname\":\"taha\",\"lastname\":\"kha\",\"email\":\"taha123@gmail.com\",\"telephone\":\"\",\"custom_field\":\"\"},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"High\",\"lastname\":\"School\",\"company\":\"\",\"address_1\":\"Jazan\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Jazan\",\"zone_id\":\"3790\",\"zone\":\"\",\"zone_code\":\"\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"High School<br\\/>Jazan<br\\/>Jazan,<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[]}', '2054-08-05 19:52:06'),
 ('dafb79cfdfc8fbc7c775c89cee', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":3,\"customer\":{\"customer_id\":\"1\",\"customer_group_id\":\"1\",\"firstname\":\"taha\",\"lastname\":\"kha\",\"email\":\"taha123@gmail.com\",\"telephone\":\"\",\"custom_field\":\"\"},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"High\",\"lastname\":\"School\",\"company\":\"\",\"address_1\":\"Jazan\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Jazan\",\"zone_id\":\"3790\",\"zone\":\"Adan\",\"zone_code\":\"AD\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"{firstname} {lastname}\\r\\n{company}\\r\\n{address_1}\\r\\n{address_2}\\r\\n{city}, {zone} {postcode}\\r\\n{country}\",\"custom_field\":\"\"},\"shipping_method\":\"flat.flat\",\"comment\":\"\",\"vouchers\":[]}', '2054-07-31 19:18:45'),
+('db51d486b5c1a6d705343e15f4', '{\"currency\":\"YER\",\"login_token\":\"6439a977ef998ec5fba978bdfd2f0239\",\"review_token\":\"9ed7f530f4270ea834013156f6b81380\"}', '2025-01-19 17:15:52'),
 ('dbc7c5c1b293df8b75f510c176', '{\"currency\":\"YER\",\"login_token\":\"f010ec27c671cd546eee8cdf1c\",\"customer_id\":\"3\",\"customer\":{\"customer_id\":3,\"customer_group_id\":1,\"firstname\":\"rafa\",\"lastname\":\"foud\",\"email\":\"rafafoud@gmail.com\",\"telephone\":\"77123356565\",\"custom_field\":\"\"},\"customer_token\":\"b8b0c8f2b92aaeed8f08879825\"}', '2054-08-01 19:13:42'),
 ('de42f0f1db80ddf29f383bfca7', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":105,\"customer\":{\"customer_id\":\"1\",\"customer_group_id\":\"1\",\"firstname\":\"taha\",\"lastname\":\"kha\",\"email\":\"taha123@gmail.com\",\"telephone\":\"\",\"custom_field\":\"\"},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"High\",\"lastname\":\"School\",\"company\":\"\",\"address_1\":\"Jazan\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Jazan\",\"zone_id\":\"3790\",\"zone\":\"\",\"zone_code\":\"\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"High School<br\\/>Jazan<br\\/>Jazan,<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[]}', '2054-08-05 19:56:57'),
 ('df00e88d4788f4f4e4a2b2f12b', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":105,\"customer\":{\"customer_id\":\"1\",\"customer_group_id\":\"1\",\"firstname\":\"taha\",\"lastname\":\"kha\",\"email\":\"taha123@gmail.com\",\"telephone\":\"\",\"custom_field\":\"\"},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"High\",\"lastname\":\"School\",\"company\":\"\",\"address_1\":\"Jazan\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Jazan\",\"zone_id\":\"3790\",\"zone\":\"\",\"zone_code\":\"\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"High School<br\\/>Jazan<br\\/>Jazan,<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[]}', '2054-08-05 19:49:53'),
@@ -9439,10 +9430,10 @@ INSERT INTO `ks_session` (`session_id`, `data`, `expire`) VALUES
 ('ecf0532a1f3eca48995d681ae0', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":4,\"customer\":{\"customer_id\":\"1\",\"customer_group_id\":\"1\",\"firstname\":\"taha\",\"lastname\":\"kha\",\"email\":\"taha123@gmail.com\",\"telephone\":\"\",\"custom_field\":\"\"},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"High\",\"lastname\":\"School\",\"company\":\"\",\"address_1\":\"Jazan\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Jazan\",\"zone_id\":\"3790\",\"zone\":\"Adan\",\"zone_code\":\"AD\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"High School<br\\/>Jazan<br\\/>Jazan, Adan<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"flat.flat\",\"comment\":\"jghkghghj\",\"vouchers\":[]}', '2054-07-31 19:32:22'),
 ('edbf3ff20c63da0e1a663343d3', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":137,\"customer\":{\"customer_id\":\"20\",\"customer_group_id\":\"1\",\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"email\":\"tom34443@example.com\",\"telephone\":\"+96725262626\",\"custom_field\":[]},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"company\":\"\",\"address_1\":\"\\u0627\\u0644\\u062f\\u0647\\u0628\\u0644\\u064a\\u0629\",\"address_2\":\"\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e\",\"postcode\":\"\",\"city\":\"\\u062a\\u0639\\u0632\",\"zone_id\":\"3807\",\"zone\":\"\\u062a\\u0639\\u0632\",\"zone_code\":\"TA\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"{firstname} {lastname}\\r\\n{company}\\r\\n{address_1}\\r\\n{address_2}\\r\\n{city}, {zone} {postcode}\\r\\n{country}\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[],\"tax\":\"20%\",\"shipping_methods\":{\"pickup\":{\"title\":\"\\u0627\\u0644\\u0627\\u0633\\u062a\\u0644\\u0627\\u0645 \\u0645\\u0646 \\u0627\\u0644\\u0645\\u062a\\u062c\\u0631\",\"quote\":{\"pickup\":{\"code\":\"pickup.pickup\",\"title\":\"\\u0627\\u0644\\u0627\\u0633\\u062a\\u0644\\u0627\\u0645 \\u0645\\u0646 \\u0627\\u0644\\u0645\\u062a\\u062c\\u0631\",\"cost\":0,\"tax_class_id\":0,\"text\":\"0\\u0631\\u064a\\u0627\\u0644\"}},\"sort_order\":\"2\",\"error\":false},\"item\":{\"title\":\"\\u0628\\u0627\\u0644\\u0642\\u0637\\u0639\\u0629\",\"quote\":{\"item\":{\"code\":\"item.item\",\"title\":\"\\u0642\\u064a\\u0645\\u0629 \\u0627\\u0644\\u0634\\u062d\\u0646 \\u0644\\u0644\\u0642\\u0637\\u0639\\u0629\",\"cost\":0,\"tax_class_id\":0,\"text\":\"0\\u0631\\u064a\\u0627\\u0644\"}},\"sort_order\":\"2\",\"error\":false}},\"payment_methods\":{\"bank_transfer\":{\"code\":\"bank_transfer\",\"title\":\"\\u062a\\u0640\\u062d\\u0640\\u0648\\u064a\\u0640\\u0644 \\u0628\\u0640\\u0646\\u0640\\u0643\\u0640\\u064a\",\"sort_order\":\"1\"},\"cod\":{\"code\":\"cod\",\"title\":\"\\u0627\\u0644\\u062f\\u0641\\u0639 \\u0639\\u0646\\u062f \\u0627\\u0644\\u0627\\u0633\\u062a\\u0644\\u0627\\u0645\",\"sort_order\":\"1\"}}}', '2054-08-08 04:11:47'),
 ('ee6ff16e66a7b66eefd759d179', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":140,\"customer\":{\"customer_id\":\"20\",\"customer_group_id\":\"1\",\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"email\":\"tom34443@example.com\",\"telephone\":\"+96725262626\",\"custom_field\":[]},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"company\":\"\",\"address_1\":\"\\u0627\\u0644\\u062f\\u0647\\u0628\\u0644\\u064a\\u0629\",\"address_2\":\"\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e\",\"postcode\":\"\",\"city\":\"\\u062a\\u0639\\u0632\",\"zone_id\":\"3807\",\"zone\":\"\\u062a\\u0639\\u0632\",\"zone_code\":\"TA\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"\\u0645\\u062d\\u0645\\u062f \\u0641\\u0648\\u0627\\u062f<br\\/>\\u0627\\u0644\\u062f\\u0647\\u0628\\u0644\\u064a\\u0629<br\\/>\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e<br\\/>\\u062a\\u0639\\u0632, \\u062a\\u0639\\u0632<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[],\"tax\":\"20%\"}', '2054-08-08 03:16:18'),
-('efac09cd2bdf2a2e19d78b0887', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":107,\"customer\":{\"customer_id\":\"16\",\"customer_group_id\":\"1\",\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645\",\"email\":\"mohammedfoud746631@gmail.com\",\"telephone\":\"+96725262626\",\"custom_field\":[]},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645\",\"company\":\"\",\"address_1\":\"\\u062a\\u0639\\u0632\",\"address_2\":\"\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e\",\"postcode\":\"\",\"city\":\"\\u062a\\u0639\\u0632\",\"zone_id\":\"3807\",\"zone\":\"\\u062a\\u0639\\u0632\",\"zone_code\":\"TA\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"\\u0645\\u062d\\u0645\\u062f \\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645<br\\/>\\u062a\\u0639\\u0632<br\\/>\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e<br\\/>\\u062a\\u0639\\u0632, \\u062a\\u0639\\u0632<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"weight.weight_4\",\"comment\":\"\",\"vouchers\":[],\"shipping\":\"\\u0627\\u0644\\u0648\\u0632\\u0646 : 0.00kg\"}', '2054-08-05 22:57:04');
-INSERT INTO `ks_session` (`session_id`, `data`, `expire`) VALUES
+('efac09cd2bdf2a2e19d78b0887', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":107,\"customer\":{\"customer_id\":\"16\",\"customer_group_id\":\"1\",\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645\",\"email\":\"mohammedfoud746631@gmail.com\",\"telephone\":\"+96725262626\",\"custom_field\":[]},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645\",\"company\":\"\",\"address_1\":\"\\u062a\\u0639\\u0632\",\"address_2\":\"\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e\",\"postcode\":\"\",\"city\":\"\\u062a\\u0639\\u0632\",\"zone_id\":\"3807\",\"zone\":\"\\u062a\\u0639\\u0632\",\"zone_code\":\"TA\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"\\u0645\\u062d\\u0645\\u062f \\u0639\\u0628\\u062f\\u0627\\u0644\\u0643\\u0631\\u064a\\u0645<br\\/>\\u062a\\u0639\\u0632<br\\/>\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e<br\\/>\\u062a\\u0639\\u0632, \\u062a\\u0639\\u0632<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"weight.weight_4\",\"comment\":\"\",\"vouchers\":[],\"shipping\":\"\\u0627\\u0644\\u0648\\u0632\\u0646 : 0.00kg\"}', '2054-08-05 22:57:04'),
 ('efc49436b3180535fa04049d7f', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":1,\"customer\":{\"customer_id\":\"1\",\"customer_group_id\":\"1\",\"firstname\":\"taha\",\"lastname\":\"kha\",\"email\":\"taha123@gmail.com\",\"telephone\":\"\",\"custom_field\":\"\"},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"\",\"lastname\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"postcode\":\"09078\",\"city\":\"\",\"zone_id\":\"3807\",\"zone\":\"Ta\'izz\",\"zone_code\":\"TA\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"{firstname} {lastname}\\r\\n{company}\\r\\n{address_1}\\r\\n{address_2}\\r\\n{city}, {zone} {postcode}\\r\\n{country}\",\"custom_field\":[]},\"shipping_method\":\"flat.flat\",\"comment\":\"\",\"vouchers\":[]}', '2054-07-31 19:15:17'),
-('f0b53e33d21eff44e582c17903', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":105,\"customer\":{\"customer_id\":\"1\",\"customer_group_id\":\"1\",\"firstname\":\"taha\",\"lastname\":\"kha\",\"email\":\"taha123@gmail.com\",\"telephone\":\"\",\"custom_field\":\"\"},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"High\",\"lastname\":\"School\",\"company\":\"\",\"address_1\":\"Jazan\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Jazan\",\"zone_id\":\"3790\",\"zone\":\"\",\"zone_code\":\"\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"High School<br\\/>Jazan<br\\/>Jazan,<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[]}', '2054-08-05 19:56:40'),
+('f0b53e33d21eff44e582c17903', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":105,\"customer\":{\"customer_id\":\"1\",\"customer_group_id\":\"1\",\"firstname\":\"taha\",\"lastname\":\"kha\",\"email\":\"taha123@gmail.com\",\"telephone\":\"\",\"custom_field\":\"\"},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"High\",\"lastname\":\"School\",\"company\":\"\",\"address_1\":\"Jazan\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Jazan\",\"zone_id\":\"3790\",\"zone\":\"\",\"zone_code\":\"\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"High School<br\\/>Jazan<br\\/>Jazan,<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[]}', '2054-08-05 19:56:40');
+INSERT INTO `ks_session` (`session_id`, `data`, `expire`) VALUES
 ('f343e82a108b4949ee64edd744', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":105,\"customer\":{\"customer_id\":\"1\",\"customer_group_id\":\"1\",\"firstname\":\"taha\",\"lastname\":\"kha\",\"email\":\"taha123@gmail.com\",\"telephone\":\"\",\"custom_field\":\"\"},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"High\",\"lastname\":\"School\",\"company\":\"\",\"address_1\":\"Jazan\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Jazan\",\"zone_id\":\"3790\",\"zone\":\"\",\"zone_code\":\"\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"High School<br\\/>Jazan<br\\/>Jazan,<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[]}', '2054-08-05 19:53:09'),
 ('f3e13f811b5b4f402e87b98bf1', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":140,\"customer\":{\"customer_id\":\"20\",\"customer_group_id\":\"1\",\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"email\":\"tom34443@example.com\",\"telephone\":\"+96725262626\",\"custom_field\":[]},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"company\":\"\",\"address_1\":\"\\u0627\\u0644\\u062f\\u0647\\u0628\\u0644\\u064a\\u0629\",\"address_2\":\"\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e\",\"postcode\":\"\",\"city\":\"\\u062a\\u0639\\u0632\",\"zone_id\":\"3807\",\"zone\":\"\\u062a\\u0639\\u0632\",\"zone_code\":\"TA\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"\\u0645\\u062d\\u0645\\u062f \\u0641\\u0648\\u0627\\u062f<br\\/>\\u0627\\u0644\\u062f\\u0647\\u0628\\u0644\\u064a\\u0629<br\\/>\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e<br\\/>\\u062a\\u0639\\u0632, \\u062a\\u0639\\u0632<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[],\"tax\":\"20%\"}', '2054-08-08 03:17:10'),
 ('f4e40b361a0573365ec394e299', '{\"api_id\":\"1\",\"currency\":\"YER\",\"order_id\":140,\"customer\":{\"customer_id\":\"20\",\"customer_group_id\":\"1\",\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"email\":\"tom34443@example.com\",\"telephone\":\"+96725262626\",\"custom_field\":[]},\"payment_method\":\"cod\",\"shipping_address\":{\"firstname\":\"\\u0645\\u062d\\u0645\\u062f\",\"lastname\":\"\\u0641\\u0648\\u0627\\u062f\",\"company\":\"\",\"address_1\":\"\\u0627\\u0644\\u062f\\u0647\\u0628\\u0644\\u064a\\u0629\",\"address_2\":\"\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e\",\"postcode\":\"\",\"city\":\"\\u062a\\u0639\\u0632\",\"zone_id\":\"3807\",\"zone\":\"\\u062a\\u0639\\u0632\",\"zone_code\":\"TA\",\"country_id\":\"235\",\"country\":\"Yemen\",\"iso_code_2\":\"YE\",\"iso_code_3\":\"YEM\",\"address_format\":\"\\u0645\\u062d\\u0645\\u062f \\u0641\\u0648\\u0627\\u062f<br\\/>\\u0627\\u0644\\u062f\\u0647\\u0628\\u0644\\u064a\\u0629<br\\/>\\u0627\\u0644\\u0645\\u0633\\u0631\\u0627\\u062e<br\\/>\\u062a\\u0639\\u0632, \\u062a\\u0639\\u0632<br\\/>Yemen\",\"custom_field\":\"\"},\"shipping_method\":\"pickup.pickup\",\"comment\":\"\",\"vouchers\":[],\"tax\":\"20%\"}', '2054-08-08 03:15:32'),
@@ -9475,7 +9466,7 @@ CREATE TABLE `ks_setting` (
   `key` varchar(128) NOT NULL,
   `value` text NOT NULL,
   `serialized` tinyint(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_setting`
@@ -9730,7 +9721,7 @@ CREATE TABLE `ks_startup` (
   `action` text NOT NULL,
   `status` tinyint(1) NOT NULL,
   `sort_order` int(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -9742,20 +9733,20 @@ CREATE TABLE `ks_statistics` (
   `statistics_id` int(11) NOT NULL,
   `code` varchar(64) NOT NULL,
   `value` decimal(15,4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_statistics`
 --
 
 INSERT INTO `ks_statistics` (`statistics_id`, `code`, `value`) VALUES
-(1, 'order_sale', '750679.7900'),
-(2, 'order_processing', '170.0000'),
-(3, 'order_complete', '2.0000'),
-(4, 'order_other', '0.0000'),
-(5, 'returns', '0.0000'),
-(6, 'product', '1.0000'),
-(7, 'review', '9.0000');
+(1, 'order_sale', 750679.7900),
+(2, 'order_processing', 170.0000),
+(3, 'order_complete', 2.0000),
+(4, 'order_other', 0.0000),
+(5, 'returns', 0.0000),
+(6, 'product', 1.0000),
+(7, 'review', 9.0000);
 
 -- --------------------------------------------------------
 
@@ -9767,7 +9758,7 @@ CREATE TABLE `ks_stock_status` (
   `stock_status_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
   `name` varchar(32) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_stock_status`
@@ -9789,7 +9780,7 @@ CREATE TABLE `ks_store` (
   `store_id` int(11) NOT NULL,
   `name` varchar(64) NOT NULL,
   `url` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -9823,7 +9814,7 @@ CREATE TABLE `ks_subscription` (
   `status` tinyint(1) NOT NULL,
   `date_added` datetime NOT NULL,
   `date_modified` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -9838,7 +9829,7 @@ CREATE TABLE `ks_subscription_history` (
   `notify` tinyint(1) NOT NULL DEFAULT 0,
   `comment` text NOT NULL,
   `date_added` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -9859,7 +9850,7 @@ CREATE TABLE `ks_subscription_plan` (
   `cycle` int(10) NOT NULL,
   `status` tinyint(1) NOT NULL,
   `sort_order` int(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -9872,7 +9863,7 @@ CREATE TABLE `ks_subscription_plan_description` (
   `language_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `description` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -9884,7 +9875,7 @@ CREATE TABLE `ks_subscription_status` (
   `subscription_status_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
   `name` varchar(32) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_subscription_status`
@@ -9921,7 +9912,7 @@ CREATE TABLE `ks_subscription_transaction` (
   `payment_method` varchar(128) NOT NULL,
   `payment_code` varchar(128) NOT NULL,
   `date_added` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -9935,7 +9926,7 @@ CREATE TABLE `ks_tax_class` (
   `description` varchar(255) NOT NULL,
   `date_added` datetime NOT NULL,
   `date_modified` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_tax_class`
@@ -9959,15 +9950,15 @@ CREATE TABLE `ks_tax_rate` (
   `type` char(1) NOT NULL,
   `date_added` datetime NOT NULL,
   `date_modified` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_tax_rate`
 --
 
 INSERT INTO `ks_tax_rate` (`tax_rate_id`, `geo_zone_id`, `name`, `rate`, `type`, `date_added`, `date_modified`) VALUES
-(86, 3, 'VAT (20%)', '20.0000', 'P', '2011-03-09 21:17:10', '2011-09-22 22:24:29'),
-(87, 3, 'Eco Tax (-2.00)', '2.0000', 'F', '2011-09-21 21:49:23', '2011-09-23 00:40:19');
+(86, 3, 'VAT (20%)', 20.0000, 'P', '2011-03-09 21:17:10', '2011-09-22 22:24:29'),
+(87, 3, 'Eco Tax (-2.00)', 2.0000, 'F', '2011-09-21 21:49:23', '2011-09-23 00:40:19');
 
 -- --------------------------------------------------------
 
@@ -9978,7 +9969,7 @@ INSERT INTO `ks_tax_rate` (`tax_rate_id`, `geo_zone_id`, `name`, `rate`, `type`,
 CREATE TABLE `ks_tax_rate_to_customer_group` (
   `tax_rate_id` int(11) NOT NULL,
   `customer_group_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_tax_rate_to_customer_group`
@@ -10000,7 +9991,7 @@ CREATE TABLE `ks_tax_rule` (
   `tax_rate_id` int(11) NOT NULL,
   `based` varchar(10) NOT NULL,
   `priority` int(5) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_tax_rule`
@@ -10024,7 +10015,7 @@ CREATE TABLE `ks_theme` (
   `route` varchar(64) NOT NULL,
   `code` mediumtext NOT NULL,
   `date_added` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -10040,7 +10031,7 @@ CREATE TABLE `ks_translation` (
   `key` varchar(64) NOT NULL,
   `value` text NOT NULL,
   `date_added` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -10054,7 +10045,7 @@ CREATE TABLE `ks_upload` (
   `filename` varchar(255) NOT NULL,
   `code` varchar(255) NOT NULL,
   `date_added` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -10075,14 +10066,14 @@ CREATE TABLE `ks_user` (
   `ip` varchar(40) NOT NULL DEFAULT '',
   `status` tinyint(1) NOT NULL,
   `date_added` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_user`
 --
 
 INSERT INTO `ks_user` (`user_id`, `user_group_id`, `username`, `password`, `firstname`, `lastname`, `email`, `image`, `code`, `ip`, `status`, `date_added`) VALUES
-(1, 1, 'moh2022', '$2y$10$oVleNYcfrXeJyKLzAEE3xegcBjfRksPcomwLBaZUidjy/pHPzyka2', 'mohammed', 'foud', 'moh2022@gmail.com', 'catalog/images.png', '', '::1', 1, '2022-10-12 16:14:57'),
+(1, 1, 'moh2022', '25f9e794323b453885f5181f1b624d0b', 'mohammed', 'foud', 'moh2022@gmail.com', 'catalog/images.png', '', '::1', 1, '2022-10-12 16:14:57'),
 (2, 2, 'muh2022', '$2y$10$Lxafm83EGDBD3K4mZa2QcOBMd.Pfut0R2ru4PDGJoAIeMIQiur/cO', 'muhanned', 'farooq', 'muhanned2023@gmail.com', 'catalog/images.png', '', '127.0.0.1', 1, '2022-11-16 13:47:38');
 
 -- --------------------------------------------------------
@@ -10095,7 +10086,7 @@ CREATE TABLE `ks_user_group` (
   `user_group_id` int(11) NOT NULL,
   `name` varchar(64) NOT NULL,
   `permission` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_user_group`
@@ -10120,7 +10111,7 @@ CREATE TABLE `ks_user_login` (
   `user_agent` varchar(255) NOT NULL,
   `status` tinyint(1) NOT NULL,
   `date_added` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -10134,7 +10125,7 @@ CREATE TABLE `ks_vendor` (
   `code` text NOT NULL,
   `version` text NOT NULL,
   `date_added` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -10155,7 +10146,7 @@ CREATE TABLE `ks_voucher` (
   `amount` decimal(15,4) NOT NULL,
   `status` tinyint(1) NOT NULL,
   `date_added` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -10169,7 +10160,7 @@ CREATE TABLE `ks_voucher_history` (
   `order_id` int(11) NOT NULL,
   `amount` decimal(15,4) NOT NULL,
   `date_added` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -10180,7 +10171,7 @@ CREATE TABLE `ks_voucher_history` (
 CREATE TABLE `ks_voucher_theme` (
   `voucher_theme_id` int(11) NOT NULL,
   `image` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_voucher_theme`
@@ -10200,7 +10191,7 @@ CREATE TABLE `ks_voucher_theme_description` (
   `voucher_theme_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
   `name` varchar(32) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_voucher_theme_description`
@@ -10219,17 +10210,17 @@ INSERT INTO `ks_voucher_theme_description` (`voucher_theme_id`, `language_id`, `
 CREATE TABLE `ks_weight_class` (
   `weight_class_id` int(11) NOT NULL,
   `value` decimal(15,8) NOT NULL DEFAULT 0.00000000
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_weight_class`
 --
 
 INSERT INTO `ks_weight_class` (`weight_class_id`, `value`) VALUES
-(1, '1.00000000'),
-(2, '1000.00000000'),
-(5, '2.20460000'),
-(6, '35.27400000');
+(1, 1.00000000),
+(2, 1000.00000000),
+(5, 2.20460000),
+(6, 35.27400000);
 
 -- --------------------------------------------------------
 
@@ -10242,7 +10233,7 @@ CREATE TABLE `ks_weight_class_description` (
   `language_id` int(11) NOT NULL,
   `title` varchar(32) NOT NULL,
   `unit` varchar(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_weight_class_description`
@@ -10270,7 +10261,7 @@ CREATE TABLE `ks_zone` (
   `name` varchar(128) NOT NULL,
   `code` varchar(32) NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_zone`
@@ -14324,7 +14315,7 @@ CREATE TABLE `ks_zone_to_geo_zone` (
   `geo_zone_id` int(11) NOT NULL,
   `date_added` datetime NOT NULL,
   `date_modified` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ks_zone_to_geo_zone`
