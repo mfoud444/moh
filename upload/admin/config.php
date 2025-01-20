@@ -7,7 +7,7 @@ define('HTTP_SERVER', 'https://odd-loria-sarr-43e272d1.koyeb.app/admin/');
 define('HTTP_CATALOG', 'https://odd-loria-sarr-43e272d1.koyeb.app/');
 
 // DIR
-define('DIR_OPENCART', '');
+define('DIR_OPENCART', '../');
 define('DIR_APPLICATION', DIR_OPENCART . 'admin/');
 define('DIR_EXTENSION', DIR_OPENCART . 'extension/');
 define('DIR_IMAGE', DIR_OPENCART . 'image/');
