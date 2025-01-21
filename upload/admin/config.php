@@ -6,9 +6,9 @@ define('APPLICATION', 'Admin');
 // Automatically determine HTTP_SERVER and HTTP_CATALOG
 $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https://' : 'http://';
 $host = $_SERVER['HTTP_HOST'];
-define('HTTP_SERVER', 'https://alsgpt.com/admin//admin/');
+define('HTTP_SERVER', 'https://alsgpt.com/admin/admin/');
 // Define HTTP_CATALOG (for front-end)
-define('HTTP_CATALOG', 'https://alsgpt.com/admin/');
+define('HTTP_CATALOG', 'https://alsgpt.com/');
 
 // DIR
 define('DIR_OPENCART', '../');
