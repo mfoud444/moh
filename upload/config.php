@@ -2,8 +2,11 @@
 // APPLICATION
 define('APPLICATION', 'Catalog');
 
-// HTTP http://localhost/moh/upload/ http://192.168.221.35/moh/upload/
-define('HTTP_SERVER', 'https://odd-loria-sarr-43e272d1.koyeb.app/');
+// Automatically determine HTTP_SERVER
+$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https://' : 'http://';
+$host = $_SERVER['HTTP_HOST'];
+$basePath = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\'); 
+define('HTTP_SERVER', $protocol . $host . $basePath . '/');
 
 // DIR
 define('DIR_OPENCART', './');

@@ -3,9 +3,16 @@
 define('APPLICATION', 'Admin');
 
 // HTTP
-define('HTTP_SERVER', 'https://odd-loria-sarr-43e272d1.koyeb.app/admin/');
-define('HTTP_CATALOG', 'https://odd-loria-sarr-43e272d1.koyeb.app/');
+// Automatically determine HTTP_SERVER and HTTP_CATALOG
+$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https://' : 'http://';
+$host = $_SERVER['HTTP_HOST'];
+$basePath = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
 
+// Define HTTP_SERVER (for admin)
+define('HTTP_SERVER', $protocol . $host . $basePath . '/admin/');
+
+// Define HTTP_CATALOG (for front-end)
+define('HTTP_CATALOG', $protocol . $host . $basePath . '/');
 // DIR
 define('DIR_OPENCART', '../');
 define('DIR_APPLICATION', DIR_OPENCART . 'admin/');
