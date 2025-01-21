@@ -5,7 +5,7 @@ define('APPLICATION', 'Catalog');
 // Automatically determine HTTP_SERVER
 $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https://' : 'http://';
 $host = $_SERVER['HTTP_HOST'];
-define('HTTP_SERVER', $protocol . $host . '/');
+define('HTTP_SERVER',  'https://alsgpt.com/');
 
 define('DIR_OPENCART', './');
 define('DIR_APPLICATION', DIR_OPENCART . 'catalog/');
