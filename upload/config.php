@@ -5,10 +5,8 @@ define('APPLICATION', 'Catalog');
 // Automatically determine HTTP_SERVER
 $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https://' : 'http://';
 $host = $_SERVER['HTTP_HOST'];
-$basePath = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\'); 
-define('HTTP_SERVER', $protocol . $host . $basePath . '/');
+define('HTTP_SERVER', $protocol . $host . '/');
 
-// DIR
 define('DIR_OPENCART', './');
 define('DIR_APPLICATION', DIR_OPENCART . 'catalog/');
 define('DIR_EXTENSION', DIR_OPENCART . 'extension/');

@@ -6,13 +6,10 @@ define('APPLICATION', 'Admin');
 // Automatically determine HTTP_SERVER and HTTP_CATALOG
 $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https://' : 'http://';
 $host = $_SERVER['HTTP_HOST'];
-$basePath = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
-
-// Define HTTP_SERVER (for admin)
-define('HTTP_SERVER', $protocol . $host . $basePath . '/admin/');
-
+define('HTTP_SERVER', $protocol . $host  . '/admin/');
 // Define HTTP_CATALOG (for front-end)
-define('HTTP_CATALOG', $protocol . $host . $basePath . '/');
+define('HTTP_CATALOG', $protocol . $host  . '/');
+
 // DIR
 define('DIR_OPENCART', '../');
 define('DIR_APPLICATION', DIR_OPENCART . 'admin/');
