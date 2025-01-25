@@ -23,6 +23,7 @@ RUN echo "error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT" > /usr/local/etc/
 # Fix file permissions
 RUN chown -R www-data:www-data /var/www/html/system/storage
 RUN chmod -R 777 /var/www/html/system/storage
+RUN chmod -R 777 /var/www/html/image
 
 # Install necessary dependencies
 RUN apt-get update && apt-get install -y \
