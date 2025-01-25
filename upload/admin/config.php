@@ -11,7 +11,7 @@ define('HTTP_SERVER', 'https://alsgpt.com/admin/');
 define('HTTP_CATALOG', 'https://alsgpt.com/');
 
 // DIR
-define('DIR_OPENCART', '../');
+define('DIR_OPENCART', './');
 define('DIR_APPLICATION', DIR_OPENCART . 'admin/');
 define('DIR_EXTENSION', DIR_OPENCART . 'extension/');
 define('DIR_IMAGE', DIR_OPENCART . 'image/');
