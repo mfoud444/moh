@@ -11894,3 +11894,9 @@ Line: 13
 2025-01-25 19:16:26 - PHP Unknown:  Creation of dynamic property Opencart\System\Engine\Proxy::$getLayoutId is deprecated in /opt/lampp/htdocs/moh/upload/system/engine/proxy.php on line 35
 2025-01-25 19:23:27 - PHP Unknown:  Creation of dynamic property Opencart\System\Library\Request::$request is deprecated in /opt/lampp/htdocs/moh/upload/system/library/request.php on line 27
 2025-01-25 19:23:27 - Exception:  Error: Could not make a database link using bootmy@127.0.0.1! in /opt/lampp/htdocs/moh/upload/system/library/db/mysqli.php on line 19
+2025-01-25 19:30:03 - PHP Unknown:  Creation of dynamic property Opencart\System\Library\Request::$request is deprecated in /opt/lampp/htdocs/moh/upload/system/library/request.php on line 27
+2025-01-25 19:30:03 - Exception:  Error: Could not make a database link using bootmy@127.0.0.1! in /opt/lampp/htdocs/moh/upload/system/library/db/mysqli.php on line 19
+2025-01-25 19:30:05 - PHP Unknown:  Creation of dynamic property Opencart\System\Library\Request::$request is deprecated in /opt/lampp/htdocs/moh/upload/system/library/request.php on line 27
+2025-01-25 19:30:05 - Exception:  Error: Could not make a database link using bootmy@127.0.0.1! in /opt/lampp/htdocs/moh/upload/system/library/db/mysqli.php on line 19
+2025-01-25 19:32:22 - PHP Unknown:  Creation of dynamic property Opencart\System\Library\Request::$request is deprecated in /opt/lampp/htdocs/moh/upload/system/library/request.php on line 27
+2025-01-25 19:32:22 - Exception:  Error: Could not make a database link using bootmy@127.0.0.1! in /opt/lampp/htdocs/moh/upload/system/library/db/mysqli.php on line 19
