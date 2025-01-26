@@ -14,8 +14,16 @@ EXPOSE ${PORT} ${DB_PORT}
 # Change Apache listening port
 RUN sed -i "s/Listen 80/Listen ${PORT}/" /etc/apache2/ports.conf
 
-# Install MySQLi extension
-RUN docker-php-ext-install mysqli
+# Install necessary PHP extensions and dependencies
+RUN apt-get update && apt-get install -y \
+    default-mysql-client \
+    wget \
+    unzip \
+    libpng-dev \
+    libjpeg-dev \
+    libfreetype6-dev \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install -j$(nproc) gd mysqli pdo pdo_mysql
 
 # Suppress deprecation warnings
 RUN echo "error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT" > /usr/local/etc/php/conf.d/error-reporting.ini
@@ -24,13 +32,6 @@ RUN echo "error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT" > /usr/local/etc/
 RUN chown -R www-data:www-data /var/www/html/system/storage
 RUN chmod -R 777 /var/www/html/system/storage
 RUN chmod -R 777 /var/www/html/image
-
-# Install necessary dependencies
-RUN apt-get update && apt-get install -y \
-    default-mysql-client \
-    wget \
-    unzip \
-    && docker-php-ext-install mysqli pdo pdo_mysql
 
 # Download and install phpMyAdmin
 RUN wget https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.zip -O /tmp/phpmyadmin.zip \
