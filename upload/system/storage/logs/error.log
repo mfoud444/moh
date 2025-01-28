@@ -14221,3 +14221,15 @@ Line: 13
 2025-01-28 20:08:05 - PHP Unknown:  Creation of dynamic property Opencart\System\Engine\Proxy::$getCategories is deprecated in /opt/lampp/htdocs/moh/upload/system/engine/proxy.php on line 35
 2025-01-28 20:08:05 - PHP Unknown:  Creation of dynamic property Opencart\System\Engine\Proxy::$getFilters is deprecated in /opt/lampp/htdocs/moh/upload/system/engine/proxy.php on line 35
 2025-01-28 20:08:05 - PHP Unknown:  Creation of dynamic property Opencart\System\Engine\Proxy::$getLayoutId is deprecated in /opt/lampp/htdocs/moh/upload/system/engine/proxy.php on line 35
+2025-01-28 20:53:03 - PHP Unknown:  Creation of dynamic property Opencart\System\Library\Request::$request is deprecated in /opt/lampp/htdocs/moh/upload/system/library/request.php on line 27
+2025-01-28 20:53:03 - PHP Unknown:  Creation of dynamic property mysqli::$report_mode is deprecated in /opt/lampp/htdocs/moh/upload/system/library/db/mysqli.php on line 15
+2025-01-28 20:53:03 - PHP Unknown:  Creation of dynamic property Opencart\System\Engine\Proxy::$getStore is deprecated in /opt/lampp/htdocs/moh/upload/system/engine/proxy.php on line 35
+2025-01-28 20:53:03 - PHP Unknown:  Creation of dynamic property Opencart\System\Engine\Proxy::$getStoreByHostname is deprecated in /opt/lampp/htdocs/moh/upload/system/engine/proxy.php on line 35
+2025-01-28 20:53:03 - PHP Unknown:  Creation of dynamic property Opencart\System\Engine\Proxy::$getStores is deprecated in /opt/lampp/htdocs/moh/upload/system/engine/proxy.php on line 35
+2025-01-28 20:53:03 - Exception:  Error: Table 'moh0.ks_store' doesn't exist<br/>Error No: 1146<br/>SELECT * FROM `ks_store` WHERE REPLACE(`url`, 'www.', '') = 'http://localhost/moh43/upload/' in /opt/lampp/htdocs/moh/upload/system/library/db/mysqli.php on line 48
+2025-01-28 21:00:27 - PHP Unknown:  Creation of dynamic property Opencart\System\Library\Request::$request is deprecated in /opt/lampp/htdocs/moh/upload/system/library/request.php on line 27
+2025-01-28 21:00:27 - PHP Unknown:  Creation of dynamic property mysqli::$report_mode is deprecated in /opt/lampp/htdocs/moh/upload/system/library/db/mysqli.php on line 15
+2025-01-28 21:00:27 - PHP Unknown:  Creation of dynamic property Opencart\System\Engine\Proxy::$getStore is deprecated in /opt/lampp/htdocs/moh/upload/system/engine/proxy.php on line 35
+2025-01-28 21:00:27 - PHP Unknown:  Creation of dynamic property Opencart\System\Engine\Proxy::$getStoreByHostname is deprecated in /opt/lampp/htdocs/moh/upload/system/engine/proxy.php on line 35
+2025-01-28 21:00:27 - PHP Unknown:  Creation of dynamic property Opencart\System\Engine\Proxy::$getStores is deprecated in /opt/lampp/htdocs/moh/upload/system/engine/proxy.php on line 35
+2025-01-28 21:00:27 - Exception:  Error: Table 'moh0.ks_store' doesn't exist<br/>Error No: 1146<br/>SELECT * FROM `ks_store` WHERE REPLACE(`url`, 'www.', '') = 'http://localhost/moh43/upload/' in /opt/lampp/htdocs/moh/upload/system/library/db/mysqli.php on line 48
